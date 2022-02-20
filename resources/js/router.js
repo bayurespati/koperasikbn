@@ -7,6 +7,7 @@ import News from './components/main/news/Index.vue'
 import users from './components/main/users/Index.vue'
 import tags from './components/main/masterdata/tags/Index.vue'
 import positions from './components/main/masterdata/positions/Index.vue'
+import jabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -35,6 +36,10 @@ const router = new Router({
         {
             path: '/positions',
             component: positions
+        },
+        {
+            path: '/jabatan-koperasi',
+            component: jabatanKoperasi
         }
     ]
 })
