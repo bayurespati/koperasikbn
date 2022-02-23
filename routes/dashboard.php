@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Route Outside resource 
+| Route Outside resource
 |--------------------------------------------------------------------------
 |
 */
@@ -26,7 +26,7 @@ Route::get('user', 'UserController@user')->name('users.user');
 |
 */
 
-Route::get('', 'DashboardController@index')->name('dashboard');
+// Route::get('', 'DashboardController@index')->name('dashboard');
 
 Route::resource('users', 'UserController', [
     'only' => ['index', 'store', 'update', 'destroy'],
