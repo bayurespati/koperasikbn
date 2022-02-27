@@ -72,7 +72,7 @@ export default {
     namaError() {
       const errors = [];
       if (!this.$v.model.nama.$dirty) return errors;
-      !this.$v.model.nama.required && errors.push("Nama is required.");
+      !this.$v.model.nama.required && errors.push("Nama harus diisi.");
       return errors;
     },
   },

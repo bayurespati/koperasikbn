@@ -9,6 +9,7 @@ import Tags from './components/main/masterdata/tags/Index.vue'
 import Positions from './components/main/masterdata/positions/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 import Divisi from './components/main/masterdata/divisi/Index.vue'
+import Bagian from './components/main/masterdata/bagian/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -41,6 +42,10 @@ const router = new Router({
         {
             path: '/divisi',
             component: Divisi
+        },
+        {
+            path: '/bagian',
+            component: Bagian
         }
     ]
 })

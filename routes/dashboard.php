@@ -51,3 +51,7 @@ Route::resource('events', 'EventController', [
 Route::resource('divisis', 'DivisiController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
+
+Route::resource('bagians', 'BagianController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);

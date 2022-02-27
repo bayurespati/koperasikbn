@@ -126,11 +126,6 @@ export default {
             text: "Tag",
             link: "/tags",
           },
-          // {
-          //   icon: "mdi-18px mdi-home",
-          //   text: "Jabatan",
-          //   link: "/positions",
-          // },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
@@ -140,6 +135,11 @@ export default {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
             link: "/divisi",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Bagian",
+            link: "/bagian",
           },
         ],
       },
@@ -177,11 +177,11 @@ export default {
             text: "Tag",
             link: "/tags",
           },
-          // {
-          //   icon: "mdi-18px mdi-home",
-          //   text: "Jabatan",
-          //   link: "/positions",
-          // },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Koperasi",
+            link: "/divisi",
+          },
           {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
@@ -189,8 +189,8 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Koperasi",
-            link: "/divisi",
+            text: "Bagian",
+            link: "/bagian",
           },
         ],
       },

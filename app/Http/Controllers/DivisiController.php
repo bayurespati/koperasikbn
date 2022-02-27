@@ -10,7 +10,7 @@ class DivisiController extends Controller
 {
     private $divisiService;
 
-    public function __construct(divisiService $divisiService)
+    public function __construct(DivisiService $divisiService)
     {
         $this->divisiService = $divisiService;
     }
