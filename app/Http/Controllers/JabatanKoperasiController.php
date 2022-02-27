@@ -51,7 +51,7 @@ class JabatanKoperasiController extends Controller
     {
         $jabatanKoperasiService = $this->jabatanKoperasiService->update($request, $jabatanKoperasi);
 
-        if (!$jabatanKoperasi)
+        if (!$jabatanKoperasiService)
             return response()->json(['errors' => [
                 'error' => ['Gagal mengubah jabatan koperasi']
             ]], 400);

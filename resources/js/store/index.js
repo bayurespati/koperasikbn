@@ -6,6 +6,7 @@ import tag from './modules/tag'
 import position from './modules/position'
 import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
+import divisi from './modules/divisi'
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
         tag,
         position,
         event,
-        jabatanKoperasi
+        jabatanKoperasi,
+        divisi
     }
 })

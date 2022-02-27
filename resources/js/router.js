@@ -4,10 +4,11 @@ import Vue from 'vue'
 import Profile from './components/main/Profile.vue'
 import Event from './components/main/events/Index.vue'
 import News from './components/main/news/Index.vue'
-import users from './components/main/users/Index.vue'
-import tags from './components/main/masterdata/tags/Index.vue'
-import positions from './components/main/masterdata/positions/Index.vue'
-import jabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
+import Users from './components/main/users/Index.vue'
+import Tags from './components/main/masterdata/tags/Index.vue'
+import Positions from './components/main/masterdata/positions/Index.vue'
+import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
+import Divisi from './components/main/masterdata/divisi/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -27,19 +28,19 @@ const router = new Router({
         },
         {
             path: '/users',
-            component: users
+            component: Users
         },
         {
             path: '/tags',
-            component: tags
-        },
-        {
-            path: '/positions',
-            component: positions
+            component: Tags
         },
         {
             path: '/jabatan-koperasi',
-            component: jabatanKoperasi
+            component: JabatanKoperasi
+        },
+        {
+            path: '/divisi',
+            component: Divisi
         }
     ]
 })

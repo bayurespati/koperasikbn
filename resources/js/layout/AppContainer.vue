@@ -136,6 +136,11 @@ export default {
             text: "Jabatan Koperasi",
             link: "/jabatan-koperasi",
           },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Divisi",
+            link: "/divisi",
+          },
         ],
       },
     ],
@@ -179,8 +184,13 @@ export default {
           // },
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Koperasi",
+            text: "Divisi",
             link: "/jabatan-koperasi",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Koperasi",
+            link: "/divisi",
           },
         ],
       },

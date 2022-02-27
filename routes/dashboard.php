@@ -47,3 +47,7 @@ Route::resource('jabatan-koperasi', 'JabatanKoperasiController', [
 Route::resource('events', 'EventController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
+
+Route::resource('divisis', 'DivisiController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
