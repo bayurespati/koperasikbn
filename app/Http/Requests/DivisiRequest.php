@@ -24,7 +24,7 @@ class DivisiRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
+            'nama' => 'required|unique:divisi,nama,' . $this->id,
         ];
     }
 

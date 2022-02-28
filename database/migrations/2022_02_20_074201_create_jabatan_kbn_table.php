@@ -15,6 +15,7 @@ class CreateJabatanKbnTable extends Migration
     {
         Schema::create('jabatan_kbn', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();;
             $table->timestamps();
         });
     }

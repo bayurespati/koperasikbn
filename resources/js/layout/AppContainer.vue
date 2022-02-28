@@ -128,6 +128,11 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
+            text: "Jabatan Kbn",
+            link: "/jabatan-kbn",
+          },
+          {
+            icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
             link: "/jabatan-koperasi",
           },
@@ -179,13 +184,18 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
+            text: "Jabatan Kbn",
+            link: "/jabatan-kbn",
+          },
+          {
+            icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
-            link: "/divisi",
+            link: "/jabatan-koperasi",
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
-            link: "/jabatan-koperasi",
+            link: "/divisi",
           },
           {
             icon: "mdi-18px mdi-home",

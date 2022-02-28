@@ -40,6 +40,10 @@ Route::resource('positions', 'PositionController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('jabatan-kbn', 'JabatanKbnController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('jabatan-koperasi', 'JabatanKoperasiController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

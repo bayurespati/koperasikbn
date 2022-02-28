@@ -4,6 +4,7 @@ import Vuex from "vuex"
 import user from './modules/user'
 import tag from './modules/tag'
 import position from './modules/position'
+import jabatanKbn from './modules/jabatan_kbn'
 import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
 import divisi from './modules/divisi'
@@ -17,6 +18,7 @@ export default new Vuex.Store({
         tag,
         position,
         event,
+        jabatanKbn,
         jabatanKoperasi,
         divisi,
         bagian,

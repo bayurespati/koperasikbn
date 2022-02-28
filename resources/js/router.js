@@ -7,6 +7,7 @@ import News from './components/main/news/Index.vue'
 import Users from './components/main/users/Index.vue'
 import Tags from './components/main/masterdata/tags/Index.vue'
 import Positions from './components/main/masterdata/positions/Index.vue'
+import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 import Divisi from './components/main/masterdata/divisi/Index.vue'
 import Bagian from './components/main/masterdata/bagian/Index.vue'
@@ -34,6 +35,10 @@ const router = new Router({
         {
             path: '/tags',
             component: Tags
+        },
+        {
+            path: '/jabatan-kbn',
+            component: JabatanKbn
         },
         {
             path: '/jabatan-koperasi',

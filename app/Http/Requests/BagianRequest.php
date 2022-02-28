@@ -24,7 +24,7 @@ class BagianRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
+            'nama' => 'required|unique:bagian,nama,' . $this->id,
             'divisi_id' => 'required'
         ];
     }
