@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBagianTable extends Migration
+class CreateUnitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,6 +16,7 @@ class CreateBagianTable extends Migration
         Schema::create('unit', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->unique();
+            $table->string('kode')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateBagianTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bagian');
+        Schema::dropIfExists('unit');
     }
 }

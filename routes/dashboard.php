@@ -56,6 +56,6 @@ Route::resource('divisis', 'DivisiController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
-Route::resource('bagians', 'BagianController', [
+Route::resource('units', 'UnitController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

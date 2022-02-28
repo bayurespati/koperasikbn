@@ -143,8 +143,8 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Bagian",
-            link: "/bagian",
+            text: "Unit",
+            link: "/unit",
           },
         ],
       },
@@ -199,8 +199,8 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Bagian",
-            link: "/bagian",
+            text: "Unit",
+            link: "/unit",
           },
         ],
       },

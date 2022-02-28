@@ -6,11 +6,10 @@ import Event from './components/main/events/Index.vue'
 import News from './components/main/news/Index.vue'
 import Users from './components/main/users/Index.vue'
 import Tags from './components/main/masterdata/tags/Index.vue'
-import Positions from './components/main/masterdata/positions/Index.vue'
 import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
+import Unit from './components/main/masterdata/unit/Index.vue'
 import Divisi from './components/main/masterdata/divisi/Index.vue'
-import Bagian from './components/main/masterdata/bagian/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -45,13 +44,13 @@ const router = new Router({
             component: JabatanKoperasi
         },
         {
+            path: '/unit',
+            component: Unit
+        },
+        {
             path: '/divisi',
             component: Divisi
         },
-        {
-            path: '/bagian',
-            component: Bagian
-        }
     ]
 })
 
