@@ -15,13 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->unsignedBigInteger('jabatan_kbn_id')->nullable();
+            $table->unsignedBigInteger('jabatan_koperasi_id')->nullable();
+            $table->unsignedBigInteger('divisi_id');
+            $table->string('nama');
+            $table->string('no_anggota')->nullable();
+            $table->string('nip');
+            $table->date('tanggal_masuk')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
-            $table->unsignedSmallInteger('role_id');
-            $table->unsignedSmallInteger('teacher_id')->nullable();
-            $table->unsignedSmallInteger('position_id')->nullable();
-            $table->boolean('is_teacher')->default(false);
             $table->boolean('is_active')->default(true);
             $table->string('image_name')->nullable();
             $table->string('image_link')->nullable();
