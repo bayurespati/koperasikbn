@@ -25,6 +25,8 @@ class DivisiRequest extends FormRequest
     {
         return [
             'nama' => 'required|unique:divisi,nama,' . $this->id,
+            'kode' => 'required|unique:divisi,kode,' . $this->id,
+            'unit_id' => 'required'
         ];
     }
 
@@ -32,7 +34,10 @@ class DivisiRequest extends FormRequest
     {
         return [
             'nama.required' => 'Nama harus diisi',
-            'nama.unique' => 'Nama sudah ada'
+            'nama.unique' => 'Nama sudah ada',
+            'kode.required' => 'Kode harus diisi',
+            'kode.unique' => 'Kode sudah ada',
+            'unit_id.required' => 'Unit harus diisi',
         ];
     }
 }

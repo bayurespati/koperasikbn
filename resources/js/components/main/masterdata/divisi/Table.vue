@@ -101,6 +101,18 @@ export default {
           sortable: false,
           value: "nama",
         },
+        {
+          text: "Kode",
+          align: "left",
+          sortable: false,
+          value: "kode",
+        },
+        {
+          text: "Unit",
+          align: "left",
+          sortable: false,
+          value: "unit.nama",
+        },
         { text: "Actions", value: "action", sortable: false },
       ],
     };

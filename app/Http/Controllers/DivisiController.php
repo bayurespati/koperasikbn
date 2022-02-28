@@ -22,7 +22,7 @@ class DivisiController extends Controller
      */
     public function index()
     {
-        return Divisi::all();
+        return Divisi::with('unit')->get();
     }
 
 
