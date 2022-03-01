@@ -48,11 +48,16 @@
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto" id="navbarContentUl">
                 <li class="{{ request()->is('/') ? 'nav-item active' : 'nav-item' }}" id="index" data-hover=""><a href="{{ route('index') }}"><span>Beranda</span></a></li>
 
                 <li class="{{ request()->is('profile/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Profil Koperasi</span></a>
                     <ul class="dropdown-menu">
+                        <!-- <li class="nav-item has-dropdown" data-hover=""><a href="#" class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Produk Kami</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="{{ route('saving-loan') }}"><span>Simpan Pinjam</span></a></li>
+                            </ul>
+                        </li> -->
                         <li class="{{ request()->is('profile/history') || request()->is('profile/history/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('history') }}"><span>Sejarah Singkat</span></a></li>
                         <li class="{{ request()->is('profile/about-us') || request()->is('profile/about-us/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('about') }}"><span>Visi Misi</span></a></li>
                         <li class="{{ request()->is('profile/our-business') || request()->is('profile/our-business/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('business') }}"><span>Bisnis Koperasi</span></a></li>

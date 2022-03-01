@@ -115,4 +115,12 @@ class ApplicationController extends Controller
     public function contactUsPage() {
         return view('contact-us');
     }
+
+    public function flaticonPage() {
+        return view('flaticon');
+    }
+
+    public function fontAwesomePage() {
+        return view('fontawesome');
+    }
 }

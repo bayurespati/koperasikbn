@@ -49,4 +49,9 @@ Route::get('media/calendar','ApplicationController@calendarPage')->name('calenda
 
 Route::get('contact-us','ApplicationController@contactUsPage')->name('contact');
 
+Route::get('flaticon','ApplicationController@flaticonPage')->name('flaticon');
+Route::get('fontawesome','ApplicationController@fontAwesomePage')->name('fontawesome');
+
+
+
 
