@@ -23,3 +23,29 @@ mix.webpackConfig(webpackConfig);
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+
+/*
+ |--------------------------------------------------------------------------
+ | B A S E   C S S   ( T E M P L A T E )
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
+mix.styles([
+    'resources/template/assets/css/vendor.min.css',
+    'resources/template/assets/css/style.css',
+], 'public/css/base.css');
+
+ /*
+ |--------------------------------------------------------------------------
+ | B A S E   J S   ( T E M P L A T E )
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
+mix.scripts([
+    'resources/template/assets/js/vendor/jquery-3.6.0.min.js',
+    'resources/template/assets/js/vendor.min.js',
+    'resources/template/assets/js/functions.js',
+], 'public/js/base.js');
