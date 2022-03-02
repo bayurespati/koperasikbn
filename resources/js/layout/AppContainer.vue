@@ -128,8 +128,23 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan",
-            link: "/positions",
+            text: "Jabatan Kbn",
+            link: "/jabatan-kbn",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Koperasi",
+            link: "/jabatan-koperasi",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Unit",
+            link: "/unit",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Divisi",
+            link: "/divisi",
           },
         ],
       },
@@ -169,8 +184,23 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan",
-            link: "/positions",
+            text: "Jabatan Kbn",
+            link: "/jabatan-kbn",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Koperasi",
+            link: "/jabatan-koperasi",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Unit",
+            link: "/unit",
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Divisi",
+            link: "/divisi",
           },
         ],
       },

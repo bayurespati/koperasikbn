@@ -103,8 +103,17 @@
                 <li class="{{ request()->is('contact-us') || request()->is('contact-us/*') ? 'nav-item active' : 'nav-item' }}" data-hover=""><a href="{{ route('contact') }}"><span>Kontak</span></a></li>
             </ul>
             <div class="module-holder">
-                <div class="module-contact"><a class="btn btn--primary " href="request-quote.html">
-                        ajukan pinjaman<i class="energia-arrow-right"></i></a></div>
+                <div class="module-contact">
+                    <a class="btn btn--primary" href="{{ route('login') }}">
+                        Sign In
+                        <!-- <i class="energia-arrow-right"></i> -->
+                    </a>
+                </div>
+                <div class="module-contact" style="margin-left: 0;">
+                    <a class="btn btn--primary " href="#">
+                        ajukan pinjaman<i class="energia-arrow-right"></i>
+                    </a>
+                </div>
             </div>
             <!--  End .module-holder-->
         </div>
