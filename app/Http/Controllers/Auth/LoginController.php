@@ -38,6 +38,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function username()
+    {
+        return 'nip';
+    }
+
     public function redirectTo()
     {
         return '/dashboard#/profile';

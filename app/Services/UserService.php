@@ -11,18 +11,16 @@ class UserService
         try {
             $paylod = $request->only(
                 'name',
+                'nip',
                 'email',
-                'gender',
                 'phone',
-                'is_teacher',
-                'teacher_id',
-                'position_id',
+                'divisi_id',
                 'role_id',
-                'image_name'
             );
 
             $model = User::make($paylod);
-            $model->password = 'ikebanapassword';
+            $model->password = bcrypt($request->password);
+            $model->role_id = 3;
             $model->image_link = $request->image_name == "" || $request->image_name == null ? "" : saveImage($request);
             $model->save();
 
