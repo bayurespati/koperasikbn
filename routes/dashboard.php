@@ -26,7 +26,10 @@ Route::get('user', 'UserController@user')->name('users.user');
 |
 */
 
-// Route::get('', 'DashboardController@index')->name('dashboard');
+
+Route::get('', 'DashboardController@index')->name('dashboard');
+
+Route::get('divisis/by-unit', 'DivisiController@getByUnit');
 
 Route::resource('users', 'UserController', [
     'only' => ['index', 'store', 'update', 'destroy'],

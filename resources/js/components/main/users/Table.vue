@@ -67,21 +67,15 @@
     >
       <template v-slot:[`item.image`]="{ item }">
         <div class="p-2">
-          <v-img
-            v-if="item.image_link"
-            :src="item.image_link"
-            height="50px"
-            width="50px"
-          ></v-img>
+          <v-avatar v-if="item.image_link">
+            <v-img :src="item.image_link" height="50px" width="50px"></v-img>
+          </v-avatar>
           <v-avatar color="blue lighten-1" size="48" v-else>
-            <span class="white--text text-h7">{{ item.name | inisial }}</span>
+            <span class="white--text text-h7">{{ item.nama | inisial }}</span>
           </v-avatar>
         </div>
       </template>
       <template v-slot:[`item.action`]="{ item }">
-        <v-icon color="blue" small class="mr-2" @click="showImage(item)">
-          mdi-image-filter
-        </v-icon>
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-icon
@@ -127,9 +121,19 @@ export default {
           sortable: false,
         },
         {
-          text: "Name",
+          text: "Nama",
           align: "left",
-          value: "name",
+          value: "nama",
+        },
+        {
+          text: "Nip",
+          align: "left",
+          value: "nip",
+        },
+        {
+          text: "No anggota",
+          align: "left",
+          value: "no_anggota",
         },
         { text: "Email", value: "email" },
         { text: "Actions", value: "action", sortable: false },
@@ -168,7 +172,7 @@ export default {
           .then((response) => {
             self.key_word = "";
             self.deleteCurrentUser();
-            flash(response);
+            flash(response.message);
             self.isRequest = false;
             self.closeDialog();
           })

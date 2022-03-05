@@ -24,9 +24,6 @@
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="6">
               <v-text-field
-                @input="$v.model.image_file.$touch()"
-                @blur="$v.model.image_file.$touch()"
-                :error-messages="imageError"
                 prepend-icon="mdi-camera"
                 v-model="model.image_name"
                 @click="pickFile"
@@ -46,11 +43,26 @@
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="6">
               <v-text-field
-                @input="$v.model.name.$touch()"
-                @blur="$v.model.name.$touch()"
-                :error-messages="nameError"
-                v-model="model.name"
+                @input="$v.model.nama.$touch()"
+                @blur="$v.model.nama.$touch()"
+                :error-messages="namaError"
+                v-model="model.nama"
                 label="Nama"
+                required
+              >
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
+                NIP 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                @input="$v.model.nip.$touch()"
+                @blur="$v.model.nip.$touch()"
+                :error-messages="nipError"
+                v-model="model.nip"
+                label="NIP"
                 required
               >
               </v-text-field>
@@ -59,37 +71,22 @@
             <!--======================================================================================
                 EMAIL 
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="6">
-              <v-text-field
-                @input="$v.model.email.$touch()"
-                @blur="$v.model.email.$touch()"
-                :error-messages="emailError"
-                v-model="model.email"
-                label="Email"
-                required
-              >
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field v-model="model.email" label="Email" required>
               </v-text-field>
             </v-col>
 
             <!--======================================================================================
                 PHONE 
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="6">
-              <v-text-field
-                @input="$v.model.phone.$touch()"
-                @blur="$v.model.phone.$touch()"
-                :error-messages="phoneError"
-                v-model="model.phone"
-                label="Phone"
-                required
-              >
-              </v-text-field>
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field v-model="model.phone" label="Phone"> </v-text-field>
             </v-col>
 
             <!--======================================================================================
                 ROLE 
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="4">
+            <v-col cols="4" xs="12" md="4">
               <v-select
                 @change="$v.model.role.$touch()"
                 @blur="$v.model.role.$touch()"
@@ -106,14 +103,17 @@
             </v-col>
 
             <!--======================================================================================
-                POSITION 
+                UNIT 
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="4">
+            <v-col cols="4" xs="12" md="4">
               <v-select
-                v-model="model.position"
-                :items="positions"
-                label="Postiion"
-                item-text="name"
+                @change="$v.model.unit.$touch()"
+                @blur="$v.model.unit.$touch()"
+                :error-messages="unitError"
+                v-model="model.unit"
+                :items="units"
+                label="Unit"
+                item-text="nama"
                 item-value="id"
                 persistent-hint
                 required
@@ -122,14 +122,33 @@
             </v-col>
 
             <!--======================================================================================
-                TEACHER 
+                DIVISI
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="4">
+            <v-col cols="4" xs="12" md="4">
               <v-select
-                v-model="model.teacher"
-                :items="teachers"
-                label="Teacher"
-                item-text="name"
+                @change="$v.model.divisi.$touch()"
+                @blur="$v.model.divisi.$touch()"
+                :error-messages="divisiError"
+                v-model="model.divisi"
+                :items="divisis"
+                label="Divisi"
+                item-text="nama"
+                item-value="id"
+                persistent-hint
+                required
+                small-chips
+              ></v-select>
+            </v-col>
+
+            <!--======================================================================================
+               Jabatan KBN 
+            ==========================================================================================-->
+            <v-col cols="4" xs="12" md="4">
+              <v-select
+                v-model="model.jabatan_kbn"
+                :items="jabatanKbns"
+                label="Jabatan"
+                item-text="nama"
                 item-value="id"
                 persistent-hint
                 required
@@ -173,16 +192,19 @@ export default {
         image_name: "",
         image_file: null,
         image_url: "",
-        name: "",
+        nama: "",
+        nip: "",
         email: "",
         phone: "",
         role: "",
-        position: "",
-        teacher: "",
+        unit: "",
+        divisi: "",
+        jabatan_kbn: "",
       },
-      teachers: [],
-      positions: [],
       roles: [],
+      divisis: [],
+      units: [],
+      jabatanKbns: [],
       valid: false,
       isRequest: false,
       alert: true,
@@ -191,89 +213,108 @@ export default {
 
   validations: {
     model: {
-      image_file: { required },
-      name: { required },
+      nama: { required },
+      nip: { required },
       email: { required },
-      phone: { required },
       role: { required },
+      unit: { required },
+      divisi: { required },
     },
   },
 
   computed: {
     isValid() {
       return (
-        this.nameError.length == 0 &&
-        this.emailError.length == 0 &&
-        this.phoneError.length == 0 &&
-        this.roleError.length == 0 &&
-        this.model.image_name != null
+        this.namaError.length == 0 &&
+        this.nipError.length == 0 &&
+        this.unitError.length == 0 &&
+        this.divisiError.length == 0 &&
+        this.roleError.length == 0
       );
     },
 
-    imageError() {
+    namaError() {
       const errors = [];
-      if (!this.$v.model.image_file.$dirty) return errors;
-      !this.$v.model.image_file.required && errors.push("Image is required.");
+      if (!this.$v.model.nama.$dirty) return errors;
+      !this.$v.model.nama.required && errors.push("Nama harus diisi.");
       return errors;
     },
 
-    nameError() {
+    nipError() {
       const errors = [];
-      if (!this.$v.model.name.$dirty) return errors;
-      !this.$v.model.name.required && errors.push("Nama is required.");
-      return errors;
-    },
-
-    emailError() {
-      const errors = [];
-      if (!this.$v.model.email.$dirty) return errors;
-      !this.$v.model.email.required && errors.push("Email is required.");
-      return errors;
-    },
-
-    phoneError() {
-      const errors = [];
-      if (!this.$v.model.phone.$dirty) return errors;
-      !this.$v.model.phone.required && errors.push("Phone number is required.");
+      if (!this.$v.model.nip.$dirty) return errors;
+      !this.$v.model.nip.required && errors.push("NIP harus diisi.");
       return errors;
     },
 
     roleError() {
       const errors = [];
       if (!this.$v.model.role.$dirty) return errors;
-      !this.$v.model.role.required && errors.push("Role is required.");
+      !this.$v.model.role.required && errors.push("Role harus diisi.");
+      return errors;
+    },
+
+    unitError() {
+      const errors = [];
+      if (!this.$v.model.unit.$dirty) return errors;
+      !this.$v.model.unit.required && errors.push("Unit harus diisi.");
+      return errors;
+    },
+
+    divisiError() {
+      const errors = [];
+      if (!this.$v.model.divisi.$dirty) return errors;
+      !this.$v.model.divisi.required && errors.push("Divisi harus diisi.");
       return errors;
     },
   },
 
   beforeMount() {
-    this.getTeachers();
-    this.getPositions();
     this.getRoles();
+    this.getUnits();
+    this.getJabatanKbn();
+  },
+
+  watch: {
+    "model.unit": function () {
+      this.getDivisis();
+      this.model.divisi = "";
+    },
   },
 
   methods: {
-    getTeachers() {
-      let self = this;
-
-      self.$store.dispatch("getTeachers").then((response) => {
-        self.teachers = response.data;
-      });
-    },
-
-    getPositions() {
-      let self = this;
-
-      self.$store.dispatch("getPositions").then((response) => {
-        self.positions = response.data;
-      });
-    },
-
     getRoles() {
       let self = this;
 
       self.$store.dispatch("getRoles").then((response) => {
         self.roles = response.data;
+      });
+    },
+
+    getUnits() {
+      let self = this;
+
+      self.$store.dispatch("getUnit").then((response) => {
+        self.units = response.data;
+      });
+    },
+
+    getJabatanKbn() {
+      let self = this;
+
+      self.$store.dispatch("getJabatanKbn").then((response) => {
+        self.jabatanKbns = response.data;
+      });
+    },
+
+    getDivisis() {
+      let self = this;
+      const data = {
+        unit_id: self.model.unit,
+      };
+
+      self.$store.dispatch("getDivisiByUnit", data).then((response) => {
+        self.divisis = response.data;
       });
     },
 
@@ -284,12 +325,13 @@ export default {
         const data = {
           image_name: self.model.image_name,
           image_file: self.model.image_url,
-          name: self.model.name,
+          nama: self.model.nama,
           email: self.model.email,
           phone: self.model.phone,
           role_id: self.model.role,
-          position_id: self.model.position,
-          teacher_id: self.model.teacher,
+          nip: self.model.nip,
+          divisi_id: self.model.divisi,
+          jabatan_kbn_id: self.model.jabatan_kbn,
         };
         self.isRequets = true;
         self.$store
@@ -316,8 +358,13 @@ export default {
       this.model.image_file = "";
       this.model.image_name = "";
       this.model.image_url = "";
-      this.model.name = "";
+      this.model.nama = "";
+      this.model.nip = "";
+      this.model.role = "";
+      this.model.phone = "";
       this.model.email = "";
+      this.model.divisi = "";
+      this.model.unit = "";
     },
 
     pickFile() {

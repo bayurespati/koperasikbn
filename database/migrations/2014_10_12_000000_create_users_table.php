@@ -17,11 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('role_id')->nullable();
             $table->unsignedBigInteger('jabatan_kbn_id')->nullable();
-            $table->unsignedBigInteger('jabatan_koperasi_id')->nullable();
             $table->unsignedBigInteger('divisi_id');
             $table->string('nama');
             $table->string('no_anggota')->nullable();
-            $table->string('nip');
+            $table->string('nip')->unique();
             $table->date('tanggal_masuk')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
