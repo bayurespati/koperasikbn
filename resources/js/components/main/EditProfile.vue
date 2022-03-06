@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card>
+    <v-card class="mx-auto" max-width="1000" tile>
       <v-card-title>
-        <span class="title">Edit</span>
+        <span class="title">Edit Profile</span>
       </v-card-title>
       <v-form v-model="valid">
         <v-container>
@@ -81,25 +81,6 @@
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="4">
               <v-text-field v-model="model.phone" label="Phone"> </v-text-field>
-            </v-col>
-
-            <!--======================================================================================
-                ROLE 
-            ==========================================================================================-->
-            <v-col cols="4" xs="12" md="4">
-              <v-select
-                @change="$v.model.role.$touch()"
-                @blur="$v.model.role.$touch()"
-                :error-messages="roleError"
-                v-model="model.role"
-                :items="roles"
-                label="Role"
-                item-text="name"
-                item-value="id"
-                persistent-hint
-                required
-                small-chips
-              ></v-select>
             </v-col>
 
             <!--======================================================================================
@@ -199,13 +180,11 @@ export default {
         nip: this.user.nip == undefined ? "" : this.user.nip,
         email: this.user.email == undefined ? "" : this.user.email,
         phone: this.user.phone == undefined ? "" : this.user.phone,
-        role: this.user.role_id == undefined ? "" : this.user.role_id,
         unit: this.user.divisi == undefined ? "" : this.user.divisi.unit.id,
         divisi: this.user.divisi_id == undefined ? "" : this.user.divisi_id,
         jabatan_kbn:
           this.user.jabatan_kbn_id == undefined ? "" : this.user.jabatan_kbn_id,
       },
-      roles: [],
       divisis: [],
       units: [],
       jabatanKbns: [],
@@ -220,7 +199,6 @@ export default {
       nama: { required },
       nip: { required },
       email: { required },
-      role: { required },
       unit: { required },
       divisi: { required },
     },
@@ -232,8 +210,7 @@ export default {
         this.namaError.length == 0 &&
         this.nipError.length == 0 &&
         this.unitError.length == 0 &&
-        this.divisiError.length == 0 &&
-        this.roleError.length == 0
+        this.divisiError.length == 0
       );
     },
 
@@ -248,13 +225,6 @@ export default {
       const errors = [];
       if (!this.$v.model.nip.$dirty) return errors;
       !this.$v.model.nip.required && errors.push("NIP harus diisi.");
-      return errors;
-    },
-
-    roleError() {
-      const errors = [];
-      if (!this.$v.model.role.$dirty) return errors;
-      !this.$v.model.role.required && errors.push("Role harus diisi.");
       return errors;
     },
 
@@ -274,7 +244,6 @@ export default {
   },
 
   beforeMount() {
-    this.getRoles();
     this.getUnits();
     this.getJabatanKbn();
     this.getDivisis();
@@ -288,14 +257,6 @@ export default {
   },
 
   methods: {
-    getRoles() {
-      let self = this;
-
-      self.$store.dispatch("getRoles").then((response) => {
-        self.roles = response.data;
-      });
-    },
-
     getUnits() {
       let self = this;
 
@@ -333,7 +294,7 @@ export default {
           nama: self.model.nama,
           email: self.model.email,
           phone: self.model.phone,
-          role_id: self.model.role,
+          role_id: self.user.role_id,
           nip: self.model.nip,
           divisi_id: self.model.divisi,
           jabatan_kbn_id: self.model.jabatan_kbn,
@@ -366,7 +327,6 @@ export default {
       this.model.image_url = "";
       this.model.nama = "";
       this.model.nip = "";
-      this.model.role = "";
       this.model.phone = "";
       this.model.email = "";
       this.model.divisi = "";

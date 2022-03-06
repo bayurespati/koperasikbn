@@ -42,9 +42,9 @@ class User extends Authenticatable
      * Relation 
      *
      */
-    public function position()
+    public function jabatanKbn()
     {
-        return $this->belongsTo('App\Models\Position', 'positon_id', 'id');
+        return $this->belongsTo('App\Models\JabatanKbn', 'jabatan_kbn_id', 'id');
     }
 
     public function role()
