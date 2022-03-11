@@ -27,7 +27,7 @@
                                 <div class="slide-content">
                                     <h1 class="slide-headline">Tetap Kendalikan Keuangan Anda Dengan Kami</h1>
                                     <p class="slide-desc">Keuntungan dari pinjaman online adalah Anda dapat memperoleh informasi secara real-time pada saat akun Anda secara otomatis dikreditkan atau didebit.</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Produk Kami</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Tentang Kami</a></div>
+                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
                                 </div>
                                 <!-- End .slide-content -->
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="slide-content">
                                     <h1 class="slide-headline">Pinjaman Online</h1>
                                     <p class="slide-desc">Lihat beberapa hal yang dapat Anda lakukan dengan aplikasi mobile banking kami.</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Produk Kami</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Tentang Kami</a></div>
+                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
                                 </div>
                                 <!-- End .slide-content -->
                             </div>
@@ -142,7 +142,7 @@
             </div>
             <div class="row">
                 <div class="more-features more-features-2">
-                    <p>Discover independence through the power of solar</p><a class="btn btn--bordered btn--white" href="{{ route('saving-loan') }}">explore our plans</a>
+                    <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="{{ route('saving-loan') }}">Klik Disini</a>
                 </div>
             </div>
             <!-- End .row-->
@@ -159,12 +159,12 @@
             <div class="heading heading-2">
                 <div class="row">
                     <div class="col-12 col-lg-6">
-                        <h2 class="heading-title">A Leading Supplier Of Solar Materials For Manufacturers Installers & Contractors.</h2>
+                        <h2 class="heading-title">Koperasi Karyawan Maju, Karyawan Sejahtera</h2>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <p class="heading-desc">Today, our company is one of the most important PV suppliers in the North America and Europe. Our sales offices and warehouses include PV industry experience enables us to provide in-depth material sourcing and supply chain expertise for every step of production and installation process.</p>
+                        <p class="heading-desc">Koperasi Karyawan PT. KBN (Persero) sebagai sebuah koperasi yang bergerak di bidang jasa khususnya simpan dan pinjam, penyaluran tenaga kerja, suplai ATK, sembako, penyewaan kendaraan dinas, dll.</p>
                         <div class="actions-holder"><a class="btn btn--primary" href="page-about.html">
-                                read more<i class="energia-arrow-right"></i></a><a class="btn btn--bordered btn--white" href="page-services.html">find your solution</a></div>
+                                Selengkapnya<i class="energia-arrow-right"></i></a><a class="btn btn--bordered btn--white" href="page-services.html">find your solution</a></div>
                     </div>
                 </div>
                 <!-- End .row-->
@@ -175,10 +175,10 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">solar panels<br />services</a></h4>
-                            <p>The great thing about solar panels is that they do not require a lot of maintenance. However, still important to get them checked regularly</p>
+                            <h4><a href="services-turbines.html">Layanan Simpanan</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem explicabo sint pariatur unde commodi beatae exercitationem natus quod recusandae illum in impedit placeat eos consequuntur, quidem deleniti dignissimos, vel nostrum.</p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End .service-panel-->
@@ -187,10 +187,10 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="flaticon-039-wind-mill"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">wind turbines<br />services</a></h4>
-                            <p>Wind turbine is an expensive machine, we know very well how important it is that your wind turbine is always up whenever there is wind.</p>
+                            <h4><a href="services-turbines.html">Layanan Pinjaman</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam aut vitae fuga quisquam aperiam odio id alias qui beatae enim rem, cum molestias, modi illo ab reprehenderit autem suscipit quidem?</p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End .service-panel-->
@@ -199,10 +199,10 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="flaticon-013-hydro-power"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">hydropower plants<br />services</a></h4>
-                            <p>Hydropower systems are capital intensive assets can produce a significant income provided operated and maintained on high standard.</p>
+                            <h4><a href="services-turbines.html">Usaha Mini Market</a></h4>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex eos asperiores nulla obcaecati aut mollitia ad et animi, quo consectetur, explicabo aliquid ipsa quidem dolor officiis amet. Nostrum, aliquid sit!</p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End .service-panel-->
@@ -211,10 +211,46 @@
                     <div class="service-panel services-panel-2">
                         <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">solar panels<br />services</a></h4>
-                            <p>The great thing about solar panels is that they do not require a lot of maintenance. However, still important to get them checked regularly</p>
+                            <h4><a href="services-turbines.html">Pengadaan Alat Tulis Kantor</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In temporibus laudantium maxime dignissimos corporis possimus nulla dolor, sit quae! Numquam modi autem neque inventore nulla! Ipsam iusto eligendi veniam repellendus!</p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- End .service-panel-->
+                </div>
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon"><i class="flaticon-013-hydro-power"></i></div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Penyedia Jasa Tenaga Ahli Daya</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quaerat fugiat numquam natus eius repellat sit exercitationem quisquam, temporibus quos laudantium corrupti asperiores consequatur optio at quod aliquid ducimus esse.</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- End .service-panel-->
+                </div>
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Penyedia Jasa Surat Kendaraan</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, cupiditate voluptate, inventore veritatis minus, ducimus nobis voluptatum iure vel sint ipsa! Maxime aperiam tempora similique perferendis quaerat in incidunt facere.</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- End .service-panel-->
+                </div>
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon"><i class="flaticon-039-wind-mill"></i></div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Penyewaan Mesin Fotokopi</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eaque similique rerum pariatur ea, repellat dolore fugit. Animi fugiat obcaecati odio, architecto exercitationem sint at nobis pariatur est similique fuga!</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End .service-panel-->
@@ -247,7 +283,7 @@
           -->
             <div class="video-wrapper">
                 <div class="video video-2" id="video-2">
-                    <div class="bg-section"><img src="assets/images/video/2.jpg" alt="background" /></div><a class="popup-video btn-video btn-video-2" href="https://www.youtube.com/watch?v=nrJtHemSPW4"> <i class="fas fa-play"></i></a>
+                    <div class="bg-section"><img src="assets/images/video/2.jpg" alt="background" /></div><a class="popup-video btn-video btn-video-2" href="https://www.youtube.com/watch?v=_5e2dijeSUY"> <i class="fas fa-play"></i></a>
                     <!-- End .popup-video-->
                 </div>
                 <!-- End .video-->
@@ -262,7 +298,8 @@
                         <div class="signature-block"><a class="btn btn--secondary" href="page-about.html">Pelajari Lebih Lanjut <i class="energia-arrow-right"></i></a>
                             <div class="signature-body">
                                 <h6>michael brian</h6>
-                                <p>co founder</p><img class="signature-img" src="assets/images/signature/1.png" alt="signature" />
+                                <p>co founder</p>
+                                <!-- <img class="signature-img" src="assets/images/signature/1.png" alt="signature" /> -->
                             </div>
                         </div>
                         <div class="advantages-list-holder">
@@ -291,7 +328,7 @@
       Projects Grid #1 Section
       ============================
       -->
-    <section class="projects projects-grid" id="projects-grid-1">
+    <!-- <section class="projects projects-grid" id="projects-grid-1">
         <div class="container">
             <div class="heading heading-8">
                 <div class="row">
@@ -300,15 +337,12 @@
                     </div>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
         <div class="carousel owl-carousel carousel-dots carousel-navs" data-slide="4" data-slide-rs="1" data-center="data-center" data-autoplay="true" data-nav="true" data-dots="true" data-space="30" data-loop="true" data-speed="800">
             <div>
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/1.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">expanding The Solar Supply Finance Program</a></h4>
@@ -316,7 +350,6 @@
                             <div class="project-cat"><a href="projects-standard.html">finance</a><a href="projects-standard.html">supply chain</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
@@ -324,7 +357,6 @@
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/2.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">Addressing Wind Energy Innovation Challenges</a></h4>
@@ -332,7 +364,6 @@
                             <div class="project-cat"><a href="projects-standard.html">energy</a><a href="projects-standard.html">green energy</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
@@ -340,7 +371,6 @@
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/3.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">dangerous environment impact of gas</a></h4>
@@ -348,7 +378,6 @@
                             <div class="project-cat"><a href="projects-standard.html">eco</a><a href="projects-standard.html">green energy</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
@@ -356,7 +385,6 @@
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/4.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">New Attitude Towards Renewable Energy</a></h4>
@@ -364,7 +392,6 @@
                             <div class="project-cat"><a href="projects-standard.html">green energy</a><a href="projects-standard.html">eCO</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
@@ -372,7 +399,6 @@
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/5.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">Smarter Way to Manage Charging Infrastructures</a></h4>
@@ -380,7 +406,6 @@
                             <div class="project-cat"><a href="projects-standard.html">elictrec vehicles</a><a href="projects-standard.html">infrastructures</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
@@ -388,7 +413,6 @@
                 <div class="project-panel" data-hover="">
                     <div class="project-panel-holder">
                         <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/6.jpg" alt="project image" /></div>
-                        <!-- End .project-img-->
                         <div class="project-content">
                             <div class="project-title">
                                 <h4><a href="projects-single.html">Addressing Wind Energy Innovation Challenges</a></h4>
@@ -396,28 +420,24 @@
                             <div class="project-cat"><a href="projects-standard.html">wind energy</a><a href="projects-standard.html">innovations</a>
                             </div>
                         </div>
-                        <!-- End .project-content -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End .carousel-->
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="projects-load-more"> <a class="btn btn--secondary" href="projects-grid.html">explore all projects <i class="energia-arrow-right"></i></a></div>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
-    </section>
+    </section> -->
     <!--
       ============================
       Processes #1 Section
       ============================
       -->
-    <section class="processes processes-1 bg-overlay bg-overlay-theme4" id="processes-1">
+    <!-- <section class="processes processes-1 bg-overlay bg-overlay-theme4" id="processes-1">
         <div class="bg-section"> <img src="assets/images/background/wavy-pattern.png" alt="Background" /></div>
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -427,7 +447,6 @@
                         <h2 class="heading-title">Fueling The Transition To Renewable Power.</h2>
                     </div>
                     <div class="counters-holder">
-                        <!-- Start .counter-->
                         <div class="counter counter-3">
                             <div class="counter-holder">
                                 <div class="counter-num"> <span class="counting" data-counterup-nums="25" data-counterup-beginat="12">25</span></div>
@@ -439,7 +458,6 @@
                                 <p>Years Of Experience In The Solar Industry</p>
                             </div>
                         </div>
-                        <!-- End .counter-->
                     </div>
                 </div>
             </div>
@@ -490,14 +508,13 @@
                 </div>
             </div>
         </div>
-        <!-- End .row-->
-    </section>
+    </section> -->
     <!--
       ============================
       Testimonials #2 Section
       ============================
       -->
-    <section class="testimonial testimonial-2">
+    <!-- <section class="testimonial testimonial-2">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5">
@@ -530,9 +547,7 @@
                     </div>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
     </section>
     <div class="cta-holder">
         <div class="container">
@@ -558,10 +573,8 @@
                     </div>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
-    </div>
+    </div> -->
     <!--
       ============================
       Contact #2 Section
@@ -672,7 +685,7 @@
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <div class="heading heading-11 text-center">
-                        <p class="heading-subtitle">news & Announcements</p>
+                        <p class="heading-subtitle">Berita & Pengumuman</p>
                         <h2 class="heading-title">recent articles</h2>
                     </div>
                 </div>
@@ -683,25 +696,25 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">jan 21</span><span class="year">2021</span></div>
+                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
                                 <!-- End .entry-date		-->
-                                <div class="entry-author">
+                                <!-- <div class="entry-author">
                                     <p>mike dolley</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="entry-title">
-                                <h4><a href="blog-single.html">Filing Solar Power Permits in 2020? Consider Following Important Factors</a></h4>
+                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/2746">Rapat Anggota Tahunan Pengesahan Rencana Kerja dan Anggaran Koperasi Karyawan PT. KBN (Persero) Tahun 2015</a></h4>
                             </div>
                             <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="blog-single.html"><img src="assets/images/blog/grid/1.jpg" alt="Filing Solar Power Permits in 2020? Consider Following Important Factors" /></a></div>
-                                <div class="entry-category"><a href="blog-grid.html">solar</a><a href="blog-grid.html">insights</a>
-                                </div>
+                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/2746"><img src="assets/images/blog/grid/1.jpg" alt="Filing Solar Power Permits in 2020? Consider Following Important Factors" /></a></div>
+                                <!-- <div class="entry-category"><a href="blog-grid.html">solar</a><a href="blog-grid.html">insights</a>
+                                </div> -->
                             </div>
                             <!-- End .entry-img-->
                             <div class="entry-bio">
-                                <p>All of these factors are important consider when permitting your solar system, and can help streamline your process. Take time to consider these.</p>
+                                <p>Jakarta – Koperasi Karyawan PT. KBN (Persero) mengadakan Rapat Anggota Tahunan (RAT) yang bertempat di Gedung Serbaguna, Kantor Pusat PT. KBN (Persero), J...</p>
                             </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="blog-single.html">read more <i class="energia-arrow-right"></i></a></div>
+                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/2746" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
                         </div>
                     </div>
                     <!-- End .entry-content-->
@@ -710,25 +723,25 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">jan 25</span><span class="year">2021</span></div>
+                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
                                 <!-- End .entry-date		-->
-                                <div class="entry-author">
+                                <!-- <div class="entry-author">
                                     <p>peter allan</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="entry-title">
-                                <h4><a href="blog-single.html">How to Add Battery Backup to an Existing Grid Tied Solar System by Yourself!</a></h4>
+                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/3088">Rapat Anggota Tahunan Koperasi Karyawan PT. KBN (Persero) Tahun Buku 2014</a></h4>
                             </div>
                             <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="blog-single.html"><img src="assets/images/blog/grid/2.jpg" alt="How to Add Battery Backup to an Existing Grid Tied Solar System by Yourself!" /></a></div>
-                                <div class="entry-category"><a href="blog-grid.html">systems</a><a href="blog-grid.html">battery</a>
-                                </div>
+                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/3088"><img src="assets/images/blog/grid/2.jpg" alt="How to Add Battery Backup to an Existing Grid Tied Solar System by Yourself!" /></a></div>
+                                <!-- <div class="entry-category"><a href="blog-grid.html">systems</a><a href="blog-grid.html">battery</a>
+                                </div> -->
                             </div>
                             <!-- End .entry-img-->
                             <div class="entry-bio">
-                                <p>Batteries are the most expensive part of a solar system. Between appropriately-size battery bank and a battery-based inverter like the Outback Radian.</p>
+                                <p>Jakarta – Senin (6/4) Koperasi Karyawan PT. KBN (Persero) mengadakan Rapat Anggota Tahunan (RAT) yang bertempat di Gedung Serbaguna, Kantor Pusat PT. KBN ...</p>
                             </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="blog-single.html">read more <i class="energia-arrow-right"></i></a></div>
+                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/3088" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
                         </div>
                     </div>
                     <!-- End .entry-content-->
@@ -737,25 +750,25 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">jan 28</span><span class="year">2021</span></div>
+                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
                                 <!-- End .entry-date		-->
-                                <div class="entry-author">
+                                <!-- <div class="entry-author">
                                     <p>Sophia barry</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="entry-title">
-                                <h4><a href="blog-single.html">Energy Department Research Will Help Eagles Coexist with Wind Energy Deployment</a></h4>
+                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/3184">Koperasi Karyawan KBN Ikuti Lomba Koperasi Berprestasi</a></h4>
                             </div>
                             <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="blog-single.html"><img src="assets/images/blog/grid/3.jpg" alt="Energy Department Research Will Help Eagles Coexist with Wind Energy Deployment" /></a></div>
-                                <div class="entry-category"><a href="blog-grid.html">research</a><a href="blog-grid.html">energy</a>
-                                </div>
+                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/3184"><img src="assets/images/blog/grid/3.jpg" alt="Energy Department Research Will Help Eagles Coexist with Wind Energy Deployment" /></a></div>
+                                <!-- <div class="entry-category"><a href="blog-grid.html">research</a><a href="blog-grid.html">energy</a>
+                                </div> -->
                             </div>
                             <!-- End .entry-img-->
                             <div class="entry-bio">
-                                <p>Batteries are the most expensive part of a solar system. Between appropriately-size battery bank and a battery-based inverter like the Outback Radian.</p>
+                                <p></p>
                             </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="blog-single.html">read more <i class="energia-arrow-right"></i></a></div>
+                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/3184" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
                         </div>
                     </div>
                     <!-- End .entry-content-->
@@ -763,7 +776,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="more-blog"><a href="blog-grid.html">find out more about our news!</a></div>
+                    <div class="more-blog"><a href="blog-grid.html">Cari tahu lebih banyak tentang berita kami!</a></div>
                 </div>
             </div>
             <!-- End .row-->
