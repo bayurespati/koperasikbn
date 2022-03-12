@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       model: {
-        nama: this.jabatanKbn.nama == undefined ? "" : this.jabatanKbn.nama,
+        nama: this.jabatanKbn.nama ?? "",
       },
       valid: false,
       isRequest: false,

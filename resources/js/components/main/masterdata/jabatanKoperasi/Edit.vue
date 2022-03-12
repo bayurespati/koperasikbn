@@ -51,10 +51,7 @@ export default {
   data() {
     return {
       model: {
-        nama:
-          this.jabatanKoperasi.nama == undefined
-            ? ""
-            : this.jabatanKoperasi.nama,
+        nama: this.jabatanKoperasi.nama ?? "",
       },
       valid: false,
       isRequest: false,

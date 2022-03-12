@@ -63,7 +63,7 @@
                 :error-messages="nipError"
                 v-model="model.nip"
                 label="NIP"
-                required
+                disabled
               >
               </v-text-field>
             </v-col>
@@ -72,7 +72,7 @@
                 EMAIL 
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="4">
-              <v-text-field v-model="model.email" label="Email" required>
+              <v-text-field v-model="model.email" label="Email" disabled>
               </v-text-field>
             </v-col>
 
@@ -99,6 +99,7 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
             </v-col>
 
@@ -118,6 +119,7 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
             </v-col>
 
@@ -134,7 +136,32 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
+            </v-col>
+
+            <!--======================================================================================
+                NO ANGGOTA  
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                v-model="model.no_anggota"
+                label="No Anggota"
+                disabled
+              >
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
+                TANGGAL MASUK  
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                v-model="model.tanggal_masuk"
+                label="Tanggal Masuk"
+                disabled
+              >
+              </v-text-field>
             </v-col>
 
             <!--======================================================================================
@@ -171,19 +198,18 @@ export default {
   data() {
     return {
       model: {
-        image_name:
-          this.user.image_name == undefined ? "" : this.user.image_name,
         image_file: null,
-        image_url:
-          this.user.image_link == undefined ? "" : this.user.image_link,
-        nama: this.user.nama == undefined ? "" : this.user.nama,
-        nip: this.user.nip == undefined ? "" : this.user.nip,
-        email: this.user.email == undefined ? "" : this.user.email,
-        phone: this.user.phone == undefined ? "" : this.user.phone,
-        unit: this.user.divisi == undefined ? "" : this.user.divisi.unit.id,
-        divisi: this.user.divisi_id == undefined ? "" : this.user.divisi_id,
-        jabatan_kbn:
-          this.user.jabatan_kbn_id == undefined ? "" : this.user.jabatan_kbn_id,
+        image_name: this.user.image_name ?? "",
+        image_url: this.user.image_link ?? "",
+        nama: this.user.nama ?? "",
+        no_anggota: this.user.no_anggota ?? "",
+        tanggal_masuk: this.user.tanggal_masuk ?? "",
+        nip: this.user.nip ?? "",
+        email: this.user.email ?? "",
+        phone: this.user.phone ?? "",
+        unit: this.user.divisi.unit.id ?? "",
+        divisi: this.user.divisi_id ?? "",
+        jabatan_kbn: this.user.jabatan_kbn_id ?? "",
       },
       divisis: [],
       units: [],

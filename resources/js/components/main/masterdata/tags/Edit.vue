@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       model: {
-        name: this.tag.name == undefined ? "" : this.tag.name,
+        name: this.tag.name ?? "",
       },
       valid: false,
       isRequest: false,

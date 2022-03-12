@@ -13,43 +13,46 @@
             {{ user == null ? "" : user.nama | inisial }}
           </p>
         </v-layout>
+
         <v-list dense rounded>
           <template v-for="(item, index) in menus">
-            <v-list-group
-              v-if="item.children"
-              :prepend-icon="item.parent_icon"
-              :key="index"
-            >
-              <template v-slot:activator>
-                <v-list-item-title>{{ item.text }}</v-list-item-title>
-              </template>
+            <template v-if="isHasPermision(item)">
+              <v-list-group
+                v-if="item.children"
+                :prepend-icon="item.parent_icon"
+                :key="index"
+              >
+                <template v-slot:activator>
+                  <v-list-item-title>{{ item.text }}</v-list-item-title>
+                </template>
+
+                <v-list-item
+                  sub-group
+                  v-for="(child, i) in item.children"
+                  :to="child.link"
+                  :key="i"
+                  link
+                >
+                  <v-list-item-icon></v-list-item-icon>
+                  <v-list-item-title v-text="child.text"></v-list-item-title>
+                </v-list-item>
+              </v-list-group>
 
               <v-list-item
-                sub-group
-                v-for="(child, i) in item.children"
-                :to="child.link"
-                :key="i"
-                link
+                v-else
+                :key="item.text"
+                router
+                :to="item.link"
+                active-class="active-color"
               >
-                <v-list-item-icon></v-list-item-icon>
-                <v-list-item-title v-text="child.text"></v-list-item-title>
+                <v-list-item-action>
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.text }}</v-list-item-title>
+                </v-list-item-content>
               </v-list-item>
-            </v-list-group>
-
-            <v-list-item
-              v-else
-              :key="item.text"
-              router
-              :to="item.link"
-              active-class="active-color"
-            >
-              <v-list-item-action>
-                <v-icon>{{ item.icon }}</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>{{ item.text }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
+            </template>
           </template>
         </v-list>
       </v-navigation-drawer>
@@ -78,6 +81,7 @@
 import MemberMenu from "./MemberMenu.vue";
 import AdminMenu from "./AdminMenu.vue";
 import SuperAdminMenu from "./SuperAdminMenu.vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
     MemberMenu,
@@ -86,38 +90,42 @@ export default {
   },
   data: () => ({
     drawer: null,
-    user: null,
-    menus: null,
-    menuSuperAdmins: [
+    menus: [
       {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
+        permission: [1,2,3],
       },
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpanan",
         link: "/simpanan",
+        permission: [1,2,3],
       },
       {
         icon: "mdi-18px mdi-pocket",
         text: "Pinjaman",
         link: "/pinjaman",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-human-male",
         text: "Manage User",
         link: "/users",
+        permission: [1],
       },
       {
         icon: "mdi-18px mdi-webpack",
         text: "Event",
         link: "/event",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-newspaper",
         text: "News",
         link: "/news",
+        permission: [1, 2],
       },
       {
         icon: "mdi-chevron-up",
@@ -125,142 +133,70 @@ export default {
         parent_icon: "mdi-server-security",
         text: "Master Data",
         model: false,
+        permission: [1, 2],
         children: [
           {
             icon: "mdi-18px mdi-home",
             text: "Tag",
             link: "/tags",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Kbn",
             link: "/jabatan-kbn",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
             link: "/jabatan-koperasi",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Unit",
             link: "/unit",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
             link: "/divisi",
+            permission: [1, 2],
           },
         ],
-      },
-    ],
-    menuAdmins: [
-      {
-        icon: "mdi-18px mdi-face-profile",
-        text: "Profile",
-        link: "/profile",
-      },
-      {
-        icon: "mdi-18px mdi-bank",
-        text: "Simpanan",
-        link: "/simpanan",
-      },
-      {
-        icon: "mdi-18px mdi-pocket",
-        text: "Pinjaman",
-        link: "/pinjaman",
-      },
-      {
-        icon: "mdi-18px mdi-webpack",
-        text: "Event",
-        link: "/event",
-      },
-      {
-        icon: "mdi-18px mdi-newspaper",
-        text: "News",
-        link: "/news",
-      },
-      {
-        icon: "mdi-18px mdi-database",
-        text: "Master Data",
-        link: "/master-data",
-      },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        parent_icon: "mdi-server-security",
-        text: "Master Data",
-        model: false,
-        children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Tag",
-            link: "/tags",
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Jabatan Kbn",
-            link: "/jabatan-kbn",
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Jabatan Koperasi",
-            link: "/jabatan-koperasi",
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Unit",
-            link: "/unit",
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Divisi",
-            link: "/divisi",
-          },
-        ],
-      },
-    ],
-    menuMember: [
-      {
-        icon: "mdi-18px mdi-face-profile",
-        text: "Profile",
-        link: "/profile",
-      },
-      {
-        icon: "mdi-18px mdi-bank",
-        text: "Simpanan",
-        link: "/simpanan",
-      },
-      {
-        icon: "mdi-18px mdi-pocket",
-        text: "Pinjaman",
-        link: "/pinjaman",
       },
     ],
   }),
+
   beforeMount() {
     this.getUser();
   },
+
   filters: {
     inisial: function (data) {
-      return "Halo " + data.split(" ")[0];
+      if (data != undefined) return "Halo, " + data.split(" ")[0];
     },
   },
+
+  computed: {
+    ...mapGetters({
+      user: "user",
+    }),
+  },
+
   methods: {
     getUser() {
-      let self = this;
-
       this.$store
         .dispatch("getUser")
-        .then((response) => {
-          self.user = response.data.data;
-          if (self.user.role_id == 1) self.menus = self.menuSuperAdmins;
-          if (self.user.role_id == 2) self.menus = self.menuAdmins;
-          if (self.user.role_id == 3) self.menus = self.menuMember;
-        })
-        .catch((errors) => {
-          console.log("test");
-        });
+        .then((response) => {})
+        .catch((errors) => {});
+    },
+
+    isHasPermision(item) {
+      if (this.user.role_id != undefined)
+        return item.permission.includes(this.user.role_id);
     },
 
     logout() {
