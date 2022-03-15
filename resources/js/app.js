@@ -44,6 +44,9 @@ window.flash = function (message, type, duration) {
 const app = new Vue({
     el: '#app',
     vuetify: Vuetify,
+    theme: {
+        base: "#32c36c"
+    },
     router,
     store,
 

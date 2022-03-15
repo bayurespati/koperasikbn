@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'teacher_id', 'position_id', 'is_teacher', 'is_active', 'image_name', 'image_link', 'phone'
+        'nama', 'email', 'password', 'role_id', 'nip', 'divisi_id', 'role_id', 'is_active', 'image_name', 'image_link', 'phone', 'jabatan_kbn_id'
     ];
     protected $table = "users";
 
@@ -42,13 +42,18 @@ class User extends Authenticatable
      * Relation 
      *
      */
-    public function position()
+    public function jabatanKbn()
     {
-        return $this->belongsTo('App\Models\Position', 'positon_id', 'id');
+        return $this->belongsTo('App\Models\JabatanKbn', 'jabatan_kbn_id', 'id');
     }
 
     public function role()
     {
         return $this->belongsTo('App\Models\Role', 'role_id', 'id');
+    }
+
+    public function divisi()
+    {
+        return $this->belongsTo('App\Models\Divisi', 'divisi_id', 'id');
     }
 }

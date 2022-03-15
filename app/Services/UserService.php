@@ -10,19 +10,17 @@ class UserService
     {
         try {
             $paylod = $request->only(
-                'name',
+                'nama',
+                'nip',
                 'email',
-                'gender',
                 'phone',
-                'is_teacher',
-                'teacher_id',
-                'position_id',
+                'divisi_id',
                 'role_id',
-                'image_name'
+                'jabatan_kbn_id',
             );
 
             $model = User::make($paylod);
-            $model->password = 'ikebanapassword';
+            $model->password = bcrypt("password");
             $model->image_link = $request->image_name == "" || $request->image_name == null ? "" : saveImage($request);
             $model->save();
 
@@ -41,12 +39,13 @@ class UserService
                 $model->image_name = $request->image_name;
             }
 
-            $model->name = $request->name;
+            $model->nama = $request->nama;
+            $model->nip = $request->nip;
             $model->email = $request->email;
-            $model->phone = $model->phone;
-            $model->role_id = $model->role_id;
-            $model->position_id = $model->position_id;
-            $model->teacher_id = $model->teacher_id;
+            $model->phone = $request->phone;
+            $model->divisi_id = $request->divisi_id;
+            $model->role_id = $request->role_id;
+            $model->jabatan_kbn_id = $request->jabatan_kbn_id;
             $model->update();
 
             return true;

@@ -1,12 +1,7 @@
 <template>
   <v-app id="inspire">
     <nav>
-      <v-navigation-drawer
-        v-model="drawer"
-        class="deep-purple lighten-2"
-        app
-        dark
-      >
+      <v-navigation-drawer v-model="drawer" class="green lighten-1" app dark>
         <v-layout column align-center class="mt-5">
           <v-avatar size="100">
             <img
@@ -15,7 +10,7 @@
             />
           </v-avatar>
           <p class="white--text subheading mt-1">
-            {{ user == null ? "" : user.name }}
+            {{ user == null ? "" : user.nama | inisial }}
           </p>
         </v-layout>
         <v-list dense rounded>
@@ -100,6 +95,16 @@ export default {
         link: "/profile",
       },
       {
+        icon: "mdi-18px mdi-bank",
+        text: "Simpanan",
+        link: "/simpanan",
+      },
+      {
+        icon: "mdi-18px mdi-pocket",
+        text: "Pinjaman",
+        link: "/pinjaman",
+      },
+      {
         icon: "mdi-18px mdi-human-male",
         text: "Manage User",
         link: "/users",
@@ -154,6 +159,16 @@ export default {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
+      },
+      {
+        icon: "mdi-18px mdi-bank",
+        text: "Simpanan",
+        link: "/simpanan",
+      },
+      {
+        icon: "mdi-18px mdi-pocket",
+        text: "Pinjaman",
+        link: "/pinjaman",
       },
       {
         icon: "mdi-18px mdi-webpack",
@@ -211,10 +226,25 @@ export default {
         text: "Profile",
         link: "/profile",
       },
+      {
+        icon: "mdi-18px mdi-bank",
+        text: "Simpanan",
+        link: "/simpanan",
+      },
+      {
+        icon: "mdi-18px mdi-pocket",
+        text: "Pinjaman",
+        link: "/pinjaman",
+      },
     ],
   }),
   beforeMount() {
     this.getUser();
+  },
+  filters: {
+    inisial: function (data) {
+      return "Halo " + data.split(" ")[0];
+    },
   },
   methods: {
     getUser() {
@@ -243,6 +273,9 @@ export default {
 </script>
 
 <style type="text/css">
+.baseColor {
+  color: #32c36c;
+}
 .mdi-chevron-up::before {
   content: "\F143";
   color: white;

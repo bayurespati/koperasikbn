@@ -10,7 +10,7 @@
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="email" />
+                    <input id="nip" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus placeholder="NIP" />
                 </div>
                 <div class="input-error">
                     @error('email')
@@ -19,7 +19,6 @@
                     </span>
                     @enderror
                 </div>
-
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
@@ -42,7 +41,7 @@
 
     <div class="panels-container">
         <div class="panel left-panel">
-            <img src="image_static/login2.svg" class="image" alt="" />
+            <img src="image_static/login.svg" class="image" alt="" />
         </div>
     </div>
 </div>

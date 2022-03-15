@@ -24,8 +24,10 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required",
-            "email" => "required|email|unique:users",
+            "nama" => "required",
+            "nip" => "required|unique:users",
+            "email" => "email|unique:users",
+            "divisi_id" => "required",
             "role_id" => "required",
         ];
     }
@@ -33,10 +35,12 @@ class UserCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            "name.required" => "Nama harus diisi",
-            "email.required" => "Email harus disii",
-            "email.email" => "Format email tidak sesuai",
-            "role_id" => "Role harus di pilih"
+            "nama.required" => "Nama harus diisi",
+            "nip.required" => "NIP harus diisi",
+            "nip.unique" => "NIP sudah ada",
+            "email.unique" => "Email sudah ada",
+            "divisi_id.required" => "Divisi harus di pilih",
+            "role_id.required" => "Role harus di pilih"
         ];
     }
 }

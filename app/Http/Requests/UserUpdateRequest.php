@@ -24,21 +24,23 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required',
-            'email' => 'required|unique:users,email,' . $this->id,
-            'phone' => 'required|unique:users,phone,' . $this->id,
+            "nama" => "required",
+            "nip" => "required|unique:users,nip," . $this->id,
+            "email" => "email|unique:users,email," . $this->id,
+            "divisi_id" => "required",
+            "role_id" => "required",
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'  => 'Nama harus diisi',
-            'email.required' => 'Email harus diisi',
-            'email.email'    => 'Format email salah',
-            'email.unique'   => 'Email Sudah ada',
-            'phone.required' => 'No telphone harus diisi',
-            'phone.unique'   => 'No telphone sudah ada'
+            "nama.required" => "Nama harus diisi",
+            "nip.required" => "NIP harus diisi",
+            "nip.unique" => "NIP sudah ada",
+            "email.unique" => "Email sudah ada",
+            "divisi_id.required" => "Divisi harus di pilih",
+            "role_id.required" => "Role harus di pilih"
         ];
     }
 }

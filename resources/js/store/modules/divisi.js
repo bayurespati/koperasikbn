@@ -23,6 +23,18 @@ const actions = {
         })
     },
 
+    getDivisiByUnit({ commit }, data) {
+        return new Promise((resolve, reject) => {
+            axios.get('/dashboard/divisis/by-unit', {
+                params: { unit_id: data.unit_id }
+            }).then(response => {
+                resolve(response)
+            }).catch(errors => {
+                reject(errors.response.data.errors)
+            })
+        })
+    },
+
     storeDivisi({ commit }, data) {
         return new Promise((resolve, reject) => {
             axios.post('/dashboard/divisis', data).then(response => {

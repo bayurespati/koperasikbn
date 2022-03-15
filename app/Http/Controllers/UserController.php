@@ -7,6 +7,7 @@ use App\User;
 use App\Models\Role;
 use App\Services\UserService;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\UserCreateRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function user()
     {
-        $data = User::find(Auth::user()->id);
+        $data = User::where('id', Auth::user()->id)->with('jabatanKbn', 'divisi.unit', 'role')->first();
 
         return response()->json([
             'status'  => 'Success',
@@ -41,23 +42,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::with('role', 'position')->get();
-
-        return response()->json([
-            'status'  => 'Success',
-            'message' => 'Users',
-            'data'    => $data
-        ], 200);
-    }
-
-
-    /** 
-     * Data of a users
-     * 
-     */
-    public function teachers()
-    {
-        $data = User::where('is_teacher', true)->with('role', 'position')->get();
+        $data = User::with('role', 'divisi.unit')->where('role_id', '!=', 1)->get();
 
         return response()->json([
             'status'  => 'Success',
@@ -110,8 +95,6 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        // return "oke";
-        return $this->userService->update($request, $user);
         $userService = $this->userService->update($request, $user);
 
         if (!$userService)

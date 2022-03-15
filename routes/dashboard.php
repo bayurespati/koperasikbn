@@ -18,6 +18,7 @@ Route::delete('/events/{event}/image', 'EventController@deleteImage');
 Route::get('users/teachers', 'UserController@teachers')->name('users.teachers');
 Route::get('users/roles', 'UserController@roles')->name('users.roles');
 Route::get('user', 'UserController@user')->name('users.user');
+Route::patch('user/profile', 'UserController@updateProfile');
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,10 @@ Route::get('user', 'UserController@user')->name('users.user');
 |
 */
 
-// Route::get('', 'DashboardController@index')->name('dashboard');
+
+Route::get('', 'DashboardController@index')->name('dashboard');
+
+Route::get('divisis/by-unit', 'DivisiController@getByUnit');
 
 Route::resource('users', 'UserController', [
     'only' => ['index', 'store', 'update', 'destroy'],

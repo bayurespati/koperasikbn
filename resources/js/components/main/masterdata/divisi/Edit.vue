@@ -39,38 +39,37 @@
                 required
               >
               </v-text-field>
-              </v-col>
+            </v-col>
 
             <!--======================================================================================
                 KODE 
             ==========================================================================================-->
-              <v-col cols="12" xs="12" md="4">
-                <v-text-field
-                  @input="$v.model.kode.$touch()"
-                  @blur="$v.model.kode.$touch()"
-                  :error-messages="kodeError"
-                  v-model="model.kode"
-                  label="Kode"
-                  required
-                >
-                </v-text-field>
-              </v-col>
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                @input="$v.model.kode.$touch()"
+                @blur="$v.model.kode.$touch()"
+                :error-messages="kodeError"
+                v-model="model.kode"
+                label="Kode"
+                required
+              >
+              </v-text-field>
+            </v-col>
 
-              <!--======================================================================================
+            <!--======================================================================================
                BUTTON
               ==========================================================================================-->
-              <v-col cols="12 text-left">
-                <v-btn
-                  rounded
-                  color="success"
-                  :loading="isRequest"
-                  @click="save()"
-                  >save</v-btn
-                >
-                <v-btn rounded color="error" class="ml-3" @click="close()"
-                  >cancel</v-btn
-                >
-              </v-col>
+            <v-col cols="12 text-left">
+              <v-btn
+                rounded
+                color="success"
+                :loading="isRequest"
+                @click="save()"
+                >save</v-btn
+              >
+              <v-btn rounded color="error" class="ml-3" @click="close()"
+                >cancel</v-btn
+              >
             </v-col>
           </v-row>
         </v-container>

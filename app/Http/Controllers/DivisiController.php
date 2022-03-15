@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\DivisiService;
 use App\Models\Divisi;
 use App\Http\Requests\DivisiRequest;
+use Illuminate\Http\Request;
 
 class DivisiController extends Controller
 {
@@ -23,6 +24,15 @@ class DivisiController extends Controller
     public function index()
     {
         return Divisi::with('unit')->get();
+    }
+
+    /** 
+     * Data of a user
+     * 
+     */
+    public function getByUnit(Request $request)
+    {
+        return Divisi::where('unit_id', $request->unit_id)->get();
     }
 
 
