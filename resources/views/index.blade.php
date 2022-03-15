@@ -290,18 +290,18 @@
             </div>
             <!-- End .video-wrapper-->
             <div class="about-block-wrapper">
-                <div class="about-block">
+                <div class="about-block" style="height:100%;">
                     <div class="heading heading-1">
                         <p class="heading-subtitle heading-subtitle-bg">Pinjaman Karyawan</p>
                         <h2 class="heading-title">Pinjaman dengan Bunga Rendah</h2>
                         <p class="heading-desc">Saat Anda siap, kami siap dengan penawaran terbaik dari Koperasi Karyawan. Fokus kejar mimpi Anda tanpa khawatir dengan kendala keuangan.</p>
-                        <div class="signature-block"><a class="btn btn--secondary" href="page-about.html">Pelajari Lebih Lanjut <i class="energia-arrow-right"></i></a>
+                        <!-- <div class="signature-block"><a class="btn btn--secondary" href="page-about.html">Pelajari Lebih Lanjut <i class="energia-arrow-right"></i></a>
                             <div class="signature-body">
                                 <h6>michael brian</h6>
-                                <p>co founder</p>
+                                <p>co founder</p> -->
                                 <!-- <img class="signature-img" src="assets/images/signature/1.png" alt="signature" /> -->
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                         <div class="advantages-list-holder">
                             <div class="row">
                                 <!-- <div class="col-12 col-md-6">
@@ -587,30 +587,31 @@
         <div class="container">
             <div class="contact-panel contact-panel-3">
                 <div class="heading heading-light heading-10">
-                    <h2 class="heading-title">Provide Value To Our ClientsThrough Ongoing Product & Innovation.</h2>
-                    <p class="heading-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p>
-                    <div class="contact-action contact-action-2"><a class="btn btn--white" href="page-about.html">learn more <i class="energia-arrow-right"></i></a></div>
+                    <h2 class="heading-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate reprehenderit quia numquam unde </h2>
+                    <p class="heading-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam dicta veniam, numquam quae odit magni atque enim earum, aut voluptate officiis hic? Ipsam quibusdam dolore aperiam esse, dolorum laboriosam voluptatibus.</p>
+                    <div class="contact-action contact-action-2"><a class="btn btn--white" href="page-about.html">Pelajari Lebih Lanjut <i class="energia-arrow-right"></i></a></div>
                     <div class="contact-quote contact-quote-2"> <i class="flaticon-040-green-energy"></i>
                         <div class="quote-body">
-                            <p>As a world wide distributor of solar supplies we endeavor provide fast and knowledgeable service, we can get all the materials you need by sea or air.</p><a href="page-contact.html"><i class="energia-arrow-right"></i>global office map</a>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis exercitationem similique nobis maiores mollitia! Officiis minima voluptas odio eius, quas rerum nemo debitis vel iusto suscipit culpa, sequi temporibus veritatis.</p>
+                            <a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8 " target="_blank"><i class="energia-arrow-right"></i>Peta Kantor Utama</a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-card">
                     <div class="contact-body">
                         <h5 class="card-heading">Ajukan Pinjaman</h5>
-                        <p class="card-desc">We take great pride in everything that we do, control over products allows us to ensure our customers receive the best quality service.</p>
+                        <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum nesciunt voluptatem consequuntur unde in est? Facere ipsum blanditiis hic distinctio est? Possimus odit quisquam reiciendis fuga in nam dolorum sunt!</p>
                         <form class="contactForm" method="post" action="assets/php/contact.php">
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-1">Who will be install system?</label>
+                                    <label class="form-label" for="select-1">Lorem ipsum dolor sit amet consectetur</label>
                                     <select class="form-control" id="select-1">
-                                        <option value="default">local contractor</option>
-                                        <option value="AL">foreign contractor </option>
+                                        <option value="default">adipisicing elit</option>
+                                        <option value="AL">Ipsum nesciunt </option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-2">System completed by?</label>
+                                    <label class="form-label" for="select-2">voluptatem consequuntur unde</label>
                                     <select class="form-control" id="select-2">
                                         <option value="default">3:6 months</option>
                                         <option value="AL">6:12 months</option>
@@ -618,28 +619,28 @@
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="contact-usage">Monthly electric usage in kWh?</label>
+                                    <label class="form-label" for="contact-usage">Facere ipsum blanditiis hic</label>
                                     <input class="form-control" type="text" id="contact-usage" name="contact-usage" placeholder="1254 KWH" required="" />
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-3">Solar system type?</label>
+                                    <label class="form-label" for="select-3">tempore cupiditate maiores?</label>
                                     <select class="form-control" id="select-3">
-                                        <option value="default">OffGrid</option>
-                                        <option value="AL">OnGrid</option>
+                                        <option value="default">Debitis</option>
+                                        <option value="AL">exercitationem</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-4">Solar panels place?</label>
+                                    <label class="form-label" for="select-4">Nam dicta veniam</label>
                                     <select class="form-control" id="select-4">
-                                        <option value="default">huge farm</option>
-                                        <option value="AL">small farm</option>
+                                        <option value="default">numquam quae</option>
+                                        <option value="AL">odit magni</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-5">Materials on your roof?</label>
+                                    <label class="form-label" for="select-5">Sequi libero nesciunt doloribus</label>
                                     <select class="form-control" id="select-5">
-                                        <option value="default">comp shingle</option>
-                                        <option value="AL">roof shingle</option>
+                                        <option value="default">ducimus laborum</option>
+                                        <option value="AL">unde sint</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
@@ -660,7 +661,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn--secondary w-100">submit request <i class="energia-arrow-right"></i></button>
+                                    <button class="btn btn--secondary w-100">Ajukan <i class="energia-arrow-right"></i></button>
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-result"></div>
@@ -686,7 +687,7 @@
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <div class="heading heading-11 text-center">
                         <p class="heading-subtitle">Berita & Pengumuman</p>
-                        <h2 class="heading-title">recent articles</h2>
+                        <h2 class="heading-title">Artikel Terbaru</h2>
                     </div>
                 </div>
             </div>

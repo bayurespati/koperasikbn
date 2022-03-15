@@ -99,13 +99,9 @@
                                 <li class="phone" style="font-size: 20px;;">ext. 5101 s/d 5108</li>
                                 <li class="email"><a href="mailto:pengelola@kopkarkbn.com">pengelola@kopkarkbn.com</a></li>
                                 <li class="address">
-                                    <p>Gedung Mawar - Jl. Jawa Raya, Komplek PT. KBN (Persero)</p>
+                                    <p>Gedung Mawar - Jl. Jawa Raya, Komplek PT. KBN (Persero) Jl. Raya Cakung Cilincing, DKI Jakarta, 1410.</p>
                                 </li>
-                                <li class="directions" style="margin-bottom: 40px;"><a href="https://goo.gl/maps/CLksE8MWNYK1wi8T6" target="_blank"><i class="energia-location-Icon"></i>get directions</a></li>
-                                <li class="address">
-                                    <p>Jl. Raya Cakung Cilincing, DKI Jakarta, 1410.</p>
-                                </li>
-                                <li class="directions"><a href="https://goo.gl/maps/CLksE8MWNYK1wi8T6" target="_blank"><i class="energia-location-Icon"></i>get directions</a></li>
+                                <li class="directions" style="margin-bottom: 40px;"><a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8" target="_blank"><i class="energia-location-Icon"></i>get directions</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,7 +119,7 @@
                 <div class="col-12">
                     <div class="footer-copyright">
                         <div class="copyright"><span>&copy; 2022 Koperasi Karyawan KBN. all rights reserved. </span>
-                            <ul class="list-unstyled social-icons">
+                            <ul class="list-unstyled social-icons d-flex align-items-center">
                             <li>
                                     <a class="share-facebook" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
                                         <i class="energia-facebook"></i>

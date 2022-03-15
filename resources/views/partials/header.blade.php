@@ -44,10 +44,10 @@
     <nav class="navbar navbar-expand-lg navbar-sticky" id="primary-menu"><a class="navbar-brand" href="{{ route('index') }}"><img class="logo logo-dark" src="/assets/images/logo/logo-dark.png" alt="Koperasi KBN Logo" style="width: auto !important;" /><img class="logo logo-mobile" src="/assets/images/logo/logo-mobile.png" alt="Koperasi KBN Logo" style="width: auto !important;"/></a>
         <div class="module-holder module-holder-phone">
             <div class="module module-language">
-                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" /><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
-                <div class="lang-list">
+                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
+                <div class="lang-list" style="left: -60px !important;">
                     <ul>
-                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" /><a href="#">indonesia</a></li>
+                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><a href="#">indonesia</a></li>
                         <li> <img src="/assets/images/module-language/en.png" alt="En Language" /><a href="#">english</a></li>
                     </ul>
                 </div>
