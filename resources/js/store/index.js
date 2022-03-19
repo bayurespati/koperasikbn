@@ -7,6 +7,7 @@ import position from './modules/position'
 import jabatanKbn from './modules/jabatan_kbn'
 import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
+import artikel from './modules/artikel'
 import unit from './modules/unit'
 import divisi from './modules/divisi'
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
         tag,
         position,
         event,
+        artikel,
         jabatanKbn,
         jabatanKoperasi,
         unit,

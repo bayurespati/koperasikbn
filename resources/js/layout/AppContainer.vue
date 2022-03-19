@@ -16,43 +16,41 @@
 
         <v-list dense rounded>
           <template v-for="(item, index) in menus">
-            <template v-if="isHasPermision(item)">
-              <v-list-group
-                v-if="item.children"
-                :prepend-icon="item.parent_icon"
-                :key="index"
-              >
-                <template v-slot:activator>
-                  <v-list-item-title>{{ item.text }}</v-list-item-title>
-                </template>
-
-                <v-list-item
-                  sub-group
-                  v-for="(child, i) in item.children"
-                  :to="child.link"
-                  :key="i"
-                  link
-                >
-                  <v-list-item-icon></v-list-item-icon>
-                  <v-list-item-title v-text="child.text"></v-list-item-title>
-                </v-list-item>
-              </v-list-group>
+            <v-list-group
+              v-if="item.children"
+              :prepend-icon="item.parent_icon"
+              :key="index"
+            >
+              <template v-slot:activator>
+                <v-list-item-title>{{ item.text }}</v-list-item-title>
+              </template>
 
               <v-list-item
-                v-else
-                :key="item.text"
-                router
-                :to="item.link"
-                active-class="active-color"
+                sub-group
+                v-for="(child, i) in item.children"
+                :to="child.link"
+                :key="i"
+                link
               >
-                <v-list-item-action>
-                  <v-icon>{{ item.icon }}</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>{{ item.text }}</v-list-item-title>
-                </v-list-item-content>
+                <v-list-item-icon></v-list-item-icon>
+                <v-list-item-title v-text="child.text"></v-list-item-title>
               </v-list-item>
-            </template>
+            </v-list-group>
+
+            <v-list-item
+              v-else
+              :key="item.text"
+              router
+              :to="item.link"
+              active-class="active-color"
+            >
+              <v-list-item-action>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>{{ item.text }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </template>
         </v-list>
       </v-navigation-drawer>
@@ -90,18 +88,19 @@ export default {
   },
   data: () => ({
     drawer: null,
-    menus: [
+    menus: [],
+    superAdmin: [
       {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
-        permission: [1,2,3],
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpanan",
         link: "/simpanan",
-        permission: [1,2,3],
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-pocket",
@@ -123,8 +122,8 @@ export default {
       },
       {
         icon: "mdi-18px mdi-newspaper",
-        text: "News",
-        link: "/news",
+        text: "Artikel",
+        link: "/artikel",
         permission: [1, 2],
       },
       {
@@ -168,6 +167,98 @@ export default {
         ],
       },
     ],
+    admin: [
+      {
+        icon: "mdi-18px mdi-face-profile",
+        text: "Profile",
+        link: "/profile",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-bank",
+        text: "Simpanan",
+        link: "/simpanan",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-pocket",
+        text: "Pinjaman",
+        link: "/pinjaman",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-webpack",
+        text: "Event",
+        link: "/event",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-18px mdi-newspaper",
+        text: "Artikel",
+        link: "/artikel",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-server-security",
+        text: "Master Data",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Tag",
+            link: "/tags",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Kbn",
+            link: "/jabatan-kbn",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Jabatan Koperasi",
+            link: "/jabatan-koperasi",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Unit",
+            link: "/unit",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Divisi",
+            link: "/divisi",
+            permission: [1, 2],
+          },
+        ],
+      },
+    ],
+    member: [
+      {
+        icon: "mdi-18px mdi-face-profile",
+        text: "Profile",
+        link: "/profile",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-bank",
+        text: "Simpanan",
+        link: "/simpanan",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-pocket",
+        text: "Pinjaman",
+        link: "/pinjaman",
+        permission: [1, 2, 3],
+      },
+    ],
   }),
 
   beforeMount() {
@@ -190,7 +281,12 @@ export default {
     getUser() {
       this.$store
         .dispatch("getUser")
-        .then((response) => {})
+        .then((response) => {
+          const role_id = response.data.data.role_id;
+          if (role_id == 1) this.menus = this.superAdmin;
+          if (role_id == 2) this.menus = this.admin;
+          if (role_id == 3) this.menus = this.member;
+        })
         .catch((errors) => {});
     },
 

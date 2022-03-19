@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import Profile from './components/main/Profile.vue'
 import Event from './components/main/events/Index.vue'
+import Artikel from './components/main/artikel/Index.vue'
 import News from './components/main/news/Index.vue'
 import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
@@ -24,6 +25,10 @@ const router = new Router({
         {
             path: '/event',
             component: Event
+        },
+        {
+            path: '/artikel',
+            component: Artikel
         },
         {
             path: '/news',
