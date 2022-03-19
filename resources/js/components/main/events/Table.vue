@@ -153,7 +153,7 @@ export default {
 
     deleteCurrentEvent() {
       let self = this;
-      let index = _.findIndex(self.event, function (event) {
+      let index = _.findIndex(self.events, function (event) {
         return event.id === self.event.id;
       });
 

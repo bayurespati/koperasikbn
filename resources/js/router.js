@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Profile from './components/main/Profile.vue'
 import Event from './components/main/events/Index.vue'
 import Artikel from './components/main/artikel/Index.vue'
+import Faq from './components/main/faq/Index.vue'
 import News from './components/main/news/Index.vue'
 import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
@@ -37,6 +38,10 @@ const router = new Router({
         {
             path: '/simpanan',
             component: Simpanan
+        },
+        {
+            path: '/faq',
+            component: Faq
         },
         {
             path: '/pinjaman',

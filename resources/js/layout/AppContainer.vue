@@ -114,10 +114,16 @@ export default {
         link: "/users",
         permission: [1],
       },
+      // {
+      //   icon: "mdi-18px mdi-webpack",
+      //   text: "Event",
+      //   link: "/event",
+      //   permission: [1, 2],
+      // },
       {
         icon: "mdi-18px mdi-webpack",
-        text: "Event",
-        link: "/event",
+        text: "FAQ",
+        link: "/faq",
         permission: [1, 2],
       },
       {
@@ -186,10 +192,16 @@ export default {
         link: "/pinjaman",
         permission: [1, 2, 3],
       },
+      // {
+      //   icon: "mdi-18px mdi-webpack",
+      //   text: "Event",
+      //   link: "/event",
+      //   permission: [1, 2],
+      // },
       {
         icon: "mdi-18px mdi-webpack",
-        text: "Event",
-        link: "/event",
+        text: "FAQ",
+        link: "/faq",
         permission: [1, 2],
       },
       {

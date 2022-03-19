@@ -230,7 +230,6 @@ export default {
         { nama: "Layanan Komersial" },
       ],
       valid: false,
-      valid: false,
       isRequest: false,
       alert: true,
     };
@@ -352,15 +351,6 @@ export default {
             });
           });
       }
-    },
-
-    setTags(data) {
-      var tags = [];
-      data.forEach(function (item) {
-        tags.push(item.id);
-      });
-
-      return tags;
     },
 
     clearForm() {

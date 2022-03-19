@@ -106,11 +106,11 @@ export default {
           sortable: false,
         },
         {
-          text: "Title",
+          text: "Judul",
           align: "left",
-          value: "title",
+          value: "title_indo",
         },
-        { text: "Description", value: "description" },
+        { text: "Deskripsi", value: "description_indo" },
         { text: "Actions", value: "action", sortable: false },
       ],
     };
@@ -152,7 +152,7 @@ export default {
 
     deleteCurrentArtikel() {
       let self = this;
-      let index = _.findIndex(self.artikel, function (artikel) {
+      let index = _.findIndex(self.artikels, function (artikel) {
         return artikel.id === self.artikel.id;
       });
 

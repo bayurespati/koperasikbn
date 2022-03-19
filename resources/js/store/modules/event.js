@@ -2,17 +2,12 @@ import axios from 'axios'
 
 const state = {
     events: [],
-    images: []
 }
 
 const getters = {
     events(state) {
         return state.events
     },
-
-    images(state) {
-        return state.images
-    }
 }
 
 const mutations = {

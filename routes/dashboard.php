@@ -60,6 +60,10 @@ Route::resource('artikels', 'ArtikelController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('faqs', 'FaqController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('divisis', 'DivisiController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

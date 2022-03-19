@@ -227,7 +227,6 @@ export default {
         { nama: "Layanan Komersial" },
       ],
       valid: false,
-      valid: false,
       isRequest: false,
       alert: true,
     };

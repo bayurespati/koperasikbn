@@ -8,6 +8,7 @@ import jabatanKbn from './modules/jabatan_kbn'
 import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
 import artikel from './modules/artikel'
+import faq from './modules/faq'
 import unit from './modules/unit'
 import divisi from './modules/divisi'
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
         position,
         event,
         artikel,
+        faq,
         jabatanKbn,
         jabatanKoperasi,
         unit,
