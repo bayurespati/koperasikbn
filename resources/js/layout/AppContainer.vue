@@ -121,6 +121,12 @@ export default {
       //   permission: [1, 2],
       // },
       {
+        icon: "mdi-18px mdi-calendar-text",
+        text: "Kalender",
+        link: "/kalender",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-file-chart",
         text: "Laporan",
         link: "/laporan",
@@ -204,6 +210,12 @@ export default {
       //   link: "/event",
       //   permission: [1, 2],
       // },
+      {
+        icon: "mdi-18px mdi-calendar-text",
+        text: "Kalender",
+        link: "/kalender",
+        permission: [1, 2],
+      },
       {
         icon: "mdi-18px mdi-file-chart",
         text: "Laporan",

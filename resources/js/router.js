@@ -11,6 +11,7 @@ import Pinjaman from './components/main/pinjaman/Index.vue'
 import Users from './components/main/users/Index.vue'
 import Tags from './components/main/masterdata/tags/Index.vue'
 import Laporan from './components/main/laporan/Index.vue'
+import Kalender from './components/main/kalender/Index.vue'
 import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 import Unit from './components/main/masterdata/unit/Index.vue'
@@ -43,6 +44,10 @@ const router = new Router({
         {
             path: '/faq',
             component: Faq
+        },
+        {
+            path: '/kalender',
+            component: Kalender
         },
         {
             path: '/laporan',
