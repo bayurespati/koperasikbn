@@ -121,6 +121,12 @@ export default {
       //   permission: [1, 2],
       // },
       {
+        icon: "mdi-18px mdi-file-chart",
+        text: "Laporan",
+        link: "/laporan",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-webpack",
         text: "FAQ",
         link: "/faq",
@@ -198,6 +204,12 @@ export default {
       //   link: "/event",
       //   permission: [1, 2],
       // },
+      {
+        icon: "mdi-18px mdi-file-chart",
+        text: "Laporan",
+        link: "/laporan",
+        permission: [1, 2],
+      },
       {
         icon: "mdi-18px mdi-webpack",
         text: "FAQ",

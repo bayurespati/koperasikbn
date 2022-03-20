@@ -58,7 +58,7 @@ class ArtikelService
     {
         try {
             removeImage($model);
-            return $model->delete();
+            $model->delete();
             return true;
         } catch (\Exception $e) {
             return false;
