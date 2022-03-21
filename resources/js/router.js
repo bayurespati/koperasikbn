@@ -2,6 +2,7 @@ import Router from 'vue-router'
 import Vue from 'vue'
 
 import Profile from './components/main/Profile.vue'
+import Homepage from './components/main/home/Index.vue'
 import Event from './components/main/events/Index.vue'
 import Artikel from './components/main/artikel/Index.vue'
 import Faq from './components/main/faq/Index.vue'
@@ -24,6 +25,10 @@ const router = new Router({
         {
             path: '*',
             component: Profile
+        },
+        {
+            path: '/homepage',
+            component: Homepage
         },
         {
             path: '/event',

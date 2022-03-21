@@ -56,6 +56,10 @@ Route::resource('events', 'EventController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('banners', 'BannerController', [
+    'only' => ['index', 'update'],
+]);
+
 Route::resource('artikels', 'ArtikelController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

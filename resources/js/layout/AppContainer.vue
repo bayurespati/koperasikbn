@@ -91,6 +91,12 @@ export default {
     menus: [],
     superAdmin: [
       {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
@@ -114,12 +120,6 @@ export default {
         link: "/users",
         permission: [1],
       },
-      // {
-      //   icon: "mdi-18px mdi-webpack",
-      //   text: "Event",
-      //   link: "/event",
-      //   permission: [1, 2],
-      // },
       {
         icon: "mdi-18px mdi-calendar-text",
         text: "Kalender",
@@ -187,6 +187,12 @@ export default {
     ],
     admin: [
       {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
@@ -204,12 +210,6 @@ export default {
         link: "/pinjaman",
         permission: [1, 2, 3],
       },
-      // {
-      //   icon: "mdi-18px mdi-webpack",
-      //   text: "Event",
-      //   link: "/event",
-      //   permission: [1, 2],
-      // },
       {
         icon: "mdi-18px mdi-calendar-text",
         text: "Kalender",

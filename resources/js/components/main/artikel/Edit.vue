@@ -195,7 +195,7 @@ export default {
       model: {
         image_name: this.artikel.image_name ?? "",
         image_url: this.artikel.image_link ?? "",
-        image_file: null,
+        image_file: NULL,
         title: this.artikel.title ?? "",
         description: this.artikel.description ?? "",
         content: this.artikel.content ?? "",

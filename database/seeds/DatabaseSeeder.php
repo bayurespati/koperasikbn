@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UnitSeeder::class);
         // $this->call(DivisiSeeder::class);
         // $this->call(JabatanKoperasiSeeder::class);
-        $this->call(KalenderSeeder::class);
+        // $this->call(KalenderSeeder::class);
+        $this->call(BannerSeeder::class);
     }
 }
