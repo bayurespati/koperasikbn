@@ -111,6 +111,11 @@ export default {
           value: "title_indo",
         },
         { text: "Deskripsi", value: "description_indo" },
+        {
+          text: "Tipe",
+          align: "left",
+          value: "type",
+        },
         { text: "Actions", value: "action", sortable: false },
       ],
     };

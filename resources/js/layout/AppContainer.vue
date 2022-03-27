@@ -121,6 +121,28 @@ export default {
         permission: [1],
       },
       {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Media",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Foto",
+            link: "/foto",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Vidio",
+            link: "/vidio",
+            permission: [1, 2],
+          },
+        ],
+      },
+      {
         icon: "mdi-18px mdi-calendar-text",
         text: "Kalender",
         link: "/kalender",
@@ -152,12 +174,6 @@ export default {
         model: false,
         permission: [1, 2],
         children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Tag",
-            link: "/tags",
-            permission: [1, 2],
-          },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Kbn",
@@ -197,6 +213,28 @@ export default {
         text: "Profile",
         link: "/profile",
         permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Media",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Foto",
+            link: "/foto",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Vidio",
+            link: "/vidio",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-bank",
@@ -242,12 +280,6 @@ export default {
         model: false,
         permission: [1, 2],
         children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Tag",
-            link: "/tags",
-            permission: [1, 2],
-          },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Kbn",

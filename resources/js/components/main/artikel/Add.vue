@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title>
-        <span class="title">Edit</span>
+        <span class="title">Create</span>
       </v-card-title>
       <v-form v-model="valid">
         <v-container>
@@ -24,8 +24,8 @@
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="12">
               <v-text-field
-                @input="$v.model.image_file.$touch()"
-                @blur="$v.model.image_file.$touch()"
+                @input="$v.model.image_name.$touch()"
+                @blur="$v.model.image_name.$touch()"
                 :error-messages="imageError"
                 prepend-icon="mdi-camera"
                 v-model="model.image_name"
@@ -193,7 +193,6 @@ export default {
     return {
       model: {
         image_name: "",
-        image_file: null,
         image_url: "",
         description_indo: "",
         content_indo: "",
@@ -234,7 +233,7 @@ export default {
 
   validations: {
     model: {
-      image_file: { required },
+      image_name: { required },
       description_indo: { required },
       title_indo: { required },
       description: { required },
@@ -247,6 +246,7 @@ export default {
   computed: {
     isValid() {
       return (
+        this.imageError.length == 0 &&
         this.typeError.length == 0 &&
         this.categoryError.length == 0 &&
         this.titleError.length == 0 &&
@@ -254,15 +254,14 @@ export default {
         this.titleIndoError.length == 0 &&
         this.descriptionIndoError.length == 0 &&
         this.model.content != "" &&
-        this.model.content_indo != "" &&
-        this.model.image_file != null
+        this.model.content_indo != ""
       );
     },
 
     imageError() {
       const errors = [];
-      if (!this.$v.model.image_file.$dirty) return errors;
-      !this.$v.model.image_file.required && errors.push("Gambar harus diisi.");
+      if (!this.$v.model.image_name.$dirty) return errors;
+      !this.$v.model.image_name.required && errors.push("Gambar harus diisi.");
       return errors;
     },
 
@@ -350,7 +349,6 @@ export default {
 
     clearForm() {
       this.$v.$reset();
-      this.model.image_file = "";
       this.model.image_name = "";
       this.model.image_url = "";
       this.model.description = "";
@@ -383,11 +381,9 @@ export default {
 
         fr.addEventListener("load", () => {
           this.model.image_url = fr.result;
-          this.model.image_file = files[0];
         });
       } else {
         this.model.image_url = "";
-        this.model.image_file = "";
         this.model.image_name = "";
       }
     },

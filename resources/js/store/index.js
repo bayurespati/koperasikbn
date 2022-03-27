@@ -8,6 +8,7 @@ import jabatanKbn from './modules/jabatan_kbn'
 import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
 import artikel from './modules/artikel'
+import image from './modules/image'
 import faq from './modules/faq'
 import laporan from './modules/laporan'
 import unit from './modules/unit'
@@ -18,6 +19,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     modules: {
         user,
+        image,
         tag,
         position,
         event,

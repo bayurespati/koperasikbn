@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title>
-        <span class="title">Edit</span>
+        <span class="title">Create</span>
       </v-card-title>
       <v-form v-model="valid">
         <v-container>

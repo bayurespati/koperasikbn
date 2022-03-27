@@ -23,7 +23,7 @@ class LaporanService
     {
         try {
             //if update new file 
-            if ($model->file_name != $request->file_name) {
+            if ($model->file_link != $request->file_file) {
                 removeFile($model); //-- removeFile helpers function -- //
                 $model->file_link = saveFile($request);
                 $model->file_name = $request->file_name;

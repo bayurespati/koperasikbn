@@ -40,6 +40,10 @@ Route::resource('tags', 'TagController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('images', 'ImageController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('positions', 'PositionController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

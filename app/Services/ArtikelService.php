@@ -33,7 +33,7 @@ class ArtikelService
     {
         try {
             //if update new image
-            if ($model->image_name != $request->image_name) {
+            if ($model->image_link != $request->image_file) {
                 removeImage($model); //-- removeImage helpers function -- //
                 $model->image_link = saveImage($request);
                 $model->image_name = $request->image_name;

@@ -5,8 +5,8 @@ import Profile from './components/main/Profile.vue'
 import Homepage from './components/main/home/Index.vue'
 import Event from './components/main/events/Index.vue'
 import Artikel from './components/main/artikel/Index.vue'
+import Image from './components/main/media/foto/Index.vue'
 import Faq from './components/main/faq/Index.vue'
-import News from './components/main/news/Index.vue'
 import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
 import Users from './components/main/users/Index.vue'
@@ -39,8 +39,8 @@ const router = new Router({
             component: Artikel
         },
         {
-            path: '/news',
-            component: News
+            path: '/foto',
+            component: Image
         },
         {
             path: '/simpanan',

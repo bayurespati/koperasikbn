@@ -7,7 +7,7 @@ class BannerService
     public function update($request, $model)
     {
         try {
-            if ($model->image_name != $request->image_name) {
+            if ($model->image_link != $request->image_file) {
                 removeImage($model);
                 $model->image_name = $request->image_name;
                 $model->image_link = saveImage($request);

@@ -220,7 +220,6 @@ export default {
   data() {
     return {
       model: {
-        image_file: null,
         image_name: this.banner.image_name ?? "",
         image_url: this.banner.image_link ?? "",
         title: this.banner.title ?? "",
@@ -260,7 +259,17 @@ export default {
 
   computed: {
     isValid() {
-      return this.model.image_name != "";
+      return (
+        this.imageError.length == 0 &&
+        this.titleError.length == 0 &&
+        this.titleIndoError.length == 0 &&
+        this.descriptionError.length == 0 &&
+        this.descriptionIndoError.length == 0 &&
+        this.buttonTitleError.length == 0 &&
+        this.buttonTitleIndoError.length == 0 &&
+        this.buttonTwoTitleError.length == 0 &&
+        this.buttonTwoTitleIndoError.length == 0
+      );
     },
 
     imageError() {
@@ -405,11 +414,9 @@ export default {
 
         fr.addEventListener("load", () => {
           this.model.image_url = fr.result;
-          this.model.image_file = files[0];
         });
       } else {
         this.model.image_url = "";
-        this.model.image_file = "";
         this.model.image_name = "";
       }
     },
