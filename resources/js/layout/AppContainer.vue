@@ -136,8 +136,8 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Vidio",
-            link: "/vidio",
+            text: "Video",
+            link: "/video",
             permission: [1, 2],
           },
         ],
@@ -230,8 +230,8 @@ export default {
           },
           {
             icon: "mdi-18px mdi-home",
-            text: "Vidio",
-            link: "/vidio",
+            text: "Video",
+            link: "/video",
             permission: [1, 2],
           },
         ],

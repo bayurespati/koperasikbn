@@ -6,6 +6,7 @@ import Homepage from './components/main/home/Index.vue'
 import Event from './components/main/events/Index.vue'
 import Artikel from './components/main/artikel/Index.vue'
 import Image from './components/main/media/foto/Index.vue'
+import Video from './components/main/media/video/Index.vue'
 import Faq from './components/main/faq/Index.vue'
 import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
@@ -41,6 +42,10 @@ const router = new Router({
         {
             path: '/foto',
             component: Image
+        },
+        {
+            path: '/video',
+            component: Video
         },
         {
             path: '/simpanan',

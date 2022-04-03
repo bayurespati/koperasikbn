@@ -44,6 +44,10 @@ Route::resource('images', 'ImageController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('videos', 'VideoController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('positions', 'PositionController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

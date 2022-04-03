@@ -12,11 +12,9 @@ const getters = {
 
 const mutations = {
     set_event_images: (state, images) => {
-        state.images = images;
     },
 
     add_event_image(state, image) {
-        state.images.push(image);
     }
 }
 

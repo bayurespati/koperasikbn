@@ -9,6 +9,7 @@ import jabatanKoperasi from './modules/jabatan_koperasi'
 import event from './modules/event'
 import artikel from './modules/artikel'
 import image from './modules/image'
+import video from './modules/video'
 import faq from './modules/faq'
 import laporan from './modules/laporan'
 import unit from './modules/unit'
@@ -20,6 +21,7 @@ export default new Vuex.Store({
     modules: {
         user,
         image,
+        video,
         tag,
         position,
         event,
