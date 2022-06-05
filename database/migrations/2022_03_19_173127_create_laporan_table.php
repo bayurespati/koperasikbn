@@ -15,12 +15,13 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('title_indo');
-            $table->text('description');
-            $table->text('description_indo');
-            $table->text('file_name');
-            $table->text('file_link');
+            $table->string('title')->nullable();
+            $table->string('title_indo')->nullable();
+            $table->text('description')->nullable();
+            $table->text('description_indo')->nullable();
+            $table->text('file_name')->nullable();
+            $table->text('file_link')->nullable();
+            $table->text('is_internal')->default(false);
             $table->timestamps();
         });
     }

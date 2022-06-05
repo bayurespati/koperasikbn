@@ -6,8 +6,7 @@
       </div>
       <transition name="fade-transition">
         <v-row v-if="status === 'not-update'">
-          <template v-for="(kalender, index) in kalenders">
-            <v-col cols="12" xs="12" md="4" :key="index">
+            <v-col cols="12" xs="12" md="4" v-for="(kalender, index) in kalenders" :key="index">
               <v-card class="mx-auto" max-width="400">
                 <v-img
                   class="white--text align-end"
@@ -27,7 +26,6 @@
                 </v-card-actions>
               </v-card>
             </v-col>
-          </template>
         </v-row>
         <v-row v-if="status === 'update'">
           <v-col col="12">

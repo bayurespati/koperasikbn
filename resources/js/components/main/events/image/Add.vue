@@ -150,7 +150,6 @@ export default {
             self.isRequest = false;
           })
           .catch((errors) => {
-            console.log("error");
             Object.keys(errors).forEach((field) => {
               errors[field].forEach((message) => {
                 flash(message, "danger", 5000);

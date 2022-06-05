@@ -24,8 +24,27 @@ const actions = {
         })
     },
 
+    getLaporansEksternal({ commit }) {
+        return new Promise((resolve, reject) => {
+            axios.get('/dashboard/laporans/eksternal').then(response => {
+                resolve(response)
+            }).catch(errors => {
+                reject(errors.response.data.errors)
+            })
+        })
+    },
+
+    getLaporansInternal({ commit }) {
+        return new Promise((resolve, reject) => {
+            axios.get('/dashboard/laporans/internal').then(response => {
+                resolve(response)
+            }).catch(errors => {
+                reject(errors.response.data.errors)
+            })
+        })
+    },
+
     storeLaporan({ commit }, data) {
-        console.log(data);
         return new Promise((resolve, reject) => {
             axios.post('/dashboard/laporans', data).then(response => {
                 resolve(response.data)

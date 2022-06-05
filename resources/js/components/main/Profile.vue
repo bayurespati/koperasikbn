@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-container fluid>
+    <!-- <v-container fluid>
       <v-card class="mx-auto" max-width="1000" tile>
         <v-img
           height="200"
@@ -35,7 +35,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-container>
+    </v-container> -->
     <v-container fluid>
       <transition name="fade-transition">
         <edit-profile
@@ -57,12 +57,13 @@ export default {
       isEdit: false,
     };
   },
+
   components: {
     EditProfile,
   },
 
   beforeMount() {
-    this.getUser();
+    this.showEdit();
   },
 
   computed: {
@@ -78,11 +79,11 @@ export default {
   },
 
   methods: {
-    getUser() {
-      this.$store
-        .dispatch("getUser")
-        .then((response) => {})
-        .catch((errors) => {});
+    showEdit() {
+      self = this;
+      setTimeout(() => {
+        self.isEdit = true;
+      }, 300);
     },
   },
 };

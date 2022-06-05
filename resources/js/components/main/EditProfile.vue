@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="mt-5">
     <v-card class="mx-auto" max-width="1000" tile>
       <v-card-title>
-        <span class="title">Edit Profile</span>
+        <span class="title">Profile</span>
       </v-card-title>
       <v-form v-model="valid">
         <v-container>
@@ -10,13 +10,16 @@
             <!--======================================================================================
                 SHOW IMAGE 
             ==========================================================================================-->
-            <v-col cols="12" v-if="model.image_url">
-              <v-img
-                :src="model.image_url"
-                max-height="200"
-                contain
-                aspect-ratio="1.7"
-              ></v-img>
+            <v-col cols="12" align="center" justify="center">
+              <v-avatar size="200">
+                <!-- <img :src="model.image_url" alt="" /> -->
+                <v-img
+                  :src="model.image_url"
+                  max-height="200"
+                  contain
+                  aspect-ratio="1.7"
+                ></v-img>
+              </v-avatar>
             </v-col>
 
             <!--======================================================================================
@@ -175,9 +178,6 @@
                 @click="save()"
                 >save</v-btn
               >
-              <v-btn rounded color="error" class="ml-3" @click="close()">
-                cancel
-              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -330,10 +330,10 @@ export default {
         self.$store
           .dispatch("editUser", data)
           .then((response) => {
-            self.clearForm();
+            // self.clearForm();
             flash(response.message);
             self.isRequest = false;
-            self.close();
+            // self.close();
           })
           .catch((errors) => {
             Object.keys(errors).forEach((field) => {

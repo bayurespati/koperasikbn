@@ -3,9 +3,13 @@
     <nav>
       <v-navigation-drawer v-model="drawer" class="green lighten-1" app dark>
         <v-layout column align-center class="mt-5">
-          <v-avatar size="100">
+          <v-avatar size="100" v-if="user.image_link">
             <img
-              src="https://i.picsum.photos/id/973/100/100.jpg?hmac=Zzk3J0lurzXybkl4EDgHeOL3r9KfffDDHAwmUtaM3os"
+              :src="
+                user.image_link == null
+                  ? 'image_static/avatar.jpg'
+                  : user.image_link
+              "
               alt=""
             />
           </v-avatar>
@@ -91,16 +95,16 @@ export default {
     menus: [],
     superAdmin: [
       {
-        icon: "mdi-18px mdi-home",
-        text: "Homepage",
-        link: "/homepage",
-        permission: [1, 2],
-      },
-      {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
         permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-bank",
@@ -149,10 +153,26 @@ export default {
         permission: [1, 2],
       },
       {
-        icon: "mdi-18px mdi-file-chart",
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
         text: "Laporan",
-        link: "/laporan",
+        model: false,
         permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Internal",
+            link: "/laporan-internal",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Eksternal",
+            link: "/laporan-eksternal",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-webpack",
@@ -203,16 +223,16 @@ export default {
     ],
     admin: [
       {
-        icon: "mdi-18px mdi-home",
-        text: "Homepage",
-        link: "/homepage",
-        permission: [1, 2],
-      },
-      {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
         permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
       },
       {
         icon: "mdi-chevron-up",
@@ -255,10 +275,26 @@ export default {
         permission: [1, 2],
       },
       {
-        icon: "mdi-18px mdi-file-chart",
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
         text: "Laporan",
-        link: "/laporan",
+        model: false,
         permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Internal",
+            link: "/laporan-internal",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Eksternal",
+            link: "/laporan-eksternal",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-webpack",

@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             JabatanKoperasiSeeder::class,
             KalenderSeeder::class,
             BannerSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            LaporanInernalSeeder::class
         ]);
     }
 }

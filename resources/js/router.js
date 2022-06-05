@@ -12,7 +12,8 @@ import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
 import Users from './components/main/users/Index.vue'
 import Tags from './components/main/masterdata/tags/Index.vue'
-import Laporan from './components/main/laporan/Index.vue'
+import LaporanInternal from './components/main/laporan/internal/Index.vue'
+import LaporanEksternal from './components/main/laporan/eksternal/Index.vue'
 import Kalender from './components/main/kalender/Index.vue'
 import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
@@ -60,8 +61,12 @@ const router = new Router({
             component: Kalender
         },
         {
-            path: '/laporan',
-            component: Laporan
+            path: '/laporan-internal',
+            component: LaporanInternal
+        },
+        {
+            path: '/laporan-eksternal',
+            component: LaporanEksternal
         },
         {
             path: '/pinjaman',

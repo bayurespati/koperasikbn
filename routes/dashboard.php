@@ -20,6 +20,9 @@ Route::get('users/roles', 'UserController@roles')->name('users.roles');
 Route::get('user', 'UserController@user')->name('users.user');
 Route::patch('user/profile', 'UserController@updateProfile');
 
+Route::get('/laporans/internal', 'LaporanController@getInternal');
+Route::get('/laporans/eksternal', 'LaporanController@getEksternal');
+
 /*
 |--------------------------------------------------------------------------
 | Route For Dahsboard

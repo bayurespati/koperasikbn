@@ -26,7 +26,24 @@ class laporanController extends Controller
         return Laporan::all();
     }
 
+    /** 
+     * Data of a user
+     * 
+     */
+    public function getInternal()
+    {
+        return Laporan::where('is_internal', true)->get();
+    }
 
+
+    /** 
+     * Data of a user
+     * 
+     */
+    public function getEksternal()
+    {
+        return Laporan::where('is_internal', false)->get();
+    }
     /** 
      * Store a newly created resource in storage. 
      * 
