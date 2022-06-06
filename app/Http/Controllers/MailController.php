@@ -16,7 +16,7 @@ class MailController extends Controller
 
             Mail::send(['text' => 'mail'], $data, function ($message) {
                 $message->to('senyummarli@gmail.com', 'Tutorials Point')->subject('Laravel Basic Testing Mail');
-                $message->from('dimaswpratama.dev@gmail.com', 'Virat Gandhi');
+                $message->from('dimaswpratama.dev@gmail.com', 'Bayu Respati');
             });
             return response()->json('Success send email', 200);
         } catch (Exception $e) {

@@ -34,6 +34,7 @@
 <body>
     @yield('content')
     <script src="{{ asset('js/login.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>
