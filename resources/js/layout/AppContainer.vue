@@ -3,9 +3,13 @@
     <nav>
       <v-navigation-drawer v-model="drawer" class="green lighten-1" app dark>
         <v-layout column align-center class="mt-5">
-          <v-avatar size="100">
+          <v-avatar size="100" v-if="user.image_link">
             <img
-              src="https://i.picsum.photos/id/973/100/100.jpg?hmac=Zzk3J0lurzXybkl4EDgHeOL3r9KfffDDHAwmUtaM3os"
+              :src="
+                user.image_link == null
+                  ? 'image_static/avatar.jpg'
+                  : user.image_link
+              "
               alt=""
             />
           </v-avatar>
@@ -13,6 +17,7 @@
             {{ user == null ? "" : user.nama | inisial }}
           </p>
         </v-layout>
+
         <v-list dense rounded>
           <template v-for="(item, index) in menus">
             <v-list-group
@@ -78,6 +83,7 @@
 import MemberMenu from "./MemberMenu.vue";
 import AdminMenu from "./AdminMenu.vue";
 import SuperAdminMenu from "./SuperAdminMenu.vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
     MemberMenu,
@@ -86,38 +92,99 @@ export default {
   },
   data: () => ({
     drawer: null,
-    user: null,
-    menus: null,
-    menuSuperAdmins: [
+    menus: [],
+    superAdmin: [
       {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpanan",
         link: "/simpanan",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-pocket",
         text: "Pinjaman",
         link: "/pinjaman",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-human-male",
         text: "Manage User",
         link: "/users",
+        permission: [1],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Media",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Foto",
+            link: "/foto",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Video",
+            link: "/video",
+            permission: [1, 2],
+          },
+        ],
+      },
+      {
+        icon: "mdi-18px mdi-calendar-text",
+        text: "Kalender",
+        link: "/kalender",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Laporan",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Internal",
+            link: "/laporan-internal",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Eksternal",
+            link: "/laporan-eksternal",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-webpack",
-        text: "Event",
-        link: "/event",
+        text: "FAQ",
+        link: "/faq",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-newspaper",
-        text: "News",
-        link: "/news",
+        text: "Artikel",
+        link: "/artikel",
+        permission: [1, 2],
       },
       {
         icon: "mdi-chevron-up",
@@ -125,65 +192,121 @@ export default {
         parent_icon: "mdi-server-security",
         text: "Master Data",
         model: false,
+        permission: [1, 2],
         children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Tag",
-            link: "/tags",
-          },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Kbn",
             link: "/jabatan-kbn",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
             link: "/jabatan-koperasi",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Unit",
             link: "/unit",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
             link: "/divisi",
+            permission: [1, 2],
           },
         ],
       },
     ],
-    menuAdmins: [
+    admin: [
       {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-home",
+        text: "Homepage",
+        link: "/homepage",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Media",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Foto",
+            link: "/foto",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Video",
+            link: "/video",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpanan",
         link: "/simpanan",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-pocket",
         text: "Pinjaman",
         link: "/pinjaman",
+        permission: [1, 2, 3],
+      },
+      {
+        icon: "mdi-18px mdi-calendar-text",
+        text: "Kalender",
+        link: "/kalender",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-file-video",
+        text: "Laporan",
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Internal",
+            link: "/laporan-internal",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Eksternal",
+            link: "/laporan-eksternal",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-webpack",
-        text: "Event",
-        link: "/event",
+        text: "FAQ",
+        link: "/faq",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-newspaper",
-        text: "News",
-        link: "/news",
-      },
-      {
-        icon: "mdi-18px mdi-database",
-        text: "Master Data",
-        link: "/master-data",
+        text: "Artikel",
+        link: "/artikel",
+        permission: [1, 2],
       },
       {
         icon: "mdi-chevron-up",
@@ -191,76 +314,89 @@ export default {
         parent_icon: "mdi-server-security",
         text: "Master Data",
         model: false,
+        permission: [1, 2],
         children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Tag",
-            link: "/tags",
-          },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Kbn",
             link: "/jabatan-kbn",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Jabatan Koperasi",
             link: "/jabatan-koperasi",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Unit",
             link: "/unit",
+            permission: [1, 2],
           },
           {
             icon: "mdi-18px mdi-home",
             text: "Divisi",
             link: "/divisi",
+            permission: [1, 2],
           },
         ],
       },
     ],
-    menuMember: [
+    member: [
       {
         icon: "mdi-18px mdi-face-profile",
         text: "Profile",
         link: "/profile",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpanan",
         link: "/simpanan",
+        permission: [1, 2, 3],
       },
       {
         icon: "mdi-18px mdi-pocket",
         text: "Pinjaman",
         link: "/pinjaman",
+        permission: [1, 2, 3],
       },
     ],
   }),
+
   beforeMount() {
     this.getUser();
   },
+
   filters: {
     inisial: function (data) {
-      return "Halo " + data.split(" ")[0];
+      if (data != undefined) return "Halo, " + data.split(" ")[0];
     },
   },
+
+  computed: {
+    ...mapGetters({
+      user: "user",
+    }),
+  },
+
   methods: {
     getUser() {
-      let self = this;
-
       this.$store
         .dispatch("getUser")
         .then((response) => {
-          self.user = response.data.data;
-          if (self.user.role_id == 1) self.menus = self.menuSuperAdmins;
-          if (self.user.role_id == 2) self.menus = self.menuAdmins;
-          if (self.user.role_id == 3) self.menus = self.menuMember;
+          const role_id = response.data.data.role_id;
+          if (role_id == 1) this.menus = this.superAdmin;
+          if (role_id == 2) this.menus = this.admin;
+          if (role_id == 3) this.menus = this.member;
         })
-        .catch((errors) => {
-          console.log("test");
-        });
+        .catch((errors) => {});
+    },
+
+    isHasPermision(item) {
+      if (this.user.role_id != undefined)
+        return item.permission.includes(this.user.role_id);
     },
 
     logout() {

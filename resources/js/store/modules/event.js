@@ -2,26 +2,19 @@ import axios from 'axios'
 
 const state = {
     events: [],
-    images: []
 }
 
 const getters = {
     events(state) {
         return state.events
     },
-
-    images(state) {
-        return state.images
-    }
 }
 
 const mutations = {
     set_event_images: (state, images) => {
-        state.images = images;
     },
 
     add_event_image(state, image) {
-        state.images.push(image);
     }
 }
 

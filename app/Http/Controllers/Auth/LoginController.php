@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -45,6 +46,11 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return '/dashboard#/profile';
+        $user_id = Auth()->user()->role_id;
+
+        // if ($user_id == 1 || $user_id == 2)
+        //     return '/dashboard#/profile';
+        // if ($user_id == 3)
+        //     return '';
     }
 }

@@ -131,15 +131,12 @@ export default {
   data() {
     return {
       model: {
-        description:
-          this.event.description == undefined ? "" : this.event.description,
-        tags: this.event.tags == undefined ? "" : this.event.tags,
-        image_name:
-          this.event.image_name == undefined ? "" : this.event.image_name,
-        image_url:
-          this.event.image_link == undefined ? "" : this.event.image_link,
-        content: this.event.content == undefined ? "" : this.event.content,
-        title: this.event.title == undefined ? "" : this.event.title,
+        description: this.event.description ?? "",
+        tags: this.event.tags ?? "",
+        image_name: this.event.image_name ?? "",
+        image_url: this.event.image_link ?? "",
+        content: this.event.content ?? "",
+        title: this.event.title ?? "",
         image_file: null,
       },
 

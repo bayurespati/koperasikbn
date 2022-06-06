@@ -84,6 +84,55 @@
             </v-col>
 
             <!--======================================================================================
+                TANGGAL MASUK 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-menu
+                ref="menu"
+                :close-on-content-click="false"
+                :return-value.sync="model.tanggal_masuk"
+                transition="scale-transition"
+                offset-y
+                min-width="auto"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="model.tanggal_masuk"
+                    label="Tanggal Masuk"
+                    readonly
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-text-field>
+                </template>
+                <v-date-picker
+                  v-model="model.tanggal_masuk"
+                  no-title
+                  scrollable
+                >
+                  <v-spacer></v-spacer>
+                  <v-btn text color="primary" @click="menu = false">
+                    Cancel
+                  </v-btn>
+                  <v-btn
+                    text
+                    color="primary"
+                    @click="$refs.menu.save(model.tanggal_masuk)"
+                  >
+                    OK
+                  </v-btn>
+                </v-date-picker>
+              </v-menu>
+            </v-col>
+
+            <!--======================================================================================
+                NO ANGGOTA 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field v-model="model.no_anggota" label="No anggota">
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
                 ROLE 
             ==========================================================================================-->
             <v-col cols="4" xs="12" md="4">
@@ -190,20 +239,19 @@ export default {
   data() {
     return {
       model: {
-        image_name:
-          this.user.image_name == undefined ? "" : this.user.image_name,
         image_file: null,
-        image_url:
-          this.user.image_link == undefined ? "" : this.user.image_link,
-        nama: this.user.nama == undefined ? "" : this.user.nama,
-        nip: this.user.nip == undefined ? "" : this.user.nip,
-        email: this.user.email == undefined ? "" : this.user.email,
-        phone: this.user.phone == undefined ? "" : this.user.phone,
-        role: this.user.role_id == undefined ? "" : this.user.role_id,
-        unit: this.user.divisi == undefined ? "" : this.user.divisi.unit.id,
-        divisi: this.user.divisi_id == undefined ? "" : this.user.divisi_id,
-        jabatan_kbn:
-          this.user.jabatan_kbn_id == undefined ? "" : this.user.jabatan_kbn_id,
+        image_name: this.user.image_name ?? "",
+        image_url: this.user.image_link ?? "",
+        nama: this.user.nama ?? "",
+        nip: this.user.nip ?? "",
+        email: this.user.email ?? "",
+        phone: this.user.phone ?? "",
+        no_anggota: this.user.no_anggota ?? "",
+        tanggal_masuk: this.user.tanggal_masuk ?? "",
+        role: this.user.role_id ?? "",
+        unit: this.user.divisi.unit.id ?? "",
+        divisi: this.user.divisi_id ?? "",
+        jabatan_kbn: this.user.jabatan_kbn_id ?? "",
       },
       roles: [],
       divisis: [],
@@ -333,6 +381,8 @@ export default {
           nama: self.model.nama,
           email: self.model.email,
           phone: self.model.phone,
+          no_anggota: self.model.no_anggota,
+          tanggal_masuk: self.model.tanggal_masuk,
           role_id: self.model.role,
           nip: self.model.nip,
           divisi_id: self.model.divisi,

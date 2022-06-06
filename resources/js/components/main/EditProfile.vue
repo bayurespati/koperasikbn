@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="mt-5">
     <v-card class="mx-auto" max-width="1000" tile>
       <v-card-title>
-        <span class="title">Edit Profile</span>
+        <span class="title">Profile</span>
       </v-card-title>
       <v-form v-model="valid">
         <v-container>
@@ -10,13 +10,16 @@
             <!--======================================================================================
                 SHOW IMAGE 
             ==========================================================================================-->
-            <v-col cols="12" v-if="model.image_url">
-              <v-img
-                :src="model.image_url"
-                max-height="200"
-                contain
-                aspect-ratio="1.7"
-              ></v-img>
+            <v-col cols="12" align="center" justify="center">
+              <v-avatar size="200">
+                <!-- <img :src="model.image_url" alt="" /> -->
+                <v-img
+                  :src="model.image_url"
+                  max-height="200"
+                  contain
+                  aspect-ratio="1.7"
+                ></v-img>
+              </v-avatar>
             </v-col>
 
             <!--======================================================================================
@@ -63,7 +66,7 @@
                 :error-messages="nipError"
                 v-model="model.nip"
                 label="NIP"
-                required
+                disabled
               >
               </v-text-field>
             </v-col>
@@ -72,7 +75,7 @@
                 EMAIL 
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="4">
-              <v-text-field v-model="model.email" label="Email" required>
+              <v-text-field v-model="model.email" label="Email" disabled>
               </v-text-field>
             </v-col>
 
@@ -99,6 +102,7 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
             </v-col>
 
@@ -118,6 +122,7 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
             </v-col>
 
@@ -134,7 +139,32 @@
                 persistent-hint
                 required
                 small-chips
+                disabled
               ></v-select>
+            </v-col>
+
+            <!--======================================================================================
+                NO ANGGOTA  
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                v-model="model.no_anggota"
+                label="No Anggota"
+                disabled
+              >
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
+                TANGGAL MASUK  
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field
+                v-model="model.tanggal_masuk"
+                label="Tanggal Masuk"
+                disabled
+              >
+              </v-text-field>
             </v-col>
 
             <!--======================================================================================
@@ -148,9 +178,6 @@
                 @click="save()"
                 >save</v-btn
               >
-              <v-btn rounded color="error" class="ml-3" @click="close()">
-                cancel
-              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -171,19 +198,18 @@ export default {
   data() {
     return {
       model: {
-        image_name:
-          this.user.image_name == undefined ? "" : this.user.image_name,
         image_file: null,
-        image_url:
-          this.user.image_link == undefined ? "" : this.user.image_link,
-        nama: this.user.nama == undefined ? "" : this.user.nama,
-        nip: this.user.nip == undefined ? "" : this.user.nip,
-        email: this.user.email == undefined ? "" : this.user.email,
-        phone: this.user.phone == undefined ? "" : this.user.phone,
-        unit: this.user.divisi == undefined ? "" : this.user.divisi.unit.id,
-        divisi: this.user.divisi_id == undefined ? "" : this.user.divisi_id,
-        jabatan_kbn:
-          this.user.jabatan_kbn_id == undefined ? "" : this.user.jabatan_kbn_id,
+        image_name: this.user.image_name ?? "",
+        image_url: this.user.image_link ?? "",
+        nama: this.user.nama ?? "",
+        no_anggota: this.user.no_anggota ?? "",
+        tanggal_masuk: this.user.tanggal_masuk ?? "",
+        nip: this.user.nip ?? "",
+        email: this.user.email ?? "",
+        phone: this.user.phone ?? "",
+        unit: this.user.divisi.unit.id ?? "",
+        divisi: this.user.divisi_id ?? "",
+        jabatan_kbn: this.user.jabatan_kbn_id ?? "",
       },
       divisis: [],
       units: [],
@@ -304,10 +330,10 @@ export default {
         self.$store
           .dispatch("editUser", data)
           .then((response) => {
-            self.clearForm();
+            // self.clearForm();
             flash(response.message);
             self.isRequest = false;
-            self.close();
+            // self.close();
           })
           .catch((errors) => {
             Object.keys(errors).forEach((field) => {

@@ -66,8 +66,8 @@ export default {
   data() {
     return {
       model: {
-        nama: this.unit.nama == undefined ? "" : this.unit.nama,
-        kode: this.unit.kode == undefined ? "" : this.unit.kode,
+        nama: this.unit.nama ?? "",
+        kode: this.unit.kode ?? "",
       },
       divisis: [],
       valid: false,

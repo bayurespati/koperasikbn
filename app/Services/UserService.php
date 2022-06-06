@@ -14,6 +14,8 @@ class UserService
                 'nip',
                 'email',
                 'phone',
+                'tanggal_masuk',
+                'no_anggota',
                 'divisi_id',
                 'role_id',
                 'jabatan_kbn_id',
@@ -33,7 +35,7 @@ class UserService
     public function update($request, $model)
     {
         try {
-            if ($model->image_name != $request->image_name) {
+            if ($model->image_link != $request->image_file) {
                 removeImage($model);
                 $model->image_link = saveImage($request);
                 $model->image_name = $request->image_name;
@@ -43,6 +45,8 @@ class UserService
             $model->nip = $request->nip;
             $model->email = $request->email;
             $model->phone = $request->phone;
+            $model->tanggal_masuk = $request->tanggal_masuk;
+            $model->no_anggota = $request->no_anggota;
             $model->divisi_id = $request->divisi_id;
             $model->role_id = $request->role_id;
             $model->jabatan_kbn_id = $request->jabatan_kbn_id;

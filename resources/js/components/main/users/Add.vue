@@ -84,6 +84,55 @@
             </v-col>
 
             <!--======================================================================================
+                TANGGAL MASUK 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-menu
+                ref="menu"
+                :close-on-content-click="false"
+                :return-value.sync="model.tanggal_masuk"
+                transition="scale-transition"
+                offset-y
+                min-width="auto"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="model.tanggal_masuk"
+                    label="Tanggal Masuk"
+                    readonly
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-text-field>
+                </template>
+                <v-date-picker
+                  v-model="model.tanggal_masuk"
+                  no-title
+                  scrollable
+                >
+                  <v-spacer></v-spacer>
+                  <v-btn text color="primary" @click="menu = false">
+                    Cancel
+                  </v-btn>
+                  <v-btn
+                    text
+                    color="primary"
+                    @click="$refs.menu.save(model.tanggal_masuk)"
+                  >
+                    OK
+                  </v-btn>
+                </v-date-picker>
+              </v-menu>
+            </v-col>
+
+            <!--======================================================================================
+                NO ANGGOTA 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="4">
+              <v-text-field v-model="model.no_anggota" label="No anggota">
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
                 ROLE 
             ==========================================================================================-->
             <v-col cols="4" xs="12" md="4">
@@ -196,6 +245,8 @@ export default {
         nip: "",
         email: "",
         phone: "",
+        tanggal_masuk: "",
+        no_anggota: "",
         role: "",
         unit: "",
         divisi: "",
@@ -328,6 +379,8 @@ export default {
           nama: self.model.nama,
           email: self.model.email,
           phone: self.model.phone,
+          tanggal_masuk: self.model.tanggal_masuk,
+          no_anggota: self.model.no_anggota,
           role_id: self.model.role,
           nip: self.model.nip,
           divisi_id: self.model.divisi,

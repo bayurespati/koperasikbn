@@ -13,7 +13,7 @@
                     <input id="nip" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus placeholder="NIP" />
                 </div>
                 <div class="input-error">
-                    @error('email')
+                    @error('nip')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -30,6 +30,9 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+                    <a href="{{route('password.request')}}" class="float-right">
+                        Forget Password
+                    </a>
                 </div>
 
                 <button type="submit" class="btn btn-primary">

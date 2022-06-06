@@ -20,6 +20,9 @@ Route::get('users/roles', 'UserController@roles')->name('users.roles');
 Route::get('user', 'UserController@user')->name('users.user');
 Route::patch('user/profile', 'UserController@updateProfile');
 
+Route::get('/laporans/internal', 'LaporanController@getInternal');
+Route::get('/laporans/eksternal', 'LaporanController@getEksternal');
+
 /*
 |--------------------------------------------------------------------------
 | Route For Dahsboard
@@ -40,6 +43,14 @@ Route::resource('tags', 'TagController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('images', 'ImageController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('videos', 'VideoController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('positions', 'PositionController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
@@ -54,6 +65,26 @@ Route::resource('jabatan-koperasi', 'JabatanKoperasiController', [
 
 Route::resource('events', 'EventController', [
     'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('banners', 'BannerController', [
+    'only' => ['index', 'update'],
+]);
+
+Route::resource('artikels', 'ArtikelController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('faqs', 'FaqController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('laporans', 'LaporanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('kalenders', 'KalenderController', [
+    'only' => ['index', 'update']
 ]);
 
 Route::resource('divisis', 'DivisiController', [

@@ -85,10 +85,9 @@ export default {
   data() {
     return {
       model: {
-        nama: this.divisi.nama == undefined ? "" : this.divisi.nama,
-        kode: this.divisi.kode == undefined ? "" : this.divisi.kode,
-        unit:
-          this.divisi.unit_id == undefined ? "" : parseInt(this.divisi.unit_id),
+        nama: this.divisi.nama ?? "",
+        kode: this.divisi.kode ?? "",
+        unit: this.divisi.unit_id ?? "",
       },
       units: [],
       valid: false,

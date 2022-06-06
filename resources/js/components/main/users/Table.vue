@@ -186,7 +186,7 @@ export default {
 
     deleteCurrentUser() {
       let self = this;
-      let index = _.findIndex(self.user, function (user) {
+      let index = _.findIndex(self.users, function (user) {
         return user.id === self.user.id;
       });
 
