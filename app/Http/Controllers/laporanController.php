@@ -17,18 +17,18 @@ class laporanController extends Controller
     }
 
 
-    /** 
+    /**
      * Data of a user
-     * 
+     *
      */
     public function index()
     {
         return Laporan::all();
     }
 
-    /** 
+    /**
      * Data of a user
-     * 
+     *
      */
     public function getInternal()
     {
@@ -36,17 +36,17 @@ class laporanController extends Controller
     }
 
 
-    /** 
+    /**
      * Data of a user
-     * 
+     *
      */
     public function getEksternal()
     {
         return Laporan::where('is_internal', false)->get();
     }
-    /** 
-     * Store a newly created resource in storage. 
-     * 
+    /**
+     * Store a newly created resource in storage.
+     *
      */
     public function store(LaporanRequest $request)
     {
@@ -61,9 +61,9 @@ class laporanController extends Controller
     }
 
 
-    /** 
-     * Update the specified resource in storage. 
-     * 
+    /**
+     * Update the specified resource in storage.
+     *
      */
     public function update(LaporanRequest $request, Laporan $laporan)
     {
@@ -78,9 +78,9 @@ class laporanController extends Controller
     }
 
 
-    /** 
-     * Remove the specified resource from storage. 
-     * 
+    /**
+     * Remove the specified resource from storage.
+     *
      */
     public function destroy(Laporan $laporan)
     {

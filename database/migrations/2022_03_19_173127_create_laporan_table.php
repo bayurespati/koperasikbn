@@ -21,7 +21,7 @@ class CreateLaporanTable extends Migration
             $table->text('description_indo')->nullable();
             $table->text('file_name')->nullable();
             $table->text('file_link')->nullable();
-            $table->text('is_internal')->default(false);
+            $table->text('is_internal')->nullable();
             $table->timestamps();
         });
     }
