@@ -6,7 +6,7 @@
         <div class="signin-signup">
 
             <form class="sign-in-form" method="POST" action="{{ route('password.update') }}">
-                <h4 class="card-title">Reset Password</h4>
+                <h2 class="card-title">Atur Ulang Kata Sandi</h2>
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
 
@@ -24,7 +24,7 @@
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" />
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Kata Sandi" />
                 </div>
                 <div class="input-error">
                     @error('password')
@@ -36,7 +36,7 @@
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autofocus placeholder="Confirm Password" />
+                    <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autofocus placeholder="Konfirmasi Ulang" />
                 </div>
                 <div class="input-error">
                     @error('passowrd_confirmation')
@@ -47,7 +47,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    Reset Password
+                    Atur Ulang
                 </button>
             </form>
         </div>

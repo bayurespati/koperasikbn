@@ -6,7 +6,7 @@
         <div class="signin-signup">
             <form class="sign-in-form" method="POST" action="{{ route('password.email') }}">
                 @csrf
-                <h2 class="title">Forget Passowrd</h2>
+                <h2 class="title">Lupa Kata Sandi</h2>
 
                 @if (session('status'))
                 <div class="alert alert-ssuccess">
@@ -24,16 +24,19 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+
+                    <a style="color: #0077b6" href="{{route('login')}}" class="float-right">
+                        < Kembali </a>
                 </div>
 
                 <div>
                     <button type="submit" class="btn btn-primary">
-                        Send Link
+                        Kirim Tautan
                     </button>
 
-                    <button class="btn btn-primary" onclick="backLogin()">
+                    <!-- <button class="btn btn-primary" onclick="backLogin()">
                         Login
-                    </button>
+                    </button> -->
                 </div>
             </form>
         </div>

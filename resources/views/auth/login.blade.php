@@ -7,7 +7,7 @@
         <div class="signin-signup">
             <form class="sign-in-form" method="POST" action="{{ route('login') }}">
                 @csrf
-                <h2 class="title">Sign in</h2>
+                <h2 class="title">Halaman Masuk</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
                     <input id="nip" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus placeholder="NIP" />
@@ -22,7 +22,7 @@
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" />
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Kata Sandi" />
                 </div>
                 <div class="input-error">
                     @error('password')
@@ -30,13 +30,13 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <a href="{{route('password.request')}}" class="float-right">
-                        Forget Password
+                    <a style="color: #0077b6" href="{{route('password.request')}}" class="float-right">
+                        * Lupa Kata Sandi?
                     </a>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Login') }}
+                    Masuk
                 </button>
             </form>
         </div>
