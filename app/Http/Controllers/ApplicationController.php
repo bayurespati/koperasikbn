@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Laporan;
 
 class ApplicationController extends Controller
 {
@@ -16,111 +17,145 @@ class ApplicationController extends Controller
         return view('index');
     }
 
-    public function historyPage() {
+    public function historyPage()
+    {
         return view('profile.history');
     }
 
-    public function aboutUsPage() {
+    public function aboutUsPage()
+    {
         return view('profile.about-us');
     }
 
-    public function ourBusinessPage() {
+    public function ourBusinessPage()
+    {
         return view('profile.our-business');
     }
 
-    public function managementPage() {
+    public function managementPage()
+    {
         return view('profile.our-team');
     }
 
-    public function reportPage() {
-        return view('profile.report');
+    public function reportInternalPage()
+    {
+        $data = Laporan::where('is_internal', true)->get();
+        return view('profile.report-internal', ['data' => $data]);
     }
 
-    public function savingAndLoanPage() {
+    public function reportExternalPage()
+    {
+        $data = Laporan::where('is_internal', false)->get();
+        return view('profile.report-external', ['data' => $data]);
+    }
+
+    public function savingAndLoanPage()
+    {
         return view('product.saving-loan');
     }
 
-    public function minimartPage() {
+    public function minimartPage()
+    {
         return view('product.minimart');
     }
 
-    public function stationaryPage() {
+    public function stationaryPage()
+    {
         return view('product.stationary');
     }
 
-    public function cleaningServicePage() {
+    public function cleaningServicePage()
+    {
         return view('product.cleaning-service');
     }
 
-    public function gardeningPage() {
+    public function gardeningPage()
+    {
         return view('product.gardening');
     }
 
-    public function driverPage() {
+    public function driverPage()
+    {
         return view('product.driver');
     }
 
-    public function administrationStaffPage() {
+    public function administrationStaffPage()
+    {
         return view('product.administration-staff');
     }
 
-    public function othersPage() {
+    public function othersPage()
+    {
         return view('product.others');
     }
 
-    public function vehicleRegistrationServicePage() {
+    public function vehicleRegistrationServicePage()
+    {
         return view('product.vehicle-registration-service');
     }
 
-    public function photocopyMachineRentalPage() {
+    public function photocopyMachineRentalPage()
+    {
         return view('product.photocopy-machine-rental');
     }
 
-    public function whistleblowerPage() {
+    public function whistleblowerPage()
+    {
         return view('member-forum.whistleblower');
     }
 
-    public function complaintPage() {
+    public function complaintPage()
+    {
         return view('member-forum.complaint');
     }
 
-    public function faqPage() {
+    public function faqPage()
+    {
         return view('member-forum.faq');
     }
 
-    public function customerRelationshipPage() {
+    public function customerRelationshipPage()
+    {
         return view('member-forum.customer-relationship');
     }
 
-    public function photoAndVideoPage() {
+    public function photoAndVideoPage()
+    {
         return view('media.photo-and-video');
     }
 
-    public function newsPage() {
+    public function newsPage()
+    {
         return view('media.news');
     }
 
-    public function announcementPage() {
+    public function announcementPage()
+    {
         return view('media.announcement');
     }
 
-    public function awardAndCertificatePage() {
+    public function awardAndCertificatePage()
+    {
         return view('media.award-and-certificate');
     }
 
-    public function calendarPage() {
+    public function calendarPage()
+    {
         return view('media.calendar');
     }
 
-    public function contactUsPage() {
+    public function contactUsPage()
+    {
         return view('contact-us');
     }
 
-    public function flaticonPage() {
+    public function flaticonPage()
+    {
         return view('flaticon');
     }
 
-    public function fontAwesomePage() {
+    public function fontAwesomePage()
+    {
         return view('fontawesome');
     }
 }

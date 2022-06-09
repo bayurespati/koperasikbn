@@ -13,7 +13,7 @@
                                 <li><a href="{{ route('about') }}">Visi Misi</a></li>
                                 <li><a href="{{ route('business') }}">Bisnis Koperasi</a></li>
                                 <li><a href="{{ route('management') }}">Manajemen</a></li>
-                                <li><a href="{{ route('report') }}">Laporan</a></li> -->
+                                <li><a href="{{ route('report-internal') }}">Laporan</a></li> -->
                                 <li><a href="javascript:void(0)">Sejarah Singkat</a></li>
                                 <li><a href="javascript:void(0)">Visi Misi</a></li>
                                 <li><a href="javascript:void(0)">Bisnis Koperasi</a></li>

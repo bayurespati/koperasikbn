@@ -21,7 +21,8 @@ Route::get('profile/history', 'ApplicationController@historyPage')->name('histor
 Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about');
 Route::get('profile/our-business', 'ApplicationController@ourBusinessPage')->name('business');
 Route::get('profile/our-team', 'ApplicationController@managementPage')->name('management');
-Route::get('profile/report', 'ApplicationController@reportPage')->name('report');
+Route::get('profile/report-internal', 'ApplicationController@reportInternalPage')->name('report-internal');
+Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
 
 Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
 Route::get('product/minimart', 'ApplicationController@minimartPage')->name('minimart');

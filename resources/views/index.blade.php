@@ -18,7 +18,6 @@
     <section class="slider slider-2" id="slider-2">
         <div class="container-fluid pe-0 ps-0">
             <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="true" data-space="0" data-loop="true" data-speed="800">
-                <!--  Start .slide-->
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
                     <div class="bg-section"><img src="assets/images/sliders/1.jpg" alt="Background" /></div>
                     <div class="container">
@@ -29,15 +28,10 @@
                                     <p class="slide-desc">Keuntungan dari pinjaman online adalah Anda dapat memperoleh informasi secara real-time pada saat akun Anda secara otomatis dikreditkan atau didebit.</p>
                                     <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
                                 </div>
-                                <!-- End .slide-content -->
                             </div>
                         </div>
-                        <!--  End .row-->
                     </div>
-                    <!-- End .container-->
                 </div>
-                <!-- End .slide-->
-                <!--  Start .slide-->
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
                     <div class="bg-section"><img src="assets/images/sliders/3.jpg" alt="Background" /></div>
                     <div class="container">
@@ -48,15 +42,10 @@
                                     <p class="slide-desc">Lihat beberapa hal yang dapat Anda lakukan dengan aplikasi mobile banking kami.</p>
                                     <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
                                 </div>
-                                <!-- End .slide-content -->
                             </div>
                         </div>
-                        <!--  End .row-->
                     </div>
-                    <!-- End .container-->
                 </div>
-                <!-- End .slide-->
-                <!--  Start .slide-->
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
                     <div class="bg-section"><img src="assets/images/sliders/4.jpg" alt="Background" /></div>
                     <div class="container">
@@ -67,18 +56,12 @@
                                     <p class="slide-desc">Periksa lebih banyak informasi & cerita tentang bank kami di posting terbaru.</p>
                                     <div class="slide-action"><a class="btn btn--primary" href="{{ route('news') }}"> <span>Berita</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Tentang Kami</a></div>
                                 </div>
-                                <!-- End .slide-content -->
                             </div>
                         </div>
-                        <!--  End .row-->
                     </div>
-                    <!-- End .container-->
                 </div>
-                <!-- End .slide-->
             </div>
-            <!-- End .slider-carousel-->
         </div>
-        <!--  End .container-fluid-->
     </section>
     <!--
       ============================
@@ -580,7 +563,7 @@
       Contact #2 Section
       ============================
       -->
-    <section class="contact contact-2" id="contact-2">
+    <!-- <section class="contact contact-2" id="contact-2">
         <div class="contact-overlay bg-overlay bg-overlay-theme5">
             <div class="bg-section"><img src="assets/images/background/4.jpg" alt="background" /></div>
         </div>
@@ -669,13 +652,10 @@
                             </div>
                         </form>
                     </div>
-                    <!-- End .contact-body -->
                 </div>
             </div>
-            <!-- End .contact-panel-->
         </div>
-        <!-- End .container-->
-    </section>
+    </section> -->
     <!--
       ============================
       Blog #2 Section

@@ -60,16 +60,11 @@
 
                 <li class="{{ request()->is('profile/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Profil Koperasi</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('profile/history') || request()->is('profile/history/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('history') }}"><span>Sejarah Singkat</span></a></li>
+                        <li class="{{ request()->is('profile/history') || request()->is('profile/history/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('history') }}"><span>Sejarah Singkat</span></a></li>
                         <li class="{{ request()->is('profile/about-us') || request()->is('profile/about-us/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('about') }}"><span>Visi Misi</span></a></li>
                         <li class="{{ request()->is('profile/our-business') || request()->is('profile/our-business/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('business') }}"><span>Bisnis Koperasi</span></a></li>
                         <li class="{{ request()->is('profile/our-team') || request()->is('profile/our-team/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('management') }}"><span>Manajemen</span></a></li>
-                        <li class="{{ request()->is('profile/report') || request()->is('profile/report/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('report') }}"><span>Laporan</span></a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Sejarah Singkat</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Visi Misi</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Bisnis Koperasi</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Manajemen</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Laporan</span></a></li>
+                        <li class="{{ request()->is('profile/report-internal') || request()->is('profile/report-external') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('report-internal') }}"><span>Laporan</span></a></li>
                     </ul>
                 </li>
 
@@ -87,21 +82,17 @@
                         <li class="{{ request()->is('product/photocopy-machine-rental') || request()->is('product/photocopy-machine-rental/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('photocopy-machine-rental') }}"><span>Penyewaan Mesin Fotokopi</span></a></li> -->
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Simpanan</span></a></li>
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Pinjaman</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Bisnis</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Komersial</span></a></li>
+                        <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Bisnis & Komersial</span></a></li>
+                        <!-- <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Komersial</span></a></li> -->
                     </ul>
                 </li>
 
                 <li class="{{ request()->is('member-forum/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Suara Anggota</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('member-forum/whistleblower') || request()->is('member-forum/whistleblower/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('whistleblower') }}"><span>Whistleblower</span></a></li>
+                        <li class="{{ request()->is('member-forum/whistleblower') || request()->is('member-forum/whistleblower/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('whistleblower') }}"><span>Whistleblower</span></a></li>
                         <li class="{{ request()->is('member-forum/complaint') || request()->is('member-forum/complaint/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('complaint') }}"><span>Pengaduan</span></a></li>
-                        <li class="{{ request()->is('member-forum/faq') || request()->is('member-forum/faq/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('faq') }}"><span>FAQ</span></a></li>
-                        <li class="{{ request()->is('member-forum/customer-relationship') || request()->is('member-forum/customer-relationship/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('customer-relationship') }}"><span>Customer Relationship</span></a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Whistleblower</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Pengaduan</span></a></li>
+                        <!-- <li class="{{ request()->is('member-forum/faq') || request()->is('member-forum/faq/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('faq') }}"><span>FAQ</span></a></li> -->
                         <li class="nav-item"><a href="javascript:void(0)"><span>FAQ</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Hubungan Pelanggan</span></a></li>
                     </ul>
                 </li>
 
