@@ -1,18 +1,27 @@
 import Vue from 'Vue'
 
 const state = {
-  user: {}
+  user: {},
+  users: [],
 };
 
 const getters = {
   user(state) {
     return state.user
   },
+
+  users(state) {
+    return state.users
+  }
 };
 
 const mutations = {
   set_user: (state, user) => {
     state.user = user;
+  },
+
+  set_users: (state, users) => {
+    state.users = users;
   },
 };
 
@@ -34,6 +43,17 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios.get('/dashboard/users').then(response => {
         resolve(response.data)
+      }).catch(errors => {
+        reject(errors.response.data.errors)
+      })
+    })
+  },
+
+  getAllUser({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios.get('/dashboard/all-user').then(response => {
+        resolve(response.data)
+        commit('set_users', response.data.data);
       }).catch(errors => {
         reject(errors.response.data.errors)
       })

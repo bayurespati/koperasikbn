@@ -48,7 +48,16 @@ export default {
     Add,
   },
 
+  beforeMount() {
+    this.getAllUser();
+  },
+
   methods: {
+    getAllUser() {
+      let self = this;
+      self.$store.dispatch("getAllUser").then((response) => {});
+    },
+
     changeStatus(value) {
       this.status = "";
       let self = this;

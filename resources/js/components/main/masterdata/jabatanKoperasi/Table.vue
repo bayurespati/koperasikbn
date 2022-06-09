@@ -103,6 +103,12 @@ export default {
           sortable: false,
           value: "nama",
         },
+        {
+          text: "User",
+          align: "left",
+          sortable: false,
+          value: "user.nama",
+        },
         { text: "Actions", value: "action", sortable: false },
       ],
     };
