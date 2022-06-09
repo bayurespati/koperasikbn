@@ -3,7 +3,7 @@
     <nav>
       <v-navigation-drawer v-model="drawer" class="green lighten-1" app dark>
         <v-layout column align-center class="mt-5">
-          <v-avatar size="100" v-if="user.image_link">
+          <v-avatar size="100">
             <img
               :src="
                 user.image_link == null

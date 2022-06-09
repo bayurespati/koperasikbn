@@ -12,9 +12,12 @@
             ==========================================================================================-->
             <v-col cols="12" align="center" justify="center">
               <v-avatar size="200">
-                <!-- <img :src="model.image_url" alt="" /> -->
                 <v-img
-                  :src="model.image_url"
+                  :src="
+                    model.image_url == ''
+                      ? 'image_static/avatar.jpg'
+                      : model.image_url
+                  "
                   max-height="200"
                   contain
                   aspect-ratio="1.7"
