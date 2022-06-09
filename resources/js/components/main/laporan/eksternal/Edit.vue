@@ -215,7 +215,6 @@ export default {
           file_name: self.model.file_name,
           id: self.laporan.id,
         };
-        console.log(data);
         self.isRequets = true;
         self.$store
           .dispatch("editLaporan", data)

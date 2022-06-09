@@ -51,6 +51,20 @@ class UserController extends Controller
         ], 200);
     }
 
+    /** 
+     * Data of a users
+     * 
+     */
+    public function users()
+    {
+        $data = User::all();
+
+        return response()->json([
+            'status'  => 'Success',
+            'message' => 'Users',
+            'data'    => $data
+        ], 200);
+    }
 
     /** 
      * Data of a roles 

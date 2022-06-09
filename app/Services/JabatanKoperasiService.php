@@ -9,7 +9,7 @@ class JabatanKoperasiService
     public function store($request)
     {
         try {
-            $paylod = $request->only('nama');
+            $paylod = $request->only('nama', 'user_id');
             $model = JabatanKoperasi::make($paylod);
             $model->save();
             return true;
@@ -22,6 +22,7 @@ class JabatanKoperasiService
     {
         try {
             $model->nama = $request->nama;
+            $model->user_id = $request->user_id;
             $model->update();
             return true;
         } catch (\Exception $e) {

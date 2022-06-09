@@ -10,7 +10,7 @@
             <!--======================================================================================
                 NAMA
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="12">
+            <v-col cols="12" xs="12" md="6">
               <v-text-field
                 @input="$v.model.nama.$touch()"
                 @blur="$v.model.nama.$touch()"
@@ -20,22 +20,39 @@
                 required
               >
               </v-text-field>
+            </v-col>
 
-              <!--======================================================================================
+            <!--======================================================================================
+                  USER 
+              ==========================================================================================-->
+            <v-col cols="12" xs="12" md="6">
+              <v-select
+                v-model="model.user"
+                :items="users"
+                label="Pejabat"
+                item-text="nama"
+                item-value="id"
+                persistent-hint
+                required
+                small-chips
+              ></v-select>
+            </v-col>
+
+            <!--======================================================================================
                BUTTON
               ==========================================================================================-->
-              <v-col cols="12 text-left">
-                <v-btn
-                  rounded
-                  color="success"
-                  :loading="isRequest"
-                  @click="save()"
-                  >save</v-btn
-                >
-                <v-btn rounded color="error" class="ml-3" @click="close()"
-                  >cancel</v-btn
-                >
-              </v-col>
+            <v-col cols="12 text-left">
+              <v-btn
+                rounded
+                color="success"
+                :loading="isRequest"
+                @click="save()"
+              >
+                save</v-btn
+              >
+              <v-btn rounded color="error" class="ml-3" @click="close()">
+                cancel
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -45,6 +62,7 @@
 </template>
 <script>
 import { required } from "vuelidate/lib/validators";
+import { mapGetters } from "vuex";
 
 export default {
   props: { jabatanKoperasi: {} },
@@ -52,6 +70,7 @@ export default {
     return {
       model: {
         nama: this.jabatanKoperasi.nama ?? "",
+        user: this.jabatanKoperasi.user_id ?? "",
       },
       valid: false,
       isRequest: false,
@@ -66,6 +85,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      users: "users",
+    }),
+
     isValid() {
       return this.namaError.length == 0;
     },
@@ -86,6 +109,7 @@ export default {
       if (!self.isRequest && self.isValid) {
         const data = {
           nama: self.model.nama,
+          user_id: self.model.user,
           id: self.jabatanKoperasi.id,
         };
         self.isRequets = true;
