@@ -48,8 +48,7 @@
                     <div class="col-12 col-lg-5">
                         <div class="title">
                             <h1 class="title-heading">Manajemen</h1>
-                            <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p>
-                            <div class="title-action"> <a class="btn btn--white" href="{{ route('award-certificate') }}"> <span>awards & milestones</span><i class="energia-arrow-right"></i></a></div>
+                            <!-- <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p> -->
                         </div>
                     </div>
                 </div>
@@ -76,13 +75,21 @@
     <section class="team team-1" id="team">
         <div class="container">
             <div class="row">
+                @foreach($data as $datum)
+                @if($datum->user !== null)
                 <div class=" col-12 col-md-6 col-lg-4">
                     <div class="member">
-                        <div class="member-img"><img src="/assets/images/team/1.jpg" alt="Member Mike Dooley" /></div>
+                        <div class="member-img">
+                            @if($datum->user->image_link !== null && $datum->user->image_link !== '')
+                            <img src="/{{ $datum->user->image_link }}" alt="{{ $datum->user->image_name }}" />
+                            @else
+                            <img src="/assets/images/no_file_icon.png" alt="No User Photo" style="padding: 120px;"/>
+                            @endif
+                        </div>
                         <!-- End .member-img-->
                         <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Mike Dooley</a>
-                                <h6>chief excutive</h6>
+                            <div class="member-info"><a href="javascript:void(0)">{{ $datum->user->nama }}</a>
+                                <h6>{{ $datum->nama }}</h6>
                             </div>
                             <!-- End .member-info-->
                             <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
@@ -92,104 +99,8 @@
                     </div>
                     <!-- End .member-->
                 </div>
-                <div class=" col-12 col-md-6 col-lg-4">
-                    <div class="member">
-                        <div class="member-img"><img src="/assets/images/team/2.jpg" alt="Member Michael Brian" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Michael Brian</a>
-                                <h6>managing director</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
-                <div class=" col-12 col-md-6 col-lg-4">
-                    <div class="member">
-                        <div class="member-img"><img src="/assets/images/team/3.jpg" alt="Member Chris Wensel" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Chris Wensel</a>
-                                <h6>vice president</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
-            </div>
-            <div class="row">
-                <div class=" col-12 col-md-6 col-lg-3">
-                    <div class="member member-2">
-                        <div class="member-img"><img src="/assets/images/team/4.jpg" alt="Member Richard Muldoone" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Richard Muldoone</a>
-                                <h6>legal officer</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
-                <div class=" col-12 col-md-6 col-lg-3">
-                    <div class="member member-2">
-                        <div class="member-img"><img src="/assets/images/team/5.jpg" alt="Member Maria Andaloro" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Maria Andaloro</a>
-                                <h6>HR officer</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
-                <div class=" col-12 col-md-6 col-lg-3">
-                    <div class="member member-2">
-                        <div class="member-img"><img src="/assets/images/team/6.jpg" alt="Member Marian Chris" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Marian Chris</a>
-                                <h6>global sales</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
-                <div class=" col-12 col-md-6 col-lg-3">
-                    <div class="member member-2">
-                        <div class="member-img"><img src="/assets/images/team/7.jpg" alt="Member Jack Mudson" /></div>
-                        <!-- End .member-img-->
-                        <div class="member-content">
-                            <div class="member-info"><a href="javascript:void(0)">Jack Mudson</a>
-                                <h6>manager</h6>
-                            </div>
-                            <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
-                            <!-- End .member-social-->
-                        </div>
-                        <!-- End .member-content-->
-                    </div>
-                    <!-- End .member-->
-                </div>
+                @endif
+                @endforeach
             </div>
             <!-- End .row-->
         </div>

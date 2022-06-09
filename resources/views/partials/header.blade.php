@@ -26,7 +26,7 @@
                     <i class="energia-facebook"></i>
                 </a>
                 <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
-                    <img src="fonts/instagram-round.svg" alt="instagram" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
+                    <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
                 </a>
             </div>
             <!-- End .social-links-->
@@ -44,10 +44,10 @@
     <nav class="navbar navbar-expand-lg navbar-sticky" id="primary-menu"><a class="navbar-brand" href="{{ route('index') }}"><img class="logo logo-dark" src="/assets/images/logo/logo-dark.png" alt="Koperasi KBN Logo" style="width: auto !important;" /><img class="logo logo-mobile" src="/assets/images/logo/logo-mobile.png" alt="Koperasi KBN Logo" style="width: auto !important;"/></a>
         <div class="module-holder module-holder-phone">
             <div class="module module-language">
-                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" /><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
-                <div class="lang-list">
+                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
+                <div class="lang-list" style="left: -60px !important;">
                     <ul>
-                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" /><a href="#">indonesia</a></li>
+                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><a href="#">indonesia</a></li>
                         <li> <img src="/assets/images/module-language/en.png" alt="En Language" /><a href="#">english</a></li>
                     </ul>
                 </div>
@@ -60,16 +60,11 @@
 
                 <li class="{{ request()->is('profile/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Profil Koperasi</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('profile/history') || request()->is('profile/history/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('history') }}"><span>Sejarah Singkat</span></a></li>
+                        <li class="{{ request()->is('profile/history') || request()->is('profile/history/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('history') }}"><span>Sejarah Singkat</span></a></li>
                         <li class="{{ request()->is('profile/about-us') || request()->is('profile/about-us/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('about') }}"><span>Visi Misi</span></a></li>
                         <li class="{{ request()->is('profile/our-business') || request()->is('profile/our-business/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('business') }}"><span>Bisnis Koperasi</span></a></li>
                         <li class="{{ request()->is('profile/our-team') || request()->is('profile/our-team/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('management') }}"><span>Manajemen</span></a></li>
-                        <li class="{{ request()->is('profile/report') || request()->is('profile/report/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('report') }}"><span>Laporan</span></a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Sejarah Singkat</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Visi Misi</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Bisnis Koperasi</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Manajemen</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Laporan</span></a></li>
+                        <li class="{{ request()->is('profile/report-external') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('report-external') }}"><span>Laporan</span></a></li>
                     </ul>
                 </li>
 
@@ -87,36 +82,26 @@
                         <li class="{{ request()->is('product/photocopy-machine-rental') || request()->is('product/photocopy-machine-rental/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('photocopy-machine-rental') }}"><span>Penyewaan Mesin Fotokopi</span></a></li> -->
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Simpanan</span></a></li>
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Pinjaman</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Bisnis</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Komersial</span></a></li>
+                        <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Bisnis & Komersial</span></a></li>
+                        <!-- <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Komersial</span></a></li> -->
                     </ul>
                 </li>
 
                 <li class="{{ request()->is('member-forum/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Suara Anggota</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('member-forum/whistleblower') || request()->is('member-forum/whistleblower/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('whistleblower') }}"><span>Whistleblower</span></a></li>
+                        <li class="{{ request()->is('member-forum/whistleblower') || request()->is('member-forum/whistleblower/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('whistleblower') }}"><span>Whistleblower</span></a></li>
                         <li class="{{ request()->is('member-forum/complaint') || request()->is('member-forum/complaint/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('complaint') }}"><span>Pengaduan</span></a></li>
                         <li class="{{ request()->is('member-forum/faq') || request()->is('member-forum/faq/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('faq') }}"><span>FAQ</span></a></li>
-                        <li class="{{ request()->is('member-forum/customer-relationship') || request()->is('member-forum/customer-relationship/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('customer-relationship') }}"><span>Customer Relationship</span></a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Whistleblower</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Pengaduan</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>FAQ</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Hubungan Pelanggan</span></a></li>
                     </ul>
                 </li>
 
                 <li class="{{ request()->is('media/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Media</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('media/photo-and-video') || request()->is('media/photo-and-video/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('photo-video') }}"><span>Foto & Video</span></a></li>
+                        <li class="{{ request()->is('media/photo-and-video') || request()->is('media/photo-and-video/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('photo-video') }}"><span>Foto & Video</span></a></li>
                         <li class="{{ request()->is('media/news') || request()->is('media/news/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('news') }}"><span>Berita</span></a></li>
                         <li class="{{ request()->is('media/announcement') || request()->is('media/announcement/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('announcement') }}"><span>Pengumuman</span></a></li>
                         <li class="{{ request()->is('media/award-and-certificate') || request()->is('media/award-and-certificate/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('award-certificate') }}"><span>Penghargaan & Sertifikasi</span></a></li>
-                        <li class="{{ request()->is('media/calendar') || request()->is('media/calendar/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('calendar') }}"><span>Kalender Kegiatan</span></a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Foto & Video</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Berita</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Pengumuman</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Penghargaan & Sertifikasi</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Kalender Kegiatan</span></a></li>
+                        <li class="{{ request()->is('media/calendar') || request()->is('media/calendar/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('calendar') }}"><span>Kalender Kegiatan</span></a></li>
                     </ul>
                 </li>
 
