@@ -44,28 +44,43 @@
     </section>
     <!-- End #page-title -->
 
-    <!--
-      ============================
-      Blog #1 Section
-      ============================
-      -->
-    <section class="blog blog-1 blog-grid" id="blog-1">
+    <section class="projects projects-gallery projects-modern projects-modern-3" id="projects-modern-3">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6 offset-lg-3">
-                    <div class="heading heading-7 text-center">
-                        <h2 class="heading-title">Oops</h2>
+            <!-- End .row-->
+            <div id="projects-all_display" class="row">
+                @foreach($data as $datum)
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="project-panel">
+                        <div class="project-panel-holder">
+                            @if($datum->image_link !== null && $datum->image_link !== '')
+                            <div class="project-img"><img src="/{{ $datum->image_link }}" alt="{{ $datum->image_name }}" />
+                                <div class="project-hover">
+                                    <div class="project-action">
+                                        <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/{{ $datum->image_link }}" title="{{ $datum->name }}"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            @else
+                            <div class="project-img"><img src="/assets/images/no_file_icon.png" alt="No File For {{ $datum->name }}" style="padding:0px 30px 20px 30px"/>
+                                <div class="project-hover">
+                                    <div class="project-action">
+                                        <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/assets/images/no_file_icon.png" title="{{ $datum->name }}"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            <!-- End .row-->
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="more-blog"><a href="blog-grid.html">The page is currently being built.</a></div>
+            <div class="row d-flex justify-content-center">
+                <div style="width: auto;">
+                    <ul id="isotope-pager">
+                    </ul>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
         <!-- End .container-->
     </section>

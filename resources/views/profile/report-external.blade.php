@@ -51,34 +51,16 @@
 
     <section class="awards awards awards-1" id="awards" style="padding-top: 110px;">
         <div class="container">
-            <div class="row" style="margin-bottom: 50px;">
-                <div class="col-12 d-flex justify-content-center">
-                    <a class="{{ request()->is('profile/report-eksternal') ? 'btn btn--primary btn_active' : 'btn btn--primary ' }}" href="{{ route('report-internal') }}" style="margin-right: 10px;">
-                        Laporan Internal
-                    </a>
-
-                    <a class="{{ request()->is('profile/report-external') ? 'btn btn--primary btn_active' : 'btn btn--primary ' }}" href="{{ route('report-external') }}" style="margin-right: 10px;">
-                        Laporan Eksternal
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-6 offset-lg-3">
-                    <div class="heading heading-17 text-center">
-                        <h2 class="heading-title">Laporan Eksternal</h2>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 @if(count($data) > 0)
                 <div class="carousel owl-carousel carousel-dots" data-slide="4" data-slide-rs="4" data-autoplay="false" data-nav="true" data-dots="true" data-space="30" data-loop="false" data-speed="1000">
                     @foreach($data as $datum)
                     <div>
                         <div class="award">
-                            <div class="award-img">
+                            <div class="award-img" style="padding: 0px;">
                                 @if($datum->file_link)
-                                <a href="/{{ $datum->file_link }}">
-                                    <img src="/assets/images/file_icon.png" alt="{{ $datum->file_name }}" style="height: 160px; padding: 40px;" />
+                                <a href="/{{ $datum->file_link }}" download>
+                                    <embed src="/{{ $datum->file_link }}" scrolling="no" />
                                 </a>
                                 @else
                                 <img src="/assets/images/no_file_icon.png" alt="No File" style="height: 160px; padding: 40px;" />
@@ -86,7 +68,9 @@
                             </div>
                             <!-- End .work-img-->
                             <div class="award-content">
-                                <h4 class="award-title">{{ $datum->title }}</h4>
+                                <a href="/{{ $datum->file_link }}" download>
+                                    <h4 class="award-title">{{ $datum->title }}</h4>
+                                </a>
                                 <p class="award-desc">{{ $datum->description_indo }}</p>
                             </div>
                             <!-- End .award-content-->

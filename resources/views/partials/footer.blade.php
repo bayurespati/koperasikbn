@@ -9,16 +9,11 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <!-- <li><a href="{{ route('history') }}">Sejarah Singkat</a></li>
+                                <li><a href="{{ route('history') }}">Sejarah Singkat</a></li>
                                 <li><a href="{{ route('about') }}">Visi Misi</a></li>
                                 <li><a href="{{ route('business') }}">Bisnis Koperasi</a></li>
                                 <li><a href="{{ route('management') }}">Manajemen</a></li>
-                                <li><a href="{{ route('report-internal') }}">Laporan</a></li> -->
-                                <li><a href="javascript:void(0)">Sejarah Singkat</a></li>
-                                <li><a href="javascript:void(0)">Visi Misi</a></li>
-                                <li><a href="javascript:void(0)">Bisnis Koperasi</a></li>
-                                <li><a href="javascript:void(0)">Manajemen</a></li>
-                                <li><a href="javascript:void(0)">Laporan</a></li>
+                                <li><a href="{{ route('report-external') }}">Laporan</a></li>
                             </ul>
                         </div>
                     </div>
@@ -43,8 +38,7 @@
                                 <li><a href="{{ route('photocopy-machine-rental') }}">Penyewaan Mesin Fotokopi</a></li> -->
                                 <li><a href="javascript:void(0)">Layanan Simpanan</a></li>
                                 <li><a href="javascript:void(0)">Layanan Pinjaman</a></li>
-                                <li><a href="javascript:void(0)">Layanan Bisnis</a></li>
-                                <li><a href="javascript:void(0)">Layanan Komersial</a></li>
+                                <li><a href="javascript:void(0)">Bisnis & Komersial</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,14 +51,9 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <!-- <li><a href="{{ route('whistleblower') }}">Whistleblower</a></li>
+                                <li><a href="{{ route('whistleblower') }}">Whistleblower</a></li>
                                 <li><a href="{{ route('complaint') }}">Pengaduan</a></li>
                                 <li><a href="{{ route('faq') }}">FAQ</a></li>
-                                <li><a href="{{ route('customer-relationship') }}">Hubungan Pelanggan</a></li> -->
-                                <li><a href="javascript:void(0)">Whistleblower</a></li>
-                                <li><a href="javascript:void(0)">Pengaduan</a></li>
-                                <li><a href="javascript:void(0)">FAQ</a></li>
-                                <li><a href="javascript:void(0)">Hubungan Pelanggan</a></li>
                             </ul>
                         </div>
                     </div>
@@ -128,7 +117,7 @@
                                 </li>
                                 <li>
                                     <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
-                                        <img src="fonts/instagram-round.svg" alt="instagram" style="width: 22px;">
+                                        <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px;">
                                         Instagram
                                     </a>
                                 </li>

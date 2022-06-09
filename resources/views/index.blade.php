@@ -757,7 +757,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="more-blog"><a href="blog-grid.html">Cari tahu lebih banyak tentang berita kami!</a></div>
+                    <div class="more-blog"><a href="{{ route('news') }}">Cari tahu lebih banyak tentang berita kami!</a></div>
                 </div>
             </div>
             <!-- End .row-->

@@ -21,7 +21,7 @@ Route::get('profile/history', 'ApplicationController@historyPage')->name('histor
 Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about');
 Route::get('profile/our-business', 'ApplicationController@ourBusinessPage')->name('business');
 Route::get('profile/our-team', 'ApplicationController@managementPage')->name('management');
-Route::get('profile/report-internal', 'ApplicationController@reportInternalPage')->name('report-internal');
+// Route::get('profile/report-internal', 'ApplicationController@reportInternalPage')->name('report-internal');
 Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
 
 Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
@@ -42,7 +42,9 @@ Route::get('member-forum/customer-relationship', 'ApplicationController@customer
 
 Route::get('media/photo-and-video', 'ApplicationController@photoAndVideoPage')->name('photo-video');
 Route::get('media/news', 'ApplicationController@newsPage')->name('news');
+Route::get('media/news/{artikel}', 'ApplicationController@contentSinglePage');
 Route::get('media/announcement', 'ApplicationController@announcementPage')->name('announcement');
+Route::get('media/announcement/{artikel}', 'ApplicationController@contentSinglePage');
 Route::get('media/award-and-certificate', 'ApplicationController@awardAndCertificatePage')->name('award-certificate');
 Route::get('media/calendar', 'ApplicationController@calendarPage')->name('calendar');
 

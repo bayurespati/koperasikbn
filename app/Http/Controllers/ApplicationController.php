@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
+use App\Models\Faq;
+use App\Models\Image;
+use App\Models\JabatanKoperasi;
+use App\Models\Kalender;
 use Illuminate\Http\Request;
 use App\Models\Laporan;
+use App\Models\Video;
 
 class ApplicationController extends Controller
 {
@@ -34,14 +40,16 @@ class ApplicationController extends Controller
 
     public function managementPage()
     {
-        return view('profile.our-team');
+        $data = JabatanKoperasi::with('user')->get();
+
+        return view('profile.our-team', ['data' => $data]);
     }
 
-    public function reportInternalPage()
-    {
-        $data = Laporan::where('is_internal', true)->get();
-        return view('profile.report-internal', ['data' => $data]);
-    }
+    // public function reportInternalPage()
+    // {
+    //     $data = Laporan::where('is_internal', true)->get();
+    //     return view('profile.report-internal', ['data' => $data]);
+    // }
 
     public function reportExternalPage()
     {
@@ -111,7 +119,9 @@ class ApplicationController extends Controller
 
     public function faqPage()
     {
-        return view('member-forum.faq');
+        $data = Faq::all();
+
+        return view('member-forum.faq', ['data' => $data]);
     }
 
     public function customerRelationshipPage()
@@ -121,17 +131,69 @@ class ApplicationController extends Controller
 
     public function photoAndVideoPage()
     {
-        return view('media.photo-and-video');
+        $photos = Image::all();
+        $videos = Video::all();
+
+        $data = [];
+
+        foreach ($photos as $photo) {
+            array_push($data, $photo);
+        }
+
+        foreach ($videos as $video) {
+            array_push($data, $video);
+        }
+
+        usort($data, function ($a, $b) {
+            if ($a["updated_at"] == $b["updated_at"])
+                return (0);
+            return (($a["updated_at"] < $b["updated_at"]) ? -1 : 1);
+        });
+
+        foreach ($data as $datum) {
+            $datum['category'] = strtolower($datum['category']);
+            $datum['category'] = str_replace('layanan ', '', $datum['category']);
+        };
+
+        return view('media.photo-and-video', ['data' => $data]);
     }
 
     public function newsPage()
     {
-        return view('media.news');
+        // $array = [];
+        // Artikel::where('type', 'Berita')->chunk(3, function ($data) use (&$array) {
+        //     foreach($data as $datum) {
+        //         $datum['category'] = strtolower($datum['category']);
+        //         $datum['category'] = str_replace('layanan ', '', $datum['category']);
+        //     };
+
+        //     array_push($array, $data);
+        // });
+
+        $data = Artikel::where('type', 'Berita')->get();
+
+        foreach ($data as $datum) {
+            $datum['category'] = strtolower($datum['category']);
+            $datum['category'] = str_replace('layanan ', '', $datum['category']);
+        };
+
+        return view('media.news', ['data' => $data]);
     }
 
     public function announcementPage()
     {
-        return view('media.announcement');
+        $data = Artikel::where('type', 'pengumuman')->get();
+
+        foreach ($data as $datum) {
+            $datum['category'] = strtolower($datum['category']);
+            $datum['category'] = str_replace('layanan ', '', $datum['category']);
+        };
+
+        return view('media.announcement', ['data' => $data]);
+    }
+
+    public function contentSinglePage(Artikel $artikel) {
+        return view('media.single-page', ['data' => $artikel]);
     }
 
     public function awardAndCertificatePage()
@@ -141,7 +203,9 @@ class ApplicationController extends Controller
 
     public function calendarPage()
     {
-        return view('media.calendar');
+        $data = Kalender::all();
+
+        return view('media.calendar', ['data' => $data]);
     }
 
     public function contactUsPage()

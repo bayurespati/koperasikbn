@@ -16,6 +16,8 @@
 
     .paragraph_history {
         margin-bottom: 25px !important;
+        font-size: 18px !important;
+        text-align: justify;
     }
 
     .advantages-list li::before {
@@ -31,7 +33,8 @@
         margin-right: 0px;
         font-family: var(--global--font-body);
         color: var(--global--color-body);
-        font-size: 16px;
+        font-size: 18px !important;
+        text-align: justify;
         font-weight: 400;
         line-height: 28px;
     }

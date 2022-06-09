@@ -38,7 +38,7 @@
         <!-- End .container-->
     </section>
 
-    <div class="project-overview project-overview-1" style="padding-top: 110px; padding-bottom: 110px;">
+    <div class="project-overview project-overview-1 projects projects-gallery" style="padding-top: 110px; padding-bottom: 110px;">
         <div class="container">
             <div class="heading heading-20">
                 <div class="row">
@@ -103,15 +103,23 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="project-img"><img src="assets/images/projects/gallery/1.jpg" alt=" item" />
-                            <div class="project-hover">
-                                <div class="project-action">
-                                    <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="assets/images/projects/full/1.jpg" title="wind generators item"></a></div>
+                    <div class="row d-flex justify-content-center" style="margin-top:40px;">
+                        <div class="col-6">
+                            <div class="project-panel">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><img src="/assets/images/pengaduan.jpg" alt="Infographic Pengaduan" />
+                                        <div class="project-hover">
+                                            <div class="project-action">
+                                                <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/assets/images/pengaduan.jpg" title="Infographic Pengaduan"></a></div>
+                                            </div>
+                                            <!-- End .project-action -->
+                                        </div>
+                                        <!-- End .project-hover-->
+                                    </div>
+                                    <!-- End .project-img-->
                                 </div>
-                                <!-- End .project-action -->
+                                <!-- End .project-panel-holder-->
                             </div>
-                            <!-- End .project-hover-->
                         </div>
                     </div>
                     <!-- End .row-->

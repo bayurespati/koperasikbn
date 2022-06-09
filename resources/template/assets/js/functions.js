@@ -6,10 +6,10 @@
 	3.	NAV MODULE
 	4.  MOBILE MENU
 	5.  NAVBAR STICKY
-	6.  COUNTER UP              
-	7.  COUNTDOWN DATE  
-	8.  AJAX MAILCHIMP        
-	9.  AJAX CAMPAIGN MONITOR 
+	6.  COUNTER UP
+	7.  COUNTDOWN DATE
+	8.  AJAX MAILCHIMP
+	9.  AJAX CAMPAIGN MONITOR
 	10. OWL CAROUSEL
 	11. MAGNIFIC POPUP
 	12. MAGNIFIC POPUP VIDEO
@@ -17,8 +17,8 @@
 	14. PROJECT FLITER
 	15. SCROLL TO
 	16. PROGRESS BAR
-	17. SLIDER RANGE            
-	18. AJAX CONTACT FORM       
+	17. SLIDER RANGE
+	18. AJAX CONTACT FORM
 	19. PARALLAX FOOTER
 	20. NICE SELECT
 	21. ACCORDION ACTIVE CLASS
@@ -259,7 +259,7 @@
         $(this).addClass('active');
         $(".testimonials-carousel").trigger('to.owl.carousel', [$(this).index(), 300]);
     });
-    // Draging The Carousel And The Thumbs Still has Active Class 
+    // Draging The Carousel And The Thumbs Still has Active Class
     $(".testimonials-carousel").on('changed.owl.carousel', function(event) {
         var items = event.item.count; // Number of items
         var item = event.item.index; // Position of the current item
@@ -351,7 +351,7 @@
     var $projectFilter = $(".projects-filter"),
         projectLength = $projectFilter.length,
         protfolioFinder = $projectFilter.find("a"),
-        $projectAll = $("#projects-all");
+        $projectAll = $(".projects-all");
 
     // init Isotope For project
     protfolioFinder.on("click", function(e) {
@@ -359,6 +359,7 @@
         $projectFilter.find("a.active-filter").removeClass("active-filter");
         $(this).addClass("active-filter");
     });
+
     if (projectLength > 0) {
         $projectAll.imagesLoaded().progress(function() {
             $projectAll.isotope({
@@ -537,7 +538,7 @@
         var min = parseFloat(qty.data('min'));
         var step = parseFloat(qty.data('step'));
 
-        // Check If Quantity value is undefined or non numeric 
+        // Check If Quantity value is undefined or non numeric
         if (isNaN(val)) {
             var val = 0;
         }
