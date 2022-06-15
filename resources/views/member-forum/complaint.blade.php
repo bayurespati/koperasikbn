@@ -12,8 +12,8 @@
     @include('partials.header')
 
     <section class="page-title page-title-1" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-2">
-            <div class="bg-section"><img src="/assets/images/page-titles/1.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-2 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-5">
@@ -43,7 +43,6 @@
             <div class="heading heading-20">
                 <div class="row">
                     <div class="col-12 col-lg-5">
-                        <p class="heading-subtitle">Minggu, 05 April 2020 11:56</p>
                         <h2 class="heading-title">Pengaduan</h2>
                     </div>
                 </div>
