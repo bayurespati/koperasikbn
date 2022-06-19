@@ -176,6 +176,12 @@ export default {
       },
       {
         icon: "mdi-18px mdi-webpack",
+        text: "Penghargaan",
+        link: "/penghargaan",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-18px mdi-webpack",
         text: "FAQ",
         link: "/faq",
         permission: [1, 2],
@@ -295,6 +301,12 @@ export default {
             permission: [1, 2],
           },
         ],
+      },
+      {
+        icon: "mdi-18px mdi-webpack",
+        text: "Penghargaan",
+        link: "/penghargaan",
+        permission: [1, 2],
       },
       {
         icon: "mdi-18px mdi-webpack",

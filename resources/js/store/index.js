@@ -14,6 +14,7 @@ import faq from './modules/faq'
 import laporan from './modules/laporan'
 import unit from './modules/unit'
 import divisi from './modules/divisi'
+import penghargaan from './modules/penghargaan'
 
 Vue.use(Vuex);
 
@@ -32,5 +33,6 @@ export default new Vuex.Store({
         jabatanKoperasi,
         unit,
         divisi,
+        penghargaan,
     }
 })

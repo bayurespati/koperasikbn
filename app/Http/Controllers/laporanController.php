@@ -18,7 +18,7 @@ class LaporanController extends Controller
 
 
     /**
-     * Data of a user
+     * Data of a laporan
      *
      */
     public function index()
@@ -27,7 +27,7 @@ class LaporanController extends Controller
     }
 
     /**
-     * Data of a user
+     * Data of a internal 
      *
      */
     public function getInternal()
@@ -37,13 +37,15 @@ class LaporanController extends Controller
 
 
     /**
-     * Data of a user
+     * Data of a eksternal 
      *
      */
     public function getEksternal()
     {
         return Laporan::where('is_internal', false)->get();
     }
+
+
     /**
      * Store a newly created resource in storage.
      *

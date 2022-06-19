@@ -84,6 +84,10 @@ Route::resource('laporans', 'LaporanController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('penghargaans', 'PenghargaanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('kalenders', 'KalenderController', [
     'only' => ['index', 'update']
 ]);
