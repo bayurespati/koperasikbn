@@ -3,7 +3,7 @@
     <v-card-title>
       <div class="text-center mt-4">
         <v-btn rounded color="primary" dark @click="add()"
-          >Create Jabatan Kbn</v-btn
+          >Create Jabatan KBN</v-btn
         >
       </div>
       <!--======================================================================================

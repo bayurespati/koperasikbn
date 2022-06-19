@@ -7,7 +7,7 @@ use App\Services\LaporanService;
 use App\Models\Laporan;
 use App\Http\Requests\LaporanRequest;
 
-class laporanController extends Controller
+class LaporanController extends Controller
 {
     private $laporanService;
 

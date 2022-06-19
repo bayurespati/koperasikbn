@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12">
           <div class="base-title">
-            <h2>Manage Jabatan Kbn</h2>
+            <h2>Manage Jabatan KBN</h2>
             <p class="color-sub-title">Here you can manage jabatan kbn</p>
           </div>
           <transition name="fade-transition">

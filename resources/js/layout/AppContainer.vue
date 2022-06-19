@@ -196,7 +196,7 @@ export default {
         children: [
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Kbn",
+            text: "Jabatan KBN",
             link: "/jabatan-kbn",
             permission: [1, 2],
           },
@@ -318,7 +318,7 @@ export default {
         children: [
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Kbn",
+            text: "Jabatan KBN",
             link: "/jabatan-kbn",
             permission: [1, 2],
           },
