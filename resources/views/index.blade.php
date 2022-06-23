@@ -5,6 +5,36 @@
 @endpush
 
 @push('additional_css')
+<style>
+    .entry-content {
+        height: 700px;
+    }
+
+    .entry-title {
+        max-height: 70px;
+    }
+
+    .entry-title h4 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .entry-bio p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+
+    .entry-more {
+        position: absolute;
+        bottom: 24px;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -18,48 +48,29 @@
     <section class="slider slider-2" id="slider-2">
         <div class="container-fluid pe-0 ps-0">
             <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="true" data-space="0" data-loop="true" data-speed="800">
+                @foreach($data['banner'] as $banner)
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
-                    <div class="bg-section"><img src="assets/images/sliders/1.jpg" alt="Background" /></div>
+                    <div class="bg-section"><img src="{{ $banner->image_link }}" alt="{{ $banner->image_name }}" /></div>
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-7">
                                 <div class="slide-content">
-                                    <h1 class="slide-headline">Tetap Kendalikan Keuangan Anda Dengan Kami</h1>
-                                    <p class="slide-desc">Keuntungan dari pinjaman online adalah Anda dapat memperoleh informasi secara real-time pada saat akun Anda secara otomatis dikreditkan atau didebit.</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
+                                    <h1 class="slide-headline">{{ $banner->title_indo }}</h1>
+                                    <p class="slide-desc">{{ $banner->description_indo }}</p>
+                                    <div class="slide-action">
+                                        @if($banner->button_link !== null && $banner->button_link !== '')
+                                        <a class="btn btn--primary" href="{{ $banner->button_link }}"> <span>{{ $banner->button_title_indo }}</span><i class="energia-arrow-right"></i></a>
+                                        @endif
+                                        @if($banner->button_two_link !== null && $banner->button_two_link !== '')
+                                        <a class="btn btn--white justify-content-center" href="{{ $banner->button_two_link }}">{{ $banner->button_two_title_indo }}</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slide bg-overlay bg-overlay-dark-slider-2">
-                    <div class="bg-section"><img src="assets/images/sliders/3.jpg" alt="Background" /></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-7">
-                                <div class="slide-content">
-                                    <h1 class="slide-headline">Pinjaman Online</h1>
-                                    <p class="slide-desc">Lihat beberapa hal yang dapat Anda lakukan dengan aplikasi mobile banking kami.</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>Ajukan Pinjaman</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Setor Pinjaman</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide bg-overlay bg-overlay-dark-slider-2">
-                    <div class="bg-section"><img src="assets/images/sliders/4.jpg" alt="Background" /></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-7">
-                                <div class="slide-content">
-                                    <h1 class="slide-headline">Berita Terbaru</h1>
-                                    <p class="slide-desc">Periksa lebih banyak informasi & cerita tentang bank kami di posting terbaru.</p>
-                                    <div class="slide-action"><a class="btn btn--primary" href="{{ route('news') }}"> <span>Berita</span><i class="energia-arrow-right"></i></a><a class="btn btn--white justify-content-center" href="{{ route('history') }}">Tentang Kami</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -75,8 +86,17 @@
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                     <!-- Start .feature-panel-->
                     <div class="feature-panel">
+                        <div class="feature-content"><i class="flaticon-024-energy"></i>
+                            <h5>Simpanan</h5>
+                        </div>
+                    </div>
+                    <!-- End .feature-panel-->
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <!-- Start .feature-panel-->
+                    <div class="feature-panel">
                         <div class="feature-content"><i class="flaticon-028-greenhouse"></i>
-                            <h5>Pinjaman</h5>
+                            <h5>Pinjam</h5>
                         </div>
                     </div>
                     <!-- End .feature-panel-->
@@ -95,15 +115,6 @@
                     <div class="feature-panel">
                         <div class="feature-content"><i class="flaticon-026-world"></i>
                             <h5>Komersial</h5>
-                        </div>
-                    </div>
-                    <!-- End .feature-panel-->
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                    <!-- Start .feature-panel-->
-                    <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-024-energy"></i>
-                            <h5>Tabungan</h5>
                         </div>
                     </div>
                     <!-- End .feature-panel-->
@@ -240,14 +251,6 @@
                 </div>
             </div>
             <!-- End .carousel-->
-            <div class="row">
-                <div class="col-12 col-lg-5 offset-lg-7">
-                    <div class="more-services more-services-2">
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p><a href="javascript:void(0)">99.9% customer satisfaction</a> based on 750+ reviews and 6,154 completed projects</p>
-                    </div>
-                </div>
-            </div>
             <!-- End .row-->
         </div>
         <!-- End .container-->
@@ -257,7 +260,7 @@
       About #2 Section
       ============================
       -->
-    <section class="about about-2" id="about-2">
+    <section class="about about-2" id="about-2" style="margin-top: 60px;">
         <div class="about-wrapper">
             <!--
           ============================
@@ -282,8 +285,8 @@
                             <div class="signature-body">
                                 <h6>michael brian</h6>
                                 <p>co founder</p> -->
-                                <!-- <img class="signature-img" src="assets/images/signature/1.png" alt="signature" /> -->
-                            <!-- </div>
+                        <!-- <img class="signature-img" src="assets/images/signature/1.png" alt="signature" /> -->
+                        <!-- </div>
                         </div> -->
                         <div class="advantages-list-holder">
                             <div class="row">
@@ -673,87 +676,43 @@
             </div>
             <!-- End .row-->
             <div class="row">
+                @foreach($data['artikel'] as $artikel)
                 <div class="col-12 col-lg-4">
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
+                                <div class="entry-date">{{ $artikel->created_at }}</div>
                                 <!-- End .entry-date		-->
                                 <!-- <div class="entry-author">
                                     <p>mike dolley</p>
                                 </div> -->
                             </div>
                             <div class="entry-title">
-                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/2746">Rapat Anggota Tahunan Pengesahan Rencana Kerja dan Anggaran Koperasi Karyawan PT. KBN (Persero) Tahun 2015</a></h4>
+                                <h4><a href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}">{{ $artikel->title_indo }}</a></h4>
                             </div>
                             <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/2746"><img src="assets/images/blog/grid/1.jpg" alt="Filing Solar Power Permits in 2020? Consider Following Important Factors" /></a></div>
-                                <!-- <div class="entry-category"><a href="blog-grid.html">solar</a><a href="blog-grid.html">insights</a>
-                                </div> -->
+                                <div class="entry-img">
+                                    <a href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}">
+                                        <img src="{{ $artikel->image_link }}" alt="{{ $artikel->image_name }}" />
+                                    </a>
+                                </div>
                             </div>
                             <!-- End .entry-img-->
                             <div class="entry-bio">
-                                <p>Jakarta – Koperasi Karyawan PT. KBN (Persero) mengadakan Rapat Anggota Tahunan (RAT) yang bertempat di Gedung Serbaguna, Kantor Pusat PT. KBN (Persero), J...</p>
+                                <p>
+                                    {{ $artikel->description_indo }}
+                                </p>
                             </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/2746" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
+                            <div class="entry-more">
+                                <a class="btn btn--white btn-bordered" href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}" style="width:170px;">
+                                    Selengkapnya <i class="energia-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- End .entry-content-->
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="blog-entry" data-hover="">
-                        <div class="entry-content">
-                            <div class="entry-meta">
-                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
-                                <!-- End .entry-date		-->
-                                <!-- <div class="entry-author">
-                                    <p>peter allan</p>
-                                </div> -->
-                            </div>
-                            <div class="entry-title">
-                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/3088">Rapat Anggota Tahunan Koperasi Karyawan PT. KBN (Persero) Tahun Buku 2014</a></h4>
-                            </div>
-                            <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/3088"><img src="assets/images/blog/grid/2.jpg" alt="How to Add Battery Backup to an Existing Grid Tied Solar System by Yourself!" /></a></div>
-                                <!-- <div class="entry-category"><a href="blog-grid.html">systems</a><a href="blog-grid.html">battery</a>
-                                </div> -->
-                            </div>
-                            <!-- End .entry-img-->
-                            <div class="entry-bio">
-                                <p>Jakarta – Senin (6/4) Koperasi Karyawan PT. KBN (Persero) mengadakan Rapat Anggota Tahunan (RAT) yang bertempat di Gedung Serbaguna, Kantor Pusat PT. KBN ...</p>
-                            </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/3088" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                    <!-- End .entry-content-->
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="blog-entry" data-hover="">
-                        <div class="entry-content">
-                            <div class="entry-meta">
-                                <div class="entry-date"><span class="day">feb 8</span><span class="year">2021</span></div>
-                                <!-- End .entry-date		-->
-                                <!-- <div class="entry-author">
-                                    <p>Sophia barry</p>
-                                </div> -->
-                            </div>
-                            <div class="entry-title">
-                                <h4><a href="http://kbn.co.id/welcome/konten_depan/view/3184">Koperasi Karyawan KBN Ikuti Lomba Koperasi Berprestasi</a></h4>
-                            </div>
-                            <div class="entry-img-wrap">
-                                <div class="entry-img"><a href="http://kbn.co.id/welcome/konten_depan/view/3184"><img src="assets/images/blog/grid/3.jpg" alt="Energy Department Research Will Help Eagles Coexist with Wind Energy Deployment" /></a></div>
-                                <!-- <div class="entry-category"><a href="blog-grid.html">research</a><a href="blog-grid.html">energy</a>
-                                </div> -->
-                            </div>
-                            <!-- End .entry-img-->
-                            <div class="entry-bio">
-                                <p></p>
-                            </div>
-                            <div class="entry-more"> <a class="btn btn--white btn-bordered" href="http://kbn.co.id/welcome/konten_depan/view/3184" style="width:170px;" >Selengkapnya <i class="energia-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                    <!-- End .entry-content-->
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-12">

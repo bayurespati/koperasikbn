@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
+use App\Models\Banner;
 use App\Models\Faq;
 use App\Models\Image;
 use App\Models\JabatanKoperasi;
@@ -20,7 +21,15 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $artikel = Artikel::paginate(3);
+        $banner = Banner::where('is_active', '=', 1)->get();
+
+        $data = [
+            'artikel' => $artikel,
+            'banner' => $banner
+        ];
+
+        return view('index', ['data' => $data]);
     }
 
     public function historyPage()

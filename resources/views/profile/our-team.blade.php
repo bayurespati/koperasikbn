@@ -41,8 +41,8 @@
       ============================
       -->
     <section class="page-title page-title-3" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-2">
-            <div class="bg-section"><img src="/assets/images/page-titles/3.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-2 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-5">
@@ -83,7 +83,7 @@
                             @if($datum->user->image_link !== null && $datum->user->image_link !== '')
                             <img src="/{{ $datum->user->image_link }}" alt="{{ $datum->user->image_name }}" />
                             @else
-                            <img src="/assets/images/no_file_icon.png" alt="No User Photo" style="padding: 120px;"/>
+                            <img src="/assets/images/no_user.png" alt="No User Photo" style="padding: 120px;"/>
                             @endif
                         </div>
                         <!-- End .member-img-->
@@ -92,7 +92,7 @@
                                 <h6>{{ $datum->nama }}</h6>
                             </div>
                             <!-- End .member-info-->
-                            <div class="member-social"><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
+                            <div class=""><a href="tel:{{ $datum->user->phone }}"><i class="energia-phone-Icon"></i> {{ $datum->user->phone }}</a></div>
                             <!-- End .member-social-->
                         </div>
                         <!-- End .member-content-->

@@ -58,6 +58,11 @@
             -o-transition: 0.3s ease-in-out;
             transition: 0.3s ease-in-out;
         }
+
+        .banner_all {
+            height: 400px !important;
+            background-color: #32c36c;
+        }
     </style>
     @stack('additional_css')
 

@@ -17,8 +17,8 @@
       ============================
       -->
     <section class="page-title page-title-6" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-3">
-            <div class="bg-section"><img src="/assets/images/page-titles/6.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-3 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-5">
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <div class="heading heading-18 text-center">
-                        <p class="heading-subtitle">What Are You Looking For?</p>
+                        <p class="heading-subtitle">Apa yang Anda Cari?</p>
                         <h2 class="heading-title">Frequently Asked Questions</h2>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
             </div>
             <div class="container">
                 <div class="more-faqs">
-                    <p>Sustainable, reliable & affordable, <a href="#">find your solutions now! </a></p>
+                    <p>Jika Anda masih memiliki pertanyaan, <a href="#">Hubungi Kami! </a></p>
                 </div>
             </div>
             <!-- End .container-->

@@ -44,6 +44,10 @@
         display: flex!important;
         align-items: center!important;
     }
+
+    .processes .process-panel .process-body .process-content h5 {
+        text-transform: none !important;
+    }
 </style>
 @endpush
 
@@ -57,8 +61,8 @@
       ============================
       -->
     <section class="page-title page-title-2" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-2">
-            <div class="bg-section"><img src="/assets/images/page-titles/2.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-2 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-5">

@@ -98,6 +98,11 @@
         outline: none;
         background-color: #32c36c !important;
     }
+
+    .project-img iframe {
+        width: 100% !important;
+        height: 100% !important;
+    }
 </style>
 @endpush
 
@@ -111,8 +116,8 @@
       ============================
       -->
     <section class="page-title page-title-12" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-3">
-            <div class="bg-section"><img src="/assets/images/page-titles/12.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-3 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-6 offset-lg-3">
@@ -227,7 +232,7 @@
         [480, 4],
         [720, 6]
     ];
-    var itemsPerPageDefault = 1;
+    var itemsPerPageDefault = 6;
     var itemsPerPage = defineItemsPerPage();
     var currentNumberPages = 1;
     var currentPage = 1;

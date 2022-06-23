@@ -26,8 +26,8 @@
     @include('partials.header')
 
     <section class="page-title page-title-1" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-2">
-            <div class="bg-section"><img src="/assets/images/page-titles/1.jpg" alt="Background" /></div>
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-2 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-5">
@@ -64,15 +64,15 @@
             <!-- End .row-->
             <div class="row">
                 <div class="col-12">
-                    <div class="carousel owl-carousel carousel-dots" data-slide="4" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="true" data-speed="3000">
+                    <div class="carousel owl-carousel carousel-dots" data-slide="4" data-autoplay="false" data-nav="false" data-dots="true" data-space="30" data-loop="false" data-speed="500">
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/1.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('minimart') }}"></a><img src="/assets/images/projects/modern/1.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Pengelolaan Kantin dan Pedagang Asongan</a></h4>
+                                            <h4><a href="{{ route('minimart') }}">Pengelolaan Kantin dan Pedagang Asongan</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -81,7 +81,7 @@
                                                 Cakung maupun dalam Kawasan Marunda.
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('minimart') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -91,11 +91,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/2.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('cleaning-service') }}"></a><img src="/assets/images/projects/modern/2.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Pengelolaan Tenaga Kerja Kebersihan</a></h4>
+                                            <h4><a href="{{ route('cleaning-service') }}">Pengelolaan Tenaga Kerja Kebersihan</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -105,7 +105,7 @@
                                                 Kawasan Berikat Nusantara (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('cleaning-service') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -115,11 +115,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/3.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('driver') }}"></a><img src="/assets/images/projects/modern/3.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Penyewaan Kendaraan Dinas</a></h4>
+                                            <h4><a href="{{ route('driver') }}">Penyewaan Kendaraan Dinas</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -129,7 +129,7 @@
                                                 Berikat Nusantara (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('driver') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -139,11 +139,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('vehicle-registration-service') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Penyedia Lahan Parkir</a></h4>
+                                            <h4><a href="{{ route('vehicle-registration-service') }}">Penyedia Lahan Parkir</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -153,7 +153,7 @@
                                                 muat.
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('vehicle-registration-service') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -163,11 +163,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('administration-staff') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Ticketing dan Reservasi Hotel</a></h4>
+                                            <h4><a href="{{ route('administration-staff') }}">Ticketing dan Reservasi Hotel</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -176,7 +176,7 @@
                                                 Kawasan Berikat Nusantara (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('administration-staff') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -186,11 +186,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('stationary') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Supply Kebutuhan Alat Tulis Kantor</a></h4>
+                                            <h4><a href="{{ route('stationary') }}">Supply Kebutuhan Alat Tulis Kantor</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -200,7 +200,7 @@
                                                 lingkungan PT. Kawasan Berikat Nusantara (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('stationary') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -210,11 +210,11 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('gardening') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Penyedia Air minum Galon dan Botol</a></h4>
+                                            <h4><a href="{{ route('gardening') }}">Penyedia Air minum Galon dan Botol</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -223,7 +223,7 @@
                                                 PT. KBN (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('gardening') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
@@ -233,17 +233,17 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="projects-single.html"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('others') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="projects-single.html">Dll</a></h4>
+                                            <h4><a href="{{ route('others') }}">Dll</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="projects-single.html">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('others') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
