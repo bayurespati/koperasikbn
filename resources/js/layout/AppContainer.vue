@@ -3,7 +3,7 @@
     <nav>
       <v-navigation-drawer v-model="drawer" class="green lighten-1" app dark>
         <v-layout column align-center class="mt-5">
-          <v-avatar size="100" v-if="user.image_link">
+          <v-avatar size="100">
             <img
               :src="
                 user.image_link == null
@@ -108,14 +108,8 @@ export default {
       },
       {
         icon: "mdi-18px mdi-bank",
-        text: "Simpanan",
+        text: "Simpan & Pinjam",
         link: "/simpanan",
-        permission: [1, 2, 3],
-      },
-      {
-        icon: "mdi-18px mdi-pocket",
-        text: "Pinjaman",
-        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {
@@ -175,6 +169,12 @@ export default {
         ],
       },
       {
+        icon: "mdi-18px mdi-octagram-outline",
+        text: "Penghargaan",
+        link: "/penghargaan",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-webpack",
         text: "FAQ",
         link: "/faq",
@@ -196,7 +196,7 @@ export default {
         children: [
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Kbn",
+            text: "Jabatan KBN",
             link: "/jabatan-kbn",
             permission: [1, 2],
           },
@@ -258,14 +258,8 @@ export default {
       },
       {
         icon: "mdi-18px mdi-bank",
-        text: "Simpanan",
+        text: "Simpan & Pinjam",
         link: "/simpanan",
-        permission: [1, 2, 3],
-      },
-      {
-        icon: "mdi-18px mdi-pocket",
-        text: "Pinjaman",
-        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {
@@ -297,6 +291,12 @@ export default {
         ],
       },
       {
+        icon: "mdi-18px mdi-octagram-outline",
+        text: "Penghargaan",
+        link: "/penghargaan",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-18px mdi-webpack",
         text: "FAQ",
         link: "/faq",
@@ -318,7 +318,7 @@ export default {
         children: [
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan Kbn",
+            text: "Jabatan KBN",
             link: "/jabatan-kbn",
             permission: [1, 2],
           },

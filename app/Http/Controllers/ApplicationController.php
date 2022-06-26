@@ -208,7 +208,8 @@ class ApplicationController extends Controller
         return view('media.announcement', ['data' => $data]);
     }
 
-    public function contentSinglePage(Artikel $artikel) {
+    public function contentSinglePage(Artikel $artikel)
+    {
         return view('media.single-page', ['data' => $artikel]);
     }
 

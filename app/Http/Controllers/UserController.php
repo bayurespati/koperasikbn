@@ -9,7 +9,9 @@ use App\Services\UserService;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\UserCreateRequest;
+use App\Imports\UserImport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -102,6 +104,23 @@ class UserController extends Controller
         ], 200);
     }
 
+
+    /** 
+     * Upload data user. 
+     * 
+     */
+    public function upload(Request $request)
+    {
+        set_time_limit(0);
+        $file = $request->file('file');
+        try {
+            Excel::import(new UserImport, $file, \Maatwebsite\Excel\Excel::XLSX);
+            return response()->json(['message' => "Success upload user"], 200);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+            return response()->json(['message' => $this->messageError($e)], 400);
+        }
+    }
 
     /** 
      * Update the specified resource in storage. 

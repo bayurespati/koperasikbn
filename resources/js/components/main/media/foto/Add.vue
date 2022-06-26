@@ -201,7 +201,7 @@ export default {
           title_indo: self.model.title_indo,
           category: self.model.category,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeImage", data)
           .then((response) => {

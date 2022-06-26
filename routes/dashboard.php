@@ -14,15 +14,19 @@ Route::get('/events/image', 'EventController@getImages');
 Route::post('/events/{event}/image', 'EventController@storeImage');
 Route::delete('/events/{event}/image', 'EventController@deleteImage');
 
-
 Route::get('users/teachers', 'UserController@teachers')->name('users.teachers');
 Route::get('users/roles', 'UserController@roles')->name('users.roles');
 Route::get('user', 'UserController@user')->name('users.user');
 Route::get('all-user', 'UserController@users');
 Route::patch('user/profile', 'UserController@updateProfile');
+Route::post('users/upload', 'UserController@upload');
 
 Route::get('/laporans/internal', 'LaporanController@getInternal');
 Route::get('/laporans/eksternal', 'LaporanController@getEksternal');
+
+Route::post('simpan-pinjam/upload', 'SimpanPinjamController@upload');
+Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpananPersonal');
+Route::get('simpan-pinjam/pinjaman-personal', 'SimpanPinjamController@getPinjamanPersonal');
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +34,6 @@ Route::get('/laporans/eksternal', 'LaporanController@getEksternal');
 |--------------------------------------------------------------------------
 |
 */
-
 
 Route::get('', 'DashboardController@index')->name('dashboard');
 
@@ -84,6 +87,10 @@ Route::resource('laporans', 'LaporanController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('penghargaans', 'PenghargaanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('kalenders', 'KalenderController', [
     'only' => ['index', 'update']
 ]);
@@ -93,5 +100,9 @@ Route::resource('divisis', 'DivisiController', [
 ]);
 
 Route::resource('units', 'UnitController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('simpan-pinjam', 'SimpanPinjamController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

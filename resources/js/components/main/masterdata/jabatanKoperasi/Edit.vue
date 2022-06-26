@@ -112,7 +112,7 @@ export default {
           user_id: self.model.user,
           id: self.jabatanKoperasi.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editJabatanKoperasi", data)
           .then((response) => {

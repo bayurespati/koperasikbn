@@ -88,7 +88,7 @@ export default {
           nama: self.model.nama,
           id: self.jabatanKbn.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editJabatanKbn", data)
           .then((response) => {

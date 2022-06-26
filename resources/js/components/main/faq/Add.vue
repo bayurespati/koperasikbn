@@ -179,7 +179,7 @@ export default {
           answer: self.model.answer,
           answer_indo: self.model.answer_indo,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeFaq", data)
           .then((response) => {

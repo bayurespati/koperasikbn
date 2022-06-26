@@ -238,7 +238,7 @@ export default {
           content: self.model.content,
           title: self.model.title,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeEvent", data)
           .then((response) => {

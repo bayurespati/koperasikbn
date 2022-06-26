@@ -183,7 +183,7 @@ export default {
           answer_indo: self.model.answer_indo,
           id: self.faq.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editFaq", data)
           .then((response) => {

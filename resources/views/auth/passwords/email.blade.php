@@ -44,7 +44,7 @@
 
     <div class="panels-container">
         <div class="panel left-panel">
-            <img src="http://koperasikbn.test/image_static/login.svg" class="image" alt="" />
+            <img src="https://kopkarkbn.com/image_static/login.svg" class="image" alt="" />
         </div>
     </div>
 </div>

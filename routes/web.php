@@ -13,7 +13,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'ApplicationController@index')->name('index');
 

@@ -327,21 +327,21 @@ export default {
           type: self.model.type,
           category: self.model.category,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeArtikel", data)
           .then((response) => {
             self.clearForm();
             flash(response);
-            self.isRequest = false;
             self.close();
+            self.isRequest = false;
           })
           .catch((errors) => {
+            self.isRequest = false;
             Object.keys(errors).forEach((field) => {
               errors[field].forEach((message) => {
                 flash(message, "danger", 5000);
               });
-              self.isRequest = false;
             });
           });
       }

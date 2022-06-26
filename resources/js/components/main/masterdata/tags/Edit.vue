@@ -88,7 +88,7 @@ export default {
           name: self.model.name,
           id: self.tag.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editTag", data)
           .then((response) => {

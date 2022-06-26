@@ -8,6 +8,7 @@ import Artikel from './components/main/artikel/Index.vue'
 import Image from './components/main/media/foto/Index.vue'
 import Video from './components/main/media/video/Index.vue'
 import Faq from './components/main/faq/Index.vue'
+import Penghargaan from './components/main/penghargaan/Index.vue'
 import Simpanan from './components/main/simpanan/Index.vue'
 import Pinjaman from './components/main/pinjaman/Index.vue'
 import Users from './components/main/users/Index.vue'
@@ -55,6 +56,10 @@ const router = new Router({
         {
             path: '/faq',
             component: Faq
+        },
+        {
+            path: '/penghargaan',
+            component: Penghargaan
         },
         {
             path: '/kalender',

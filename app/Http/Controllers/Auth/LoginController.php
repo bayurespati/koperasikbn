@@ -48,9 +48,9 @@ class LoginController extends Controller
     {
         $user_id = Auth()->user()->role_id;
 
-        // if ($user_id == 1 || $user_id == 2)
-        //     return '/dashboard#/profile';
-        // if ($user_id == 3)
-        //     return '';
+        if ($user_id == 1 || $user_id == 2)
+            return '/dashboard#/profile';
+        if ($user_id == 3)
+            return '/profile/history';
     }
 }

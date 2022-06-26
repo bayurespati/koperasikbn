@@ -16,7 +16,7 @@
                 @blur="$v.model.link.$touch()"
                 :error-messages="linkError"
                 v-model="model.link"
-                label="Pertanyan bahasa Indonesia"
+                label="Link embed"
                 name="input-7-4"
                 required
                 outlined
@@ -131,7 +131,7 @@ export default {
           category: self.model.category,
           id: self.video.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editVideo", data)
           .then((response) => {

@@ -215,7 +215,7 @@ export default {
           file_name: self.model.file_name,
           id: self.laporan.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editLaporan", data)
           .then((response) => {

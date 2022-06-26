@@ -110,7 +110,7 @@ export default {
           nama: self.model.nama,
           kode: self.model.kode,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeUnit", data)
           .then((response) => {

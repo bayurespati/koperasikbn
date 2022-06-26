@@ -232,7 +232,7 @@ export default {
           id: self.event.id,
         };
 
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editEvent", data)
           .then((response) => {

@@ -7,7 +7,7 @@ use App\Services\LaporanService;
 use App\Models\Laporan;
 use App\Http\Requests\LaporanRequest;
 
-class laporanController extends Controller
+class LaporanController extends Controller
 {
     private $laporanService;
 
@@ -18,7 +18,7 @@ class laporanController extends Controller
 
 
     /**
-     * Data of a user
+     * Data of a laporan
      *
      */
     public function index()
@@ -27,7 +27,7 @@ class laporanController extends Controller
     }
 
     /**
-     * Data of a user
+     * Data of a internal 
      *
      */
     public function getInternal()
@@ -37,13 +37,15 @@ class laporanController extends Controller
 
 
     /**
-     * Data of a user
+     * Data of a eksternal 
      *
      */
     public function getEksternal()
     {
         return Laporan::where('is_internal', false)->get();
     }
+
+
     /**
      * Store a newly created resource in storage.
      *

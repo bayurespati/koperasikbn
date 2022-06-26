@@ -108,7 +108,7 @@ export default {
           nama: self.model.nama,
           user_id: self.model.user,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeJabatanKoperasi", data)
           .then((response) => {
