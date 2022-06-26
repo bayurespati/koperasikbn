@@ -11,6 +11,7 @@ use App\Models\Kalender;
 use Illuminate\Http\Request;
 use App\Models\Laporan;
 use App\Models\Video;
+use Carbon\Carbon;
 
 class ApplicationController extends Controller
 {
@@ -23,6 +24,10 @@ class ApplicationController extends Controller
     {
         $artikel = Artikel::paginate(3);
         $banner = Banner::where('is_active', '=', 1)->get();
+
+        foreach($artikel as $datum) {
+            $datum['formatted_dtime'] = $datum['created_at']->format('d-m-Y');
+        }
 
         $data = [
             'artikel' => $artikel,
@@ -146,10 +151,12 @@ class ApplicationController extends Controller
         $data = [];
 
         foreach ($photos as $photo) {
+            $photo['selector'] = 'photo';
             array_push($data, $photo);
         }
 
         foreach ($videos as $video) {
+            $video['selector'] = 'video';
             array_push($data, $video);
         }
 

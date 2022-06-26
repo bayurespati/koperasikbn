@@ -34,6 +34,46 @@
         position: absolute;
         bottom: 24px;
     }
+
+    .custom_svg {
+        filter: grayscale(40%) brightness(50%) sepia(200%) hue-rotate(100deg) saturate(550%);
+    }
+
+    .feature-panel:hover .custom_svg {
+        filter: none;
+    }
+
+    .service-panel {
+        min-height: 550px;
+    }
+
+    .service-panel .btn {
+        position: absolute !important;
+        bottom: 50px !important;
+    }
+
+    .services .service-panel:hover .service-icon img {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+
+    .services .service-panel .service-icon img {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+
+    .services .service-panel .service-icon img::before {
+        margin-left: 0;
+        font-size: 75px;
+        color: var(--global--color-primary);
+        -webkit-transition: 300ms ease-in-out;
+        -o-transition: 300ms ease-in-out;
+        transition: 300ms ease-in-out;
+    }
 </style>
 @endpush
 
@@ -47,7 +87,7 @@
       -->
     <section class="slider slider-2" id="slider-2">
         <div class="container-fluid pe-0 ps-0">
-            <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="true" data-space="0" data-loop="true" data-speed="800">
+            <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="false" data-space="0" data-loop="true" data-speed="800" data-interval="10000">
                 @foreach($data['banner'] as $banner)
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
                     <div class="bg-section"><img src="{{ $banner->image_link }}" alt="{{ $banner->image_name }}" /></div>
@@ -84,59 +124,49 @@
         <div class="container">
             <div class="row g-0 features-holder">
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                    <!-- Start .feature-panel-->
                     <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-024-energy"></i>
-                            <h5>Simpanan</h5>
+                        <div class="feature-content">
+                            <i>
+                                <img class="custom_svg" src="assets/images/1_simpan.svg" alt="" style="width: 60%;">
+                            </i>
+                            <h5>Simpan</h5>
                         </div>
                     </div>
-                    <!-- End .feature-panel-->
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                    <!-- Start .feature-panel-->
                     <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-028-greenhouse"></i>
+                        <div class="feature-content">
+                            <i>
+                                <img class="custom_svg" src="assets/images/2_pinjam.svg" alt="" style="width: 50%;">
+                            </i>
                             <h5>Pinjam</h5>
                         </div>
                     </div>
-                    <!-- End .feature-panel-->
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                    <!-- Start .feature-panel-->
                     <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-009-ecology-1"></i>
+                        <div class="feature-content">
+                            <i>
+                                <img class="custom_svg" src="assets/images/3_bisnis.svg" alt="" style="width: 50%;">
+                            </i>
                             <h5>Bisnis</h5>
                         </div>
                     </div>
-                    <!-- End .feature-panel-->
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                    <!-- Start .feature-panel-->
                     <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-026-world"></i>
+                        <div class="feature-content">
+                            <i>
+                                <img class="custom_svg" src="assets/images/4_komersial.svg" alt="" style="width: 60%;">
+                            </i>
                             <h5>Komersial</h5>
                         </div>
                     </div>
-                    <!-- End .feature-panel-->
                 </div>
-                <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-038-ecology"></i>
-                            <h5>Certified Engineers</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <div class="feature-panel">
-                        <div class="feature-content"><i class="flaticon-003-fuel-1"></i>
-                            <h5>Tabungan</h5>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="row">
                 <div class="more-features more-features-2">
-                    <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="{{ route('saving-loan') }}">Klik Disini</a>
+                    <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="#">Klik Disini</a>
                 </div>
             </div>
             <!-- End .row-->
@@ -153,107 +183,106 @@
             <div class="heading heading-2">
                 <div class="row">
                     <div class="col-12 col-lg-6">
-                        <h2 class="heading-title">Koperasi Karyawan Maju, Karyawan Sejahtera</h2>
+                        <h2 class="heading-title">Kopkar KBN Maju, Anggota Sejahtera</h2>
                     </div>
                     <div class="col-12 col-lg-6">
                         <p class="heading-desc">Koperasi Karyawan PT. KBN (Persero) sebagai sebuah koperasi yang bergerak di bidang jasa khususnya simpan dan pinjam, penyaluran tenaga kerja, suplai ATK, sembako, penyewaan kendaraan dinas, dll.</p>
-                        <div class="actions-holder"><a class="btn btn--primary" href="page-about.html">
-                                Selengkapnya<i class="energia-arrow-right"></i></a><a class="btn btn--bordered btn--white" href="page-services.html">find your solution</a></div>
+                        <div class="actions-holder">
+                            <a class="btn btn--primary" href="{{ route('business') }}" style="width: 210px;">
+                                Bisnis & Komersial
+                                <i class="energia-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <!-- End .row-->
             </div>
-            <!-- End .heading-->
-            <div class="carousel owl-carousel carousel-dots" data-slide="3" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="true" data-speed="800">
+
+            <div class="carousel owl-carousel carousel-dots" data-slide="3" data-slide-rs="false" data-autoplay="false" data-nav="false" data-dots="true" data-space="30" data-loop="true" data-speed="500" data-interval="10000">
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/5_simpan_pinjam.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Layanan Simpanan</a></h4>
+                            <h4><a href="services-turbines.html">Layanan Simpan Pinjam</a></h4>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem explicabo sint pariatur unde commodi beatae exercitationem natus quod recusandae illum in impedit placeat eos consequuntur, quidem deleniti dignissimos, vel nostrum.</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
                 </div>
+
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-039-wind-mill"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Layanan Pinjaman</a></h4>
+                            <h4><a href="services-turbines.html">Usaha Mini Market</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam aut vitae fuga quisquam aperiam odio id alias qui beatae enim rem, cum molestias, modi illo ab reprehenderit autem suscipit quidem?</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
                 </div>
+
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-013-hydro-power"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Usaha Mini Market</a></h4>
+                            <h4><a href="services-turbines.html">Pengadaan Alat Tulis Kantor</a></h4>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex eos asperiores nulla obcaecati aut mollitia ad et animi, quo consectetur, explicabo aliquid ipsa quidem dolor officiis amet. Nostrum, aliquid sit!</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
                 </div>
+
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/8_alih_daya.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Pengadaan Alat Tulis Kantor</a></h4>
+                            <h4><a href="services-turbines.html">Penyedia Jasa Tenaga Alih Daya</a></h4>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In temporibus laudantium maxime dignissimos corporis possimus nulla dolor, sit quae! Numquam modi autem neque inventore nulla! Ipsam iusto eligendi veniam repellendus!</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
                 </div>
+
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-013-hydro-power"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/9_surat_kendaraan.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyedia Jasa Tenaga Ahli Daya</a></h4>
+                            <h4><a href="services-turbines.html">Penyedia Jasa Surat Kendaraan</a></h4>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quaerat fugiat numquam natus eius repellat sit exercitationem quisquam, temporibus quos laudantium corrupti asperiores consequatur optio at quod aliquid ducimus esse.</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
                 </div>
+
                 <div>
                     <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/10_mesin_fotokopi.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyedia Jasa Surat Kendaraan</a></h4>
+                            <h4><a href="services-turbines.html">Penyewaan Mesin Fotokopi</a></h4>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, cupiditate voluptate, inventore veritatis minus, ducimus nobis voluptatum iure vel sint ipsa! Maxime aperiam tempora similique perferendis quaerat in incidunt facere.</p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
-                    <!-- End .service-panel-->
-                </div>
-                <div>
-                    <div class="service-panel services-panel-2">
-                        <div class="service-icon"><i class="flaticon-039-wind-mill"></i></div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyewaan Mesin Fotokopi</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eaque similique rerum pariatur ea, repellat dolore fugit. Animi fugiat obcaecati odio, architecto exercitationem sint at nobis pariatur est similique fuga!</p>
-                            <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End .service-panel-->
                 </div>
             </div>
-            <!-- End .carousel-->
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
     </section>
     <!--
       ============================
@@ -311,356 +340,6 @@
     </section>
     <!--
       ============================
-      Projects Grid #1 Section
-      ============================
-      -->
-    <!-- <section class="projects projects-grid" id="projects-grid-1">
-        <div class="container">
-            <div class="heading heading-8">
-                <div class="row">
-                    <div class="col-12 col-lg-5">
-                        <h2 class="heading-title">Latest Projects, Solutions And Energy Supplies</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel owl-carousel carousel-dots carousel-navs" data-slide="4" data-slide-rs="1" data-center="data-center" data-autoplay="true" data-nav="true" data-dots="true" data-space="30" data-loop="true" data-speed="800">
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/1.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">expanding The Solar Supply Finance Program</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">finance</a><a href="projects-standard.html">supply chain</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/2.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">Addressing Wind Energy Innovation Challenges</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">energy</a><a href="projects-standard.html">green energy</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/3.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">dangerous environment impact of gas</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">eco</a><a href="projects-standard.html">green energy</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/4.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">New Attitude Towards Renewable Energy</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">green energy</a><a href="projects-standard.html">eCO</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/5.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">Smarter Way to Manage Charging Infrastructures</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">elictrec vehicles</a><a href="projects-standard.html">infrastructures</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-panel" data-hover="">
-                    <div class="project-panel-holder">
-                        <div class="project-img"><a class="link" href="projects-single.html"></a><img src="assets/images/projects/grid-carousel/6.jpg" alt="project image" /></div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h4><a href="projects-single.html">Addressing Wind Energy Innovation Challenges</a></h4>
-                            </div>
-                            <div class="project-cat"><a href="projects-standard.html">wind energy</a><a href="projects-standard.html">innovations</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="projects-load-more"> <a class="btn btn--secondary" href="projects-grid.html">explore all projects <i class="energia-arrow-right"></i></a></div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--
-      ============================
-      Processes #1 Section
-      ============================
-      -->
-    <!-- <section class="processes processes-1 bg-overlay bg-overlay-theme4" id="processes-1">
-        <div class="bg-section"> <img src="assets/images/background/wavy-pattern.png" alt="Background" /></div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <div class="block-right-holder">
-                    <div class="heading heading-light heading-light2">
-                        <p class="heading-subtitle">how it works! </p>
-                        <h2 class="heading-title">Fueling The Transition To Renewable Power.</h2>
-                    </div>
-                    <div class="counters-holder">
-                        <div class="counter counter-3">
-                            <div class="counter-holder">
-                                <div class="counter-num"> <span class="counting" data-counterup-nums="25" data-counterup-beginat="12">25</span></div>
-                                <div class="counter-img">
-                                    <div class="bg-section"><img src="assets/images/counters/1.jpg" alt="image" /></div><i class="flaticon-020-factory"></i>
-                                </div>
-                            </div>
-                            <div class="counter-desc">
-                                <p>Years Of Experience In The Solar Industry</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="processes-holder">
-                    <div class="carousel owl-carousel carousel-dots process-content-carousel" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="false" data-speed="800">
-                        <div>
-                            <div class="process-panel">
-                                <p class="process-number">01.</p>
-                                <div class="process-body">
-                                    <div class="process-content">
-                                        <h5>we design &amp; ship</h5>
-                                        <p>We collaborate with you to design and deliver a system that meets your utility usage and needs, We also selecting equipment from 66+ manufacturers so you do not have to be worried or compromise with your money or with your effort.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="process-panel">
-                                <p class="process-number">02.</p>
-                                <div class="process-body">
-                                    <div class="process-content">
-                                        <h5>contract or install</h5>
-                                        <p>Whether you want to install the system or hire local contractors, managing installation yourself ensures the fastest return on your solar investment.We deliver a system that meets your utility usage and needs, We also selecting equipment from.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="process-panel">
-                                <p class="process-number">03.</p>
-                                <div class="process-body">
-                                    <div class="process-content">
-                                        <h5>power your home</h5>
-                                        <p>Even after your system is installed and operating, you can always count on Wholesale Solar to provide the support you need, just contact us at any time, and we will be there for you. Whether you want to install the system or hire local contractors.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="images-holder">
-                        <div class="carousel owl-carousel process-image-carousel" data-slide="1" data-slide-rs="1" data-autoplay="true" data-drag="false" data-nav="false" data-dots="false" data-space="0" data-loop="false" data-speed="800"><img src="assets/images/processes/1.jpg" alt="process" /><img src="assets/images/processes/2.jpg" alt="process" /><img src="assets/images/processes/3.jpg" alt="process" /></div>
-                        <div class="processes-panel">
-                            <h3 class="panel-title">Commercial, Residential And Industrial Solar Systems!</h3>
-                            <p class="panel-desc">Our presence ensures timeliness, cost efficiency & compliance adherence!</p><a href="page-contact.html">schedule A Visit <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--
-      ============================
-      Testimonials #2 Section
-      ============================
-      -->
-    <!-- <section class="testimonial testimonial-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <div class="heading heading-9">
-                        <h2 class="heading-title">success stories</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="img-hotspot img-hotspot-2">
-                        <div class="img-hotspot-wrap">
-                            <div class="img-hotspot-bg"> <img src="assets/images/background/world-map.png" alt="image" /></div>
-                            <div class="img-hotspot-pointers">
-                                <div class="img-hotspot-pointer" data-spot-x="12%" data-spot-y="25%"><img src="assets/images/testimonial/thumbs/1.jpg" alt="pointer" />
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span></div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="48%" data-spot-y="48%"><img src="assets/images/testimonial/thumbs/2.jpg" alt="pointer" />
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span></div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="79%" data-spot-y="15%"><img src="assets/images/testimonial/thumbs/3.jpg" alt="pointer" />
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span></div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="21%" data-spot-y="36%"><img src="assets/images/testimonial/thumbs/4.jpg" alt="pointer" />
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span></div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="70%" data-spot-y="39%"><img src="assets/images/testimonial/thumbs/5.jpg" alt="pointer" />
-                                    <div class="info right" data-info-x="-20px" data-info-y="-152px"><span>Energia has been absolutely the best to work with. Their attention to detail and customer support was amazing!!</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="cta-holder">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cta">
-                        <div class="cta-img"> <img src="assets/images/cta/1.jpg" alt="image" />
-                            <div class="cta-icon"> <i class="energia-phone-Icon"></i></div>
-                        </div>
-                        <div class="cta-body">
-                            <h5>Save Money, Save Environment!</h5>
-                            <div class="cta-content">
-                                <p>Solar power makes energy independence possible. If you have any questions or need help, feel free to contact (002) 01061245741.</p><a class="btn btn--bordered btn--white" href="request-quote.html">free estimate <i class="energia-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="more-actions">
-                        <p>Sustainable, reliable & affordable energy systems, <a href="page-services.html">Find Your Solution Now! </a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--
-      ============================
-      Contact #2 Section
-      ============================
-      -->
-    <!-- <section class="contact contact-2" id="contact-2">
-        <div class="contact-overlay bg-overlay bg-overlay-theme5">
-            <div class="bg-section"><img src="assets/images/background/4.jpg" alt="background" /></div>
-        </div>
-        <div class="container">
-            <div class="contact-panel contact-panel-3">
-                <div class="heading heading-light heading-10">
-                    <h2 class="heading-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate reprehenderit quia numquam unde </h2>
-                    <p class="heading-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam dicta veniam, numquam quae odit magni atque enim earum, aut voluptate officiis hic? Ipsam quibusdam dolore aperiam esse, dolorum laboriosam voluptatibus.</p>
-                    <div class="contact-action contact-action-2"><a class="btn btn--white" href="page-about.html">Pelajari Lebih Lanjut <i class="energia-arrow-right"></i></a></div>
-                    <div class="contact-quote contact-quote-2"> <i class="flaticon-040-green-energy"></i>
-                        <div class="quote-body">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis exercitationem similique nobis maiores mollitia! Officiis minima voluptas odio eius, quas rerum nemo debitis vel iusto suscipit culpa, sequi temporibus veritatis.</p>
-                            <a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8 " target="_blank"><i class="energia-arrow-right"></i>Peta Kantor Utama</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-body">
-                        <h5 class="card-heading">Ajukan Pinjaman</h5>
-                        <p class="card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum nesciunt voluptatem consequuntur unde in est? Facere ipsum blanditiis hic distinctio est? Possimus odit quisquam reiciendis fuga in nam dolorum sunt!</p>
-                        <form class="contactForm" method="post" action="assets/php/contact.php">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-1">Lorem ipsum dolor sit amet consectetur</label>
-                                    <select class="form-control" id="select-1">
-                                        <option value="default">adipisicing elit</option>
-                                        <option value="AL">Ipsum nesciunt </option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-2">voluptatem consequuntur unde</label>
-                                    <select class="form-control" id="select-2">
-                                        <option value="default">3:6 months</option>
-                                        <option value="AL">6:12 months</option>
-                                        <option value="AK">12:24 months</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="contact-usage">Facere ipsum blanditiis hic</label>
-                                    <input class="form-control" type="text" id="contact-usage" name="contact-usage" placeholder="1254 KWH" required="" />
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-3">tempore cupiditate maiores?</label>
-                                    <select class="form-control" id="select-3">
-                                        <option value="default">Debitis</option>
-                                        <option value="AL">exercitationem</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-4">Nam dicta veniam</label>
-                                    <select class="form-control" id="select-4">
-                                        <option value="default">numquam quae</option>
-                                        <option value="AL">odit magni</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="form-label" for="select-5">Sequi libero nesciunt doloribus</label>
-                                    <select class="form-control" id="select-5">
-                                        <option value="default">ducimus laborum</option>
-                                        <option value="AL">unde sint</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Preferred Contact Method</label>
-                                    <div class="custom-radio-group" id="custom-radio-group">
-                                        <div class="custom-control">
-                                            <input class="custom-control-input" type="radio" id="customRadioInline1" name="customRadioInline1" />
-                                            <label for="customRadioInline1">all</label>
-                                        </div>
-                                        <div class="custom-control">
-                                            <input class="custom-control-input" type="radio" id="customRadioInline2" name="customRadioInline1" />
-                                            <label for="customRadioInline2">email</label>
-                                        </div>
-                                        <div class="custom-control">
-                                            <input class="custom-control-input" type="radio" id="customRadioInline3" name="customRadioInline1" />
-                                            <label for="customRadioInline3">phone</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn--secondary w-100">Ajukan <i class="energia-arrow-right"></i></button>
-                                </div>
-                                <div class="col-12">
-                                    <div class="contact-result"></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--
-      ============================
       Blog #2 Section
       ============================
       -->
@@ -681,7 +360,7 @@
                     <div class="blog-entry" data-hover="">
                         <div class="entry-content">
                             <div class="entry-meta">
-                                <div class="entry-date">{{ $artikel->created_at }}</div>
+                                <div class="entry-date">{{ $artikel->formatted_dtime }}</div>
                                 <!-- End .entry-date		-->
                                 <!-- <div class="entry-author">
                                     <p>mike dolley</p>

@@ -26,16 +26,6 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <!-- <li><a href="{{ route('saving-loan') }}">Simpan Pinjam</a></li>
-                                <li><a href="{{ route('minimart') }}">Minimarket</a></li>
-                                <li><a href="{{ route('stationary') }}">Alat Tulis Kantor (ATK)</a></li>
-                                <li><a href="{{ route('cleaning-service') }}">Penyedia Jasa Tenaga Ahli Daya - Cleaning Service</a></li>
-                                <li><a href="{{ route('gardening') }}">Penyedia Jasa Tenaga Ahli Daya - Perawatan Taman</a></li>
-                                <li><a href="{{ route('driver') }}">Penyedia Jasa Tenaga Ahli Daya - Driver</a></li>
-                                <li><a href="{{ route('administration-staff') }}">Penyedia Jasa Tenaga Ahli Daya - Staf Administrasi</a></li>
-                                <li><a href="{{ route('others') }}">Penyedia Jasa Tenaga Ahli Daya - Dll</a></li>
-                                <li><a href="{{ route('vehicle-registration-service') }}">Pengurusan Jasa Surat Kendaraan</a></li>
-                                <li><a href="{{ route('photocopy-machine-rental') }}">Penyewaan Mesin Fotokopi</a></li> -->
                                 <li><a href="javascript:void(0)">Layanan Simpanan</a></li>
                                 <li><a href="javascript:void(0)">Layanan Pinjaman</a></li>
                                 <li><a href="javascript:void(0)">Bisnis & Komersial</a></li>
@@ -47,14 +37,9 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-2">
                     <div class="footer-widget widget-links">
                         <div class="footer-widget-title">
-                            <h5>Suara Anggota</h5>
-                        </div>
-                        <div class="widget-content">
-                            <ul>
-                                <li><a href="{{ route('whistleblower') }}">Whistleblower</a></li>
-                                <li><a href="{{ route('complaint') }}">Pengaduan</a></li>
-                                <li><a href="{{ route('faq') }}">FAQ</a></li>
-                            </ul>
+                            <a href="{{ route('faq') }}">
+                                <h5>FAQ</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -65,11 +50,6 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <!-- <li><a href="{{ route('photo-video') }}">Foto & Video</a></li>
-                                <li><a href="{{ route('news') }}">Berita</a></li>
-                                <li><a href="{{ route('announcement') }}">Pengumuman</a></li>
-                                <li><a href="{{ route('award-certificate') }}">Penghargaan & Sertifikasi</a></li>
-                                <li><a href="{{ route('calendar') }}">Kalender Kegiatan</a></li> -->
                                 <li><a href="javascript:void(0)">Foto & Video</a></li>
                                 <li><a href="javascript:void(0)">Berita</a></li>
                                 <li><a href="javascript:void(0)">Pengumuman</a></li>
@@ -109,7 +89,7 @@
                     <div class="footer-copyright">
                         <div class="copyright"><span>&copy; 2022 Koperasi Karyawan KBN. all rights reserved. </span>
                             <ul class="list-unstyled social-icons d-flex align-items-center">
-                            <li>
+                                <li>
                                     <a class="share-facebook" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
                                         <i class="energia-facebook"></i>
                                         Facebook
@@ -119,6 +99,12 @@
                                     <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
                                         <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px;">
                                         Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="share-whatsapp" href="https://wa.me/6287887773893" target="_blank">
+                                        <img src="/fonts/whatsapp-round.svg" alt="whatsapp" style="width: 22px;">
+                                        Whatsapp
                                     </a>
                                 </li>
                             </ul>

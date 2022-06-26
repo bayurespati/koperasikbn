@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512">
+	<title>bank</title>
+	<defs>
+		<image  width="124" height="124" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAB8CAMAAACcwCSMAAAAAXNSR0IB2cksfwAAASNQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Rb17eAAAAGF0Uk5TAEvk/+NJ4vTIbAYskNRO5hL1zxuV/fyTKzThzr282Q14s2uSpgRvHLbHU1HYYIj4GR3yjvcvZv6Y89VV06HoE7cO+kNtoPYHC9cyCJ9QROkUZJnGYYf5auBwzXe0GkjlESmHAkUAAAK6SURBVHic7dt7V9MwFADwQFmH3dgGIg58TBR8oKhMfIBvFHw/UUFU9Pt/Cm+admm6pI90Tcrh3j+a7NKTX09yU8Y6CIEYG3cMx0SNhDFh2nYcd4Cbtx2nOjgxGIjbxc3v8TBgr1vY42G4VrZZGPZxk8UmFB3iFcP5HaA+ecLj+UZzql6fajbC1612uyUMydsONNNauHAHmDkZZL3ZUywzdzq4oDZcXVeOz0OzoIWL2+IMo7yzPHXOG5x3vifFL0CzOALcuegnZ6OpS/y8JRm+vADNZW2c9a5che412mvMQc9d6fWu36Az3+UXuSrBb8Lx1u2COFmDbp92mtTu0F6HlsQdjq/fHcLv3YfjA/ngOfEN2tmEzgrLPYTuI46zZY/ij+nhydOi+NqzcNr70Alq63k4G2EFLMVwGlsvFHbOgnsZmw0B2g6WPYbvtORD58VnXiXhrzfZsov4m7dKOyf+TjIbvLi60/6yx/D5EeF82qU4WaXN+/i0fyiCs56/zyeTcbIdz9HY+lgY51stAfeXPZrzr+bT55Hg/Vgufh9nyx7NfaE3ma9FcX+f76bh5Ft8Nr7D8Yf+7TUSe6l4sOw8t7wPzc8R4AdeOs6WPZL7Bc1vLVx4M3HwRwDlOOnWHWc8ktN/M1Eb6Bu7e54IKnByuP93LJL7B826Fl5uIG4XtxV2casfDtSs6e4hX3zTxSZ9gbhJ3HQgbh/PVBxl/AxxxBFHHPHScNOBuH1cVRxlBOLVwfWfpfPvvSSPwc6T4gX+YB187yVlDFeJ69viB2Rp51UTL1pASWMgXl08+34f3rfyMcTzEvEc+31o3yrGcDPj2e3hwVRjHB1cVSyynArPND7iiCN+pPFoHB+80C+Worj47IY9TzGGywJxxBFHHHHEES8Hx/9jsRH2cVWBlBmI28VthV382H4f7j9Yym20MdoZSQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="2" y="2"/>
+</svg>

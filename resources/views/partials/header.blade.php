@@ -28,6 +28,9 @@
                 <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
                     <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
                 </a>
+                <a class="share-whatsapp" href="https://wa.me/6287887773893" target="_blank">
+                    <img src="/fonts/whatsapp-round.svg" alt="whatsapp" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
+                </a>
             </div>
             <!-- End .social-links-->
             <div class="module module-language">
@@ -41,13 +44,13 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-sticky" id="primary-menu"><a class="navbar-brand" href="{{ route('index') }}"><img class="logo logo-dark" src="/assets/images/logo/logo-dark.png" alt="Koperasi KBN Logo" style="width: auto !important;" /><img class="logo logo-mobile" src="/assets/images/logo/logo-mobile.png" alt="Koperasi KBN Logo" style="width: auto !important;"/></a>
+    <nav class="navbar navbar-expand-lg navbar-sticky" id="primary-menu"><a class="navbar-brand" href="{{ route('index') }}"><img class="logo logo-dark" src="/assets/images/logo/logo-dark.png" alt="Koperasi KBN Logo" style="width: auto !important;" /><img class="logo logo-mobile" src="/assets/images/logo/logo-mobile.png" alt="Koperasi KBN Logo" style="width: auto !important;" /></a>
         <div class="module-holder module-holder-phone">
             <div class="module module-language">
-                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
+                <div class="selected"><img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;" /><span>indonesia</span><i class="fas fa-chevron-down"></i></div>
                 <div class="lang-list" style="left: -60px !important;">
                     <ul>
-                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;"/><a href="#">indonesia</a></li>
+                        <li> <img src="/assets/images/module-language/id.png" alt="ID Language" style="border: 0.1px solid lightgrey;" /><a href="#">indonesia</a></li>
                         <li> <img src="/assets/images/module-language/en.png" alt="En Language" /><a href="#">english</a></li>
                     </ul>
                 </div>
@@ -70,30 +73,13 @@
 
                 <li class="{{ request()->is('product/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Produk Kami</span></a>
                     <ul class="dropdown-menu">
-                        <!-- <li class="{{ request()->is('product/saving-and-loan') || request()->is('product/saving-and-loan/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('saving-loan') }}"><span>Simpan Pinjam</span></a></li>
-                        <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Minimarket</span></a></li>
-                        <li class="{{ request()->is('product/stationary') || request()->is('product/stationary/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('stationary') }}"><span>Alat Tulis Kantor (ATK)</span></a></li>
-                        <li class="{{ request()->is('product/cleaning-service') || request()->is('product/cleaning-service/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('cleaning-service') }}"><span>Penyedia Jasa Tenaga Ahli Daya - Cleaning Service</span></a></li>
-                        <li class="{{ request()->is('product/gardening') || request()->is('product/gardening/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('gardening') }}"><span>Penyedia Jasa Tenaga Ahli Daya - Perawatan Taman</span></a></li>
-                        <li class="{{ request()->is('product/driver') || request()->is('product/driver/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('driver') }}"><span>Penyedia Jasa Tenaga Ahli Daya - Driver</span></a></li>
-                        <li class="{{ request()->is('product/administration-staff') || request()->is('product/administration-staff/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('administration-staff') }}"><span>Penyedia Jasa Tenaga Ahli Daya - Staf Administrasi</span></a></li>
-                        <li class="{{ request()->is('product/others') || request()->is('product/others/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('others') }}"><span>Penyedia Jasa Tenaga Ahli Daya - Dll</span></a></li>
-                        <li class="{{ request()->is('product/vehicle-registration-service') || request()->is('product/vehicle-registration-service/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('vehicle-registration-service') }}"><span>Pengurusan Jasa Surat Kendaraan</span></a></li>
-                        <li class="{{ request()->is('product/photocopy-machine-rental') || request()->is('product/photocopy-machine-rental/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('photocopy-machine-rental') }}"><span>Penyewaan Mesin Fotokopi</span></a></li> -->
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Simpanan</span></a></li>
                         <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Pinjaman</span></a></li>
                         <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Bisnis & Komersial</span></a></li>
-                        <!-- <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Komersial</span></a></li> -->
                     </ul>
                 </li>
 
-                <li class="{{ request()->is('member-forum/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Suara Anggota</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ request()->is('member-forum/whistleblower') || request()->is('member-forum/whistleblower/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('whistleblower') }}"><span>Whistleblower</span></a></li>
-                        <li class="{{ request()->is('member-forum/complaint') || request()->is('member-forum/complaint/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('complaint') }}"><span>Pengaduan</span></a></li>
-                        <li class="{{ request()->is('member-forum/faq') || request()->is('member-forum/faq/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('faq') }}"><span>FAQ</span></a></li>
-                    </ul>
-                </li>
+                <li class="{{ request()->is('member-forum/faq') || request()->is('member-forum/faq/*') ? 'nav-item active' : 'nav-item' }}"><a href="{{ route('faq') }}"><span>FAQ</span></a></li>
 
                 <li class="{{ request()->is('media/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Media</span></a>
                     <ul class="dropdown-menu">
@@ -115,8 +101,11 @@
                     </a>
                 </div>
                 <div class="module-contact" style="margin-left: 0;">
-                    <a class="btn btn--primary " href="#">
+                    <!-- <a class="btn btn--primary " href="#">
                         ajukan pinjaman<i class="energia-arrow-right"></i>
+                    </a> -->
+                    <a class="btn btn--primary" href="https://padiumkm.id/store/39249-koperasi-karyawan-pt-kbn-persero-?x-prerender=1" target="_blank">
+                        <i class="fa fa-shopping-cart m-0"></i>
                     </a>
                 </div>
             </div>

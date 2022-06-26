@@ -1,7 +1,7 @@
 @extends('layouts.master_fe')
 
 @push('title')
-<title>Koperasi KBN - Suara Anggota - FAQ</title>
+<title>Koperasi KBN - FAQ</title>
 @endpush
 
 @push('additional_css')
@@ -34,7 +34,6 @@
             <div class="container">
                 <ol class="breadcrumb d-flex">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="#">Suara Anggota</a></li>
                     <li class="breadcrumb-item active" aria-current="page">FAQ</li>
                 </ol>
                 <!-- End .row-->
