@@ -109,7 +109,7 @@ export default {
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpan & Pinjam",
-        link: "/simpanan",
+        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {
@@ -243,7 +243,7 @@ export default {
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpan & Pinjam",
-        link: "/simpanan",
+        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {

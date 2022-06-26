@@ -48,8 +48,8 @@ const router = new Router({
             component: Video
         },
         {
-            path: '/simpanan',
-            component: Simpanan
+            path: '/pinjama',
+            component: Pinjaman
         },
         {
             path: '/faq',
