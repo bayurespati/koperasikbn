@@ -59,31 +59,31 @@ class ApplicationController extends Controller
     {
         $data = JabatanKoperasi::with('user.jabatanKbn')->get();
 
-        $manager = [];
-        $assistant = [];
-        $supervisor = [];
-        $executor = [];
+        $pembina = [];
+        $pengawas = [];
+        $pengurus = [];
+        $pengelola = [];
 
         foreach($data as $datum) {
-            if(str_contains(strtolower($datum['nama']), 'asisten')) {
-                array_push($assistant, $datum);
+            if(str_contains(strtolower($datum['nama']), 'pembina')) {
+                array_push($pembina, $datum);
             }
-            else if (str_contains(strtolower($datum['nama']), 'manager')) {
-                array_push($manager, $datum);
+            else if (str_contains(strtolower($datum['nama']), 'pengawas')) {
+                array_push($pengawas, $datum);
             }
-            else if(str_contains(strtolower($datum['nama']), 'supervisor')) {
-                array_push($supervisor, $datum);
+            else if(str_contains(strtolower($datum['nama']), 'pengurus')) {
+                array_push($pengurus, $datum);
             }
-            else if(str_contains(strtolower($datum['nama']), 'pelaksana')) {
-                array_push($executor, $datum);
+            else if(str_contains(strtolower($datum['nama']), 'pengelola')) {
+                array_push($pengelola, $datum);
             }
         }
 
         $management = [];
-        array_push($management, $manager);
-        array_push($management, $assistant);
-        array_push($management, $supervisor);
-        array_push($management, $executor);
+        array_push($management, $pembina);
+        array_push($management, $pengawas);
+        array_push($management, $pengurus);
+        array_push($management, $pengelola);
 
         return view('profile.our-team', ['data' => $management]);
     }
