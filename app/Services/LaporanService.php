@@ -9,10 +9,9 @@ class LaporanService
     public function store($request)
     {
         try {
-            $paylod = $request->only('title', 'title_indo', 'description', 'description_indo', 'file_name');
+            $paylod = $request->only('title', 'title_indo', 'description', 'description_indo', 'file_name', 'is_internal');
             $model = Laporan::make($paylod);
             $model->file_link = saveFile($request);
-            $model->is_internal = false;
             $model->save();
             return true;
         } catch (\Exception $e) {
@@ -31,12 +30,14 @@ class LaporanService
             }
 
             $model->title = $request->title;
+            $model->is_internal = $request->is_internal;
             $model->title_indo = $request->title_indo;
             $model->description = $request->description;
             $model->description_indo = $request->description_indo;
             $model->update();
             return true;
         } catch (\Exception $e) {
+            return $e->getMessage();
             return false;
         }
     }
@@ -44,9 +45,6 @@ class LaporanService
     public function delete($model)
     {
         try {
-            if ($model->is_internal)
-                return false;
-
             removeFile($model);
             return $model->delete();
         } catch (\Exception $e) {
