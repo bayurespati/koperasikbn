@@ -22,9 +22,11 @@ Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about
 Route::get('profile/our-business', 'ApplicationController@ourBusinessPage')->name('business');
 Route::get('profile/our-team', 'ApplicationController@managementPage')->name('management');
 // Route::get('profile/report-internal', 'ApplicationController@reportInternalPage')->name('report-internal');
-Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
+// Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
 
-Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
+// Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
+Route::get('product/saving', 'ApplicationController@savingPage')->name('saving');
+Route::get('product/loan', 'ApplicationController@loanPage')->name('loan');
 Route::get('product/minimart', 'ApplicationController@minimartPage')->name('minimart');
 Route::get('product/stationary', 'ApplicationController@stationaryPage')->name('stationary');
 Route::get('product/cleaning-service', 'ApplicationController@cleaningServicePage')->name('cleaning-service');
@@ -35,10 +37,10 @@ Route::get('product/others', 'ApplicationController@othersPage')->name('others')
 Route::get('product/vehicle-registration-service', 'ApplicationController@vehicleRegistrationServicePage')->name('vehicle-registration-service');
 Route::get('product/photocopy-machine-rental', 'ApplicationController@photocopyMachineRentalPage')->name('photocopy-machine-rental');
 
-Route::get('member-forum/whistleblower', 'ApplicationController@whistleblowerPage')->name('whistleblower');
-Route::get('member-forum/complaint', 'ApplicationController@complaintPage')->name('complaint');
+// Route::get('member-forum/whistleblower', 'ApplicationController@whistleblowerPage')->name('whistleblower');
+// Route::get('member-forum/complaint', 'ApplicationController@complaintPage')->name('complaint');
 Route::get('member-forum/faq', 'ApplicationController@faqPage')->name('faq');
-Route::get('member-forum/customer-relationship', 'ApplicationController@customerRelationshipPage')->name('customer-relationship');
+// Route::get('member-forum/customer-relationship', 'ApplicationController@customerRelationshipPage')->name('customer-relationship');
 
 Route::get('media/photo-and-video', 'ApplicationController@photoAndVideoPage')->name('photo-video');
 Route::get('media/news', 'ApplicationController@newsPage')->name('news');

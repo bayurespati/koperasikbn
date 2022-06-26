@@ -120,8 +120,8 @@
             <div class="bg-section"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 offset-lg-3">
-                        <div class="title text-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="title">
                             <h1 class="title-heading">Foto & Video</h1>
                             <!-- <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p> -->
                         </div>
@@ -131,7 +131,7 @@
         </div>
         <div class="breadcrumb-wrap">
             <div class="container">
-                <ol class="breadcrumb d-flex">
+                <ol class="breadcrumb d-flex justify-content-start">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Media</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Foto & Video</li>
@@ -154,20 +154,12 @@
                                 <a id="clear-filters" class="active-filter filter-item" href="javascript:void(0)" data-filter="*">All</a>
                             </li>
                             <li>
-                                <input id="radio-1" name="news_radio" type="radio" value="filter-simpanan" class="filter-item" />
-                                <label for="radio-1">Layanan Simpanan</label>
+                                <input id="radio-1" name="news_radio" type="radio" value="filter-photo" class="filter-item" />
+                                <label for="radio-1">Photos</label>
                             </li>
                             <li>
-                                <input id="radio-2" name="news_radio" type="radio" value="filter-pinjaman" class="filter-item" />
-                                <label for="radio-2">Layanan Pinjaman</label>
-                            </li>
-                            <li>
-                                <input id="radio-3" name="news_radio" type="radio" value="filter-bisnis" class="filter-item" />
-                                <label for="radio-3">Layanan Bisnis</label>
-                            </li>
-                            <li>
-                                <input id="radio-4" name="news_radio" type="radio" value="filter-komersial" class="filter-item" />
-                                <label for="radio-4"> Layanan Komersial</label>
+                                <input id="radio-2" name="news_radio" type="radio" value="filter-video" class="filter-item" />
+                                <label for="radio-2">Videos</label>
                             </li>
                         </ul>
                     </div>
@@ -177,7 +169,7 @@
             <!-- End .row-->
             <div id="projects-all_display" class="row">
                 @foreach($data as $datum)
-                <div class="col-12 col-md-6 col-lg-4 project-item filter-{{ $datum->category }}">
+                <div class="col-12 col-md-6 col-lg-4 project-item filter-{{ $datum->selector }}">
                     <div class="project-panel">
                         @if(isset($datum->image_link))
                         <div class="project-panel-holder">

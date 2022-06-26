@@ -56,7 +56,6 @@
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <div class="heading heading-5 text-center">
-                        <p class="heading-subtitle">Innovation, Quality And Continuous Improvement</p>
                         <h2 class="heading-title">Jenis-jenis Usaha yang Dikembangkan Adalah:</h2>
                     </div>
                 </div>
@@ -64,7 +63,7 @@
             <!-- End .row-->
             <div class="row">
                 <div class="col-12">
-                    <div class="carousel owl-carousel carousel-dots" data-slide="4" data-autoplay="false" data-nav="false" data-dots="true" data-space="30" data-loop="false" data-speed="500">
+                    <div class="carousel owl-carousel carousel-dots" data-slide="4" data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="false" data-speed="500" data-interval="5000">
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">

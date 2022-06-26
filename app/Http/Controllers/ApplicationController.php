@@ -10,7 +10,11 @@ use App\Models\JabatanKoperasi;
 use App\Models\Kalender;
 use Illuminate\Http\Request;
 use App\Models\Laporan;
+use App\Models\SimpanPinjam;
 use App\Models\Video;
+use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
 {
@@ -23,6 +27,10 @@ class ApplicationController extends Controller
     {
         $artikel = Artikel::paginate(3);
         $banner = Banner::where('is_active', '=', 1)->get();
+
+        foreach($artikel as $datum) {
+            $datum['formatted_dtime'] = $datum['created_at']->format('d-m-Y');
+        }
 
         $data = [
             'artikel' => $artikel,
@@ -49,9 +57,35 @@ class ApplicationController extends Controller
 
     public function managementPage()
     {
-        $data = JabatanKoperasi::with('user')->get();
+        $data = JabatanKoperasi::with('user.jabatanKbn')->get();
 
-        return view('profile.our-team', ['data' => $data]);
+        $manager = [];
+        $assistant = [];
+        $supervisor = [];
+        $executor = [];
+
+        foreach($data as $datum) {
+            if(str_contains(strtolower($datum['nama']), 'asisten')) {
+                array_push($assistant, $datum);
+            }
+            else if (str_contains(strtolower($datum['nama']), 'manager')) {
+                array_push($manager, $datum);
+            }
+            else if(str_contains(strtolower($datum['nama']), 'supervisor')) {
+                array_push($supervisor, $datum);
+            }
+            else if(str_contains(strtolower($datum['nama']), 'pelaksana')) {
+                array_push($executor, $datum);
+            }
+        }
+
+        $management = [];
+        array_push($management, $manager);
+        array_push($management, $assistant);
+        array_push($management, $supervisor);
+        array_push($management, $executor);
+
+        return view('profile.our-team', ['data' => $management]);
     }
 
     // public function reportInternalPage()
@@ -66,9 +100,24 @@ class ApplicationController extends Controller
         return view('profile.report-external', ['data' => $data]);
     }
 
-    public function savingAndLoanPage()
+    // public function savingAndLoanPage()
+    // {
+    //     return view('product.saving-loan');
+    // }
+
+    public function savingPage()
     {
-        return view('product.saving-loan');
+        $data = User::where('id', '=', Auth::user()->id)->with('simpans')->first();
+        dd($data);
+
+        return view('product.saving');
+    }
+
+    public function loanPage()
+    {
+        $data = User::with('pinjams');
+
+        return view('product.loan');
     }
 
     public function minimartPage()
@@ -146,10 +195,12 @@ class ApplicationController extends Controller
         $data = [];
 
         foreach ($photos as $photo) {
+            $photo['selector'] = 'photo';
             array_push($data, $photo);
         }
 
         foreach ($videos as $video) {
+            $video['selector'] = 'video';
             array_push($data, $video);
         }
 

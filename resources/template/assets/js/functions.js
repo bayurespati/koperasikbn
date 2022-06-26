@@ -205,9 +205,12 @@
             nav: $Carousel.data('nav'),
             dots: $Carousel.data('dots'),
             dotsSpeed: $Carousel.data('speed'),
+            autoplaySpeed: $Carousel.data('speed'),
             mouseDrag: $Carousel.data('drag'),
             touchDrag: $Carousel.data('drag'),
             pullDrag: $Carousel.data('drag'),
+            autoplayTimeout: $Carousel.data('interval'),
+            slideBy: 'page',
             rtl: $carouselrtl,
             responsive: {
                 0: {
@@ -234,7 +237,10 @@
             dots: $Carousel.data('dots'),
             center: $Carousel.data('center'),
             dotsSpeed: $Carousel.data('speed'),
+            autoplaySpeed: $Carousel.data('speed'),
+            autoplayTimeout: $Carousel.data('interval'),
             rtl: $carouselrtl,
+            slideBy: 'page',
             responsive: {
                 0: {
                     items: 1,

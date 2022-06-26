@@ -80,12 +80,9 @@
                     <li class="breadcrumb-item"><a href="">Profil Koperasi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Visi Misi</li>
                 </ol>
-                <!-- End .row-->
             </div>
         </div>
-        <!-- End .container-->
     </section>
-    <!-- End #page-title -->
     <!--
       ============================
       About #3 Section
@@ -96,7 +93,6 @@
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="heading heading-12">
-                        <!-- <p class="heading-subtitle">Complete Commercial And Residential Solar Systems</p> -->
                         <h2 class="heading-title">
                             Company Profile
                         </h2>
@@ -127,26 +123,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- End .col-lg-6-->
                 <div class="col-12 col-lg-5 offset-lg-1">
                     <div class="about-img">
                         <div class="about-img-holder bg-overlay">
                             <div class="bg-section"><img src="/assets/images/about/2.jpg" alt="about Image" /></div>
                         </div>
-                        <!-- Start .counter-->
-                        <!-- <div class="counter counter-4">
-                            <div class="counter-num"> <span class="counting" data-counterup-nums="25">25</span>
-                                <p>+</p>
-                                <h6>years of experience</h6>
-                            </div>
-                        </div> -->
-                        <!-- End .counter-->
                     </div>
                 </div>
             </div>
-            <!-- End .row-->
         </div>
-        <!-- End .container-->
     </section>
     <!--
       ============================
@@ -155,7 +140,7 @@
       -->
     <section class="processes processes-1" id="processes-1">
         <div class="bg-section"> <img src="/assets/images/background/wavy-pattern.png" alt="Background" /></div>
-        <div class="row carousel owl-carousel carousel-dots process-content-carousel" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="false" data-speed="800">
+        <div class="row carousel owl-carousel carousel-dots process-content-carousel" data-slide="1" data-slide-rs="6" data-autoplay="true" data-nav="false" data-dots="true" data-space="0" data-loop="false" data-speed="2000" data-interval="5000">
             <div class="row col-12">
                 <div class="col-12 col-lg-6">
                     <div class="block-right-holder">
@@ -174,14 +159,10 @@
                                             Menjadi Koperasi Yang Berkembang dan Bermanfaat untuk Memenuhi Kebutuhan
                                             Masyarakat khususnya Anggota Koperasi, juga Bangsa dan Negara
                                         </h5>
-                                        <!-- <p>We collaborate with you to design and deliver a system that meets your utility usage and needs, We also selecting equipment from 66+ manufacturers so you do not have to be worried or compromise with your money or with your effort.</p> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="images-holder">
-                            <div class="carousel owl-carousel process-image-carousel"><img src="/assets/images/processes/1.jpg" alt="process" /></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -203,14 +184,10 @@
                                             Membangun Bisnis dan Aset Produktif secara terintegrasi guna memberikan Manfaat &
                                             Pelayanan yang Luas Kepada Anggota Koperasi dan juga kepada Bangsa & Negara
                                         </h5>
-                                        <!-- <p>Whether you want to install the system or hire local contractors, managing installation yourself ensures the fastest return on your solar investment.We deliver a system that meets your utility usage and needs, We also selecting equipment from.</p> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="images-holder">
-                            <div class="carousel owl-carousel process-image-carousel"><img src="/assets/images/processes/2.jpg" alt="process" /></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -231,19 +208,14 @@
                                         <h5>
                                             Cepat, Tanggap dan Penuh Tanggung Jawab
                                         </h5>
-                                        <!-- <p>Even after your system is installed and operating, you can always count on Wholesale Solar to provide the support you need, just contact us at any time, and we will be there for you. Whether you want to install the system or hire local contractors.</p> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="images-holder">
-                            <div class="carousel owl-carousel process-image-carousel"><img src="/assets/images/processes/3.jpg" alt="process" /></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End .row-->
     </section>
 
     @include('partials.footer')
