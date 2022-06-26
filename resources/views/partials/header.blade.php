@@ -67,14 +67,16 @@
                         <li class="{{ request()->is('profile/about-us') || request()->is('profile/about-us/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('about') }}"><span>Visi Misi</span></a></li>
                         <li class="{{ request()->is('profile/our-business') || request()->is('profile/our-business/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('business') }}"><span>Bisnis Koperasi</span></a></li>
                         <li class="{{ request()->is('profile/our-team') || request()->is('profile/our-team/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('management') }}"><span>Manajemen</span></a></li>
-                        <li class="{{ request()->is('profile/report-external') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('report-external') }}"><span>Laporan</span></a></li>
                     </ul>
                 </li>
 
                 <li class="{{ request()->is('product/*') ? 'nav-item has-dropdown active' : 'nav-item has-dropdown' }}" data-hover=""><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>Produk Kami</span></a>
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Simpanan</span></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)"><span>Layanan Pinjaman</span></a></li>
+                        @if(Auth::user() && Auth::user()->email_verified_at !== null)
+                        <li class="{{ request()->is('product/saving') || request()->is('product/loan') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('saving') }}"><span>Simpan Pinjam</span></a></li>
+                        @else
+                        <li class="nav-item"><a href="{{ route('login') }}"><span>Simpan Pinjam</span></a></li>
+                        @endif
                         <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Bisnis & Komersial</span></a></li>
                     </ul>
                 </li>
@@ -95,10 +97,15 @@
             </ul>
             <div class="module-holder">
                 <div class="module-contact">
+                    @if(Auth::user())
+                    <a class="btn btn--primary" href="{{ route('login') }}">
+                        Dashboard
+                    </a>
+                    @else
                     <a class="btn btn--primary" href="{{ route('login') }}">
                         Masuk
-                        <!-- <i class="energia-arrow-right"></i> -->
                     </a>
+                    @endif
                 </div>
                 <div class="module-contact" style="margin-left: 0;">
                     <!-- <a class="btn btn--primary " href="#">

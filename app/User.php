@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\SimpanPinjam;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -39,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Relation 
+     * Relation
      *
      */
     public function jabatanKbn()
@@ -55,5 +56,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function divisi()
     {
         return $this->belongsTo('App\Models\Divisi', 'divisi_id', 'id');
+    }
+
+    public function simpans() {
+        return $this->hasMany(SimpanPinjam::class, 'no_anggota', 'no_anggota')->whereIn('kode', [1, 2]);
+    }
+
+    public function pinjams() {
+        return $this->hasMany(SimpanPinjam::class, 'no_anggota', 'no_anggota')->where('kode', 3);
     }
 }

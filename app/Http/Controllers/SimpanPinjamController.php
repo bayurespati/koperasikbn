@@ -9,9 +9,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SimpanPinjamController extends Controller
 {
-    /** 
-     * Upload data. 
-     * 
+    /**
+     * Upload data.
+     *
      */
     public function upload(Request $request)
     {
@@ -27,9 +27,9 @@ class SimpanPinjamController extends Controller
     }
 
 
-    /** 
-     * Return all data simpan pinjam. 
-     * 
+    /**
+     * Return all data simpan pinjam.
+     *
      */
     public function index()
     {
@@ -37,9 +37,9 @@ class SimpanPinjamController extends Controller
     }
 
 
-    /** 
-     * Get all data simpanan. 
-     * 
+    /**
+     * Get all data simpanan.
+     *
      */
     public function getSimpananPersonal(Request $request)
     {
@@ -47,9 +47,9 @@ class SimpanPinjamController extends Controller
     }
 
 
-    /** 
-     * Get all data pinjaman. 
-     * 
+    /**
+     * Get all data pinjaman.
+     *
      */
     public function getPinjamanPersonal(Request $request)
     {

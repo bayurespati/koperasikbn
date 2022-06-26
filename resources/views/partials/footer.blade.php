@@ -13,7 +13,6 @@
                                 <li><a href="{{ route('about') }}">Visi Misi</a></li>
                                 <li><a href="{{ route('business') }}">Bisnis Koperasi</a></li>
                                 <li><a href="{{ route('management') }}">Manajemen</a></li>
-                                <li><a href="{{ route('report-external') }}">Laporan</a></li>
                             </ul>
                         </div>
                     </div>
@@ -26,9 +25,12 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <li><a href="javascript:void(0)">Layanan Simpanan</a></li>
-                                <li><a href="javascript:void(0)">Layanan Pinjaman</a></li>
-                                <li><a href="javascript:void(0)">Bisnis & Komersial</a></li>
+                                @if(Auth::user())
+                                <li><a href="{{ route('saving') }}">Simpan Pinjam</a></li>
+                                @else
+                                <li><a href="{{ route('login') }}">Simpan Pinjam</a></li>
+                                @endif
+                                <li><a href="{{ route('minimart') }}">Bisnis & Komersial</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,11 +52,11 @@
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <li><a href="javascript:void(0)">Foto & Video</a></li>
-                                <li><a href="javascript:void(0)">Berita</a></li>
-                                <li><a href="javascript:void(0)">Pengumuman</a></li>
-                                <li><a href="javascript:void(0)">Penghargaan & Sertifikasi</a></li>
-                                <li><a href="javascript:void(0)">Kalender Kegiatan</a></li>
+                                <li><a href="{{ route('photo-video') }}">Foto & Video</a></li>
+                                <li><a href="{{ route('news') }}">Berita</a></li>
+                                <li><a href="{{ route('announcement') }}">Pengumuman</a></li>
+                                <li><a href="{{ route('award-certificate') }}">Penghargaan & Sertifikasi</a></li>
+                                <li><a href="{{ route('calendar') }}">Kalender Kegiatan</a></li>
                             </ul>
                         </div>
                     </div>

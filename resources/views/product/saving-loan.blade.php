@@ -35,39 +35,28 @@
       PageTitle #11 Section
       ============================
       -->
-    <section class="page-title page-title-11" id="page-title">
-        <div class="page-title-wrap bg-overlay bg-overlay-dark-3">
-            <div class="bg-section"><img src="/assets/images/page-titles/11.jpg" alt="Background" /></div>
+      <section class="page-title page-title-2" id="page-title">
+        <div class="page-title-wrap bg-overlay bg-overlay-dark-2 banner_all">
+            <div class="bg-section"></div>
             <div class="container">
-                <div class="title">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <div class="title">
                             <h1 class="title-heading">Simpan Pinjam</h1>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-5">
-                            <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p>
-                            <div class="title-action"> <a class="btn btn--primary btn--inversed" href="page-contact.html">
-                                    get started<i class="energia-arrow-right"></i></a><a class="btn btn--bordered btn--white" href="page-about.html">explore our plans</a></div>
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb-wrap">
-                            <ol class="breadcrumb breadcrumb-light d-flex">
-                                <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Simpan Pinjam</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .row-->
             </div>
         </div>
-        <!-- End .container-->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ol class="breadcrumb d-flex">
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="">Produk Kami</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Simpan Pinjam</li>
+                </ol>
+            </div>
+        </div>
     </section>
     <!-- End #page-title -->
     <!--

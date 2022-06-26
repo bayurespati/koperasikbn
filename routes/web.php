@@ -22,9 +22,11 @@ Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about
 Route::get('profile/our-business', 'ApplicationController@ourBusinessPage')->name('business');
 Route::get('profile/our-team', 'ApplicationController@managementPage')->name('management');
 // Route::get('profile/report-internal', 'ApplicationController@reportInternalPage')->name('report-internal');
-Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
+// Route::get('profile/report-external', 'ApplicationController@reportExternalPage')->name('report-external');
 
-Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
+// Route::get('product/saving-and-loan', 'ApplicationController@savingAndLoanPage')->name('saving-loan');
+Route::get('product/saving', 'ApplicationController@savingPage')->name('saving');
+Route::get('product/loan', 'ApplicationController@loanPage')->name('loan');
 Route::get('product/minimart', 'ApplicationController@minimartPage')->name('minimart');
 Route::get('product/stationary', 'ApplicationController@stationaryPage')->name('stationary');
 Route::get('product/cleaning-service', 'ApplicationController@cleaningServicePage')->name('cleaning-service');
