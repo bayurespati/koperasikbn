@@ -25,22 +25,33 @@
             </v-col>
 
             <!--======================================================================================
-                CATEGORY 
+                TITLE INDO
             ==========================================================================================-->
-            <v-col cols="12" xs="12" md="12">
-              <v-select
-                @change="$v.model.category.$touch()"
-                @blur="$v.model.category.$touch()"
-                :error-messages="categoryError"
-                v-model="model.category"
-                :items="categories"
-                label="Kategori"
-                item-text="nama"
-                item-value="nama"
-                persistent-hint
+            <v-col cols="12" xs="12" md="6">
+              <v-text-field
+                @input="$v.model.title_indo.$touch()"
+                @blur="$v.model.title_indo.$touch()"
+                :error-messages="titleIndoError"
+                v-model="model.title_indo"
+                label="Judul Indonesia"
                 required
-                small-chips
-              ></v-select>
+              >
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
+                TITLE ENG 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="6">
+              <v-text-field
+                @input="$v.model.title.$touch()"
+                @blur="$v.model.title.$touch()"
+                :error-messages="titleError"
+                v-model="model.title"
+                label="Judul Inggris"
+                required
+              >
+              </v-text-field>
             </v-col>
 
             <!--======================================================================================
@@ -54,9 +65,9 @@
                 @click="save()"
                 >save</v-btn
               >
-              <v-btn rounded color="error" class="ml-3" @click="close()"
-                >cancel</v-btn
-              >
+              <v-btn rounded color="error" class="ml-3" @click="close()">
+                cancel
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -77,6 +88,8 @@ export default {
     return {
       model: {
         link: "",
+        title: "",
+        title_indo: "",
         category: "",
       },
       categories: [
@@ -94,19 +107,39 @@ export default {
   validations: {
     model: {
       link: { required },
+      title: { required },
+      title_indo: { required },
       category: { required },
     },
   },
 
   computed: {
     isValid() {
-      return this.linkError.length == 0 && this.categoryError.length == 0;
+      return (
+        this.linkError.length == 0 &&
+        this.titleError.length == 0 &&
+        this.titleIndoError.length == 0
+      );
     },
 
     linkError() {
       const errors = [];
       if (!this.$v.model.link.$dirty) return errors;
       !this.$v.model.link.required && errors.push("Link video harus diisi");
+      return errors;
+    },
+
+    titleError() {
+      const errors = [];
+      if (!this.$v.model.title.$dirty) return errors;
+      !this.$v.model.title.required && errors.push("Judul harus diisi.");
+      return errors;
+    },
+
+    titleIndoError() {
+      const errors = [];
+      if (!this.$v.model.title_indo.$dirty) return errors;
+      !this.$v.model.title_indo.required && errors.push("Judul harus diisi.");
       return errors;
     },
 
@@ -125,7 +158,8 @@ export default {
       if (!self.isRequest && self.isValid) {
         const data = {
           link: self.model.link,
-          category: self.model.category,
+          title: self.model.title,
+          title_indo: self.model.title_indo,
         };
         self.isRequest = true;
         self.$store
@@ -151,6 +185,8 @@ export default {
       this.$v.$reset();
       this.model.link = "";
       this.model.category = "";
+      this.model.title = "";
+      this.model.title_indo = "";
     },
 
     close() {

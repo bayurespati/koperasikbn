@@ -72,25 +72,6 @@
             </v-col>
 
             <!--======================================================================================
-                CATEGORY 
-            ==========================================================================================-->
-            <v-col cols="12" xs="12" md="12">
-              <v-select
-                @change="$v.model.category.$touch()"
-                @blur="$v.model.category.$touch()"
-                :error-messages="categoryError"
-                v-model="model.category"
-                :items="categories"
-                label="Kategori"
-                item-text="nama"
-                item-value="nama"
-                persistent-hint
-                required
-                small-chips
-              ></v-select>
-            </v-col>
-
-            <!--======================================================================================
                 BUTTON
             ==========================================================================================-->
             <v-col cols="12 text-left">
@@ -153,7 +134,6 @@ export default {
   computed: {
     isValid() {
       return (
-        this.categoryError.length == 0 &&
         this.titleError.length == 0 &&
         this.titleIndoError.length == 0 &&
         this.imageError.length == 0
@@ -178,13 +158,6 @@ export default {
       const errors = [];
       if (!this.$v.model.title_indo.$dirty) return errors;
       !this.$v.model.title_indo.required && errors.push("Judul harus diisi.");
-      return errors;
-    },
-
-    categoryError() {
-      const errors = [];
-      if (!this.$v.model.category.$dirty) return errors;
-      !this.$v.model.category.required && errors.push("Kategori harus diisi");
       return errors;
     },
   },

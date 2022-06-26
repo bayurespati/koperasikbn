@@ -9,7 +9,7 @@ class VideoService
     public function store($request)
     {
         try {
-            $paylod      = $request->only('link', 'category');
+            $paylod      = $request->only('link', 'title', 'title_indo');
             $model       = Video::make($paylod);
             $model->type = 'media';
             $model->save();
@@ -22,8 +22,9 @@ class VideoService
     public function update($request, $model)
     {
         try {
-            $model->link     = $request->link;
-            $model->category = $request->category;
+            $model->title_indo = $request->title_indo;
+            $model->title      = $request->title;
+            $model->link       = $request->link;
             $model->update();
             return true;
         } catch (\Exception $e) {

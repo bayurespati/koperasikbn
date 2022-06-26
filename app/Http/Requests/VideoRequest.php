@@ -25,7 +25,8 @@ class VideoRequest extends FormRequest
     {
         return [
             'link' => 'required',
-            'category' => 'required',
+            'title' => 'required',
+            'title_indo' => 'required',
         ];
     }
 
@@ -33,7 +34,8 @@ class VideoRequest extends FormRequest
     {
         return [
             'link.required' => 'Link video harus diisi',
-            'category.required' => 'Kategory harus di pilih',
+            'title.required' => 'Judul bahasa inggris harus diisi',
+            'title_indo.required' => 'Judul bahasa indonesia harus diisi',
         ];
     }
 }
