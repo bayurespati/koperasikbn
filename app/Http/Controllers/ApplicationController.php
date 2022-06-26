@@ -107,7 +107,8 @@ class ApplicationController extends Controller
 
     public function savingPage()
     {
-        $data = User::with('simpans');
+        $data = User::where('id', '=', Auth::user()->id)->with('simpans')->first();
+        dd($data);
 
         return view('product.saving');
     }
