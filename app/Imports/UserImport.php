@@ -34,7 +34,7 @@ class UserImport implements ToModel, WithStartRow
                 'nip' => $row[3],
                 'tanggal_masuk' => $tanggal_masuk,
                 'is_active' => true,
-                'password' => bcrypt('adminadmin'),
+                'password' => bcrypt('password'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'email_verified_at' => NULL,
