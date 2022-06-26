@@ -72,25 +72,6 @@
             </v-col>
 
             <!--======================================================================================
-                CATEGORY 
-            ==========================================================================================-->
-            <v-col cols="12" xs="12" md="12">
-              <v-select
-                @change="$v.model.category.$touch()"
-                @blur="$v.model.category.$touch()"
-                :error-messages="categoryError"
-                v-model="model.category"
-                :items="categories"
-                label="Kategori"
-                item-text="nama"
-                item-value="nama"
-                persistent-hint
-                required
-                small-chips
-              ></v-select>
-            </v-col>
-
-            <!--======================================================================================
                 BUTTON
             ==========================================================================================-->
             <v-col cols="12 text-left">
@@ -101,9 +82,9 @@
                 @click="save()"
                 >save</v-btn
               >
-              <v-btn rounded color="error" class="ml-3" @click="close()"
-                >cancel</v-btn
-              >
+              <v-btn rounded color="error" class="ml-3" @click="close()">
+                cancel
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -156,7 +137,6 @@ export default {
     isValid() {
       return (
         this.imageError.length == 0 &&
-        this.categoryError.length == 0 &&
         this.titleError.length == 0 &&
         this.titleIndoError.length == 0 &&
         this.model.image_name != null
@@ -183,13 +163,6 @@ export default {
       !this.$v.model.title_indo.required && errors.push("Judul harus diisi.");
       return errors;
     },
-
-    categoryError() {
-      const errors = [];
-      if (!this.$v.model.title.$dirty) return errors;
-      !this.$v.model.title.required && errors.push("Kategori harus diisi");
-      return errors;
-    },
   },
 
   methods: {
@@ -203,7 +176,6 @@ export default {
           image_file: self.model.image_url,
           title: self.model.title,
           title_indo: self.model.title_indo,
-          category: self.model.category,
           id: self.image.id,
         };
         self.isRequest = true;

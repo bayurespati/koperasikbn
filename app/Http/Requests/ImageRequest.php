@@ -24,7 +24,6 @@ class ImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required',
             'title' => 'required',
             'title_indo' => 'required',
             'image_name'  => 'required',
@@ -34,7 +33,6 @@ class ImageRequest extends FormRequest
     public function messages()
     {
         return [
-            'category.required' => 'Katergory artikel harus diisi',
             'title.required' => 'Judul bahasa inggris harus diisi',
             'title_indo.required' => 'Judul bahasa indonesia harus diisi',
             'image_name.required' => 'Gambar harus diisi',

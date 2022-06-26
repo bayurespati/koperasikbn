@@ -19,7 +19,6 @@ class CreateImagesTable extends Migration
             $table->string('title_indo');
             $table->string('image_name');
             $table->string('image_link');
-            $table->string('category')->nullable();
             $table->integer('imagetable_id')->nullable();
             $table->string('imagetable_type')->nullable();
             $table->timestamps();

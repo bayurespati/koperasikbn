@@ -59,6 +59,7 @@
         TABLE 
       ==========================================================================================-->
     <v-data-table
+      dense
       :headers="headers"
       :items="images"
       :search="search"
@@ -107,11 +108,6 @@ export default {
           text: "Judul",
           align: "left",
           value: "title_indo",
-        },
-        {
-          text: "Kategori",
-          align: "left",
-          value: "category",
         },
         { text: "Actions", value: "action", sortable: false },
       ],

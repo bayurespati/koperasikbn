@@ -65,6 +65,11 @@
       :items-per-page="5"
       :footer-props="footerProps"
     >
+      <template v-slot:[`item.link`]="{ item }">
+        <div class="p-2 min">
+          {{ item.link }}
+        </div>
+      </template>
       <template v-slot:[`item.action`]="{ item }">
         <v-icon color="orange" small class="mr-2" @click="edit(item)">
           mdi-pencil-box
@@ -97,8 +102,15 @@ export default {
           text: "Link",
           align: "left",
           value: "link",
+          width: "1%",
+          height: "1%",
+          cellClass: "height: 10",
         },
-        { text: "Kategori", value: "category" },
+        {
+          text: "Judul",
+          align: "left",
+          value: "title_indo",
+        },
         { text: "Actions", value: "action", sortable: false },
       ],
     };
@@ -167,3 +179,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+.min {
+  white-space: nowrap;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

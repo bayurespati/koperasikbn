@@ -10,7 +10,6 @@ class ImageService
     {
         try {
             $paylod = $request->only(
-                'category',
                 'title',
                 'title_indo',
                 'image_name'
@@ -34,7 +33,6 @@ class ImageService
                 $model->image_link = saveImage($request);
                 $model->image_name = $request->image_name;
             }
-            $model->category   = $request->category;
             $model->title      = $request->title;
             $model->title_indo = $request->title_indo;
             $model->update();

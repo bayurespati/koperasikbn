@@ -109,7 +109,7 @@ export default {
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpan & Pinjam",
-        link: "/simpanan",
+        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {
@@ -147,26 +147,10 @@ export default {
         permission: [1, 2],
       },
       {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        parent_icon: "mdi-file-video",
+        icon: "mdi-18px mdi-newspaper",
         text: "Laporan",
-        model: false,
+        link: "/laporan",
         permission: [1, 2],
-        children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Internal",
-            link: "/laporan-internal",
-            permission: [1, 2],
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Eksternal",
-            link: "/laporan-eksternal",
-            permission: [1, 2],
-          },
-        ],
       },
       {
         icon: "mdi-18px mdi-octagram-outline",
@@ -196,7 +180,7 @@ export default {
         children: [
           {
             icon: "mdi-18px mdi-home",
-            text: "Jabatan KBN",
+            text: "Jabatan",
             link: "/jabatan-kbn",
             permission: [1, 2],
           },
@@ -259,7 +243,7 @@ export default {
       {
         icon: "mdi-18px mdi-bank",
         text: "Simpan & Pinjam",
-        link: "/simpanan",
+        link: "/pinjaman",
         permission: [1, 2, 3],
       },
       {
@@ -269,26 +253,10 @@ export default {
         permission: [1, 2],
       },
       {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        parent_icon: "mdi-file-video",
+        icon: "mdi-18px mdi-home",
         text: "Laporan",
-        model: false,
+        link: "/laporan",
         permission: [1, 2],
-        children: [
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Internal",
-            link: "/laporan-internal",
-            permission: [1, 2],
-          },
-          {
-            icon: "mdi-18px mdi-home",
-            text: "Eksternal",
-            link: "/laporan-eksternal",
-            permission: [1, 2],
-          },
-        ],
       },
       {
         icon: "mdi-18px mdi-octagram-outline",
