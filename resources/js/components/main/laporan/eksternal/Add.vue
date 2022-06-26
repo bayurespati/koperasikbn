@@ -213,7 +213,7 @@ export default {
           file_file: self.model.file_file,
           file_name: self.model.file_name,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeLaporan", data)
           .then((response) => {

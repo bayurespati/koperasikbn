@@ -386,7 +386,7 @@ export default {
           divisi_id: self.model.divisi,
           jabatan_kbn_id: self.model.jabatan_kbn,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeUser", data)
           .then((response) => {

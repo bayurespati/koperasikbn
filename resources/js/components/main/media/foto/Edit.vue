@@ -206,7 +206,7 @@ export default {
           category: self.model.category,
           id: self.image.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editImage", data)
           .then((response) => {

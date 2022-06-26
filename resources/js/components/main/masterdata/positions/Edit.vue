@@ -88,7 +88,7 @@ export default {
           name: self.model.name,
           id: self.position.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editPosition", data)
           .then((response) => {

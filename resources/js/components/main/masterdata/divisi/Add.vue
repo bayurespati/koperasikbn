@@ -151,7 +151,7 @@ export default {
           kode: self.model.kode,
           unit_id: self.model.unit,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeDivisi", data)
           .then((response) => {

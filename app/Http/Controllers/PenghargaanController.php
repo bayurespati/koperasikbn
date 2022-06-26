@@ -33,6 +33,8 @@ class PenghargaanController extends Controller
      */
     public function store(PenghargaanRequest $request)
     {
+        $file = $request->file('file_file');
+        return [$file, "oke", $request->all(), $request->file_file, $request->data];
         $penghargaanService = $this->penghargaanService->store($request);
 
         if (!$penghargaanService)

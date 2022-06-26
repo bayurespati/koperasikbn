@@ -114,7 +114,7 @@ export default {
           kode: self.model.kode,
           id: self.unit.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editUnit", data)
           .then((response) => {

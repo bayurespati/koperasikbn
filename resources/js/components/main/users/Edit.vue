@@ -389,7 +389,7 @@ export default {
           jabatan_kbn_id: self.model.jabatan_kbn,
           id: self.user.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editUser", data)
           .then((response) => {

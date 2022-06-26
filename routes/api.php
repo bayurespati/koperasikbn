@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('send-mail', 'Mailcontroller@send')->name('mail');
+Route::post('users/upload', 'UserController@upload');

@@ -215,7 +215,7 @@ export default {
           file_name: self.model.file_name,
           id: self.penghargaan.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editPenghargaan", data)
           .then((response) => {

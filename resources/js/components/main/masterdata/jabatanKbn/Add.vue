@@ -85,7 +85,7 @@ export default {
         const data = {
           nama: self.model.nama,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storeJabatanKbn", data)
           .then((response) => {

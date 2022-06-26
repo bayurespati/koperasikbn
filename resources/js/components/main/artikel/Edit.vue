@@ -333,7 +333,7 @@ export default {
           category: self.model.category,
           id: self.artikel.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editArtikel", data)
           .then((response) => {

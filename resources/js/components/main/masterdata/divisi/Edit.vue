@@ -155,7 +155,7 @@ export default {
           unit_id: self.model.unit,
           id: self.divisi.id,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("editDivisi", data)
           .then((response) => {

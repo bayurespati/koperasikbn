@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import Vue from 'Vue'
 
 const state = {
@@ -99,7 +100,22 @@ const actions = {
         reject(errors.response.data.errors)
       })
     })
-  }
+  },
+
+  uploadUser({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      axios.post('/dashboard/users/upload', data, {
+        Headers: {
+          'enctype': 'multipart/form-data'
+        }
+      }).then(response => {
+        resolve(response.data)
+      }).catch(errors => {
+        reject(errors.response.data.errors)
+      })
+    })
+  },
+
 };
 
 

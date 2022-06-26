@@ -175,7 +175,7 @@ export default {
         ],
       },
       {
-        icon: "mdi-18px mdi-webpack",
+        icon: "mdi-18px mdi-octagram-outline",
         text: "Penghargaan",
         link: "/penghargaan",
         permission: [1, 2],
@@ -303,7 +303,7 @@ export default {
         ],
       },
       {
-        icon: "mdi-18px mdi-webpack",
+        icon: "mdi-18px mdi-octagram-outline",
         text: "Penghargaan",
         link: "/penghargaan",
         permission: [1, 2],

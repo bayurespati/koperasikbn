@@ -85,7 +85,7 @@ export default {
         const data = {
           name: self.model.name,
         };
-        self.isRequets = true;
+        self.isRequest = true;
         self.$store
           .dispatch("storePosition", data)
           .then((response) => {
