@@ -87,7 +87,7 @@ export default {
       model: {
         nama: this.divisi.nama ?? "",
         kode: this.divisi.kode ?? "",
-        unit: this.divisi.unit_id ?? "",
+        unit: parseInt(this.divisi.unit_id ?? ""),
       },
       units: [],
       valid: false,
@@ -105,7 +105,7 @@ export default {
   },
 
   beforeMount() {
-    this.getUnit();
+    this.getUnits();
   },
 
   computed: {
@@ -136,7 +136,7 @@ export default {
   },
 
   methods: {
-    getUnit() {
+    getUnits() {
       let self = this;
 
       self.$store.dispatch("getUnit").then((response) => {
