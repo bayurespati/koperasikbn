@@ -62,8 +62,6 @@
                     <div class="col-12 col-lg-5">
                         <div class="title">
                             <h1 class="title-heading">Sejarah Singkat</h1>
-                            <!-- <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p> -->
-                            <!-- <div class="title-action"> <a class="btn btn--primary" href="{{ route('saving-loan') }}"> <span>our services</span><i class="energia-arrow-right"></i></a><a class="btn-video btn-video-2 popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4"> <i class="fas fa-play"></i></a></div> -->
                         </div>
                     </div>
                 </div>
