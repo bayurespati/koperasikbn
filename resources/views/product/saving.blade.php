@@ -5,6 +5,8 @@
 @endpush
 
 @push('additional_css')
+<link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+
 <style>
     .custom-active-widget a {
         color: var(--global--color-white) !important;
@@ -77,11 +79,62 @@
                         </div>
                     </div>
                 </div>
-                <!-- End .col-lg-8-->
             </div>
-            <!-- End .row-->
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5>
+                </div>
+                <div class="col-12" style="margin-top: 20px;">
+                    <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="name" style="font-weight: 800;">Nama </td>
+                                    <td class="value">: {{ $data->nama }} / {{ $data->no_anggota }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="name" style="font-weight: 800;">Divisi/Biro</td>
+                                    <td class="value">: {{ $data->divisi->nama }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12" style="margin-top: 20px;">
+                    @if($data !== null && count($data->simpans) > 0)
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Keterangan</th>
+                                <th style="text-align: center;">Simpanan Bulan Ini</th>
+                                <th style="text-align: right;">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data->simpans as $datum)
+                            <tr>
+                                <td>{{ $datum->keterangan }}</td>
+                                <td style="text-align: right;">{{ $datum->jumlah_angsuran }}</td>
+                                <td style="text-align: right;">{{ $datum->saldo }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="text-align: right;">Total</th>
+                                <td style="text-align: right;">{{ $data->totalAngsuran }}</td>
+                                <td style="text-align: right;">{{ $data->totalSaldo }}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    @endif
+                </div>
+            </div>
         </div>
-        <!-- End .container-->
     </section>
 
     @include('partials.footer')
@@ -89,3 +142,12 @@
     <div class="back-top" id="back-to-top" data-hover=""><i class="energia-arrow-up"></i></div>
 </div>
 @endsection
+
+@push('additional_js')
+<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+@endpush
