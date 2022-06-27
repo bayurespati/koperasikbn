@@ -110,9 +110,9 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;" rowspan="2">Keterangan</th>
-                                <th style="text-align: center;" rowspan="2">Jumlah Angsuran</th>
+                                <th style="text-align: center;" rowspan="2">Jumlah Angsuran (Rupiah)</th>
                                 <th style="text-align: center;" colspan="2">Cicilan</th>
-                                <th style="text-align: right;" rowspan="2">Jumlah</th>
+                                <th style="text-align: right;" rowspan="2">Jumlah (Rupiah)</th>
                             </tr>
                             <tr>
                                 <th style="text-align: center;">Ke</th>
@@ -123,18 +123,26 @@
                             @foreach($data->pinjams as $datum)
                             <tr>
                                 <td>{{ $datum->keterangan }}</td>
-                                <td style="text-align: right;">{{ $datum->jumlah_angsuran }}</td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->jumlah_angsuran, 2, '.', ',') }}
+                                </td>
                                 <td style="text-align: center;">{{ $datum->cicilan_ke }}</td>
                                 <td style="text-align: center;">{{ $datum->sisa }}</td>
-                                <td style="text-align: right;">{{ $datum->saldo }}</td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->saldo, 2, '.', ',') }}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th style="text-align: right;">Total</th>
-                                <td style="text-align: right;">{{ $data->totalAngsuran }}</td>
-                                <td style="text-align: right;" colspan="3">{{ $data->totalSaldo }}</td>
+                                <th style="text-align: right; font-weight: bold;">Total</th>
+                                <td style="text-align: right; font-weight: bold;">
+                                    {{ number_format($datum->totalAngsuran, 2, '.', ',') }}
+                                </td>
+                                <td style="text-align: right; font-weight: bold;" colspan="3">
+                                    {{ number_format($datum->totalSaldo, 2, '.', ',') }}
+                                </td>
                             </tr>
                         </tfoot>
                     </table>

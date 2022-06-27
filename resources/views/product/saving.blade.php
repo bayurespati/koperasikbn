@@ -110,24 +110,32 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">Keterangan</th>
-                                <th style="text-align: center;">Simpanan Bulan Ini</th>
-                                <th style="text-align: right;">Jumlah</th>
+                                <th style="text-align: center;">Simpanan Bulan Ini (Rupiah)</th>
+                                <th style="text-align: right;">Jumlah (Rupiah)</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($data->simpans as $datum)
                             <tr>
                                 <td>{{ $datum->keterangan }}</td>
-                                <td style="text-align: right;">{{ $datum->jumlah_angsuran }}</td>
-                                <td style="text-align: right;">{{ $datum->saldo }}</td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->jumlah_angsuran, 2, '.', ',') }}
+                                </td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->saldo, 2, '.', ',') }}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th style="text-align: right;">Total</th>
-                                <td style="text-align: right;">{{ $data->totalAngsuran }}</td>
-                                <td style="text-align: right;">{{ $data->totalSaldo }}</td>
+                                <th style="text-align: right; font-weight: bold;">Total</th>
+                                <td style="text-align: right; font-weight: bold;">
+                                    {{ number_format($datum->totalAngsuran, 2, '.', ',') }}
+                                </td>
+                                <td style="text-align: right; font-weight: bold;">
+                                    {{ number_format($datum->totalSaldo, 2, '.', ',') }}
+                                </td>
                             </tr>
                         </tfoot>
                     </table>
