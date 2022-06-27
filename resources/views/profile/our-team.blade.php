@@ -77,7 +77,7 @@
             <div class="row">
                 @if(count($data[0]) > 0)
                 <div class="col-12 d-flex justify-content-center">
-                    <h3>Manager</h3>
+                    <h3>Pembina</h3>
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[0] as $datum)
@@ -117,7 +117,7 @@
             <div class="row mt-4">
                 @if(count($data[1]) > 0)
                 <div class="col-12 d-flex justify-content-center">
-                    <h3>Asisten Manager</h3>
+                    <h3>Pengawas</h3>
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[1] as $datum)
@@ -157,7 +157,7 @@
             <div class="row mt-4">
                 @if(count($data[2]) > 0)
                 <div class="col-12 d-flex justify-content-center">
-                    <h3>Supervisor</h3>
+                    <h3>Pengurus</h3>
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[2] as $datum)
@@ -197,7 +197,7 @@
             <div class="row mt-4">
                 @if(count($data[3]) > 0)
                 <div class="col-12 d-flex justify-content-center">
-                    <h3>Pelaksana</h3>
+                    <h3>Pengelola</h3>
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[3] as $datum)
