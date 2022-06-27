@@ -28,7 +28,7 @@ class ApplicationController extends Controller
         $artikel = Artikel::paginate(3);
         $banner = Banner::where('is_active', '=', 1)->get();
 
-        foreach($artikel as $datum) {
+        foreach ($artikel as $datum) {
             $datum['formatted_dtime'] = $datum['created_at']->format('d-m-Y');
         }
 
@@ -64,17 +64,14 @@ class ApplicationController extends Controller
         $pengurus = [];
         $pengelola = [];
 
-        foreach($data as $datum) {
-            if(str_contains(strtolower($datum['nama']), 'pembina')) {
+        foreach ($data as $datum) {
+            if (str_contains(strtolower($datum['nama']), 'pembina')) {
                 array_push($pembina, $datum);
-            }
-            else if (str_contains(strtolower($datum['nama']), 'pengawas')) {
+            } else if (str_contains(strtolower($datum['nama']), 'pengawas')) {
                 array_push($pengawas, $datum);
-            }
-            else if(str_contains(strtolower($datum['nama']), 'pengurus')) {
+            } else if (str_contains(strtolower($datum['nama']), 'pengurus')) {
                 array_push($pengurus, $datum);
-            }
-            else if(str_contains(strtolower($datum['nama']), 'pengelola')) {
+            } else if (str_contains(strtolower($datum['nama']), 'pengelola')) {
                 array_push($pengelola, $datum);
             }
         }
@@ -94,11 +91,11 @@ class ApplicationController extends Controller
     //     return view('profile.report-internal', ['data' => $data]);
     // }
 
-    public function reportExternalPage()
-    {
-        $data = Laporan::where('is_internal', false)->get();
-        return view('profile.report-external', ['data' => $data]);
-    }
+    // public function reportExternalPage()
+    // {
+    //     $data = Laporan::where('is_internal', false)->get();
+    //     return view('profile.report-external', ['data' => $data]);
+    // }
 
     // public function savingAndLoanPage()
     // {
@@ -107,17 +104,52 @@ class ApplicationController extends Controller
 
     public function savingPage()
     {
-        $data = User::where('id', '=', Auth::user()->id)->with('simpans')->first();
-        dd($data);
+        $data = Auth::user() !== null
+            ? User::where('id', '=', Auth::user()->id)->with(['simpans', 'divisi'])->first()
+            : null;
 
-        return view('product.saving');
+        $data['totalAngsuran'] = 0;
+        $data['totalSaldo'] = 0;
+
+        $date = Carbon::now()->locale('id');
+
+        $date->settings(['formatFunction' => 'translatedFormat']);
+
+        $data['bulan'] = $date->format('F');
+
+        if ($data !== null) {
+            foreach ($data->simpans as $datum) {
+                $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
+                $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
+            }
+        }
+
+        return view('product.saving', ['data' => $data]);
     }
 
     public function loanPage()
     {
-        $data = User::with('pinjams');
+        $data = Auth::user() !== null
+            ? User::where('id', '=', Auth::user()->id)->with(['pinjams', 'divisi'])->first()
+            : null;
 
-        return view('product.loan');
+        $data['totalAngsuran'] = 0;
+        $data['totalSaldo'] = 0;
+
+        $date = Carbon::now()->locale('id');
+
+        $date->settings(['formatFunction' => 'translatedFormat']);
+
+        $data['bulan'] = $date->format('F');
+
+        if ($data !== null) {
+            foreach ($data->pinjams as $datum) {
+                $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
+                $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
+            }
+        }
+
+        return view('product.loan', ['data' => $data]);
     }
 
     public function minimartPage()
