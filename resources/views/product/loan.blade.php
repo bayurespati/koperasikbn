@@ -152,6 +152,124 @@
         </div>
     </section>
 
+
+    <!--
+      ============================
+      Form Section Button
+      ============================
+      -->
+    <section style="padding: 30px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 d-flex justify-content-center" id="display-form-btn">
+                        <span id="display-form-button-title">
+                            Buat Pengajuan Pinjaman
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Form Section Button -->
+
+    <!--
+      ============================
+      Form Section
+      ============================
+      -->
+    <section class="testimonial testimonial-5 bg-overlay bg-overlay-white2 d-none" style="padding-top: 200px;" id="saving-form">
+        <div class="bg-section"><img src="/assets/images/background/wavy-pattern.png" alt="background" /></div>
+        <div class="container">
+            <div class="contact-panel contact-panel-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact-card">
+                            <div class="contact-body">
+                                <h5 class="card-heading">Isi Form Pengajuan Pinjaman</h5>
+                                <p class="card-desc"></p>
+                                <form class="savingForm" method="post" action="/apply-saving">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            <select class="form-control" id="saving-type">
+                                                <option value="default">Pilih Jenis Pinjaman</option>
+                                                <option value="0">Pinjaman Biasa</option>
+                                                <option value="1">Pinjaman Insidentil</option>
+                                                <option value="2">Pinjaman Jangka Panjang</option>
+                                                <option value="3">Pinjaman Lainnya (Toko, Pinjaman Bank, Pinjaman Barang)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-date">Tanggal Pengajuan</label>
+                                            <input type="text" class="form-control" id="saving-date" name="saving-date" required="" disabled>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-name">Nama</label>
+                                            <input class="form-control" type="text" id="saving-name" name="saving-name" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-member-id">No. Anggota</label>
+                                            <input class="form-control" type="text" id="saving-member-id" name="saving-member-id" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-employee-id">NPP</label>
+                                            <input class="form-control" type="text" id="saving-employee-id" name="saving-employee-id" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="saving-position">Jabatan</label>
+                                            <input class="form-control" type="text" id="saving-position" name="saving-position" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-phone">Nomor Telepon</label>
+                                            <input class="form-control" type="text" id="saving-phone" name="saving-phone" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-gender">Jenis Kelamin</label>
+                                            <input class="form-control" type="text" id="saving-gender" name="saving-gender" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving=pob">Tempat Lahir</label>
+                                            <input class="form-control" type="text" id="saving-pob" name="saving-pob" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="savinf-dob">Tanggal Lahir</label>
+                                            <input class="form-control" type="text" id="saving-dob" name="saving-dob" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-period">Lama Angsuran</label>
+                                            <input class="form-control" type="text" id="saving-period" name="saving-period" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-amount">Besar Angsuran</label>
+                                            <input class="form-control" type="text" id="saving-amount" name="saving-amount" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="saving-use">Keperluan</label>
+                                            <input class="form-control" type="text" id="saving-use" name="saving-use" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="saving-desc">Keterangan</label>
+                                            <textarea class="form-control" id="saving-desc" name="saving-desc" required=""></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-success">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End .contact-body -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End .row-->
+            </div>
+            <!-- End .contact-panel-->
+            <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </section>
+    <!-- End of Form Section -->
+
     @include('partials.footer')
 
     <div class="back-top" id="back-to-top" data-hover=""><i class="energia-arrow-up"></i></div>
@@ -164,5 +282,18 @@
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
+
+    let isFormShown = false;
+    $('#display-form-btn').on('click', function() {
+        isFormShown = !isFormShown;
+
+        if (isFormShown) {
+            $('#saving-form').removeClass('d-none');
+            $('#display-form-button-title').text('Cancel');
+        } else {
+            $('#saving-form').addClass('d-none');
+            $('#display-form-button-title').text('Buat Pengajuan Pinjaman');
+        }
+    })
 </script>
 @endpush

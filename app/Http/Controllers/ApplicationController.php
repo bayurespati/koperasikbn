@@ -104,6 +104,7 @@ class ApplicationController extends Controller
 
     public function savingPage()
     {
+        // return Auth::user();
         $data = Auth::user() !== null
             ? User::where('id', '=', Auth::user()->id)->with(['simpans', 'divisi'])->first()
             : null;
@@ -117,12 +118,14 @@ class ApplicationController extends Controller
 
         $data['bulan'] = $date->format('F');
 
-        if ($data !== null) {
+        if ($data !== null && isset($data->simpans)) {
             foreach ($data->simpans as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
             }
         }
+
+        // return $data; use for test
 
         return view('product.saving', ['data' => $data]);
     }
@@ -142,7 +145,7 @@ class ApplicationController extends Controller
 
         $data['bulan'] = $date->format('F');
 
-        if ($data !== null) {
+        if ($data !== null && isset($data->pinjams)) {
             foreach ($data->pinjams as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;

@@ -93,7 +93,7 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <!-- <li><a href="{{ route('saving-loan') }}"> <span>Simpan Pinjam</span></a></li> -->
+                                    {{-- <li><a href="{{ route('saving-loan') }}"> <span>Simpan Pinjam</span></a></li> --}}
                                     <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
                                     <li class="custom-active-widget"><a href="#"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
