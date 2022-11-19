@@ -103,6 +103,10 @@ Route::resource('units', 'UnitController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('jenis-pengajuan', 'JenisPengajuanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('simpan-pinjam', 'SimpanPinjamController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

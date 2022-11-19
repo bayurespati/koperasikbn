@@ -18,6 +18,7 @@ import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 import Unit from './components/main/masterdata/unit/Index.vue'
 import Divisi from './components/main/masterdata/divisi/Index.vue'
+import JenisPengajuan from './components/main/masterdata/jenisPengajuan/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -82,6 +83,10 @@ const router = new Router({
         {
             path: '/jabatan-kbn',
             component: JabatanKbn
+        },
+        {
+            path: '/jenis-pengajuan',
+            component: JenisPengajuan
         },
         {
             path: '/jabatan-koperasi',
