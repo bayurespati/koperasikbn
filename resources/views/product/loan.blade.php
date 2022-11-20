@@ -25,6 +25,25 @@
         background-color: var(--global--color-white) !important;
         color: var(--global--color-primary) !important;
     }
+
+    .d-none {
+        display: none !important;
+    }
+
+    .info-box-notice {
+        padding: 20px 24px;
+        border: 2px dashed #007bff;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .info-box-notice i {
+        color: #ffcc00;
+        margin-bottom: 12px;
+        font-size: 24px;
+        display: block;
+    }
 </style>
 @endpush
 
@@ -61,9 +80,10 @@
         </div>
     </section>
     <!-- End #page-title -->
+
     <!--
       ============================
-      Services Single Section
+      TABEL RINCIAN POTONGAN KOPERASI
       ============================
       -->
     <section class="service-single" id="service-single">
@@ -93,7 +113,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td class="name" style="font-weight: 800;">Nama </td>
+                                    <td class="name" style="font-weight: 800;">Nama / No. Anggota</td>
                                     <td class="value">: {{ $data->nama }} / {{ $data->no_anggota }}</td>
                                 </tr>
                                 <tr>
@@ -104,9 +124,196 @@
                         </table>
                     </div>
                 </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <b>Last updated: {{ $data->lastUpdated }}</b>
+                </div>
                 <div class="col-12" style="margin-top: 20px;">
                     @if($data !== null && count($data->pinjams) > 0)
-                    <table id="myTable" class="display">
+                    <table id="myTable1" class="display">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Tanggal Pengajuan</th>
+                                <th style="text-align: center;">Jenis Pengajuan</th>
+                                <th style="text-align: right;">Nominal (Rupiah)</th>
+                                <th style="text-align: center;">Dokumen</th>
+                                <th style="text-align: right;">Status</th>
+                            </tr>
+                    </table>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--
+      ============================
+      Form Section Button
+      ============================
+      -->
+    <section style="padding: 30px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 d-flex justify-content-center" id="display-form-btn">
+                        <span id="display-form-button-title">
+                            Buat Pengajuan Pinjaman
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Form Section Button -->
+
+    <!--
+      ============================
+      Form Section
+      ============================
+      -->
+    <section class="testimonial testimonial-5 bg-overlay bg-overlay-white2 d-none" style="padding-top: 200px;" id="loan-form">
+        <div class="bg-section"><img src="/assets/images/background/wavy-pattern.png" alt="background" /></div>
+        <div class="container">
+            <div class="contact-panel contact-panel-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact-card">
+                            <div class="contact-body">
+                                <h5 class="card-heading">Isi Form Pengajuan Pinjaman</h5>
+                                <p class="card-desc"></p>
+                                <form class="loanForm">
+                                    <input type="hidden" id="loan-id" name="loan-id" required="" value="{{ $data->id }}">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            <select class="form-control" id="loan-type">
+                                                <option value="-">Pilih Jenis Pinjaman</option>
+                                                <option value="0">Pinjaman Biasa</option>
+                                                <option value="1">Pinjaman Insidentil</option>
+                                                <option value="2">Pinjaman Jangka Panjang</option>
+                                                <option value="3">Pinjaman Lainnya (Toko, Pinjaman Bank, Pinjaman Barang)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="loan-date">Tanggal Pengajuan</label>
+                                            <input type="text" class="form-control" id="loan-date" name="loan-date" required="" value="{{ $data->currDate }}" disabled>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="loan-name">Nama</label>
+                                            <input class="form-control" type="text" id="loan-name" name="loan-name" required="" value="{{ $data->nama }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="loan-member-id">No. Anggota</label>
+                                            <input class="form-control" type="text" id="loan-member-id" name="loan-member-id" required="" value="{{ $data->no_anggota }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="loan-employee-id">NPP</label>
+                                            <input class="form-control" type="text" id="loan-employee-id" name="loan-employee-id" required="" value="{{ $data->nip }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="loan-position">Jabatan</label>
+                                            <input class="form-control" type="text" id="loan-position" name="loan-position" required="" value="{{ $data->jabatan_kbn !== null ? $data->jabatan_kbn->nama : '-' }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-amount-wrapper">
+                                            <label for="loan-amount">Jumlah Pinjaman<span id="loan-type-title"></span> (Rupiah)</label>
+                                            <input class="form-control" type="text" id="loan-amount" name="loan-amount" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-period-wrapper">
+                                            <label for="loan-period">Lama Angsuran</label>
+                                            <input class="form-control" type="text" id="loan-period" name="loan-period" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-period-1-wrapper">
+                                            <label for="loan-period-1">Lama Angsuran</label>
+                                            <input class="form-control" type="text" id="loan-period-1" name="loan-period-1" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-period-2-wrapper">
+                                            <label for="loan-period-2">Lama Angsuran</label>
+                                            <input class="form-control" type="text" id="loan-period-2" name="loan-period-2" value="1" required="" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-period-3-wrapper">
+                                            <label for="loan-period-3">Lama Angsuran</label>
+                                            <input class="form-control" type="text" id="loan-period-3" name="loan-period-3" required="" />
+                                        </div>
+                                        <!-- <div class="col-12 col-md-6">
+                                            <label for="loan-amount">Besar Angsuran</label>
+                                            <input class="form-control" type="text" id="loan-amount" name="loan-amount" required="" />
+                                        </div> -->
+                                        <div class="col-12 col-md-12 d-none" id="loan-use-wrapper">
+                                            <label for="loan-use">Keperluan</label>
+                                            <textarea class="form-control" id="loan-use" name="loan-desc" required=""></textarea>
+                                        </div>
+                                        <div class="col-12 col-md-12 d-none" id="service-type-wrapper">
+                                            <label for="service-type">Jenis Layanan Penyerahan File</label>
+                                            <select class="form-control" id="service-type">
+                                                <option value="-">Pilih Jenis Layanan Penyerahan File</option>
+                                                <option value="0">Offline</option>
+                                                <option value="1">Online</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-file-1-wrapper">
+                                            <label for="loan-file-1">Upload KTP (.png atau .jpeg)</label>
+                                            <input type="file" id="loan-file-1" name="proof-of-transfer" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
+                                        </div>
+                                        <div class="col-12 col-md-6 d-none" id="loan-file-2-wrapper">
+                                            <label for="loan-file-2">Upload Slip Gaji (.png atau .jpeg)</label>
+                                            <input type="file" id="loan-file-2" name="proof-of-transfer" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
+                                        </div>
+                                        <div class="col-12 d-none" id="info-box-1-wrapper">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12 col-md-4 col-sm-6">
+                                                    <div class="info-box-notice">
+                                                        <i class="energia-alert-Icon"></i>
+                                                        <p>
+                                                            Untuk menyelesaikan proses Pinjaman Jangka Panjang, harap berikan fotokopi KTP dan Slip Gaji secara langsung melalui admin koperasi
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-none" id="info-box-2-wrapper">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12 col-md-4 col-sm-6">
+                                                    <div class="info-box-notice">
+                                                        <i class="energia-alert-Icon"></i>
+                                                        <p>
+                                                            Untuk informasi lebih lanjut, harap hubungi admin koperasi baik secara langsung atau melalui <a href="https://wa.me/6287887773893">Whatsapp (087887773893)</a> atau <a href="tel:021-4482-0909">Telepon: (021) 4482-0909 ext. 5101 - 5108</a></p>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-success" id="loan-submit-button">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End .contact-body -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End .row-->
+            </div>
+            <!-- End .contact-panel-->
+            <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </section>
+    <!-- End of Form Section -->
+
+    <!--
+      ============================
+      TABEL RINCIAN POTONGAN KOPERASI
+      ============================
+      -->
+    <section class="service-single" style="padding-top: 60px !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan Pinjaman</h5>
+                </div>
+                <div class="col-12" style="margin-top: 20px;">
+                    @if($data !== null && count($data->pinjams) > 0)
+                    <table id="myTable2" class="display">
                         <thead>
                             <tr>
                                 <th style="text-align: center;" rowspan="2">Keterangan</th>
@@ -152,124 +359,6 @@
         </div>
     </section>
 
-
-    <!--
-      ============================
-      Form Section Button
-      ============================
-      -->
-    <section style="padding: 30px 0;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <button class="btn btn-primary w-100 d-flex justify-content-center" id="display-form-btn">
-                        <span id="display-form-button-title">
-                            Buat Pengajuan Pinjaman
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End of Form Section Button -->
-
-    <!--
-      ============================
-      Form Section
-      ============================
-      -->
-    <section class="testimonial testimonial-5 bg-overlay bg-overlay-white2 d-none" style="padding-top: 200px;" id="saving-form">
-        <div class="bg-section"><img src="/assets/images/background/wavy-pattern.png" alt="background" /></div>
-        <div class="container">
-            <div class="contact-panel contact-panel-2">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="contact-card">
-                            <div class="contact-body">
-                                <h5 class="card-heading">Isi Form Pengajuan Pinjaman</h5>
-                                <p class="card-desc"></p>
-                                <form class="savingForm" method="post" action="/apply-saving">
-                                    <div class="row">
-                                        <div class="col-12 col-md-12">
-                                            <select class="form-control" id="saving-type">
-                                                <option value="default">Pilih Jenis Pinjaman</option>
-                                                <option value="0">Pinjaman Biasa</option>
-                                                <option value="1">Pinjaman Insidentil</option>
-                                                <option value="2">Pinjaman Jangka Panjang</option>
-                                                <option value="3">Pinjaman Lainnya (Toko, Pinjaman Bank, Pinjaman Barang)</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-date">Tanggal Pengajuan</label>
-                                            <input type="text" class="form-control" id="saving-date" name="saving-date" required="" disabled>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-name">Nama</label>
-                                            <input class="form-control" type="text" id="saving-name" name="saving-name" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-member-id">No. Anggota</label>
-                                            <input class="form-control" type="text" id="saving-member-id" name="saving-member-id" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-employee-id">NPP</label>
-                                            <input class="form-control" type="text" id="saving-employee-id" name="saving-employee-id" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-12">
-                                            <label for="saving-position">Jabatan</label>
-                                            <input class="form-control" type="text" id="saving-position" name="saving-position" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-phone">Nomor Telepon</label>
-                                            <input class="form-control" type="text" id="saving-phone" name="saving-phone" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-gender">Jenis Kelamin</label>
-                                            <input class="form-control" type="text" id="saving-gender" name="saving-gender" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving=pob">Tempat Lahir</label>
-                                            <input class="form-control" type="text" id="saving-pob" name="saving-pob" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="savinf-dob">Tanggal Lahir</label>
-                                            <input class="form-control" type="text" id="saving-dob" name="saving-dob" required="" disabled />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-period">Lama Angsuran</label>
-                                            <input class="form-control" type="text" id="saving-period" name="saving-period" required="" />
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="saving-amount">Besar Angsuran</label>
-                                            <input class="form-control" type="text" id="saving-amount" name="saving-amount" required="" />
-                                        </div>
-                                        <div class="col-12 col-md-12">
-                                            <label for="saving-use">Keperluan</label>
-                                            <input class="form-control" type="text" id="saving-use" name="saving-use" required="" />
-                                        </div>
-                                        <div class="col-12 col-md-12">
-                                            <label for="saving-desc">Keterangan</label>
-                                            <textarea class="form-control" id="saving-desc" name="saving-desc" required=""></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-success">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- End .contact-body -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End .row-->
-            </div>
-            <!-- End .contact-panel-->
-            <!-- End .row-->
-        </div>
-        <!-- End .container-->
-    </section>
-    <!-- End of Form Section -->
-
     @include('partials.footer')
 
     <div class="back-top" id="back-to-top" data-hover=""><i class="energia-arrow-up"></i></div>
@@ -278,9 +367,17 @@
 
 @push('additional_js')
 <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable1').DataTable();
+        $('#myTable2').DataTable();
+    });
+
+
+
+    $('#loan-amount').mask('000.000.000.000.000,00', {
+        reverse: true
     });
 
     let isFormShown = false;
@@ -288,11 +385,103 @@
         isFormShown = !isFormShown;
 
         if (isFormShown) {
-            $('#saving-form').removeClass('d-none');
+            $('#loan-form').removeClass('d-none');
             $('#display-form-button-title').text('Cancel');
         } else {
-            $('#saving-form').addClass('d-none');
+            $('#loan-form').addClass('d-none');
             $('#display-form-button-title').text('Buat Pengajuan Pinjaman');
+        }
+    });
+
+    const loanPeriod1 = $('#loan-period-1');
+    loanPeriod1.mask('00', {
+        onComplete: function(period) {
+            if (period < 1 || period > 12) {
+                loanPeriod1.val('');
+            }
+        }
+    });
+
+    const loanPeriod3 = $('#loan-period-3');
+    loanPeriod3.mask('00', {
+        onComplete: function(period) {
+            if (period < 13 || period > 96) {
+                loanPeriod3.val('1');
+            }
+        }
+    });
+
+    let typeOfPinjaman = '-';
+    $('#loan-type').on('change', function() {
+        typeOfPinjaman = $('#loan-type').val();
+        $('#service-type').trigger('change', '-');
+
+        if (typeOfPinjaman == '-') {
+            $('#loan-amount-wrapper').addClass('d-none');
+            $('#loan-period-1-wrapper').addClass('d-none');
+            $('#loan-period-2-wrapper').addClass('d-none');
+            $('#loan-period-3-wrapper').addClass('d-none');
+            $('#loan-use-wrapper').addClass('d-none');
+
+            $('#service-type-wrapper').addClass('d-none')
+            $('#info-box-2-wrapper').addClass('d-none');
+        } else {
+            $('#loan-amount-wrapper').removeClass('d-none');
+            $('#loan-use-wrapper').removeClass('d-none');
+
+            if (typeOfPinjaman == '0') {
+                $('#loan-period-1-wrapper').removeClass('d-none');
+                $('#loan-period-2-wrapper').addClass('d-none');
+                $('#loan-period-3-wrapper').addClass('d-none');
+
+                $('#service-type-wrapper').addClass('d-none');
+                $('#info-box-2-wrapper').addClass('d-none');
+            } else if (typeOfPinjaman == '1') {
+                $('#loan-period-1-wrapper').addClass('d-none');
+                $('#loan-period-2-wrapper').removeClass('d-none');
+                $('#loan-period-3-wrapper').addClass('d-none');
+
+                $('#service-type-wrapper').addClass('d-none');
+                $('#info-box-2-wrapper').addClass('d-none')
+            } else if (typeOfPinjaman == '2') {
+                $('#loan-period-1-wrapper').addClass('d-none');
+                $('#loan-period-2-wrapper').addClass('d-none');
+                $('#loan-period-3-wrapper').removeClass('d-none');
+
+                $('#service-type-wrapper').removeClass('d-none');
+                $('#info-box-2-wrapper').addClass('d-none')
+            } else {
+                $('#loan-amount-wrapper').addClass('d-none');
+                $('#loan-period-1-wrapper').addClass('d-none');
+                $('#loan-period-2-wrapper').addClass('d-none');
+                $('#loan-period-3-wrapper').addClass('d-none');
+                $('#loan-use-wrapper').addClass('d-none');
+                $('#service-type-wrapper').addClass('d-none');
+                $('#info-box-2-wrapper').removeClass('d-none');
+            }
+        }
+
+        $('#loan-file-1-wrapper').addClass('d-none');
+        $('#loan-file-2-wrapper').addClass('d-none');
+        $('#info-box-1-wrapper').addClass('d-none');
+    });
+
+    let typeOfService = '-';
+    $('#service-type').on('change', function() {
+        typeOfService = $('#service-type').val();
+
+        if (typeOfService == 0) {
+            $('#loan-file-1-wrapper').addClass('d-none');
+            $('#loan-file-2-wrapper').addClass('d-none');
+            $('#info-box-1-wrapper').removeClass('d-none');
+        } else if (typeOfService == 1) {
+            $('#loan-file-1-wrapper').removeClass('d-none');
+            $('#loan-file-2-wrapper').removeClass('d-none');
+            $('#info-box-1-wrapper').addClass('d-none');
+        } else {
+            $('#loan-file-1-wrapper').addClass('d-none');
+            $('#loan-file-2-wrapper').addClass('d-none');
+            $('#info-box-1-wrapper').addClass('d-none');
         }
     })
 </script>

@@ -85,47 +85,31 @@ class ApplicationController extends Controller
         return view('profile.our-team', ['data' => $management]);
     }
 
-    // public function reportInternalPage()
-    // {
-    //     $data = Laporan::where('is_internal', true)->get();
-    //     return view('profile.report-internal', ['data' => $data]);
-    // }
-
-    // public function reportExternalPage()
-    // {
-    //     $data = Laporan::where('is_internal', false)->get();
-    //     return view('profile.report-external', ['data' => $data]);
-    // }
-
-    // public function savingAndLoanPage()
-    // {
-    //     return view('product.saving-loan');
-    // }
-
     public function savingPage()
     {
         // return Auth::user();
         $data = Auth::user() !== null
-            ? User::where('id', '=', Auth::user()->id)->with(['simpans', 'divisi'])->first()
+            ? User::where('id', '=', Auth::user()->id)->with(['simpans', 'divisi', 'jabatanKbn'])->first()
             : null;
 
         $data['totalAngsuran'] = 0;
         $data['totalSaldo'] = 0;
+        $data['lastUpdated'] = 'Belum ada data';
 
-        $date = Carbon::now()->locale('id');
+        $data['currDate'] = Carbon::now()->locale('id');
 
-        $date->settings(['formatFunction' => 'translatedFormat']);
+        $data['currDate']->settings(['formatFunction' => 'translatedFormat']);
 
-        $data['bulan'] = $date->format('F');
+        $data['bulan'] = $data['currDate']->format('F');
+        $data['currDate'] = $data['currDate']->format('d M Y');
 
         if ($data !== null && isset($data->simpans)) {
             foreach ($data->simpans as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
+                $data['lastUpdated'] = $datum->created_at;
             }
         }
-
-        // return $data; use for test
 
         return view('product.saving', ['data' => $data]);
     }
@@ -138,17 +122,19 @@ class ApplicationController extends Controller
 
         $data['totalAngsuran'] = 0;
         $data['totalSaldo'] = 0;
+        $data['lastUpdated'] = 'Belum ada data';
 
-        $date = Carbon::now()->locale('id');
+        $data['currDate'] = Carbon::now()->locale('id');
 
-        $date->settings(['formatFunction' => 'translatedFormat']);
+        $data['currDate']->settings(['formatFunction' => 'translatedFormat']);
 
-        $data['bulan'] = $date->format('F');
+        $data['bulan'] = $data['currDate']->format('F');
 
         if ($data !== null && isset($data->pinjams)) {
             foreach ($data->pinjams as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
+                $data['lastUpdated'] = $datum->created_at;
             }
         }
 
