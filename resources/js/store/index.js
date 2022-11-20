@@ -17,6 +17,7 @@ import divisi from './modules/divisi'
 import penghargaan from './modules/penghargaan'
 import simpanPinjam from './modules/simpan_pinjam'
 import jenisPengajuan from './modules/jenis_pengajuan'
+import permintaan from './modules/permintaan'
 
 Vue.use(Vuex);
 
@@ -38,5 +39,6 @@ export default new Vuex.Store({
         penghargaan,
         simpanPinjam,
         jenisPengajuan,
+        permintaan,
     }
 })

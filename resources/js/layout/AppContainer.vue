@@ -102,15 +102,30 @@ export default {
       },
       {
         icon: "mdi-18px mdi-home",
-        text: "Homepage",
+        text: "Halaman Utama",
         link: "/homepage",
         permission: [1, 2],
       },
       {
-        icon: "mdi-18px mdi-bank",
+        "icon-alt": "mdi-chevron-down",
+        parent_icon: "mdi-18px mdi-bank",
         text: "Simpan & Pinjam",
-        link: "/pinjaman",
-        permission: [1, 2, 3],
+        model: false,
+        permission: [1, 2],
+        children: [
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Terbaru",
+            link: "/terbaru",
+            permission: [1, 2],
+          },
+          {
+            icon: "mdi-18px mdi-home",
+            text: "Permintaan",
+            link: "/permintaan",
+            permission: [1, 2],
+          },
+        ],
       },
       {
         icon: "mdi-18px mdi-human-male",
@@ -220,7 +235,7 @@ export default {
       },
       {
         icon: "mdi-18px mdi-home",
-        text: "Homepage",
+        text: "Halaman Utama",
         link: "/homepage",
         permission: [1, 2],
       },

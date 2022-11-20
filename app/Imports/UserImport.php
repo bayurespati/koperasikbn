@@ -32,6 +32,7 @@ class UserImport implements ToModel, WithStartRow
                 'divisi_id' => $divisi,
                 'no_anggota' => $row[0],
                 'nip' => $row[3],
+                'tipe' => $row[7],
                 'tanggal_masuk' => $tanggal_masuk,
                 'is_active' => true,
                 'password' => bcrypt('password'),
