@@ -14,6 +14,7 @@ class UserService
                 'nip',
                 'email',
                 'phone',
+                'tipe',
                 'tanggal_masuk',
                 'no_anggota',
                 'divisi_id',
@@ -45,6 +46,7 @@ class UserService
             $model->nip = $request->nip;
             $model->email = $request->email;
             $model->phone = $request->phone;
+            $model->tipe = $request->tipe;
             $model->tanggal_masuk = $request->tanggal_masuk;
             $model->no_anggota = $request->no_anggota;
             $model->divisi_id = $request->divisi_id;

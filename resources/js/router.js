@@ -9,7 +9,6 @@ import Image from './components/main/media/foto/Index.vue'
 import Video from './components/main/media/video/Index.vue'
 import Faq from './components/main/faq/Index.vue'
 import Penghargaan from './components/main/penghargaan/Index.vue'
-import Pinjaman from './components/main/pinjaman/Index.vue'
 import Users from './components/main/users/Index.vue'
 import Tags from './components/main/masterdata/tags/Index.vue'
 import Laporan from './components/main/laporan/Index.vue'
@@ -18,6 +17,9 @@ import JabatanKbn from './components/main/masterdata/jabatanKbn/Index.vue'
 import JabatanKoperasi from './components/main/masterdata/jabatanKoperasi/Index.vue'
 import Unit from './components/main/masterdata/unit/Index.vue'
 import Divisi from './components/main/masterdata/divisi/Index.vue'
+import JenisPengajuan from './components/main/masterdata/jenisPengajuan/Index.vue'
+import Terbaru from './components/main/simpanpinjam/terbaru/Index.vue'
+import Permintaan from './components/main/simpanpinjam/permintaan/Index.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -48,10 +50,6 @@ const router = new Router({
             component: Video
         },
         {
-            path: '/pinjama',
-            component: Pinjaman
-        },
-        {
             path: '/faq',
             component: Faq
         },
@@ -68,10 +66,6 @@ const router = new Router({
             component: Laporan
         },
         {
-            path: '/pinjaman',
-            component: Pinjaman
-        },
-        {
             path: '/users',
             component: Users
         },
@@ -84,6 +78,10 @@ const router = new Router({
             component: JabatanKbn
         },
         {
+            path: '/jenis-pengajuan',
+            component: JenisPengajuan
+        },
+        {
             path: '/jabatan-koperasi',
             component: JabatanKoperasi
         },
@@ -94,6 +92,14 @@ const router = new Router({
         {
             path: '/divisi',
             component: Divisi
+        },
+        {
+            path: '/terbaru',
+            component: Terbaru
+        },
+        {
+            path: '/permintaan',
+            component: Permintaan
         },
     ]
 })

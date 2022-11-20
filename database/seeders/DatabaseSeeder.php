@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JenisPengajuan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +22,8 @@ class DatabaseSeeder extends Seeder
             KalenderSeeder::class,
             BannerSeeder::class,
             UserSeeder::class,
-            LaporanInernalSeeder::class
+            LaporanInernalSeeder::class,
+            JenisPengajuanSeeder::class
         ]);
     }
 }

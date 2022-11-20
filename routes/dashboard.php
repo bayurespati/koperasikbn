@@ -28,6 +28,8 @@ Route::post('simpan-pinjam/upload', 'SimpanPinjamController@upload');
 Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpananPersonal');
 Route::get('simpan-pinjam/pinjaman-personal', 'SimpanPinjamController@getPinjamanPersonal');
 
+Route::get('permintaan/by-user-id', 'PermintaanController@getByUserId');
+
 /*
 |--------------------------------------------------------------------------
 | Route For Dahsboard
@@ -103,6 +105,14 @@ Route::resource('units', 'UnitController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
+Route::resource('jenis-pengajuan', 'JenisPengajuanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
 Route::resource('simpan-pinjam', 'SimpanPinjamController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::resource('permintaan', 'PermintaanController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);

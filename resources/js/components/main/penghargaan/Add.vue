@@ -88,7 +88,7 @@
                 type="file"
                 ref="fileUpload"
                 style="display: none"
-                accept="/*"
+                accept="image/*"
                 @change="onFilePicked"
               />
             </v-col>
