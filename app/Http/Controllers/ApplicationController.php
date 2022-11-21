@@ -10,6 +10,7 @@ use App\Models\JabatanKoperasi;
 use App\Models\Kalender;
 use Illuminate\Http\Request;
 use App\Models\Laporan;
+use App\Models\Penghargaan;
 use App\Models\SimpanPinjam;
 use App\Models\Video;
 use App\User;
@@ -280,7 +281,21 @@ class ApplicationController extends Controller
 
     public function awardAndCertificatePage()
     {
-        return view('media.award-and-certificate');
+        $awards = Penghargaan::all();
+
+        $data = [];
+
+        foreach ($awards as $award) {
+            array_push($data, $award);
+        }
+
+        usort($data, function ($a, $b) {
+            if ($a["updated_at"] == $b["updated_at"])
+                return (0);
+            return (($a["updated_at"] < $b["updated_at"]) ? -1 : 1);
+        });
+
+        return view('media.award-and-certificate', ['data' => $data]);
     }
 
     public function calendarPage()

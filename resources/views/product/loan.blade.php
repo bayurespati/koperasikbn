@@ -44,6 +44,10 @@
         font-size: 24px;
         display: block;
     }
+
+    .text-right {
+        text-align: right !important;
+    }
 </style>
 @endpush
 
@@ -217,10 +221,6 @@
                                             <label for="loan-amount">Jumlah Pinjaman<span id="loan-type-title"></span> (Rupiah)</label>
                                             <input class="form-control" type="text" id="loan-amount" name="loan-amount" required="" />
                                         </div>
-                                        <div class="col-12 col-md-6 d-none" id="loan-period-wrapper">
-                                            <label for="loan-period">Lama Angsuran</label>
-                                            <input class="form-control" type="text" id="loan-period" name="loan-period" required="" />
-                                        </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-period-1-wrapper">
                                             <label for="loan-period-1">Lama Angsuran</label>
                                             <input class="form-control" type="text" id="loan-period-1" name="loan-period-1" required="" />
@@ -251,11 +251,11 @@
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-file-1-wrapper">
                                             <label for="loan-file-1">Upload KTP (.png atau .jpeg)</label>
-                                            <input type="file" id="loan-file-1" name="proof-of-transfer" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
+                                            <input type="file" id="loan-file-1" name="proof-of-citisenship" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-file-2-wrapper">
                                             <label for="loan-file-2">Upload Slip Gaji (.png atau .jpeg)</label>
-                                            <input type="file" id="loan-file-2" name="proof-of-transfer" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
+                                            <input type="file" id="loan-file-2" name="proof-of-pay" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
                                         </div>
                                         <div class="col-12 d-none" id="info-box-1-wrapper">
                                             <div class="row d-flex justify-content-center">
@@ -281,8 +281,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-success" id="loan-submit-button">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success" id="loan-submit-button">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </form>
@@ -309,51 +309,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan Pinjaman</h5>
+                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan</h5>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px" id="reload-table-2-btn">
+                        <span>
+                            Reload
+                        </span>
+                    </button>
                 </div>
                 <div class="col-12" style="margin-top: 20px;">
-                    @if($data !== null && count($data->pinjams) > 0)
                     <table id="myTable2" class="display">
                         <thead>
                             <tr>
-                                <th style="text-align: center;" rowspan="2">Keterangan</th>
-                                <th style="text-align: center;" rowspan="2">Jumlah Angsuran (Rupiah)</th>
-                                <th style="text-align: center;" colspan="2">Cicilan</th>
-                                <th style="text-align: right;" rowspan="2">Jumlah (Rupiah)</th>
-                            </tr>
-                            <tr>
-                                <th style="text-align: center;">Ke</th>
-                                <th style="text-align: center;">Sisa</th>
+                                <th style="text-align: left;">No</th>
+                                <th style="text-align: center;">Tanggal Pengajuan</th>
+                                <th style="text-align: center;">Jenis Pengajuan</th>
+                                <th style="text-align: right;">Nominal (Rupiah)</th>
+                                <th style="text-align: center;">Dokumen</th>
+                                <th style="text-align: right;">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data->pinjams as $datum)
-                            <tr>
-                                <td>{{ $datum->keterangan }}</td>
-                                <td style="text-align: right;">
-                                    {{ number_format($datum->jumlah_angsuran, 2, '.', ',') }}
-                                </td>
-                                <td style="text-align: center;">{{ $datum->cicilan_ke }}</td>
-                                <td style="text-align: center;">{{ $datum->sisa }}</td>
-                                <td style="text-align: right;">
-                                    {{ number_format($datum->saldo, 2, '.', ',') }}
-                                </td>
-                            </tr>
-                            @endforeach
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th style="text-align: right; font-weight: bold;">Total</th>
-                                <td style="text-align: right; font-weight: bold;">
-                                    {{ number_format($datum->totalAngsuran, 2, '.', ',') }}
-                                </td>
-                                <td style="text-align: right; font-weight: bold;" colspan="3">
-                                    {{ number_format($datum->totalSaldo, 2, '.', ',') }}
-                                </td>
-                            </tr>
-                        </tfoot>
                     </table>
-                    @endif
                 </div>
             </div>
         </div>
@@ -366,12 +345,91 @@
 @endsection
 
 @push('additional_js')
-<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<!-- <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+<script src="{{ asset('js/simpan-pinjam.js') }}"></script>
 <script>
     $(document).ready(function() {
         $('#myTable1').DataTable();
-        $('#myTable2').DataTable();
+        $('#myTable2').DataTable({
+            "info": false,
+            "ordering": false,
+            'order': [],
+            'pageLength': 10,
+            "columns": [
+                // number column
+                {
+                    render: function(data, type, full, meta) {
+                        return meta.row + 1;
+                    }
+                },
+                {
+                    data: "created_at",
+                    className: 'text-center'
+                },
+                {
+                    data: "pengajuan",
+                    className: 'text-center'
+                },
+                {
+                    data: "nominal",
+                    className: 'text-right'
+                },
+                {
+                    data: "dokumen_1",
+                    className: 'text-center'
+                },
+                {
+                    data: "status",
+                    className: 'text-center'
+                },
+            ],
+            "columnDefs": [{
+                    targets: [2],
+                    render: function(data) {
+                        return data['nama'];
+                    }
+                }, {
+                    targets: [4],
+                    render: function(data) {
+                        if (data !== '' && data !== null) {
+                            return `
+                            <div class="col-12 col-md-6 col-lg-4 project-item">
+                                <div class="project-panel">
+                                    <div class="project-panel-holder">
+                                        <div class="project-img"><img src="/` + data + `" alt="" />
+                                            <div class="project-hover">
+                                                <div class="project-action">
+                                                    <div class="project-zoom"><i class="far fa-eye"></i><a class="img-popup" href="/` + data + `" title=""></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                        } else {
+                            return '-';
+                        }
+                    }
+                },
+                {
+                    targets: [5],
+                    render: function(data) {
+                        if (data == 1 || data == '1') {
+                            return 'Pengajuan Diterima';
+                        } else if (data == 2 || data == '2') {
+                            return 'Diproses';
+                        } else if (data == 3 || data == '3') {
+                            return 'Ditolak';
+                        } else if (data == 4 || data == '4') {
+                            return 'Disetujui';
+                        }
+                    }
+                }
+            ]
+        });
     });
 
 
@@ -411,6 +469,15 @@
         }
     });
 
+    let loanSubmitButton = $('#loan-submit-button');
+    loanSubmitButton.prop('disabled', true);
+
+    let doc1Name = null;
+    let doc1Content = null;
+
+    let doc2Name = null;
+    let doc2Content = null;
+
     let typeOfPinjaman = '-';
     $('#loan-type').on('change', function() {
         typeOfPinjaman = $('#loan-type').val();
@@ -425,6 +492,7 @@
 
             $('#service-type-wrapper').addClass('d-none')
             $('#info-box-2-wrapper').addClass('d-none');
+            loanSubmitButton.prop('disabled', true);
         } else {
             $('#loan-amount-wrapper').removeClass('d-none');
             $('#loan-use-wrapper').removeClass('d-none');
@@ -436,6 +504,7 @@
 
                 $('#service-type-wrapper').addClass('d-none');
                 $('#info-box-2-wrapper').addClass('d-none');
+                loanSubmitButton.prop('disabled', false);
             } else if (typeOfPinjaman == '1') {
                 $('#loan-period-1-wrapper').addClass('d-none');
                 $('#loan-period-2-wrapper').removeClass('d-none');
@@ -443,6 +512,7 @@
 
                 $('#service-type-wrapper').addClass('d-none');
                 $('#info-box-2-wrapper').addClass('d-none')
+                loanSubmitButton.prop('disabled', false);
             } else if (typeOfPinjaman == '2') {
                 $('#loan-period-1-wrapper').addClass('d-none');
                 $('#loan-period-2-wrapper').addClass('d-none');
@@ -450,6 +520,7 @@
 
                 $('#service-type-wrapper').removeClass('d-none');
                 $('#info-box-2-wrapper').addClass('d-none')
+                loanSubmitButton.prop('disabled', true);
             } else {
                 $('#loan-amount-wrapper').addClass('d-none');
                 $('#loan-period-1-wrapper').addClass('d-none');
@@ -458,6 +529,7 @@
                 $('#loan-use-wrapper').addClass('d-none');
                 $('#service-type-wrapper').addClass('d-none');
                 $('#info-box-2-wrapper').removeClass('d-none');
+                loanSubmitButton.prop('disabled', true);
             }
         }
 
@@ -474,15 +546,203 @@
             $('#loan-file-1-wrapper').addClass('d-none');
             $('#loan-file-2-wrapper').addClass('d-none');
             $('#info-box-1-wrapper').removeClass('d-none');
+            loanSubmitButton.prop('disabled', false);
         } else if (typeOfService == 1) {
             $('#loan-file-1-wrapper').removeClass('d-none');
             $('#loan-file-2-wrapper').removeClass('d-none');
             $('#info-box-1-wrapper').addClass('d-none');
+            loanSubmitButton.prop('disabled', false);
         } else {
             $('#loan-file-1-wrapper').addClass('d-none');
             $('#loan-file-2-wrapper').addClass('d-none');
             $('#info-box-1-wrapper').addClass('d-none');
+            loanSubmitButton.prop('disabled', true);
         }
-    })
+    });
+
+    let doc1Checked = false;
+    let doc2Checked = false;
+
+    function postLoan() {
+        let currentdate = new Date();
+        let dateFormatted = currentdate.getFullYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+
+        let data = null;
+
+        if (typeOfPinjaman == 0) {
+            data = {
+                _token: "{{ csrf_token() }}",
+                jenis_pengajuan_id: 2,
+                tanggal_pengajuan: dateFormatted,
+                user_id: $('#loan-id').val(),
+                nominal: $('#loan-amount').cleanVal(),
+                lama_angsuran: $('#loan-period-1').cleanVal(),
+                keperluan: $('#loan-use').val(),
+            };
+        } else if (typeOfPinjaman == 1) {
+            data = {
+                _token: "{{ csrf_token() }}",
+                jenis_pengajuan_id: 3,
+                tanggal_pengajuan: dateFormatted,
+                user_id: $('#loan-id').val(),
+                nominal: $('#loan-amount').cleanVal(),
+                lama_angsuran: $('#loan-period-2').val(),
+                keperluan: $('#loan-use').val(),
+            };
+        } else if (typeOfPinjaman == 2) {
+            data = {
+                _token: "{{ csrf_token() }}",
+                user_id: $('#loan-id').val(),
+                jenis_pengajuan_id: 4,
+                tanggal_pengajuan: dateFormatted,
+                nominal: $('#loan-amount').cleanVal(),
+                lama_angsuran: $('#loan-period-3').cleanVal(),
+                is_online: $('#service-type').val(),
+                keperluan: $('#loan-use').val(),
+                dokumen_1: doc1Content,
+                dokumen_1_name: doc1Name,
+                dokumen_2: doc2Content,
+                dokumen_2_name: doc2Name,
+            };
+        } else {
+            data = null;
+        }
+
+        if (data !== null) {
+            loanSubmitButton.prop('disabled', true);
+
+            $.post('/dashboard/permintaan', data)
+                .done(function(response) {
+                    getPengajuan();
+                }).fail(function(error) {
+                    console.log(error);
+                    let message = '';
+                    let errorMessage = error.responseJSON.message;
+                    let preContent = document.createElement('pre');
+
+                    $.each(errorMessage, function(key, value) {
+                        message = message + value[0] + '<br>';
+                    });
+
+                    preContent.innerHTML = message;
+
+                    swal({
+                        title: "Oops!",
+                        content: preContent,
+                        icon: "error",
+                        button: "Close",
+                    });
+                }).always(function() {
+                    loanSubmitButton.prop('disabled', false);
+                });
+        }
+    }
+
+    function checkIfBothFileFilled() {
+        if (doc1Checked && doc2Checked) {
+            postLoan();
+        }
+    }
+
+    function checkFile() {
+        let file1 = null;
+        file1 = document.getElementById('loan-file-1').files[0];
+
+        let file2 = null;
+        file2 = document.getElementById('loan-file-2').files[0];
+
+        if (file1 !== null && file1 !== undefined) {
+            doc1Name = file1['name'];
+            const fr1 = new FileReader();
+
+            fr1.addEventListener("load", () => {
+                doc1Content = fr1.result;
+                doc1Checked = true;
+            });
+
+            fr1.readAsDataURL(file1);
+            checkIfBothFileFilled();
+        } else {
+            doc1Checked = false;
+        }
+
+        if (file2 !== null && file2 !== undefined) {
+            doc2Name = file2['name'];
+            const fr2 = new FileReader();
+
+            fr2.addEventListener("load", () => {
+                doc2Content = fr2.result;
+                doc2Checked = true;
+            });
+
+            fr2.readAsDataURL(file2);
+            checkIfBothFileFilled();
+        } else {
+            doc2Checked = false;
+        }
+    };
+
+    loanSubmitButton.on('click', function() {
+        if (typeOfPinjaman == 0 || typeOfPinjaman == 1 || (typeOfPinjaman == 2 && typeOfService == 0)) {
+            doc1Name = null;
+            doc1Content = null;
+
+            doc2Name = null;
+            doc2Content = null;
+
+            postLoan();
+        } else if (typeOfService == 1 && typeOfPinjaman == 2) {
+            checkFile();
+        }
+    });
+
+    const reloadTable2Btn = $('#reload-table-2-btn');
+    reloadTable2Btn.on('click', function() {
+        getPengajuan();
+    });
+
+    function getPengajuan() {
+        reloadTable2Btn.prop('disabled', true);
+
+        $.get('/dashboard/permintaan/by-user-id', {
+                user_id: $('#loan-id').val()
+            })
+            .done(function(response) {
+                $('#myTable2').DataTable().clear();
+                $('#myTable2').DataTable().rows.add(response).draw();
+
+                instantiateImageEnlargable();
+            }).fail(function(error) {
+                let message = '';
+                let errorMessage = error.responseJSON.message;
+                let preContent = document.createElement('pre');
+
+
+                $.each(errorMessage, function(key, value) {
+                    message = message + value[0] + '<br>';
+                });
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Oops!",
+                    // text: message,
+                    content: preContent,
+                    icon: "error",
+                    button: "Close",
+                });
+            }).always(function() {
+                reloadTable2Btn.prop('disabled', false);
+            });
+    }
+
+    function instantiateImageEnlargable() {
+        var $imgPopup = $(".img-popup");
+        $imgPopup.magnificPopup({
+            type: "image"
+        });
+    }
+
+    getPengajuan();
 </script>
 @endpush

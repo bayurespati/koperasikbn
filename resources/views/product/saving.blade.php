@@ -44,6 +44,10 @@
         font-size: 24px;
         display: block;
     }
+
+    .text-right {
+        text-align: right !important;
+    }
 </style>
 @endpush
 
@@ -204,8 +208,8 @@
                                 <h5 class="card-heading">Isi Form Pengajuan Simpanan Sukarela</h5>
                                 <p class="card-desc"></p>
                                 <form class="savingForm">
+                                    <input type="hidden" id="saving-id" name="saving-id" required="" value="{{ $data->id }}">
                                     <div class="row">
-                                        <input type="hidden" id="saving-id" name="saving-id" required="" value="{{ $data->id }}">
                                         <div class="col-12 col-md-6">
                                             <label for="saving-date">Tanggal Pengajuan</label>
                                             <input type="text" class="form-control" id="saving-date" name="saving-date" required="" value="{{ $data->currDate }}" disabled>
@@ -227,7 +231,7 @@
                                             <input class="form-control" type="text" id="saving-position" name="saving-position" required="" value="{{ $data->jabatan_kbn !== null ? $data->jabatan_kbn->nama : '-' }}" disabled />
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label for="saving-amount">Jumlah Simpanan Sukarela (Rupiah)</label>
+                                            <label for="saving-amount">Nominal Simpanan Sukarela (Rupiah)</label>
                                             <input class="form-control" type="text" id="saving-amount" name="saving-amount" required="" />
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -278,17 +282,24 @@
       TABEL RINCIAN PENGAJUAN SIMPANAN
       ============================
       -->
-    <section class="service-single" style="padding-top: 60px !important;">
+    <section class="projects-gallery projects-modern projects-modern-3" style="padding-top: 60px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan Simpanan Sukarela</h5>
+                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan</h5>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px" id="reload-table-2-btn">
+                        <span>
+                            Reload
+                        </span>
+                    </button>
                 </div>
                 <div class="col-12" style="margin-top: 20px;">
-                    @if($data !== null && count($data->simpans) > 0)
                     <table id="myTable2" class="display">
                         <thead>
                             <tr>
+                                <th style="text-align: left;">No</th>
                                 <th style="text-align: center;">Tanggal Pengajuan</th>
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
@@ -299,7 +310,6 @@
                         <tbody>
                         </tbody>
                     </table>
-                    @endif
                 </div>
             </div>
         </div>
@@ -312,15 +322,94 @@
 @endsection
 
 @push('additional_js')
-<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<!-- <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+<script src="{{ asset('js/simpan-pinjam.js') }}"></script>
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
-        $('#myTable2').DataTable();
+        $('#myTable2').DataTable({
+            "info": false,
+            "info": false,
+            "ordering": false,
+            'order': [],
+            'pageLength': 10,
+            "columns": [
+                // number column
+                {
+                    render: function(data, type, full, meta) {
+                        return meta.row + 1;
+                    }
+                },
+                {
+                    data: "created_at",
+                    className: 'text-center'
+                },
+                {
+                    data: "pengajuan",
+                    className: 'text-center'
+                },
+                {
+                    data: "nominal",
+                    className: 'text-right'
+                },
+                {
+                    data: "dokumen_1",
+                    className: 'text-center'
+                },
+                {
+                    data: "status",
+                    className: 'text-center'
+                },
+            ],
+            "columnDefs": [{
+                targets: [2],
+                render: function(data) {
+                    return data['nama'];
+                }
+            }, {
+                targets: [4],
+                render: function(data) {
+                    if (data !== '' && data !== null) {
+                        return `
+                        <div class="col-12 col-md-6 col-lg-4 project-item">
+                            <div class="project-panel">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><img src="/` + data + `" alt="" />
+                                        <div class="project-hover">
+                                            <div class="project-action">
+                                                <div class="project-zoom"><i class="far fa-eye"></i><a class="img-popup" href="/` + data + `" title=""></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    } else {
+                        return '-';
+                    }
+                }
+            }, {
+                targets: [5],
+                render: function(data) {
+                    if (data == 1 || data == '1') {
+                        return 'Pengajuan Diterima';
+                    } else if (data == 2 || data == '2') {
+                        return 'Diproses';
+                    } else if (data == 3 || data == '3') {
+                        return 'Ditolak';
+                    } else if (data == 4 || data == '4') {
+                        return 'Disetujui';
+                    }
+                }
+            }]
+        });
     });
 
-    $('#saving-amount').mask('000.000.000.000.000,00', {
+    $('#saving-amount').mask('000.000.000.000.000', {
         reverse: true
     });
 
@@ -338,26 +427,154 @@
     })
 
     let typeOfService = '-';
+    let docName = null;
+    let docContent = null;
+    savingSubmitButton = $('#saving-submit');
+    savingSubmitButton.prop('disabled', true);
     $('#service-type').on('change', function() {
         typeOfService = $('#service-type').val();
 
         if (typeOfService == 1) {
             $('#saving-file-wrapper').removeClass('d-none');
             $('#info-box-wrapper').addClass('d-none');
+            savingSubmitButton.prop('disabled', false);
         } else if (typeOfService == 0) {
             $('#saving-file-wrapper').addClass('d-none');
             $('#info-box-wrapper').removeClass('d-none');
+            savingSubmitButton.prop('disabled', false);
         } else {
             $('#saving-file-wrapper').addClass('d-none');
             $('#info-box-wrapper').addClass('d-none');
+            savingSubmitButton.prop('disabled', true);
         }
     });
 
-    savingSubmitButton = $('#saving-submit');
-    savingSubmitButton.on('click', function() {
-        savingSubmitButton.prop('disabled', true);
+    function checkFile() {
+        let file = null;
+        file = document.getElementById('saving-file').files[0];
 
-        // posting
+        if (file !== null && file !== undefined) {
+            docName = file['name'];
+            const fr = new FileReader();
+
+            fr.addEventListener("load", () => {
+                docContent = fr.result;
+                postSaving();
+            });
+
+            fr.readAsDataURL(file);
+        } else {
+            postSaving();
+        }
+    };
+
+    savingSubmitButton.on('click', function() {
+        if (typeOfService == 1) {
+            checkFile();
+        } else {
+            docName = null;
+            docContent = null;
+            postSaving()
+        }
     });
+
+    function postSaving() {
+        let currentdate = new Date();
+        let dateFormatted = currentdate.getFullYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+
+        let data = {
+            _token: "{{ csrf_token() }}",
+            user_id: $('#saving-id').val(),
+            jenis_pengajuan_id: 1,
+            tanggal_pengajuan: dateFormatted,
+            nominal: $('#saving-amount').cleanVal(),
+            is_online: $('#service-type').val(),
+            dokumen_1: docContent,
+            dokumen_1_name: docName,
+        };
+
+        $.post('/dashboard/permintaan', data)
+            .done(function(response) {
+                getPengajuan();
+            }).fail(function(error) {
+                let message = '';
+                let errorMessage = error.responseJSON.message;
+                let preContent = document.createElement('pre');
+
+                $.each(errorMessage, function(key, value) {
+                    message = message + value[0] + '<br>';
+                });
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Oops!",
+                    content: preContent,
+                    icon: "error",
+                    button: "Close",
+                });
+            }).always(function() {});
+    }
+
+    const reloadTable2Btn = $('#reload-table-2-btn');
+    reloadTable2Btn.on('click', function() {
+        getPengajuan();
+    });
+
+    function getPengajuan() {
+        reloadTable2Btn.prop('disabled', true);
+
+        $.get('/dashboard/permintaan/by-user-id', {
+                user_id: $('#saving-id').val()
+            })
+            .done(function(response) {
+                $('#myTable2').DataTable().clear();
+                $('#myTable2').DataTable().rows.add(response).draw();
+
+                instantiateImageEnlargable();
+            }).fail(function(error) {
+                let message = '';
+                let errorMessage = error.responseJSON.message;
+                let preContent = document.createElement('pre');
+
+
+                $.each(errorMessage, function(key, value) {
+                    message = message + value[0] + '<br>';
+                });
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Oops!",
+                    // text: message,
+                    content: preContent,
+                    icon: "error",
+                    button: "Close",
+                });
+            }).always(function() {
+                reloadTable2Btn.prop('disabled', false);
+            });
+    }
+
+    function instantiateImageEnlargable() {
+        var $imgPopup = $(".img-popup");
+        $imgPopup.magnificPopup({
+            type: "image"
+        });
+    }
+
+    getPengajuan();
+
+    // const preloader = document.createElement('div');
+    // preloader.classList.add('preloader');
+
+    // const dualRing = document.createElement('div');
+    // dualRing.classList.add('dual-ring');
+
+    // preloader.appendChild(dualRing);
+
+    // setTimeout(() => {
+    //     document.body.appendChild(preloader);
+    // }, 5000);
 </script>
 @endpush

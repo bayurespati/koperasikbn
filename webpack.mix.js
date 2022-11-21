@@ -37,15 +37,28 @@ mix.styles([
     'resources/template/assets/css/style.css',
 ], 'public/css/base.css');
 
- /*
- |--------------------------------------------------------------------------
- | B A S E   J S   ( T E M P L A T E )
- |--------------------------------------------------------------------------
- |
- |
- */
+/*
+|--------------------------------------------------------------------------
+| B A S E   J S   ( T E M P L A T E )
+|--------------------------------------------------------------------------
+|
+|
+*/
 mix.scripts([
     'resources/template/assets/js/vendor/jquery-3.6.0.min.js',
     'resources/template/assets/js/vendor.min.js',
     'resources/template/assets/js/functions.js',
 ], 'public/js/base.js');
+
+/*
+|--------------------------------------------------------------------------
+| S I M P A N   P I N J A M   J S   ( A D D I T I O N A L )
+|--------------------------------------------------------------------------
+|
+|
+*/
+mix.scripts([
+    'resources/template/assets/js/vendor/datatables-1.12.1.min.js',
+    'resources/template/assets/js/vendor/jquery.mask-1.14.16.js',
+    'resources/template/assets/js/vendor/sweetalert.2.1.2.min.js',
+], 'public/js/simpan-pinjam.js');
