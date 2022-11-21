@@ -29,7 +29,7 @@ class CreatePermintaanTable extends Migration
             $table->string('status')->default(1);
             $table->text('keterangan')->nullable();
             $table->text('keperluan')->nullable();
-            $table->integer('lama_anggsuran')->nullable();
+            $table->integer('lama_angsuran')->nullable();
             $table->timestamps();
         });
     }
