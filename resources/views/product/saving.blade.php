@@ -25,6 +25,29 @@
         background-color: var(--global--color-white) !important;
         color: var(--global--color-primary) !important;
     }
+
+    .d-none {
+        display: none !important;
+    }
+
+    .info-box-notice {
+        padding: 20px 24px;
+        border: 2px dashed #007bff;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .info-box-notice i {
+        color: #ffcc00;
+        margin-bottom: 12px;
+        font-size: 24px;
+        display: block;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
 </style>
 @endpush
 
@@ -61,9 +84,10 @@
         </div>
     </section>
     <!-- End #page-title -->
+
     <!--
       ============================
-      Services Single Section
+      TABEL RINCIAN POTONGAN KOPERASI
       ============================
       -->
     <section class="service-single" id="service-single">
@@ -93,7 +117,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td class="name" style="font-weight: 800;">Nama </td>
+                                    <td class="name" style="font-weight: 800;">Nama / No. Anggota</td>
                                     <td class="value">: {{ $data->nama }} / {{ $data->no_anggota }}</td>
                                 </tr>
                                 <tr>
@@ -103,6 +127,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <b>Last updated: {{ $data->lastUpdated }}</b>
                 </div>
                 <div class="col-12" style="margin-top: 20px;">
                     @if($data !== null && count($data->simpans) > 0)
@@ -145,6 +172,149 @@
         </div>
     </section>
 
+    <!--
+      ============================
+      Form Section Button
+      ============================
+      -->
+    <section style="padding: 30px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 d-flex justify-content-center" id="display-form-btn">
+                        <span id="display-form-button-title">
+                            Buat Pengajuan Simpanan Sukarela
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Form Section Button -->
+
+    <!--
+      ============================
+      Form Section
+      ============================
+      -->
+    <section class="testimonial testimonial-5 bg-overlay bg-overlay-white2 d-none" style="padding-top: 200px;" id="saving-form">
+        <div class="bg-section"><img src="/assets/images/background/wavy-pattern.png" alt="background" /></div>
+        <div class="container">
+            <div class="contact-panel contact-panel-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact-card">
+                            <div class="contact-body">
+                                <h5 class="card-heading">Isi Form Pengajuan Simpanan Sukarela</h5>
+                                <p class="card-desc"></p>
+                                <form class="savingForm">
+                                    <input type="hidden" id="saving-id" name="saving-id" required="" value="{{ $data->id }}">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-date">Tanggal Pengajuan</label>
+                                            <input type="text" class="form-control" id="saving-date" name="saving-date" required="" value="{{ $data->currDate }}" disabled>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-name">Nama</label>
+                                            <input class="form-control" type="text" id="saving-name" name="saving-name" required="" value="{{ $data->nama }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-member-id">No. Anggota</label>
+                                            <input class="form-control" type="text" id="saving-member-id" name="saving-member-id" required="" value="{{ $data->no_anggota }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-employee-id">NPP</label>
+                                            <input class="form-control" type="text" id="saving-employee-id" name="saving-employee-id" required="" value="{{ $data->nip }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="saving-position">Jabatan</label>
+                                            <input class="form-control" type="text" id="saving-position" name="saving-position" required="" value="{{ $data->jabatan_kbn !== null ? $data->jabatan_kbn->nama : '-' }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="saving-amount">Nominal Simpanan Sukarela (Rupiah)</label>
+                                            <input class="form-control" type="text" id="saving-amount" name="saving-amount" required="" />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="service-type">Jenis Layanan</label>
+                                            <select class="form-control" id="service-type">
+                                                <option value="-">Pilih Jenis Layanan</option>
+                                                <option value="0">Cash</option>
+                                                <option value="1">Transfer</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 d-none" id="saving-file-wrapper">
+                                            <label for="saving-file">Upload Bukti Transfer (.png atau .jpeg)</label>
+                                            <input type="file" id="saving-file" name="proof-of-transfer" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
+                                        </div>
+                                        <div class="col-12 d-none" id="info-box-wrapper">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12 col-md-4 col-sm-6">
+                                                    <div class="info-box-notice">
+                                                        <i class="energia-alert-Icon"></i>
+                                                        <p>
+                                                            Untuk menyelesaikan proses, harap berikan uang Simpanan Sukarela secara langsung melalui admin koperasi
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success" id="saving-submit">Ajukan Simpanan Sukarela <i class="energia-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End .contact-body -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End .row-->
+            </div>
+            <!-- End .contact-panel-->
+            <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </section>
+    <!-- End of Form Section -->
+
+    <!--
+      ============================
+      TABEL RINCIAN PENGAJUAN SIMPANAN
+      ============================
+      -->
+    <section class="projects-gallery projects-modern projects-modern-3" style="padding-top: 60px !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Rincian Pengajuan</h5>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px" id="reload-table-2-btn">
+                        <span>
+                            Reload
+                        </span>
+                    </button>
+                </div>
+                <div class="col-12" style="margin-top: 20px;">
+                    <table id="myTable2" class="display">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">No</th>
+                                <th style="text-align: center;">Tanggal Pengajuan</th>
+                                <th style="text-align: center;">Jenis Pengajuan</th>
+                                <th style="text-align: right;">Nominal (Rupiah)</th>
+                                <th style="text-align: center;">Dokumen</th>
+                                <th style="text-align: right;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
     @include('partials.footer')
 
     <div class="back-top" id="back-to-top" data-hover=""><i class="energia-arrow-up"></i></div>
@@ -152,10 +322,259 @@
 @endsection
 
 @push('additional_js')
-<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<!-- <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+<script src="{{ asset('js/simpan-pinjam.js') }}"></script>
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
+        $('#myTable2').DataTable({
+            "info": false,
+            "info": false,
+            "ordering": false,
+            'order': [],
+            'pageLength': 10,
+            "columns": [
+                // number column
+                {
+                    render: function(data, type, full, meta) {
+                        return meta.row + 1;
+                    }
+                },
+                {
+                    data: "created_at",
+                    className: 'text-center'
+                },
+                {
+                    data: "pengajuan",
+                    className: 'text-center'
+                },
+                {
+                    data: "nominal",
+                    className: 'text-right'
+                },
+                {
+                    data: "dokumen_1",
+                    className: 'text-center'
+                },
+                {
+                    data: "status",
+                    className: 'text-center'
+                },
+            ],
+            "columnDefs": [{
+                targets: [2],
+                render: function(data) {
+                    return data['nama'];
+                }
+            }, {
+                targets: [4],
+                render: function(data) {
+                    if (data !== '' && data !== null) {
+                        return `
+                        <div class="col-12 col-md-6 col-lg-4 project-item">
+                            <div class="project-panel">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><img src="/` + data + `" alt="" />
+                                        <div class="project-hover">
+                                            <div class="project-action">
+                                                <div class="project-zoom"><i class="far fa-eye"></i><a class="img-popup" href="/` + data + `" title=""></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    } else {
+                        return '-';
+                    }
+                }
+            }, {
+                targets: [5],
+                render: function(data) {
+                    if (data == 1 || data == '1') {
+                        return 'Pengajuan Diterima';
+                    } else if (data == 2 || data == '2') {
+                        return 'Diproses';
+                    } else if (data == 3 || data == '3') {
+                        return 'Ditolak';
+                    } else if (data == 4 || data == '4') {
+                        return 'Disetujui';
+                    }
+                }
+            }]
+        });
     });
+
+    $('#saving-amount').mask('000.000.000.000.000', {
+        reverse: true
+    });
+
+    let isFormShown = false;
+    $('#display-form-btn').on('click', function() {
+        isFormShown = !isFormShown;
+
+        if (isFormShown) {
+            $('#saving-form').removeClass('d-none');
+            $('#display-form-button-title').text('Cancel');
+        } else {
+            $('#saving-form').addClass('d-none');
+            $('#display-form-button-title').text('Buat Pengajuan Simpanan Sukarela');
+        }
+    })
+
+    let typeOfService = '-';
+    let docName = null;
+    let docContent = null;
+    savingSubmitButton = $('#saving-submit');
+    savingSubmitButton.prop('disabled', true);
+    $('#service-type').on('change', function() {
+        typeOfService = $('#service-type').val();
+
+        if (typeOfService == 1) {
+            $('#saving-file-wrapper').removeClass('d-none');
+            $('#info-box-wrapper').addClass('d-none');
+            savingSubmitButton.prop('disabled', false);
+        } else if (typeOfService == 0) {
+            $('#saving-file-wrapper').addClass('d-none');
+            $('#info-box-wrapper').removeClass('d-none');
+            savingSubmitButton.prop('disabled', false);
+        } else {
+            $('#saving-file-wrapper').addClass('d-none');
+            $('#info-box-wrapper').addClass('d-none');
+            savingSubmitButton.prop('disabled', true);
+        }
+    });
+
+    function checkFile() {
+        let file = null;
+        file = document.getElementById('saving-file').files[0];
+
+        if (file !== null && file !== undefined) {
+            docName = file['name'];
+            const fr = new FileReader();
+
+            fr.addEventListener("load", () => {
+                docContent = fr.result;
+                postSaving();
+            });
+
+            fr.readAsDataURL(file);
+        } else {
+            postSaving();
+        }
+    };
+
+    savingSubmitButton.on('click', function() {
+        if (typeOfService == 1) {
+            checkFile();
+        } else {
+            docName = null;
+            docContent = null;
+            postSaving()
+        }
+    });
+
+    function postSaving() {
+        let currentdate = new Date();
+        let dateFormatted = currentdate.getFullYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+
+        let data = {
+            _token: "{{ csrf_token() }}",
+            user_id: $('#saving-id').val(),
+            jenis_pengajuan_id: 1,
+            tanggal_pengajuan: dateFormatted,
+            nominal: $('#saving-amount').cleanVal(),
+            is_online: $('#service-type').val(),
+            dokumen_1: docContent,
+            dokumen_1_name: docName,
+        };
+
+        $.post('/dashboard/permintaan', data)
+            .done(function(response) {
+                getPengajuan();
+            }).fail(function(error) {
+                let message = '';
+                let errorMessage = error.responseJSON.message;
+                let preContent = document.createElement('pre');
+
+                $.each(errorMessage, function(key, value) {
+                    message = message + value[0] + '<br>';
+                });
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Oops!",
+                    content: preContent,
+                    icon: "error",
+                    button: "Close",
+                });
+            }).always(function() {});
+    }
+
+    const reloadTable2Btn = $('#reload-table-2-btn');
+    reloadTable2Btn.on('click', function() {
+        getPengajuan();
+    });
+
+    function getPengajuan() {
+        reloadTable2Btn.prop('disabled', true);
+
+        $.get('/dashboard/permintaan/by-user-id', {
+                user_id: $('#saving-id').val()
+            })
+            .done(function(response) {
+                $('#myTable2').DataTable().clear();
+                $('#myTable2').DataTable().rows.add(response).draw();
+
+                instantiateImageEnlargable();
+            }).fail(function(error) {
+                let message = '';
+                let errorMessage = error.responseJSON.message;
+                let preContent = document.createElement('pre');
+
+
+                $.each(errorMessage, function(key, value) {
+                    message = message + value[0] + '<br>';
+                });
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Oops!",
+                    // text: message,
+                    content: preContent,
+                    icon: "error",
+                    button: "Close",
+                });
+            }).always(function() {
+                reloadTable2Btn.prop('disabled', false);
+            });
+    }
+
+    function instantiateImageEnlargable() {
+        var $imgPopup = $(".img-popup");
+        $imgPopup.magnificPopup({
+            type: "image"
+        });
+    }
+
+    getPengajuan();
+
+    // const preloader = document.createElement('div');
+    // preloader.classList.add('preloader');
+
+    // const dualRing = document.createElement('div');
+    // dualRing.classList.add('dual-ring');
+
+    // preloader.appendChild(dualRing);
+
+    // setTimeout(() => {
+    //     document.body.appendChild(preloader);
+    // }, 5000);
 </script>
 @endpush

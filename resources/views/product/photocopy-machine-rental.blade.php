@@ -92,7 +92,7 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <!-- <li><a href="{{ route('saving-loan') }}"> <span>Simpan Pinjam</span></a></li> -->
+                                    {{-- <li><a href="{{ route('saving-loan') }}"> <span>Simpan Pinjam</span></a></li> --}}
                                     <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>Alat Tulis Kantor (ATK)</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Cleaning Service</span></a></li>

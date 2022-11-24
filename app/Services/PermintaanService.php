@@ -47,7 +47,7 @@ class PermintaanService
     public function update($request, $model)
     {
         try {
-            //if update new file 
+            //if update new file
             if ($request->is_online == false && $request->status == 4) {
                 $model->dokumen_1 = saveFileWithName($request->dokumen_1, $request->dokumen_1_name);
                 $model->dokumen_1_name = $request->dokumen_1_name;
@@ -91,7 +91,7 @@ class PermintaanService
                 'is_online.required' => 'Jenis pembayaran tidak boleh kosong',
             ];
 
-            //if is online 
+            //if is online
             if ($request->is_online == true) {
                 $validate['dokumen_1'] = 'required';
                 $messages['dokumen_1.required'] = 'Bukti trasnfer tidak boleh kosong';
@@ -126,7 +126,7 @@ class PermintaanService
                 'jenis_pengajuan_id' => 'required',
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
-                'nominal'            => 'required|numeric|max' . $max_nominal,
+                'nominal'            => 'required|numeric|max:' . $max_nominal,
                 'lama_angsuran'      => 'required',
                 'keperluan'          => 'required',
             ];
@@ -150,7 +150,7 @@ class PermintaanService
                 'jenis_pengajuan_id' => 'required',
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
-                'nominal'            => 'required|numeric|max' . $max_nominal,
+                'nominal'            => 'required|numeric|max:' . $max_nominal,
                 'lama_angsuran'      => 'required',
                 'keperluan'          => 'required',
                 'is_online'          => 'required',
@@ -168,7 +168,7 @@ class PermintaanService
                 'is_online.required' => 'Jenis pembayaran tidak boleh kosong',
             ];
 
-            //if is online 
+            //if is online
             if ($request->is_online == true) {
                 $validate['dokumen_1'] = 'required';
                 $messages['dokumen_1.required'] = 'Ktp tidak boleh kosong';

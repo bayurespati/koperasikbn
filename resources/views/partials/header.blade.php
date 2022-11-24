@@ -75,7 +75,7 @@
                         @if(Auth::user() && Auth::user()->email_verified_at !== null)
                         <li class="{{ request()->is('product/saving') || request()->is('product/loan') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('saving') }}"><span>Simpan Pinjam</span></a></li>
                         @else
-                        <li class="nav-item"><a href="{{ route('login') }}"><span>Simpan Pinjam</span></a></li>
+                        <li class="nav-item"><a href="{{ route('saving') }}"><span>Simpan Pinjam</span></a></li>
                         @endif
                         <li class="{{ request()->is('product/minimart') || request()->is('product/minimart/*') ? 'nav-item current' : 'nav-item' }}"><a href="{{ route('minimart') }}"><span>Bisnis & Komersial</span></a></li>
                     </ul>

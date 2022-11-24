@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/base.css": "/css/base.css",
-    "/js/base.js": "/js/base.js"
+    "/js/base.js": "/js/base.js",
+    "/js/simpan-pinjam.js": "/js/simpan-pinjam.js"
 }

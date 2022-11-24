@@ -17,18 +17,18 @@ class PermintaanController extends Controller
     }
 
 
-    /** 
+    /**
      * Data of a user
-     * 
+     *
      */
     public function index()
     {
         return Permintaan::with(['user', 'pengajuan'])->get();
     }
 
-    /** 
+    /**
      * Data of a user
-     * 
+     *
      */
     public function getByUserId(Request $request)
     {
@@ -36,15 +36,19 @@ class PermintaanController extends Controller
     }
 
 
-    /** 
-     * store a newly created resource in storage. 
-     * 
+    /**
+     * store a newly created resource in storage.
+     *
      */
     public function store(request $request)
     {
         $user = user::where('id', $request->user_id)->first();
-        if ($request->jenis_pengajuan_id == 4 || $request->jenis_pengajuan_id == 2 && $user->tipe == "c")
-            return response()->json('tidak bisa melakukan pengajuan', 400);
+        if (($request->jenis_pengajuan_id == 4 && strtolower($user->tipe) == "c") || ($request->jenis_pengajuan_id == 2 && strtolower($user->tipe) == "c"))
+            return response()->json([
+                'message' => [
+                    'notice' => ['maaf, anda tidak bisa melakukan pengajuan']
+                ]
+            ], 400);
 
         //validate
         $validate = $this->permintaanService->validateStore($request, $user);
@@ -61,9 +65,9 @@ class PermintaanController extends Controller
         return response()->json('berhasil melakukan pengajuan', 200);
     }
 
-    /** 
-     * Update. 
-     * 
+    /**
+     * Update.
+     *
      */
     public function update(Request $request, Permintaan $permintaan)
     {
