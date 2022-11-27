@@ -275,7 +275,7 @@
                                                     <div class="info-box-notice">
                                                         <i class="energia-alert-Icon"></i>
                                                         <p>
-                                                            Untuk informasi lebih lanjut, harap hubungi admin koperasi baik secara langsung atau melalui <a href="https://wa.me/6287887773893">Whatsapp (087887773893)</a> atau <a href="tel:021-4482-0909">Telepon: (021) 4482-0909 ext. 5101 - 5108</a></p>
+                                                            Untuk informasi lebih lanjut, harap hubungi admin koperasi baik secara langsung atau melalui <a href="https://wa.me/628119662886">Whatsapp (087887773893)</a> atau <a href="tel:021-4482-0909">Telepon: (021) 4482-0909 ext. 5101 - 5108</a></p>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -345,9 +345,6 @@
 @endsection
 
 @push('additional_js')
-<!-- <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
 <script src="{{ asset('js/simpan-pinjam.js') }}"></script>
 <script>
     $(document).ready(function() {

@@ -93,7 +93,6 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    {{-- <li><a href="{{ route('saving-loan') }}"> <span>Simpan Pinjam</span></a></li> --}}
                                     <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
@@ -156,7 +155,7 @@
                                         Offline : Datang langsung Ke Kantor Kopkar KBN
                                     </li>
                                     <li>
-                                        Online : Melalui Platform Online Shop Milik Pemerintah yaitu&nbsp;<span><a href="https://padiumkm.id/store/39249-koperasi-karyawan-pt-kbn-persero-?x-prerender=1" target="_blank">PADI UMKM</a></span>
+                                        Online : Melalui Platform Online Shop Milik Pemerintah yaitu&nbsp;<span><a href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">PADI UMKM</a></span>
                                     </li>
                                 </ul>
                                 <p class="entry-desc">
