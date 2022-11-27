@@ -104,7 +104,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="share-whatsapp" href="https://wa.me/6287887773893" target="_blank">
+                                    <a class="share-whatsapp" href="https://wa.me/628119662886" target="_blank">
                                         <img src="/fonts/whatsapp-round.svg" alt="whatsapp" style="width: 22px;">
                                         Whatsapp
                                     </a>

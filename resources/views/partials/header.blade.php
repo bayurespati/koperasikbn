@@ -28,7 +28,7 @@
                 <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
                     <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
                 </a>
-                <a class="share-whatsapp" href="https://wa.me/6287887773893" target="_blank">
+                <a class="share-whatsapp" href="https://wa.me/628119662886" target="_blank">
                     <img src="/fonts/whatsapp-round.svg" alt="whatsapp" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
                 </a>
             </div>
@@ -111,7 +111,7 @@
                     <!-- <a class="btn btn--primary " href="#">
                         ajukan pinjaman<i class="energia-arrow-right"></i>
                     </a> -->
-                    <a class="btn btn--primary" href="https://padiumkm.id/store/39249-koperasi-karyawan-pt-kbn-persero-?x-prerender=1" target="_blank">
+                    <a class="btn btn--primary" href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">
                         <i class="fa fa-shopping-cart m-0"></i>
                     </a>
                 </div>

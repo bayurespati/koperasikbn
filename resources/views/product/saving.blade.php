@@ -322,9 +322,6 @@
 @endsection
 
 @push('additional_js')
-<!-- <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
 <script src="{{ asset('js/simpan-pinjam.js') }}"></script>
 
 <script>
