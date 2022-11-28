@@ -98,8 +98,13 @@
             <div class="module-holder">
                 <div class="module-contact">
                     @if(Auth::user())
-                    <a class="btn btn--primary" href="{{ route('login') }}">
-                        Dashboard
+                        @if(Auth::user()->role_id !== 3)
+                        <a class="btn btn--primary" href="{{ route('login') }}">
+                            Dashboard
+                        </a>
+                        @endif
+                    <a class="btn btn--primary" onclick="logoutFunc()" href="#">
+                        Logout
                     </a>
                     @else
                     <a class="btn btn--primary" href="{{ route('login') }}">
