@@ -77,6 +77,21 @@
 
     <script src="{{ asset('js/base.js') }}"></script>
     @stack('additional_js')
+
+    <script type="text/javascript">
+        function logoutFunc() {
+            let data = {
+                _token: "{{ csrf_token() }}",
+            };
+
+            $.post('/logout', data)
+                .done(function(response) {
+                    window.location = '/';
+                }).fail(function(error) {
+                    console.log(error);
+                }).always(function() {});
+        }
+    </script>
 </body>
 
 </html>

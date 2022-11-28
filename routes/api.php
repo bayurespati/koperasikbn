@@ -23,3 +23,4 @@ Route::post('users/upload', 'UserController@upload');
 Route::post('simpan-pinjam/upload', 'SimpanPinjamController@upload');
 Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpananPersonal');
 Route::get('simpan-pinjam/pinjaman-personal', 'SimpanPinjamController@getPinjamanPersonal');
+
