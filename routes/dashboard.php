@@ -85,7 +85,7 @@ Route::resource('faqs', 'FaqController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
-Route::resource('laporans', 'LaporanController', [
+Route::resource('laporans', 'LaporansController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
