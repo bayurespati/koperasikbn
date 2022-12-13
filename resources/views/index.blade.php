@@ -298,7 +298,9 @@
           -->
             <div class="video-wrapper">
                 <div class="video video-2" id="video-2">
-                    <div class="bg-section"><img src="assets/images/video/2.jpg" alt="background" /></div><a class="popup-video btn-video btn-video-2" href="https://www.youtube.com/watch?v=_5e2dijeSUY"> <i class="fas fa-play"></i></a>
+                    <div class="bg-section"><img src="assets/images/video/preview.png" alt="background" /></div>
+                    <a class="popup-video btn-video btn-video-2" href="{{ Request::url() . '/video/introduction.mp4' }}"> <i class="fas fa-play"></i>
+                    </a>
                     <!-- End .popup-video-->
                 </div>
                 <!-- End .video-->
