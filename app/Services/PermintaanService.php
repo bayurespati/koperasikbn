@@ -54,7 +54,6 @@ class PermintaanService
             }
             $model->status = $request->status;
             $model->keterangan = $request->keterangan;
-            $model->keterangan = $request->keterangan;
             $model->update();
             return true;
         } catch (\Exception $e) {
@@ -81,7 +80,7 @@ class PermintaanService
                 'is_online'          => 'required',
             ];
 
-            $messages = [
+            $messages =  $request->bahasa == "eng" ? [] : [
                 'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
                 'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
                 'user_id.required' => 'User id tidak boleh kosong',
@@ -94,7 +93,9 @@ class PermintaanService
             //if is online
             if ($request->is_online == true) {
                 $validate['dokumen_1'] = 'required';
-                $messages['dokumen_1.required'] = 'Bukti trasnfer tidak boleh kosong';
+
+                if ($request->bahasa == "id")
+                    $messages['dokumen_1.required'] = 'Bukti trasnfer tidak boleh kosong';
             }
         }
 
@@ -108,7 +109,7 @@ class PermintaanService
                 'keperluan'          => 'required',
             ];
 
-            $messages = [
+            $messages =  $request->bahasa == "eng" ? [] : [
                 'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
                 'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
                 'user_id.required' => 'User id tidak boleh kosong',
@@ -131,7 +132,7 @@ class PermintaanService
                 'keperluan'          => 'required',
             ];
 
-            $messages = [
+            $messages =  $request->bahasa == "eng" ? [] : [
                 'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
                 'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
                 'user_id.required' => 'User id tidak boleh kosong',
@@ -156,7 +157,7 @@ class PermintaanService
                 'is_online'          => 'required',
             ];
 
-            $messages = [
+            $messages =  $request->bahasa == "eng" ? [] : [
                 'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
                 'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
                 'user_id.required' => 'User id tidak boleh kosong',
@@ -171,9 +172,12 @@ class PermintaanService
             //if is online
             if ($request->is_online == true) {
                 $validate['dokumen_1'] = 'required';
-                $messages['dokumen_1.required'] = 'Ktp tidak boleh kosong';
                 $validate['dokumen_2'] = 'required';
-                $messages['dokumen_2.required'] = 'Slip gaji tidak boleh kosong';
+
+                if ($request->bahasa == "id") {
+                    $messages['dokumen_1.required'] = 'Ktp tidak boleh kosong';
+                    $messages['dokumen_2.required'] = 'Slip gaji tidak boleh kosong';
+                }
             }
         }
 
@@ -210,5 +214,13 @@ class PermintaanService
                 $messages['keterangan.required'] = 'Keterangan tidak boleh kosong';
             }
         }
+
+        $validator = Validator::make($request->all(), $validate, $messages);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        return true;
     }
 }

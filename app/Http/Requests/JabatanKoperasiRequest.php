@@ -25,6 +25,7 @@ class JabatanKoperasiRequest extends FormRequest
     {
         return [
             'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
+            'user_id' => 'required|unique:jabatan_koperasi,user_id,' . $this->id,
         ];
     }
 
@@ -32,7 +33,9 @@ class JabatanKoperasiRequest extends FormRequest
     {
         return [
             'nama.required' => 'Nama harus diisi',
-            'nama.unique' => 'Nama sudah ada'
+            'nama.unique' => 'Nama sudah ada',
+            'user_id.required' => 'User harus dipilih',
+            'user_id.unique' => 'User sudah ada memiliki jabatan'
         ];
     }
 }

@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function users()
     {
-        $data = User::all();
+        $data = User::orderBy('nama')->get();
 
         return response()->json([
             'status'  => 'Success',

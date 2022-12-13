@@ -214,7 +214,6 @@ export default {
       if (!this.model.is_online && this.model.status == 4) {
         return this.model.dokumen_1_name != "";
       }
-      // return true;
     },
 
     dokumen1Error() {
@@ -242,7 +241,7 @@ export default {
       console.log("oke", self.isValid);
       if (!self.isRequest && self.isValid) {
         const data = {
-          keterangan: self.model.title,
+          keterangan: self.model.keterangan,
           dokumen_1: self.model.dokumen_1,
           dokumen_1_name: self.model.dokumen_1_name,
           status: self.model.status,

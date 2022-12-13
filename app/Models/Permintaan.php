@@ -20,4 +20,9 @@ class Permintaan extends Model
     {
         return $this->belongsTo('App\Models\JenisPengajuan', 'jenis_pengajuan_id', 'id');
     }
+
+    public function getNominalAttribute($value)
+    {
+        return number_format($value, 0, '.', ',');
+    }
 }
