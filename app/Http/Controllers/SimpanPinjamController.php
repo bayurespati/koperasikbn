@@ -15,6 +15,7 @@ class SimpanPinjamController extends Controller
      */
     public function upload(Request $request)
     {
+        SimpanPinjam::truncate();
         set_time_limit(0);
         $file = $request->file('file');
         try {

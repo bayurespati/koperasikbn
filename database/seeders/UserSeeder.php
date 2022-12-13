@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 'role_id' => 1,
                 'divisi_id' => 1,
                 'tipe' => "B",
-                'password' => bcrypt('adminadmin'),
+                'password' => bcrypt('supersuper'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'email_verified_at' => date('Y-m-d H:i:s'),

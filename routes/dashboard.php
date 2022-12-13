@@ -21,8 +21,8 @@ Route::get('all-user', 'UserController@users');
 Route::patch('user/profile', 'UserController@updateProfile');
 Route::post('users/upload', 'UserController@upload');
 
-Route::get('/laporans/internal', 'LaporanController@getInternal');
-Route::get('/laporans/eksternal', 'LaporanController@getEksternal');
+Route::get('/laporans/internal', 'LaporansController@getInternal');
+Route::get('/laporans/eksternal', 'LaporansController@getEksternal');
 
 Route::post('simpan-pinjam/upload', 'SimpanPinjamController@upload');
 Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpananPersonal');
@@ -85,7 +85,7 @@ Route::resource('faqs', 'FaqController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
-Route::resource('laporans', 'LaporanController', [
+Route::resource('laporans', 'LaporansController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
 
