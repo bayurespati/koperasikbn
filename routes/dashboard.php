@@ -116,3 +116,7 @@ Route::resource('simpan-pinjam', 'SimpanPinjamController', [
 Route::resource('permintaan', 'PermintaanController', [
     'only' => ['index', 'store', 'update', 'destroy'],
 ]);
+
+Route::resource('pesan', 'PesanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);

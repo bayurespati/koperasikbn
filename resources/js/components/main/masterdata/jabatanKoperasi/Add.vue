@@ -26,7 +26,8 @@
                   USER 
               ==========================================================================================-->
             <v-col cols="12" xs="12" md="6">
-              <v-select
+              <!-- <v-select
+                @input="search"
                 v-model="model.user"
                 :items="users"
                 label="Pejabat"
@@ -35,7 +36,28 @@
                 persistent-hint
                 required
                 small-chips
-              ></v-select>
+              ></v-select> -->
+              <v-select
+                v-model="model.user"
+                :items="users"
+                item-text="nama"
+                item-value="id"
+                attach
+                label="Cari"
+              >
+                <template v-slot:prepend-item>
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-text-field
+                        v-model="searchTerm"
+                        placeholder="Search"
+                        @input="search"
+                      ></v-text-field>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-divider class="mt-2"></v-divider>
+                </template>
+              </v-select>
             </v-col>
 
             <!--======================================================================================
@@ -70,9 +92,12 @@ export default {
         nama: "",
         user: "",
       },
+      searchTerm: "",
       valid: false,
       isRequest: false,
       alert: true,
+      users: [],
+      usersCopy: [],
     };
   },
 
@@ -82,9 +107,14 @@ export default {
     },
   },
 
+  mounted() {
+    this.users = this.getusers;
+    this.usersCopy = [...this.users];
+  },
+
   computed: {
     ...mapGetters({
-      users: "users",
+      getusers: "users",
     }),
 
     isValid() {
@@ -126,6 +156,30 @@ export default {
             });
           });
       }
+    },
+
+    search(e) {
+      if (!this.searchTerm) {
+        this.users = this.usersCopy;
+      }
+      // console.log(this.searchTerm);
+      this.users = this.usersCopy.filter((user) => {
+        console.log(user);
+        return (
+          user.nama.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1
+        );
+      });
+    },
+
+    searchFruits(e) {
+      if (!this.searchTerm) {
+        this.fruits = this.fruitsCopy;
+      }
+
+      this.fruits = this.fruitsCopy.filter((fruit) => {
+        console.log(this.searchTerm.toLowerCase());
+        // return fruit.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      });
     },
 
     clearForm() {

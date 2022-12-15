@@ -26,7 +26,7 @@ class UserImport implements ToModel, WithStartRow
         $divisi = $this->getDivisi($row[4]);
         if ($row[3] != null && $divisi != null) {
             $temp = explode("/", $row[1]);
-            $tanggal_masuk = $temp[2] . '-' . $temp[1] . '-' . $temp[0];
+            $tanggal_masuk = $temp[2] . '-' . $temp[0] . '-' . $temp[1];
 
             $record = user::where('no_anggota', $row[0])->first();
 

@@ -114,7 +114,7 @@ export default {
         },
         { text: "Deskripsi", value: "description_indo" },
         { text: "File", value: "file_link" },
-        { text: "Tipe", value: "is_internal" },
+        // { text: "Tipe", value: "is_internal" },
         { text: "Actions", value: "action", sortable: false },
       ],
     };

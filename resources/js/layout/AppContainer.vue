@@ -186,6 +186,12 @@ export default {
         permission: [1, 2],
       },
       {
+        icon: "mdi-18px mdi-newspaper",
+        text: "Pesan",
+        link: "/pesan",
+        permission: [1, 2],
+      },
+      {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
         parent_icon: "mdi-server-security",
@@ -310,6 +316,12 @@ export default {
         icon: "mdi-18px mdi-newspaper",
         text: "Artikel",
         link: "/artikel",
+        permission: [1, 2],
+      },
+      {
+        icon: "mdi-18px mdi-newspaper",
+        text: "Pesan",
+        link: "/pesan",
         permission: [1, 2],
       },
       {

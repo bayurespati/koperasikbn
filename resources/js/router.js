@@ -20,6 +20,8 @@ import Divisi from './components/main/masterdata/divisi/Index.vue'
 import JenisPengajuan from './components/main/masterdata/jenisPengajuan/Index.vue'
 import Terbaru from './components/main/simpanpinjam/terbaru/Index.vue'
 import Permintaan from './components/main/simpanpinjam/permintaan/Index.vue'
+import Pesan from './components/main/Pesan/Index.vue'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -100,6 +102,10 @@ const router = new Router({
         {
             path: '/permintaan',
             component: Permintaan
+        },
+        {
+            path: '/pesan',
+            component: Pesan
         },
     ]
 })
