@@ -162,10 +162,10 @@
                             <tr>
                                 <th style="text-align: right; font-weight: bold;">Total</th>
                                 <td style="text-align: right; font-weight: bold;">
-                                    {{ number_format($datum->totalAngsuran, 2, '.', ',') }}
+                                    {{ number_format($data->totalAngsuran, 2, '.', ',') }}
                                 </td>
                                 <td style="text-align: right; font-weight: bold;">
-                                    {{ number_format($datum->totalSaldo, 2, '.', ',') }}
+                                    {{ number_format($data->totalSaldo, 2, '.', ',') }}
                                 </td>
                             </tr>
                         </tfoot>

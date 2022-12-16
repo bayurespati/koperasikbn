@@ -18,8 +18,8 @@ class SimpanPinjam extends Model
         return $this->belongsTo('App\User', 'no_anggota', 'no_anggota');
     }
 
-    public function getSaldoAttribute($value)
-    {
-        return number_format($value, 0, '.', ',');
-    }
+    // public function getSaldoAttribute($value)
+    // {
+    //     return number_format($value, 0, '.', ',');
+    // }
 }
