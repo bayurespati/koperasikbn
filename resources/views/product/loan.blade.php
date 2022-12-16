@@ -148,7 +148,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data->simpans as $datum)
+                            @foreach($data->pinjams as $datum)
                             <tr>
                                 <td>{{ $datum->keterangan }}</td>
                                 <td style="text-align: right;">
