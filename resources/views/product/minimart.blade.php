@@ -164,10 +164,24 @@
                         </div>
                     </div>
                     <!-- End .service-entry-->
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="video video-1 bg-overlay bg-overlay-video" id="video-1">
+                                <div class="bg-section">
+                                    <img src="{{ Request::root() . '/assets/images/video/produk.png' }}" alt="background" />
+                                </div>
+                                <a class="popup-video btn-video" href="{{ Request::root() . '/video/produk.mp4' }}">
+                                    <i class="fas fa-play"></i>
+                                    <span>produk kami</span>
+                                </a>
+                                <!-- End .popup-video-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- End .col-lg-8-->
             </div>
-            <!-- End .row-->
         </div>
         <!-- End .container-->
     </section>

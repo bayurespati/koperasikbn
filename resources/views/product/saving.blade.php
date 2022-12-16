@@ -48,6 +48,10 @@
     .text-right {
         text-align: right !important;
     }
+
+    .project-panel {
+        margin: 0;
+    }
 </style>
 @endpush
 
@@ -300,11 +304,12 @@
                         <thead>
                             <tr>
                                 <th style="text-align: left;">No</th>
-                                <th style="text-align: center;">Tanggal Pengajuan</th>
+                                <th style="text-align: center;">Waktu Pengajuan</th>
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Dokumen</th>
                                 <th style="text-align: right;">Status</th>
+                                <th style="text-align: right;">Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -360,8 +365,29 @@
                     data: "status",
                     className: 'text-center'
                 },
+                {
+                    data: "keterangan",
+                    className: ''
+                },
             ],
             "columnDefs": [{
+                targets: [1],
+                render: function(data) {
+                    const date = new Date(data);
+
+                    let d = date;
+                    d = [
+                        '' + d.getDate(),
+                        '' + (d.getMonth() + 1),
+                        '' + d.getFullYear(),
+                        '' + d.getHours(),
+                        '' + d.getMinutes()
+                    ]; // take last 2 digits of every component
+
+                    // join the components into date
+                    return d.slice(0, 3).join('-') + ' | ' + d.slice(3).join(':');
+                }
+            }, {
                 targets: [2],
                 render: function(data) {
                     return data['nama'];
@@ -371,13 +397,18 @@
                 render: function(data) {
                     if (data !== '' && data !== null) {
                         return `
-                        <div class="col-12 col-md-6 col-lg-4 project-item">
-                            <div class="project-panel">
-                                <div class="project-panel-holder">
-                                    <div class="project-img"><img src="/` + data + `" alt="" />
-                                        <div class="project-hover">
-                                            <div class="project-action">
-                                                <div class="project-zoom"><i class="far fa-eye"></i><a class="img-popup" href="/` + data + `" title=""></a></div>
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-12 col-md-6 project-item">
+                                <div class="project-panel">
+                                    <div class="project-panel-holder">
+                                        <div class="project-img">
+                                            <div class="project-hover">
+                                                <div class="project-action">
+                                                    <div class="project-zoom">
+                                                        <i class="far fa-eye"></i>
+                                                        <a class="img-popup" href="/` + data + `" title=""></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -402,7 +433,19 @@
                         return 'Disetujui';
                     }
                 }
-            }]
+            }],
+            "drawCallback": function(settings) {
+                var $imgPopup = $(".img-popup");
+                $imgPopup.magnificPopup({
+                    type: "image"
+                });
+                $('.img-gallery-item').magnificPopup({
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    }
+                });
+            }
         });
     });
 
@@ -417,6 +460,7 @@
         if (isFormShown) {
             $('#saving-form').removeClass('d-none');
             $('#display-form-button-title').text('Cancel');
+            emptyForm();
         } else {
             $('#saving-form').addClass('d-none');
             $('#display-form-button-title').text('Buat Pengajuan Simpanan Sukarela');
@@ -490,9 +534,25 @@
             dokumen_1_name: docName,
         };
 
+        savingSubmitButton.prop('disabled', true);
+
         $.post('/dashboard/permintaan', data)
             .done(function(response) {
                 getPengajuan();
+
+                let message = response;
+                let preContent = document.createElement('pre');
+
+                preContent.innerHTML = message;
+
+                swal({
+                    title: "Yay!",
+                    content: preContent,
+                    icon: "success",
+                    button: "Close",
+                });
+
+                emptyForm();
             }).fail(function(error) {
                 let message = '';
                 let errorMessage = error.responseJSON.message;
@@ -510,7 +570,9 @@
                     icon: "error",
                     button: "Close",
                 });
-            }).always(function() {});
+            }).always(function() {
+                savingSubmitButton.prop('disabled', false);
+            });
     }
 
     const reloadTable2Btn = $('#reload-table-2-btn');
@@ -562,16 +624,11 @@
 
     getPengajuan();
 
-    // const preloader = document.createElement('div');
-    // preloader.classList.add('preloader');
-
-    // const dualRing = document.createElement('div');
-    // dualRing.classList.add('dual-ring');
-
-    // preloader.appendChild(dualRing);
-
-    // setTimeout(() => {
-    //     document.body.appendChild(preloader);
-    // }, 5000);
+    function emptyForm() {
+        $('#saving-amount').val('');
+        $('#service-type').val('-').trigger('change');
+        $('#saving-file').val(null);
+        $('select').niceSelect('update');
+    }
 </script>
 @endpush

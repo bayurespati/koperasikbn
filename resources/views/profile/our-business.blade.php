@@ -252,6 +252,21 @@
                 </div>
             </div>
             <!-- End .row-->
+
+            <div class="row" style="padding-top: 70px; padding-bottom: 70px">
+                <div class="col-12">
+                    <div class="video video-1 bg-overlay bg-overlay-video" id="video-1">
+                        <div class="bg-section">
+                            <img src="{{ Request::root() . '/assets/images/video/komersial.png' }}" alt="background" />
+                        </div>
+                        <a class="popup-video btn-video" href="{{ Request::root() . '/video/komersial.mp4' }}">
+                            <i class="fas fa-play"></i>
+                            <span>mau healing?</span>
+                        </a>
+                        <!-- End .popup-video-->
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End .container-->
     </section>
