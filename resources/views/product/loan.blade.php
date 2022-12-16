@@ -143,9 +143,34 @@
                                 <th style="text-align: center;">Tanggal Pengajuan</th>
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
-                                <th style="text-align: center;">Dokumen</th>
-                                <th style="text-align: right;">Status</th>
+                                <!-- <th style="text-align: center;">Dokumen</th> -->
+                                <!-- <th style="text-align: right;">Status</th> -->
                             </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data->simpans as $datum)
+                            <tr>
+                                <td>{{ $datum->keterangan }}</td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->jumlah_angsuran, 2, '.', ',') }}
+                                </td>
+                                <td style="text-align: right;">
+                                    {{ number_format($datum->saldo, 2, '.', ',') }}
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="text-align: right; font-weight: bold;">Total</th>
+                                <td style="text-align: right; font-weight: bold;">
+                                    {{ number_format($data->totalAngsuran, 2, '.', ',') }}
+                                </td>
+                                <td style="text-align: right; font-weight: bold;">
+                                    {{ number_format($data->totalSaldo, 2, '.', ',') }}
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                     @endif
                 </div>
@@ -803,7 +828,6 @@
         $('#loan-period-1').val('');
         $('#service-type').val('-').trigger('change');
         $('#loan-type').val('-').trigger('change');
-        $('#loan-type').prop('selectedIndex',0);
         $('#loan-use').val('');
         $('#loan-file-1').val(null);
         $('#loan-file-2').val(null);
