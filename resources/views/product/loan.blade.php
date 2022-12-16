@@ -48,6 +48,10 @@
     .text-right {
         text-align: right !important;
     }
+
+    .project-panel {
+        margin: 0;
+    }
 </style>
 @endpush
 
@@ -323,11 +327,12 @@
                         <thead>
                             <tr>
                                 <th style="text-align: left;">No</th>
-                                <th style="text-align: center;">Tanggal Pengajuan</th>
+                                <th style="text-align: center;">Waktu Pengajuan</th>
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Dokumen</th>
                                 <th style="text-align: right;">Status</th>
+                                <th style="text-align: right;">Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -381,8 +386,29 @@
                     data: "status",
                     className: 'text-center'
                 },
+                {
+                    data: "keterangan",
+                    className: ''
+                },
             ],
             "columnDefs": [{
+                    targets: [1],
+                    render: function(data) {
+                        const date = new Date(data);
+
+                        let d = date;
+                        d = [
+                            '' + d.getDate(),
+                            '' + (d.getMonth() + 1),
+                            '' + d.getFullYear(),
+                            '' + d.getHours(),
+                            '' + d.getMinutes()
+                        ]; // take last 2 digits of every component
+
+                        // join the components into date
+                        return d.slice(0, 3).join('-') + ' | ' + d.slice(3).join(':');
+                    }
+                }, {
                     targets: [2],
                     render: function(data) {
                         return data['nama'];
@@ -392,13 +418,18 @@
                     render: function(data) {
                         if (data !== '' && data !== null) {
                             return `
-                            <div class="col-12 col-md-6 col-lg-4 project-item">
-                                <div class="project-panel">
-                                    <div class="project-panel-holder">
-                                        <div class="project-img"><img src="/` + data + `" alt="" />
-                                            <div class="project-hover">
-                                                <div class="project-action">
-                                                    <div class="project-zoom"><i class="far fa-eye"></i><a class="img-popup" href="/` + data + `" title=""></a></div>
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-12 col-md-6 project-item">
+                                    <div class="project-panel">
+                                        <div class="project-panel-holder">
+                                            <div class="project-img">
+                                                <div class="project-hover">
+                                                    <div class="project-action">
+                                                        <div class="project-zoom">
+                                                            <i class="far fa-eye"></i>
+                                                            <a class="img-popup" href="/` + data + `" title=""></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -425,13 +456,23 @@
                         }
                     }
                 }
-            ]
+            ],
+            "drawCallback": function(settings) {
+                var $imgPopup = $(".img-popup");
+                $imgPopup.magnificPopup({
+                    type: "image"
+                });
+                $('.img-gallery-item').magnificPopup({
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    }
+                });
+            }
         });
     });
 
-
-
-    $('#loan-amount').mask('000.000.000.000.000,00', {
+    $('#loan-amount').mask('000.000.000.000.000', {
         reverse: true
     });
 
@@ -442,6 +483,7 @@
         if (isFormShown) {
             $('#loan-form').removeClass('d-none');
             $('#display-form-button-title').text('Cancel');
+            emptyForm();
         } else {
             $('#loan-form').addClass('d-none');
             $('#display-form-button-title').text('Buat Pengajuan Pinjaman');
@@ -478,7 +520,8 @@
     let typeOfPinjaman = '-';
     $('#loan-type').on('change', function() {
         typeOfPinjaman = $('#loan-type').val();
-        $('#service-type').trigger('change', '-');
+        $('#service-type').val('-').trigger('change');
+        $('select').niceSelect('update');
 
         if (typeOfPinjaman == '-') {
             $('#loan-amount-wrapper').addClass('d-none');
@@ -611,8 +654,21 @@
             $.post('/dashboard/permintaan', data)
                 .done(function(response) {
                     getPengajuan();
+
+                    let message = response;
+                    let preContent = document.createElement('pre');
+
+                    preContent.innerHTML = message;
+
+                    swal({
+                        title: "Yay!",
+                        content: preContent,
+                        icon: "success",
+                        button: "Close",
+                    });
+
+                    emptyForm();
                 }).fail(function(error) {
-                    console.log(error);
                     let message = '';
                     let errorMessage = error.responseJSON.message;
                     let preContent = document.createElement('pre');
@@ -741,5 +797,17 @@
     }
 
     getPengajuan();
+
+    function emptyForm() {
+        $('#loan-amount').val('');
+        $('#loan-period-1').val('');
+        $('#service-type').val('-').trigger('change');
+        $('#loan-type').val('-').trigger('change');
+        $('#loan-type').prop('selectedIndex',0);
+        $('#loan-use').val('');
+        $('#loan-file-1').val(null);
+        $('#loan-file-2').val(null);
+        $('select').niceSelect('update');
+    }
 </script>
 @endpush

@@ -40,7 +40,17 @@
     }
 
     .about-img {
-        margin-bottom: 40px;
+        margin-bottom: 0;
+    }
+
+    .features .advantages-list li,
+    .feature .paragraph {
+        color: white !important;
+    }
+
+    .about {
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 </style>
 @endpush
@@ -168,7 +178,14 @@
                 </div>
                 <!-- End .col-lg-6-->
             </div>
+        </div>
+        <!-- End .container-->
+    </section>
 
+    <section class="features features-1 bg-overlay bg-overlay-theme2" id="features-1" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="bg-section"> <img src="assets/images/background/2.jpg" alt="Background" /></div>
+        <div class="container">
+            <!-- End .carousel-->
             <div class="row">
                 <div class="col-12 col-lg-7">
                     <div class="about-block">
@@ -176,7 +193,7 @@
                             <div class="col-12">
                                 <div class="block-right">
                                     <div class="prief-set">
-                                        <p class="paragraph" style="font-size: 21px;">
+                                        <p class="paragraph" style="font-size: 21px; color: white;">
                                             Jenis-jenis usaha yang kemudian mulai dikembangkan
                                             antara lain :
                                         </p>
@@ -230,16 +247,31 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12 col-lg-5">
-                    <div class="about-img">
-                        <div class="about-img-holder bg-overlay">
-                            <div class="bg-section"><img src="/assets/images/about/1.jpg" alt="about Image" /></div>
+                    <!--
+                    ============================
+                    Video #1 Section
+                    ============================
+                    -->
+                    <div class="video video-1 bg-overlay bg-overlay-video" id="video-1">
+                        <div class="bg-section">
+                            <img src="{{ Request::root() . '/assets/images/video/profile.png' }}" alt="background" />
                         </div>
+                        <a class="popup-video btn-video" href="{{ Request::root() . '/video/profil.mp4' }}">
+                            <i class="fas fa-play"></i>
+                            <span>tonton video kami!</span>
+                        </a>
+                        <!-- End .popup-video-->
                     </div>
                 </div>
             </div>
+            <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </section>
 
+    <section class="about about-1" id="about-2">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="about-block">
