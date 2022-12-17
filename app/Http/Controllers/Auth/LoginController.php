@@ -51,6 +51,6 @@ class LoginController extends Controller
         if ($user_id == 1 || $user_id == 2)
             return '/dashboard#/profile';
         if ($user_id == 3)
-            return '/profile/history';
+            return 'product/saving';
     }
 }
