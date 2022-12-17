@@ -24,6 +24,9 @@
       :items-per-page="5"
       :footer-props="footerProps"
     >
+      <template v-slot:[`item.status`]="{ item }">
+        {{ item.status | setStatus }}
+      </template>
       <template v-slot:[`item.action`]="{ item }">
         <v-icon color="orange" small class="mr-2" @click="edit(item)">
           mdi-pencil-box
@@ -69,6 +72,11 @@ export default {
           align: "left",
           value: "tanggal_pengajuan",
         },
+        {
+          text: "Status",
+          align: "left",
+          value: "status",
+        },
         { text: "Actions", value: "action", sortable: false },
       ],
     };
@@ -76,6 +84,15 @@ export default {
 
   beforeMount() {
     this.getPermintaan();
+  },
+
+  filters: {
+    setStatus: function (data) {
+      if (data == 1) return "Diterima";
+      if (data == 2) return "Diproses";
+      if (data == 3) return "Ditolak";
+      if (data == 4) return "Disetujui";
+    },
   },
 
   methods: {

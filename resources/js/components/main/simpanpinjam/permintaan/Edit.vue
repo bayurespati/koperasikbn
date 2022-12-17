@@ -67,7 +67,7 @@
             </v-col>
 
             <!--======================================================================================
-                DESCRIPTION ENG 
+                KETERANGAN 
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="12" v-if="model.status == 3">
               <v-textarea
@@ -165,11 +165,11 @@ export default {
       model: {
         dokumen_1_name: this.permintaan.dokumen_1_name ?? "",
         dokumen_1: this.permintaan.dokumen_1 ?? "",
-        dokumen_2_name: this.permintaan.dokumen_1_name ?? "",
-        dokumen_2: this.permintaan.dokumen_1 ?? "",
+        dokumen_2_name: this.permintaan.dokumen_2_name ?? "",
+        dokumen_2: this.permintaan.dokumen_2 ?? "",
         nama: this.permintaan.user.nama ?? "",
         pengajuan: this.permintaan.pengajuan.nama ?? "",
-        nominal: this.permintaan.nominal ?? "",
+        nominal: this.permintaan.nominal_format ?? "",
         tanggal_pengajuan: this.permintaan.tanggal_pengajuan ?? "",
         status: this.permintaan.status ?? "",
         is_online: this.permintaan.is_online ?? "",
@@ -239,7 +239,6 @@ export default {
       let self = this;
       self.$v.$touch();
 
-      console.log("oke", self.isValid);
       if (!self.isRequest && self.isValid) {
         const data = {
           keterangan: self.model.keterangan,
