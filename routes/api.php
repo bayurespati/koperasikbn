@@ -23,3 +23,9 @@ Route::post('users/upload', 'UserController@upload');
 Route::post('simpan-pinjam/upload', 'SimpanPinjamController@upload');
 Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpananPersonal');
 Route::get('simpan-pinjam/pinjaman-personal', 'SimpanPinjamController@getPinjamanPersonal');
+
+Route::resource('permintaan', 'PermintaanController', [
+    'only' => ['index', 'store', 'update', 'destroy'],
+]);
+
+Route::get('permintaan/by-user-id', 'PermintaanController@getByUserId');
