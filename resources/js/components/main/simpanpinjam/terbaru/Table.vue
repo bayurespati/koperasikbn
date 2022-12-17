@@ -111,7 +111,7 @@ export default {
         {
           text: "Saldo",
           align: "left",
-          value: "saldo",
+          value: "saldo_format",
         },
         { text: "Actions", value: "action", sortable: false },
       ],

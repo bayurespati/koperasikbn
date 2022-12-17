@@ -22,8 +22,7 @@ class SimpanPinjamController extends Controller
             Excel::import(new SimpanPinjamImport, $file, \Maatwebsite\Excel\Excel::XLSX);
             return response()->json(['message' => "Success upload simpan pinjam"], 200);
         } catch (\Exception $e) {
-            return $e->getMessage();
-            return response()->json(['message' => $this->messageError($e)], 400);
+            return response()->json(['message' => "Format file belom sesuai"], 400);
         }
     }
 

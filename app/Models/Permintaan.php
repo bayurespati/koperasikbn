@@ -11,6 +11,8 @@ class Permintaan extends Model
 
     protected $guarded = [];
 
+    protected $appends = array('nominal_format');
+
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
@@ -21,8 +23,8 @@ class Permintaan extends Model
         return $this->belongsTo('App\Models\JenisPengajuan', 'jenis_pengajuan_id', 'id');
     }
 
-    public function getNominalAttribute($value)
+    public function getNominalFormatAttribute()
     {
-        return number_format($value, 0, '.', ',');
+        return number_format($this->nominal, 0, '.', ',');
     }
 }

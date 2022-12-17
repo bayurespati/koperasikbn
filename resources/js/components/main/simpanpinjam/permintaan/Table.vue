@@ -62,7 +62,7 @@ export default {
         {
           text: "Nominal",
           align: "left",
-          value: "nominal",
+          value: "nominal_format",
         },
         {
           text: "Tanggal",

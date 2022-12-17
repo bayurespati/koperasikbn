@@ -13,13 +13,15 @@ class SimpanPinjam extends Model
 
     protected $guarded = [];
 
+    protected $appends = array('saldo_format');
+
     public function user()
     {
         return $this->belongsTo('App\User', 'no_anggota', 'no_anggota');
     }
 
-    // public function getSaldoAttribute($value)
-    // {
-    //     return number_format($value, 0, '.', ',');
-    // }
+    public function getSaldoFormatAttribute()
+    {
+        return number_format($this->saldo, 0, '.', ',');
+    }
 }
