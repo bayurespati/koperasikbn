@@ -33,7 +33,9 @@
                   @click="save()"
                   :disabled="isRequest"
                 >
-                  {{ isRequest ? "WAIT" : "UPLOAD" }}
+                  {{
+                    isRequest ? "File sedang diupload mohon tunggu" : "UPLOAD"
+                  }}
                 </v-btn>
               </v-col>
             </v-row>

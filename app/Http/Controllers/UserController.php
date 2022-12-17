@@ -117,7 +117,9 @@ class UserController extends Controller
             Excel::import(new UserImport, $file, \Maatwebsite\Excel\Excel::XLSX);
             return response()->json(['message' => "Success upload user"], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => "Format file belom sesuai"], 400);
+            return response()->json(['errors' => [
+                'error' => ['Format file belom sesuai']
+            ]], 400);
         }
     }
 
