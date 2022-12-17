@@ -74,6 +74,10 @@
         -o-transition: 300ms ease-in-out;
         transition: 300ms ease-in-out;
     }
+
+    #wrapperParallax {
+        background: #f6f7f8 !important;
+    }
 </style>
 @endpush
 
