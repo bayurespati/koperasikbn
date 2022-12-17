@@ -393,6 +393,11 @@
                     return data['nama'];
                 }
             }, {
+                targets: [3],
+                render: function(data) {
+                    return parseFloat(data).toLocaleString('en');
+                }
+            }, {
                 targets: [4],
                 render: function(data) {
                     if (data !== '' && data !== null) {
