@@ -354,7 +354,7 @@
                     className: 'text-center'
                 },
                 {
-                    data: "nominal",
+                    data: "nominal_format",
                     className: 'text-right'
                 },
                 {
