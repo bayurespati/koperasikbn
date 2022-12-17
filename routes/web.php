@@ -35,8 +35,8 @@ Route::get('product/cleaning-service', 'ApplicationController@cleaningServicePag
 Route::get('product/gardening', 'ApplicationController@gardeningPage')->name('gardening');
 Route::get('product/driver', 'ApplicationController@driverPage')->name('driver');
 Route::get('product/administration-staff', 'ApplicationController@administrationStaffPage')->name('administration-staff');
-Route::get('product/others', 'ApplicationController@othersPage')->name('others');
-Route::get('product/vehicle-registration-service', 'ApplicationController@vehicleRegistrationServicePage')->name('vehicle-registration-service');
+// Route::get('product/others', 'ApplicationController@othersPage')->name('others');
+// Route::get('product/vehicle-registration-service', 'ApplicationController@vehicleRegistrationServicePage')->name('vehicle-registration-service');
 Route::get('product/photocopy-machine-rental', 'ApplicationController@photocopyMachineRentalPage')->name('photocopy-machine-rental');
 
 // Route::get('member-forum/whistleblower', 'ApplicationController@whistleblowerPage')->name('whistleblower');
