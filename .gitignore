@@ -4,6 +4,8 @@
 /public/js
 /public/storage
 /public/img
+/public/file
+/public/video
 /public/app
 /storage/*.key
 /vendor
