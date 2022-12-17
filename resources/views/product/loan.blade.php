@@ -140,11 +140,14 @@
                     <table id="myTable1" class="display">
                         <thead>
                             <tr>
-                                <th style="text-align: center;">Tanggal Pengajuan</th>
-                                <th style="text-align: center;">Jenis Pengajuan</th>
-                                <th style="text-align: right;">Nominal (Rupiah)</th>
-                                <!-- <th style="text-align: center;">Dokumen</th> -->
-                                <!-- <th style="text-align: right;">Status</th> -->
+                                <th style="text-align: center;" rowspan="2">Keterangan</th>
+                                <th style="text-align: center;" rowspan="2">Jumlah Angsuran</th>
+                                <th style="text-align: center;" colspan="2">Cicilan</th>
+                                <th style="text-align: right;" rowspan="2">Jumlah</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center;">Ke</th>
+                                <th style="text-align: center;">Sisa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,8 +157,14 @@
                                 <td style="text-align: right;">
                                     {{ number_format($datum->jumlah_angsuran, 2, '.', ',') }}
                                 </td>
+                                <td style="text-align: center;">
+                                    {{ $datum->cicilan_ke }}
+                                </td>
+                                <td style="text-align: center;">
+                                    {{ $datum->sisa }}
+                                </td>
                                 <td style="text-align: right;">
-                                    {{ number_format($datum->saldo, 2, '.', ',') }}
+                                    {{ number_format(($datum->jumlah_angsuran * $datum->sisa), 2, '.', ',') }}
                                 </td>
                             </tr>
                             @endforeach
@@ -166,6 +175,7 @@
                                 <td style="text-align: right; font-weight: bold;">
                                     {{ number_format($data->totalAngsuran, 2, '.', ',') }}
                                 </td>
+                                <th style="text-align: right; font-weight: bold;" colspan="2"></th>
                                 <td style="text-align: right; font-weight: bold;">
                                     {{ number_format($data->totalSaldo, 2, '.', ',') }}
                                 </td>
