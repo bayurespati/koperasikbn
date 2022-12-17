@@ -410,7 +410,7 @@
                     className: 'text-center'
                 },
                 {
-                    data: "nominal",
+                    data: "nominal_format",
                     className: 'text-right'
                 },
                 {
@@ -447,11 +447,6 @@
                     targets: [2],
                     render: function(data) {
                         return data['nama'];
-                    }
-                }, {
-                    targets: [3],
-                    render: function(data) {
-                        return parseFloat(data).toLocaleString('en');
                     }
                 },
                 {
