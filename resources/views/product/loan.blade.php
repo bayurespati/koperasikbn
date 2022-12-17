@@ -482,7 +482,7 @@
                     targets: [5],
                     render: function(data) {
                         if (data == 1 || data == '1') {
-                            return 'Pengajuan Diterima';
+                            return 'Diajukan';
                         } else if (data == 2 || data == '2') {
                             return 'Diproses';
                         } else if (data == 3 || data == '3') {

@@ -88,7 +88,7 @@ export default {
 
   filters: {
     setStatus: function (data) {
-      if (data == 1) return "Diterima";
+      if (data == 1) return "Diajukan";
       if (data == 2) return "Diproses";
       if (data == 3) return "Ditolak";
       if (data == 4) return "Disetujui";

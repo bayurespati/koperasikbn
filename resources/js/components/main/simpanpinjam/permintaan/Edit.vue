@@ -180,7 +180,7 @@ export default {
       alert: true,
       statuses: [
         {
-          nama: "Diterima",
+          nama: "Diajukan",
           id: "1",
         },
         {
