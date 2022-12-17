@@ -676,7 +676,7 @@
         if (data !== null) {
             loanSubmitButton.prop('disabled', true);
 
-            $.post('/dashboard/permintaan', data)
+            $.post('/api/permintaan', data)
                 .done(function(response) {
                     getPengajuan();
 
@@ -782,7 +782,7 @@
     function getPengajuan() {
         reloadTable2Btn.prop('disabled', true);
 
-        $.get('/dashboard/permintaan/by-user-id', {
+        $.get('/api/permintaan/by-user-id', {
                 user_id: $('#loan-id').val()
             })
             .done(function(response) {
