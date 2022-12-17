@@ -22,6 +22,6 @@ class Admin
         if ($user_id == 1 || $user_id == 2)
             return $next($request);
 
-        return redirect('profile/history');
+        return redirect('product/saving');
     }
 }
