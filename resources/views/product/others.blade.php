@@ -86,11 +86,9 @@
                                     <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li><a href="{{ route('vehicle-registration-service') }}"> <span>Penyedia Lahan Parkir</span></a></li>
                                     <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
                                     <li><a href="{{ route('gardening') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Dll</span></a></li>
                                 </ul>
                             </div>
                         </div>
