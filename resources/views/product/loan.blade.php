@@ -410,7 +410,7 @@
                     className: 'text-center'
                 },
                 {
-                    data: "nominal",
+                    data: "nominal_format",
                     className: 'text-right'
                 },
                 {
@@ -448,7 +448,8 @@
                     render: function(data) {
                         return data['nama'];
                     }
-                }, {
+                },
+                {
                     targets: [4],
                     render: function(data) {
                         if (data !== '' && data !== null) {
