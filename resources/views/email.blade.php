@@ -172,7 +172,7 @@
                                                                     <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 25.2px; color: #737487; line-height: 1.8; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
                                                                         <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 32.4px;"><span style="font-size:18px;">Pendaftaran keanggotaan Anda sudah hampir selesai. Aktifkan akun Anda untuk dapat segera menggunakan layanan yang disediakan oleh Koperasi Karyawan PT. KBN (Persero). </span></p>
                                                                         <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"> </p>
-                                                                        <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 32.4px;"><span style="font-size:18px;">Dengan menekan tombol 'Aktivkan Akun' di bawah ini maka Anda telah mengkonfirmasi alamat e-mail yang akan digunakan untuk terhubung dengan sistem kami.</span></p>
+                                                                        <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 32.4px;"><span style="font-size:18px;">Dengan menekan tombol 'Aktifkan Akun' di bawah ini maka Anda telah mengkonfirmasi alamat e-mail yang akan digunakan untuk terhubung dengan sistem kami.</span></p>
                                                                     </div>
                                                                 </div>
                                                             </td>
