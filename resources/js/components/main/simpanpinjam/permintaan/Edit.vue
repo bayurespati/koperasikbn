@@ -214,6 +214,7 @@ export default {
       if (!this.model.is_online && this.model.status == 4) {
         return this.model.dokumen_1_name != "";
       }
+      return true;
     },
 
     dokumen1Error() {

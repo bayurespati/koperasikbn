@@ -213,12 +213,11 @@ class PermintaanService
                 $validate['keterangan'] = 'required';
                 $messages['keterangan.required'] = 'Keterangan tidak boleh kosong';
             }
-        }
+            $validator = Validator::make($request->all(), $validate, $messages);
 
-        $validator = Validator::make($request->all(), $validate, $messages);
-
-        if ($validator->fails()) {
-            return $validator->errors();
+            if ($validator->fails()) {
+                return $validator->errors();
+            }
         }
 
         return true;
