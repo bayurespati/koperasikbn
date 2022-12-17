@@ -16,7 +16,7 @@
                 </button>
                 @else
                 <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                    Kirim tuatan
+                    Kirim Tautan
                 </button>
                 @endif
             </form>
