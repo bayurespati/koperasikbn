@@ -172,15 +172,15 @@ class ApplicationController extends Controller
         return view('product.administration-staff');
     }
 
-    public function othersPage()
-    {
-        return view('product.others');
-    }
+    // public function othersPage()
+    // {
+    //     return view('product.others');
+    // }
 
-    public function vehicleRegistrationServicePage()
-    {
-        return view('product.vehicle-registration-service');
-    }
+    // public function vehicleRegistrationServicePage()
+    // {
+    //     return view('product.vehicle-registration-service');
+    // }
 
     public function photocopyMachineRentalPage()
     {

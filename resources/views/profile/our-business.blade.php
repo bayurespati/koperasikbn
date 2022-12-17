@@ -63,7 +63,7 @@
             <!-- End .row-->
             <div class="row">
                 <div class="col-12">
-                    <div class="carousel owl-carousel carousel-dots" data-slide="4" data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="false" data-speed="500" data-interval="5000">
+                    <div class="carousel owl-carousel carousel-dots" data-slide="3" data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="false" data-speed="500" data-interval="5000">
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
@@ -138,30 +138,6 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('vehicle-registration-service') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
-                                    <!-- End .project-img-->
-                                    <div class="project-content">
-                                        <div class="project-title">
-                                            <h4><a href="{{ route('vehicle-registration-service') }}">Penyedia Lahan Parkir</a></h4>
-                                        </div>
-                                        <div class="project-desc">
-                                            <p>
-                                                Penyedia Lahan Parkir untuk Truk Trailer di
-                                                Kawasan Marunda, sehingga dapat membantu
-                                                mengurangi kemacetan pada saat proses bongkar
-                                                muat.
-                                            </p>
-                                        </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('vehicle-registration-service') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
-                                    </div>
-                                    <!-- End .project-content -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="project-panel" data-hover="">
-                                <div class="project-panel-holder">
                                     <div class="project-img"><a class="link" href="{{ route('administration-staff') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     <div class="project-content">
@@ -223,26 +199,6 @@
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('gardening') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
-                                    </div>
-                                    <!-- End .project-content -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="project-panel" data-hover="">
-                                <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('others') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
-                                    <!-- End .project-img-->
-                                    <div class="project-content">
-                                        <div class="project-title">
-                                            <h4><a href="{{ route('others') }}">Dll</a></h4>
-                                        </div>
-                                        <div class="project-desc">
-                                            <p>
-                                            </p>
-                                        </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('others') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     <!-- End .project-content -->
                                 </div>
