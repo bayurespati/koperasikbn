@@ -39,6 +39,25 @@
         <div class="page-title-wrap bg-overlay bg-overlay-dark-3">
             <div class="bg-section"><img src="/assets/images/page-titles/11.jpg" alt="Background" /></div>
             <div class="container">
+                @if(Cookie::get('current_lang') == 'eng')
+                <div class="title">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h1 class="title-heading">Service Vehicle Rentals</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-5">
+                            <p class="title-desc">
+                                Service Vehicle Rental for the needs of PT.
+                                Nusantara Bonded Zone (Persero) and for
+                                the need for Employees in PT. Region
+                                Bonded Nusantara (Persero).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -56,15 +75,22 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <!-- End .row-->
             </div>
         </div>
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Our Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Service Vehicle Rentals</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Penyewaan Kendaraan Dinas</li>
+                    @endif
                 </ol>
             </div>
         </div>
@@ -81,12 +107,29 @@
             <div class="row">
                 <div class="col-12 col-lg-4 order-1">
                     <!--
-              ============================
-              Services Sidebar
-              ============================
-              -->
+                    ============================
+                    Services Sidebar
+                    ============================
+                    -->
                     <div class="sidebar sidebar-service">
                         <!-- Services-->
+                        @if(Cookie::get('current_lang') == 'eng')
+                        <div class="widget widget-services">
+                            <div class="widget-title">
+                                <h5>Our Products</h5>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('minimart') }}"> <span>Canteen and Hawker Management</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Workforce Management</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Service Vehicle Rentals</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>Supply Office Supplies</span></a></li>
+                                    <li><a href="{{ route('gardening') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @else
                         <div class="widget widget-services">
                             <div class="widget-title">
                                 <h5>Produk Kami</h5>
@@ -102,14 +145,27 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
                         <!-- End .widget-services -->
+
+                        @if(Cookie::get('current_lang') == 'eng')
                         <div class="widget widget-reservation"><img src="/assets/images/blog/sidebar/reservation.jpg" alt="img" />
                             <div class="widget-content"><i class="flaticon-040-green-energy"></i>
-                                <p>Please feel welcome to contact our friendly reception staff with any general or medical enquiry call us</p>
+                                <p>Please contact our friendly reception staff with your questions</p>
+                                <a class="btn btn--bordered btn--white" href="{{ route('contact') }}">Contact KBN Cooperative CS</a>
+                                <a href="tel:02144820909"><span class="energia-phone-Icon"></span> (021) 4482-0909</a> <span style="color: white;">ext. 5101 to 5108</span>
+                            </div>
+                        </div>
+                        @else
+                        <div class="widget widget-reservation"><img src="/assets/images/blog/sidebar/reservation.jpg" alt="img" />
+                            <div class="widget-content"><i class="flaticon-040-green-energy"></i>
+                                <p>Silakan hubungi staf resepsi kami yang ramah dengan pertanyaan anda</p>
                                 <a class="btn btn--bordered btn--white" href="{{ route('contact') }}">Hubungi CS Koperasi KBN</a>
                                 <a href="tel:02144820909"><span class="energia-phone-Icon"></span> (021) 4482-0909</a> <span style="color: white;">ext. 5101 s/d 5108</span>
                             </div>
                         </div>
+                        @endif
+
                         <div class="widget widget-download">
                             <div class="widget-title">
                                 <h5>download brochure</h5>
@@ -138,6 +194,44 @@
                 </div>
                 <div class="col-12 col-lg-8 order-0 order-lg-2">
                     <!-- Start .service-entry-->
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <div class="service-entry">
+                        <div class="entry-content">
+                            <div class="entry-introduction entry-infos">
+                                <h5 class="entry-heading">overview</h5>
+                                <p class="entry-desc">
+                                    Vehicle Rental Services for Corporate and Personal that prioritize comfort so as to facilitate the mobility of your company's work. Providing vehicles from several well-known brands and manufacturers so that it is the right solution when your company often changes vehicle types and is supported by proper service handling according to manufacturer standards in every vehicle maintenance procedure.
+                                </p>
+                                <p class="entry-desc">
+                                    Your company does not need to bother buying vehicles that take up your workforce time, and at a low cost we are ready to serve your company.
+                                </p>
+                                <p class="entry-desc" style="margin-bottom: 0;">
+                                    Currently available vehicles:
+                                </p>
+                                <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
+                                    <li>
+                                        Hyundai Palisade
+                                    </li>
+                                    <li>
+                                        Toyota Innova
+                                    </li>
+                                    <li>
+                                        Mitsubishi Xpander
+                                    </li>
+                                    <li>
+                                        Toyota Avanza
+                                    </li>
+                                    <li>
+                                        Toyota Hilux
+                                    </li>
+                                    <li>
+                                        Medium Buses, and others
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @else
                     <div class="service-entry">
                         <div class="entry-content">
                             <div class="entry-introduction entry-infos">
@@ -174,6 +268,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <!-- End .service-entry-->
 
                     <div class="row">
@@ -184,7 +279,13 @@
                                 </div>
                                 <a class="popup-video btn-video" href="{{ Request::root() . '/video/produk.mp4' }}">
                                     <i class="fas fa-play"></i>
-                                    <span>produk kami</span>
+                                    <span>
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        our product
+                                        @else
+                                        produk kami
+                                        @endif
+                                    </span>
                                 </a>
                                 <!-- End .popup-video-->
                             </div>

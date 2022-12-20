@@ -48,6 +48,7 @@ mix.scripts([
     'resources/template/assets/js/vendor/jquery-3.6.0.min.js',
     'resources/template/assets/js/vendor.min.js',
     'resources/template/assets/js/functions.js',
+    'resources/template/assets/js/vendor/js.cookie.min.js'
 ], 'public/js/base.js');
 
 /*

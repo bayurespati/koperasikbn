@@ -41,8 +41,8 @@
     }
 
     .owl-stage {
-        display: flex!important;
-        align-items: center!important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     .processes .process-panel .process-body .process-content h5 {
@@ -67,7 +67,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Vision Mission</h1>
+                            @else
                             <h1 class="title-heading">Visi Misi</h1>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -76,9 +80,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="">Cooperative Profile</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Vision Mission</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="">Profil Koperasi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Visi Misi</li>
+                    @endif
                 </ol>
             </div>
         </div>
@@ -94,10 +104,39 @@
                 <div class="col-12 col-lg-6">
                     <div class="heading heading-12">
                         <h2 class="heading-title">
+                            @if(Cookie::get('current_lang') == 'eng')
                             Company Profile
+                            @else
+                            Profil Usaha
+                            @endif
                         </h2>
                     </div>
                     <div class="about-block">
+                        @if(Cookie::get('current_lang') == 'eng')
+                        <div class="block-left">
+                            <p class="paragraph">
+                                Employee Cooperative PT. KBN (Persero) As a cooperative engaged in services, especially savings and loans,
+                                distribution of manpower, supply of stationery, basic necessities, rental of official vehicles, etc. which was founded in 1989, we
+                                providing innovative business solutions to our partner companies, which we always do
+                                prioritizing quality and trust for harmonious and sustainable business continuity.
+                            </p>
+                            <p>
+                                Employee Cooperative PT. KBN (Persero) is currently focusing on Member Savings and Loans, ATK/Mould Supply, Chemical &
+                                Cleaning Equipment, Service Vehicle Rentals, Parking Space Providers for Trailers, etc., besides us too
+                                serve the needs according to the request of our partners.
+                            </p>
+                            <p>
+                                Our goal is to be the first choice for our business partners by contributing to every client
+                                us, more than they expect, through special service from us in a professional and integrity manner
+                                full.
+                            </p>
+                            <p>
+                                Employee Cooperative PT. KBN (Persero) in running the business is supported by quality resources and
+                                experienced because we believe, only with high resources we can produce quality work
+                                and good service as expected by our business partners.
+                            </p>
+                        </div>
+                        @else
                         <div class="block-left">
                             <p class="paragraph">
                                 Koperasi Karyawan PT. KBN (Persero) Sebagai sebuah koperasi yang bergerak dibidang jasa khususnya simpan pinjam,
@@ -121,6 +160,7 @@
                                 dan pelayanan yang baik sesuai yang di harapkan mitra bisnis kami.
                             </p>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 offset-lg-1">
@@ -145,7 +185,13 @@
                 <div class="col-12 col-lg-6">
                     <div class="block-right-holder">
                         <div class="heading heading-light heading-light2">
-                            <h2 class="heading-title">Visi</h2>
+                            <h2 class="heading-title">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Vision
+                                @else
+                                Visi
+                                @endif
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -155,10 +201,17 @@
                             <div class="process-panel">
                                 <div class="process-body">
                                     <div class="process-content">
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        <h5>
+                                            Becoming a Growing and Beneficial Cooperative to Meet Needs
+                                            Communities, especially Cooperative Members, as well as the Nation and the State
+                                        </h5>
+                                        @else
                                         <h5>
                                             Menjadi Koperasi Yang Berkembang dan Bermanfaat untuk Memenuhi Kebutuhan
                                             Masyarakat khususnya Anggota Koperasi, juga Bangsa dan Negara
                                         </h5>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +223,13 @@
                 <div class="col-12 col-lg-6">
                     <div class="block-right-holder">
                         <div class="heading heading-light heading-light2">
-                            <h2 class="heading-title">Misi</h2>
+                            <h2 class="heading-title">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Mission
+                                @else
+                                Misi
+                                @endif
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -180,10 +239,17 @@
                             <div class="process-panel">
                                 <div class="process-body">
                                     <div class="process-content">
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        <h5>
+                                            Building Business and Productive Assets in an integrated manner to provide Benefits &
+                                            Extensive Service to Cooperative Members and also to the Nation & State
+                                        </h5>
+                                        @else
                                         <h5>
                                             Membangun Bisnis dan Aset Produktif secara terintegrasi guna memberikan Manfaat &
                                             Pelayanan yang Luas Kepada Anggota Koperasi dan juga kepada Bangsa & Negara
                                         </h5>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +261,13 @@
                 <div class="col-12 col-lg-6">
                     <div class="block-right-holder">
                         <div class="heading heading-light heading-light2">
-                            <h2 class="heading-title">Nilai</h2>
+                            <h2 class="heading-title">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Value
+                                @else
+                                Nilai
+                                @endif
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -205,9 +277,15 @@
                             <div class="process-panel">
                                 <div class="process-body">
                                     <div class="process-content">
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        <h5>
+                                            Fast, Responsive and Full of Responsibility
+                                        </h5>
+                                        @else
                                         <h5>
                                             Cepat, Tanggap dan Penuh Tanggung Jawab
                                         </h5>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
