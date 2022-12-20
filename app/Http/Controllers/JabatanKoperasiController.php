@@ -22,7 +22,7 @@ class JabatanKoperasiController extends Controller
      */
     public function index()
     {
-        return JabatanKoperasi::with('user')->get();
+        return JabatanKoperasi::with('user')->orderBy('nama')->get();
     }
 
 
