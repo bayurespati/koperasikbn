@@ -117,7 +117,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Announcement</h1>
+                            @else
                             <h1 class="title-heading">Pengumuman</h1>
+                            @endif
                             <p class="title-desc"></p>
                         </div>
                     </div>
@@ -127,9 +131,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Media</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Announcement</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Media</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -146,23 +156,53 @@
                     <div class="projects-filter">
                         <ul class="list-inline mb-0 d-flex justify-content-center">
                             <li>
-                                <a id="clear-filters" class="active-filter filter-item" href="javascript:void(0)" data-filter="*">All</a>
+                                <a id="clear-filters" class="active-filter filter-item" href="javascript:void(0)" data-filter="*">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    All
+                                    @else
+                                    Semua
+                                    @endif
+                                </a>
                             </li>
                             <li>
                                 <input id="radio-1" name="news_radio" type="radio" value="filter-simpanan" class="filter-item" />
-                                <label for="radio-1">Layanan Simpanan</label>
+                                <label for="radio-1">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Deposit Service
+                                    @else
+                                    Layanan Simpanan
+                                    @endif
+                                </label>
                             </li>
                             <li>
                                 <input id="radio-2" name="news_radio" type="radio" value="filter-pinjaman" class="filter-item" />
-                                <label for="radio-2">Layanan Pinjaman</label>
+                                <label for="radio-2">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Loan Service
+                                    @else
+                                    Layanan Pinjaman
+                                    @endif
+                                </label>
                             </li>
                             <li>
                                 <input id="radio-3" name="news_radio" type="radio" value="filter-bisnis" class="filter-item" />
-                                <label for="radio-3">Layanan Bisnis</label>
+                                <label for="radio-3">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Business Service
+                                    @else
+                                    Layanan Bisnis
+                                    @endif
+                                </label>
                             </li>
                             <li>
                                 <input id="radio-4" name="news_radio" type="radio" value="filter-komersial" class="filter-item" />
-                                <label for="radio-4"> Layanan Komersial</label>
+                                <label for="radio-4">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Commercial Service
+                                    @else
+                                    Layanan Komersial
+                                    @endif
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -181,14 +221,26 @@
                                 <div class="project-cat"><a href="announcement/{{ $datum->id }}">{{ $datum->category }}</a>
                                 </div>
                                 <div class="project-title">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <h4><a href="announcement/{{ $datum->id }}">{{ $datum->title }}</a></h4>
+                                    @else
                                     <h4><a href="announcement/{{ $datum->id }}">{{ $datum->title_indo }}</a></h4>
+                                    @endif
                                 </div>
                                 <div class="project-desc">
                                     <p>
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        {{ $datum->description }}
+                                        @else
                                         {{ $datum->description_indo }}
+                                        @endif
                                     </p>
                                 </div>
-                                <div class="project-more"> <a class="btn btn--bordered btn--white" href="announcement/{{ $datum->id }}">explore more <i class="energia-arrow-right"></i></a></div>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                <div class="project-more"> <a class="btn btn--bordered btn--white" href="announcement/{{ $datum->id }}">More <i class="energia-arrow-right"></i></a></div>
+                                @else
+                                <div class="project-more"> <a class="btn btn--bordered btn--white" href="announcement/{{ $datum->id }}">Selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                @endif
                             </div>
                             <!-- End .project-content -->
                         </div>

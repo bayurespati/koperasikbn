@@ -76,6 +76,39 @@
     @yield('content')
 
     <script src="{{ asset('js/base.js') }}"></script>
+    <script type="text/javascript">
+        if (Cookies.get('current_lang') == undefined) {
+            Cookies.set('current_lang', 'id', {
+                expires: 30
+            });
+        } else if (Cookies.get('current_lang') == 'id') {
+
+        } else if (Cookies.get('current_lang') == 'eng') {
+
+        } else {
+            Cookies.set('current_lang', 'id', {
+                expires: 30
+            });
+        }
+
+        $('#button-lang-id').on('click', function() {
+            Cookies.set('current_lang', 'id', {
+                expires: 30
+            });
+
+            location.reload();
+        });
+
+        $('#button-lang-eng').on('click', function() {
+            console.log('kontol');
+
+            Cookies.set('current_lang', 'eng', {
+                expires: 30
+            });
+
+            location.reload();
+        });
+    </script>
     @stack('additional_js')
 
     <script type="text/javascript">

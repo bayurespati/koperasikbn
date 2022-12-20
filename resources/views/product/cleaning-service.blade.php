@@ -39,6 +39,25 @@
         <div class="page-title-wrap bg-overlay bg-overlay-dark-3">
             <div class="bg-section"><img src="/assets/images/page-titles/11.jpg" alt="Background" /></div>
             <div class="container">
+                @if(Cookie::get('current_lang') == 'eng')
+                <div class="title">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h1 class="title-heading">Cleaning Workforce Management</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-5">
+                            <p class="title-desc">
+                                Cleaning Workforce Management (Cleaning
+                                Service, Office Boy, Street Sweeping and others)
+                                which are mainly placed in the environment of PT.
+                                Nusantara Bonded Zone (Persero).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -56,15 +75,22 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <!-- End .row-->
             </div>
         </div>
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Our Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cleaning Workforce Management</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pengelolaan Tenaga Kerja Kebersihan</li>
+                    @endif
                 </ol>
             </div>
         </div>
@@ -81,12 +107,29 @@
             <div class="row">
                 <div class="col-12 col-lg-4 order-1">
                     <!--
-              ============================
-              Services Sidebar
-              ============================
-              -->
+                    ============================
+                    Services Sidebar
+                    ============================
+                    -->
                     <div class="sidebar sidebar-service">
                         <!-- Services-->
+                        @if(Cookie::get('current_lang') == 'eng')
+                        <div class="widget widget-services">
+                            <div class="widget-title">
+                                <h5>Our Products</h5>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('minimart') }}"> <span>Canteen and Hawker Management</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Cleaning Workforce Management</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Service Vehicle Rentals</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>Supply Office Supplies</span></a></li>
+                                    <li><a href="{{ route('gardening') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @else
                         <div class="widget widget-services">
                             <div class="widget-title">
                                 <h5>Produk Kami</h5>
@@ -102,14 +145,27 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
                         <!-- End .widget-services -->
+
+                        @if(Cookie::get('current_lang') == 'eng')
                         <div class="widget widget-reservation"><img src="/assets/images/blog/sidebar/reservation.jpg" alt="img" />
                             <div class="widget-content"><i class="flaticon-040-green-energy"></i>
-                                <p>Please feel welcome to contact our friendly reception staff with any general or medical enquiry call us</p>
+                                <p>Please contact our friendly reception staff with your questions</p>
+                                <a class="btn btn--bordered btn--white" href="{{ route('contact') }}">Contact KBN Cooperative CS</a>
+                                <a href="tel:02144820909"><span class="energia-phone-Icon"></span> (021) 4482-0909</a> <span style="color: white;">ext. 5101 to 5108</span>
+                            </div>
+                        </div>
+                        @else
+                        <div class="widget widget-reservation"><img src="/assets/images/blog/sidebar/reservation.jpg" alt="img" />
+                            <div class="widget-content"><i class="flaticon-040-green-energy"></i>
+                                <p>Silakan hubungi staf resepsi kami yang ramah dengan pertanyaan anda</p>
                                 <a class="btn btn--bordered btn--white" href="{{ route('contact') }}">Hubungi CS Koperasi KBN</a>
                                 <a href="tel:02144820909"><span class="energia-phone-Icon"></span> (021) 4482-0909</a> <span style="color: white;">ext. 5101 s/d 5108</span>
                             </div>
                         </div>
+                        @endif
+
                         <div class="widget widget-download">
                             <div class="widget-title">
                                 <h5>download brochure</h5>
@@ -138,6 +194,47 @@
                 </div>
                 <div class="col-12 col-lg-8 order-0 order-lg-2">
                     <!-- Start .service-entry-->
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <div class="service-entry">
+                        <div class="entry-content">
+                            <div class="entry-introduction entry-infos">
+                                <h5 class="entry-heading">overview</h5>
+                                <p class="entry-desc">
+                                    Cleanliness, tidiness and hygiene in an institution, company or other building, both for indoor and outdoor areas so as to create a clean, comfortable, tidy atmosphere, all of which are for the sake of increasing employee productivity and the effectiveness of your daily activities. In addition, cleaning services are also useful for keeping all the items in it neat and well-maintained, so that these items can be used for a longer period of time without significant damage.
+                                </p>
+                                <p class="entry-desc">
+                                    Your company or workplace can only enjoy the best service from the Labor Services that we send. Without bothering you to hold labor recruitment. You also don't have to worry about costs.
+                                </p>
+                                <p class="entry-desc" style="margin-bottom: 0;">
+                                    Advantages of Using Our Cleaning Services:
+                                </p>
+                                <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
+                                    <li>
+                                        Qualified Workforce
+                                    </li>
+                                    <li>
+                                        Serving Clients Well
+                                    </li>
+                                    <li>
+                                        Maximum Service
+                                    </li>
+                                    <li>
+                                        The tools used are standard and complete
+                                    </li>
+                                    <li>
+                                        Covered By Insurance
+                                    </li>
+                                    <li>
+                                        Save cost
+                                    </li>
+                                    <li>
+                                        Satisfying results and the best solution
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @else
                     <div class="service-entry">
                         <div class="entry-content">
                             <div class="entry-introduction entry-infos">
@@ -177,6 +274,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <!-- End .service-entry-->
 
                     <div class="row">
@@ -187,7 +285,13 @@
                                 </div>
                                 <a class="popup-video btn-video" href="{{ Request::root() . '/video/produk.mp4' }}">
                                     <i class="fas fa-play"></i>
-                                    <span>produk kami</span>
+                                    <span>
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        our product
+                                        @else
+                                        produk kami
+                                        @endif
+                                    </span>
                                 </a>
                                 <!-- End .popup-video-->
                             </div>

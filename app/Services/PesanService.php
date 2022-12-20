@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Position;
+use App\Models\Pesan;
 use Illuminate\Support\Facades\Validator;
 
 class PesanService
@@ -10,7 +10,7 @@ class PesanService
     public function store($request)
     {
         try {
-            $paylod = $request->only('nama', 'telepon', 'layanan', 'pertanyaan');
+            $paylod = $request->only('nama', 'telepone', 'layanan', 'pertanyaan');
             $model = Pesan::make($paylod);
             $model->save();
             return true;
@@ -34,6 +34,33 @@ class PesanService
     public function delete($model)
     {
         return $model->delete();
+    }
+
+    public function validateStore($request)
+    {
+        $validate = [
+            'nama' => 'required',
+            'telepone' => 'required',
+            'layanan' => 'required',
+            'pertanyaan' => 'required',
+        ];
+
+        $messages = [];
+
+        $messages = [
+            'nama.required' => "Nama harus diisi",
+            'telepone.required' => "Telepon harus diisi",
+            'layanan.required' => "Layanan harus diisi",
+            'pertanyaan.required' => "Pertanyaan harus diisi",
+        ];
+
+        $validator = Validator::make($request->all(), $validate, $messages);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        return true;
     }
 
     /**

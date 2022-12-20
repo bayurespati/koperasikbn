@@ -122,7 +122,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Awards and Certifications</h1>
+                            @else
                             <h1 class="title-heading">Penghargaan & Sertifikasi</h1>
+                            @endif
                             <p class="title-desc"></p>
                         </div>
                     </div>
@@ -132,9 +136,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Media</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Awards & Certifications</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Media</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Penghargaan & Sertifikasi</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -158,7 +168,11 @@
                             <div class="project-img"><img src="/{{ $datum->file_link }}" alt="{{ $datum->file_name }}" />
                                 <div class="project-hover">
                                     <div class="project-action">
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/{{ $datum->file_link }}" title="{{ $datum->title }}"></a></div>
+                                        @else
                                         <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/{{ $datum->file_link }}" title="{{ $datum->title_indo }}"></a></div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
