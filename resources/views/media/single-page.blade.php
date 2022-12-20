@@ -34,7 +34,7 @@
                             @if(Cookie::get('current_lang') == 'eng')
                             <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Media</a></li>
-                            <li class="breadcrumb-item"><a href="{{ $data->category == 'News' ? route('news') : route('announcement') }}">{{ $data- >category == 'News' ? 'News' : 'Announcements' }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ $data->category == 'News' ? route('news') : route('announcement') }}">{{ $data->category == 'News' ? 'News' : 'Announcements' }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $data->title }}</li>
                             @else
                             <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
