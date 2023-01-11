@@ -71,7 +71,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Save and Loan</h1>
+                            @else
                             <h1 class="title-heading">Simpan Pinjam</h1>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -80,9 +84,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="">Our Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Borrow</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="">Produk Kami</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pinjam</li>
+                    @endif
                 </ol>
             </div>
         </div>
@@ -100,16 +110,52 @@
                 <div class="col-12">
                     <div class="widget widget-services">
                         <div class="widget-content">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <ul class="list-unstyled d-flex justify-content-center col-12">
+                                <li class="col-md-4"><a class="d-flex justify-content-center" href="{{ route('saving') }}"> <span>Save</span>
+                                        </a>
+                                </li>
+                                <li class="col-md-4 custom-active-widget" style="margin-left: 10px;"><a class="d-flex justify-content-center" href="#"> <span> Loan</span></a></li>
+                            </ul>
+                            @else
                             <ul class="list-unstyled d-flex justify-content-center col-12">
                                 <li class="col-md-4"><a class="d-flex justify-content-center" href="{{ route('saving') }}"> <span>Simpan</span></a></li>
                                 <li class="col-md-4 custom-active-widget" style="margin-left: 10px;"><a class="d-flex justify-content-center" href="#"> <span>Pinjam</span></a></li>
                             </ul>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
+                @if(Cookie::get('current_lang') == 'eng')
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Cooperative Cut Details</h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5>
+                </div>
+                <div class="col-12" style="margin-top: 20px;">
+                    <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="name" style="font-weight: 800;">Name / Member ID</td>
+                                    <td class="value">: {{ $data->nama }} / {{ $data->no_anggota }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="name" style="font-weight: 800;">Division / Bureau</td>
+                                    <td class="value">: {{ $data->divisi->nama }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <b>Last updated: {{ $data->lastUpdated }}</b>
+                </div>
+                @else
                 <div class="col-12 d-flex justify-content-center">
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
                 </div>
@@ -133,12 +179,25 @@
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-end">
-                    <b>Last updated: {{ $data->lastUpdated }}</b>
+                    <b>Terakhir Diperbarui: {{ $data->lastUpdated }}</b>
                 </div>
+                @endif
                 <div class="col-12" style="margin-top: 20px;">
                     @if($data !== null && count($data->pinjams) > 0)
                     <table id="myTable1" class="display">
                         <thead>
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <tr>
+                                <th style="text-align: center;" rowspan="2">Description</th>
+                                <th style="text-align: center;" rowspan="2">Instalment Amount</th>
+                                <th style="text-align: center;" colspan="2">Instalment</th>
+                                <th style="text-align: right;" rowspan="2">Sum</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center;">To</th>
+                                <th style="text-align: center;">Remaining</th>
+                            </tr>
+                            @else
                             <tr>
                                 <th style="text-align: center;" rowspan="2">Keterangan</th>
                                 <th style="text-align: center;" rowspan="2">Jumlah Angsuran</th>
@@ -149,6 +208,7 @@
                                 <th style="text-align: center;">Ke</th>
                                 <th style="text-align: center;">Sisa</th>
                             </tr>
+                            @endif
                         </thead>
                         <tbody>
                             @foreach($data->pinjams as $datum)
@@ -200,7 +260,11 @@
                 <div class="col-12">
                     <button class="btn btn-primary w-100 d-flex justify-content-center" id="display-form-btn">
                         <span id="display-form-button-title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            Make a Loan Application
+                            @else
                             Buat Pengajuan Pinjaman
+                            @endif
                         </span>
                     </button>
                 </div>
@@ -222,12 +286,25 @@
                     <div class="col-12">
                         <div class="contact-card">
                             <div class="contact-body">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                <h5 class="card-heading">Fill in the Loan Application Form</h5>
+                                @else
                                 <h5 class="card-heading">Isi Form Pengajuan Pinjaman</h5>
+                                @endif
                                 <p class="card-desc"></p>
                                 <form class="loanForm">
                                     <input type="hidden" id="loan-id" name="loan-id" required="" value="{{ $data->id }}">
                                     <div class="row">
                                         <div class="col-12 col-md-12">
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <select class="form-control" id="loan-type">
+                                                <option value="-">Select Loan Type</option>
+                                                <option value="0">Ordinary Loan</option>
+                                                <option value="1">Incidental Loans</option>
+                                                <option value="2">Long Term Loans</option>
+                                                <option value="3">Other Loans (Shops, Bank Loans, Goods Loans)</option>
+                                            </select>
+                                            @else
                                             <select class="form-control" id="loan-type">
                                                 <option value="-">Pilih Jenis Pinjaman</option>
                                                 <option value="0">Pinjaman Biasa</option>
@@ -235,17 +312,36 @@
                                                 <option value="2">Pinjaman Jangka Panjang</option>
                                                 <option value="3">Pinjaman Lainnya (Toko, Pinjaman Bank, Pinjaman Barang)</option>
                                             </select>
+                                            @endif
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label for="loan-date">Tanggal Pengajuan</label>
+                                            <label for="loan-date">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                Date of Filling
+                                                @else
+                                                Tanggal Pengajuan
+                                                @endif
+                                            </label>
                                             <input type="text" class="form-control" id="loan-date" name="loan-date" required="" value="{{ $data->currDate }}" disabled>
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label for="loan-name">Nama</label>
+                                            <label for="loan-name">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                Name
+                                                @else
+                                                Nama
+                                                @endif
+                                            </label>
                                             <input class="form-control" type="text" id="loan-name" name="loan-name" required="" value="{{ $data->nama }}" disabled />
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label for="loan-member-id">No. Anggota</label>
+                                            <label for="loan-member-id">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                Member ID
+                                                @else
+                                                No. Anggota
+                                                @endif
+                                            </label>
                                             <input class="form-control" type="text" id="loan-member-id" name="loan-member-id" required="" value="{{ $data->no_anggota }}" disabled />
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -254,22 +350,43 @@
                                         </div>
                                         <div class="col-12 col-md-12">
                                             <label for="loan-position">Jabatan</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            Position
+                                            @else
+                                            Jabatan
+                                            @endif
                                             <input class="form-control" type="text" id="loan-position" name="loan-position" required="" value="{{ $data->jabatan_kbn !== null ? $data->jabatan_kbn->nama : '-' }}" disabled />
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-amount-wrapper">
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-amount">Loan Amount<span id="loan-type-title"></span> (Rupiah)</label>
+                                            @else
                                             <label for="loan-amount">Jumlah Pinjaman<span id="loan-type-title"></span> (Rupiah)</label>
+                                            @endif
                                             <input class="form-control" type="text" id="loan-amount" name="loan-amount" required="" />
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-period-1-wrapper">
-                                            <label for="loan-period-1">Lama Angsuran</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-period-1">Length of Installment (1-12 months)</label>
+                                            @else
+                                            <label for="loan-period-1">Lama Angsuran (1-12 bulan)</label>
+                                            @endif
                                             <input class="form-control" type="text" id="loan-period-1" name="loan-period-1" required="" />
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-period-2-wrapper">
-                                            <label for="loan-period-2">Lama Angsuran</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-period-2">Length of Instalment (1 month)</label>
+                                            @else
+                                            <label for="loan-period-2">Lama Angsuran (1 bulan)</label>
+                                            @endif
                                             <input class="form-control" type="text" id="loan-period-2" name="loan-period-2" value="1" required="" disabled />
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-period-3-wrapper">
-                                            <label for="loan-period-3">Lama Angsuran</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-period-3">Length of Installment (13-96 months)</label>
+                                            @else
+                                            <label for="loan-period-3">Lama Angsuran (13-96 bulan)</label>
+                                            @endif
                                             <input class="form-control" type="text" id="loan-period-3" name="loan-period-3" required="" />
                                         </div>
                                         <!-- <div class="col-12 col-md-6">
@@ -277,23 +394,45 @@
                                             <input class="form-control" type="text" id="loan-amount" name="loan-amount" required="" />
                                         </div> -->
                                         <div class="col-12 col-md-12 d-none" id="loan-use-wrapper">
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-use">Necessity</label>
+                                            @else
                                             <label for="loan-use">Keperluan</label>
+                                            @endif
                                             <textarea class="form-control" id="loan-use" name="loan-desc" required=""></textarea>
                                         </div>
                                         <div class="col-12 col-md-12 d-none" id="service-type-wrapper">
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="service-type">Type of File Transfer Service</label>
+                                            @else
                                             <label for="service-type">Jenis Layanan Penyerahan File</label>
+                                            @endif
                                             <select class="form-control" id="service-type">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                <option value="-">Choose the Type of File Transfer Service</option>
+                                                <option value="0">Offline</option>
+                                                <option value="1">Online</option>
+                                                @else
                                                 <option value="-">Pilih Jenis Layanan Penyerahan File</option>
                                                 <option value="0">Offline</option>
                                                 <option value="1">Online</option>
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-file-1-wrapper">
-                                            <label for="loan-file-1">Upload KTP (.png atau .jpeg)</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-file-1">Upload KTP (.png or .jpeg)</label>
+                                            @else
+                                            <label for="loan-file-1">Unggah KTP (.png atau .jpeg)</label>
+                                            @endif
                                             <input type="file" id="loan-file-1" name="proof-of-citisenship" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
                                         </div>
                                         <div class="col-12 col-md-6 d-none" id="loan-file-2-wrapper">
-                                            <label for="loan-file-2">Upload Slip Gaji (.png atau .jpeg)</label>
+                                            @if(Cookie::get('current_lang') == 'eng')
+                                            <label for="loan-file-2">Upload Salary Slip (.png atau .jpeg)</label>
+                                            @else
+                                            <label for="loan-file-2">Unggah Slip Gaji (.png atau .jpeg)</label>
+                                            @endif
                                             <input type="file" id="loan-file-2" name="proof-of-pay" class="form-control" style="padding-top:25px" accept="image/png, image/jpeg">
                                         </div>
                                         <div class="col-12 d-none" id="info-box-1-wrapper">
@@ -301,9 +440,15 @@
                                                 <div class="col-12 col-md-4 col-sm-6">
                                                     <div class="info-box-notice">
                                                         <i class="energia-alert-Icon"></i>
+                                                        @if(Cookie::get('current_lang') == 'eng')
+                                                        <p>
+                                                            To complete the Long Term Loan process, please provide a photocopy of your KTP and Salary Slip directly through the cooperative admin
+                                                        </p>
+                                                        @else
                                                         <p>
                                                             Untuk menyelesaikan proses Pinjaman Jangka Panjang, harap berikan fotokopi KTP dan Slip Gaji secara langsung melalui admin koperasi
                                                         </p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,15 +458,27 @@
                                                 <div class="col-12 col-md-4 col-sm-6">
                                                     <div class="info-box-notice">
                                                         <i class="energia-alert-Icon"></i>
+                                                        @if(Cookie::get('current_lang') == 'eng')
+                                                        <p>
+                                                            For more information, please contact the cooperative admin either directly or via <a href="https://wa.me/628119662886">Whatsapp (087887773893)</a> or <a href="tel:021-4482- 0909">Telephone: (021) 4482-0909 ext. 5101 - 5108</a></p>
+                                                        </p>
+                                                        @else
                                                         <p>
                                                             Untuk informasi lebih lanjut, harap hubungi admin koperasi baik secara langsung atau melalui <a href="https://wa.me/628119662886">Whatsapp (087887773893)</a> atau <a href="tel:021-4482-0909">Telepon: (021) 4482-0909 ext. 5101 - 5108</a></p>
                                                         </p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center">
-                                            <button type="button" class="btn btn-success" id="loan-submit-button">Ajukan Pinjaman <i class="energia-arrow-right"></i></button>
+                                            <button type="button" class="btn btn-success" id="loan-submit-button">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                Apply for a Loan <i class="energia-arrow-right"></i>
+                                                @else
+                                                Ajukan Pinjaman <i class="energia-arrow-right"></i>
+                                                @endif
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -348,7 +505,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <h5 style="margin-bottom: 10px;">Submission Details</h5>
+                    @else
                     <h5 style="margin-bottom: 10px;">Rincian Pengajuan</h5>
+                    @endif
                 </div>
                 <div class="col-12 d-flex justify-content-end">
                     <button class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px" id="reload-table-2-btn">
@@ -360,6 +521,17 @@
                 <div class="col-12" style="margin-top: 20px;">
                     <table id="myTable2" class="display">
                         <thead>
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <tr>
+                                <th style="text-align: left;">No</th>
+                                <th style="text-align: center;">Submission Time</th>
+                                <th style="text-align: center;">Submission Type</th>
+                                <th style="text-align: right;">Nominal (Rupiah)</th>
+                                <th style="text-align: center;">Document</th>
+                                <th style="text-align: right;">Status</th>
+                                <th style="text-align: right;">Description</th>
+                            </tr>
+                            @else
                             <tr>
                                 <th style="text-align: left;">No</th>
                                 <th style="text-align: center;">Waktu Pengajuan</th>
@@ -369,6 +541,7 @@
                                 <th style="text-align: right;">Status</th>
                                 <th style="text-align: right;">Keterangan</th>
                             </tr>
+                            @endif
                         </thead>
                         <tbody>
                         </tbody>

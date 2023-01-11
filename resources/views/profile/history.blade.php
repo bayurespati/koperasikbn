@@ -71,7 +71,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">A Brief History</h1>
+                            @else
                             <h1 class="title-heading">Sejarah Singkat</h1>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -80,9 +84,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Cooperative Profile</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Brief History</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Profil Koperasi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Sejarah Singkat</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -103,51 +113,68 @@
                         <div class="about-img-holder bg-overlay">
                             <div class="bg-section"><img src="/assets/images/about/1.jpg" alt="about Image" /></div>
                         </div>
-                        <!-- <div> -->
-                        <!-- Start .counter-->
-                        <!-- <div class="counter">
-                                <div class="counter-icon"> <i class="flaticon-033-plug"></i></div>
-                                <div class="counter-num"> <span class="counting" data-counterup-nums="954">954</span>
-                                    <p></p>
-                                </div>
-                                <div class="counter-name">
-                                    <h6>happy clients</h6>
-                                </div>
-                            </div> -->
-                        <!-- End .counter-->
-                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
                     <div class="heading heading-1">
-                        <!-- <p class="heading-subtitle heading-subtitle-bg">Complete Commercial And Residential Solar Systems</p> -->
-                        <h2 class="heading-title">Sejarah Singkat</h2>
+                        <h2 class="heading-title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            A Brief History
+                            @else
+                            Sejarah Singkat
+                            @endif
+                        </h2>
                     </div>
                     <div class="about-block">
                         <div class="row">
                             <div class="col-12">
                                 <div class="block-left">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <p class="paragraph" style="font-size: 21px;">
+                                        Employee Cooperative PT. Bonded zone
+                                        Nusantara (Persero) or called Kopkar KBN
+                                        established in 1989.
+                                    </p>
+                                    @else
                                     <p class="paragraph" style="font-size: 21px;">
                                         Koperasi Karyawan PT. Kawasan Berikat
                                         Nusantara (Persero) atau disebut Kopkar KBN
                                         berdiri pada tahun 1989.
                                     </p>
-                                    <!-- <a class="btn btn--secondary" href="page-about.html">read more <i class="energia-arrow-right"></i></a> -->
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-12 col-lg-5">
                                 <div class="block-right">
-                                    <!-- <div class="prief-set">
-                                        <p>How can we meet the growing demand for electricity while protecting our climate & make planet a better place?</p>
-                                        <ul class="list-unstyled advantages-list">
-                                            <li>Reliability and performance</li>
-                                            <li>Just-in-time manufacturing</li>
-                                            <li>solar material financing</li>
-                                        </ul>
-                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-12">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                <p class="paragraph_history">
+                                    Initiated by
+                                    BUMN employees who at that time were employees
+                                    Stay PT. Nusantara Bonded Zone (Persero)
+                                    Cakung. The principle of benefit in organizing for
+                                    achieve the lofty ideals of prosperity
+                                    Employees in particular and the public at
+                                    generally, especially the local community
+                                    living around the Archipelago Bonded Zone.
+                                </p>
+
+                                <p class="paragraph_history">
+                                    Starting with the opening of a Shop and Business
+                                    Save and Loan to meet needs
+                                    members so far Kopkar KBN has
+                                    develop into a formidable cooperative
+                                    unable to meet the needs of its members
+                                    limited to primary needs such as groceries
+                                    and housing but also able to fulfill
+                                    other needs of members, namely in the form of
+                                    education for family members and
+                                    transportation needs and goods
+                                    other households.
+                                </p>
+                                @else
                                 <p class="paragraph_history">
                                     Diprakarsai oleh
                                     Pegawai BUMN yang saat itu merupakan Pegawai
@@ -172,6 +199,7 @@
                                     kebutuhan alat transportasi serta barang-barang
                                     rumah tangga lainnya.
                                 </p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -192,6 +220,58 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="block-right">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <div class="prief-set">
+                                        <p class="paragraph" style="font-size: 21px; color: white;">
+                                            The types of businesses that then began to be developed
+                                            among others :
+                                        </p>
+                                        <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
+                                            <li>
+                                                Management of canteens and hawkers in
+                                                Archipelagic Bonded Zone both within the Zone
+                                                Cakung and in the Marunda Area
+                                            </li>
+                                            <li>
+                                                Cleaning Workforce Management (Cleaning
+                                                Service, Office Boy, Street Sweeping and others)
+                                                which are mainly placed in the environment of PT.
+                                                Nusantara Bonded Zone (Persero)
+                                            </li>
+                                            <li>
+                                                Service Vehicle Rental for the needs of PT.
+                                                Nusantara Bonded Zone (Persero) and for
+                                                the need for Employees in PT. Region
+                                                Bonded Archipelago (Persero)
+                                            </li>
+                                            <li>
+                                                Provider of Parking Areas for Trailer Trucks in
+                                                Marunda area, so that can help
+                                                reduce congestion during the unloading process
+                                                fit
+                                            </li>
+                                            <li>
+                                                Ticketing and Hotel Reservations to help
+                                                official travel, especially for employees of PT.
+                                                Nusantara Bonded Zone (Persero)
+                                            </li>
+                                            <li>
+                                                Supply of Office Stationery and Prints
+                                                for PT. KBN (Persero) and Subsidiary PT.
+                                                KBN (Persero) and investors who are in
+                                                PT. Nusantara Bonded Zone (Persero)
+                                            </li>
+                                            <li>
+                                                Provider of Gallon and Bottle drinking water for
+                                                the needs of PT. KBN (Persero) and Subsidiaries
+                                                PT. KBN (Persero)
+                                            </li>
+                                            <li>
+                                                Etc.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    @else
                                     <div class="prief-set">
                                         <p class="paragraph" style="font-size: 21px; color: white;">
                                             Jenis-jenis usaha yang kemudian mulai dikembangkan
@@ -242,6 +322,7 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -259,7 +340,13 @@
                         </div>
                         <a class="popup-video btn-video" href="{{ Request::root() . '/video/profil.mp4' }}">
                             <i class="fas fa-play"></i>
-                            <span>tonton video kami!</span>
+                            <span>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                watch our video!
+                                @else
+                                tonton video kami!
+                                @endif
+                            </span>
                         </a>
                         <!-- End .popup-video-->
                     </div>
@@ -276,6 +363,42 @@
                 <div class="col-12">
                     <div class="about-block">
                         <div class="row">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <div class="col-12">
+                                <p class="paragraph_history">
+                                    Currently Kopkar KBN has carried out various activities
+                                    business expansion that is not limited to just as
+                                    provider of household needs and loans
+                                    for members. By spurring Member creativity
+                                    and create a reliable workforce in
+                                    Kopkar KBN management then formed
+                                    Kopkar KBN manager led by Manager-
+                                    Professional manager with main purpose
+                                    achieve profit according to SHU target or profit
+                                    others as profit institutions on
+                                    generally.
+                                </p>
+
+                                <p class="paragraph_history">
+                                    Akhirul said as a profit institution that
+                                    in the form of a cooperative, the Kopkar KBN remains
+                                    make the welfare of members, creativity
+                                    members and entrepreneurial attitudes of members by
+                                    goals for the welfare of the Indonesian people
+                                    in accordance with Pancasila and the 45th Constitution as a goal
+                                    main.
+                                </p>
+                                <p class="paragraph_history">
+                                    In the future, Kopkar KBN is in accordance with the Industrial Revolution Era
+                                    5.0 where digitalization takes a major role,
+                                    then starting in 2021 Kopkar KBN has explored
+                                    Collaboration with service provider vendors
+                                    digital which will be business partners and members
+                                    Kopkar KBN is enough to interact and transact from
+                                    house with stake holders in Kopkar KBN.
+                                </p>
+                            </div>
+                            @else
                             <div class="col-12">
                                 <p class="paragraph_history">
                                     Saat ini Kopkar KBN telah melakukan berbagai
@@ -310,6 +433,7 @@
                                     rumah dengan stake holder yang ada di Kopkar KBN.
                                 </p>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

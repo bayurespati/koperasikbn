@@ -98,6 +98,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-7">
+                                @if(Cookie::get('current_lang') == 'eng')
+                                <div class="slide-content">
+                                    <h1 class="slide-headline">{{ $banner->title }}</h1>
+                                    <p class="slide-desc">{{ $banner->description }}</p>
+                                    <div class="slide-action">
+                                        @if($banner->button_link !== null && $banner->button_link !== '')
+                                        <a class="btn btn--primary" href="{{ $banner->button_link }}"> <span>{{ $banner->button_title }}</span><i class="energia-arrow-right"></i></a>
+                                        @endif
+                                        @if($banner->button_two_link !== null && $banner->button_two_link !== '')
+                                        <a class="btn btn--white justify-content-center" href="{{ $banner->button_two_link }}">{{ $banner->button_two_title }}</a>
+                                        @endif
+                                    </div>
+                                </div>
+                                @else
                                 <div class="slide-content">
                                     <h1 class="slide-headline">{{ $banner->title_indo }}</h1>
                                     <p class="slide-desc">{{ $banner->description_indo }}</p>
@@ -110,6 +124,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -133,7 +148,13 @@
                             <i>
                                 <img class="custom_svg" src="assets/images/1_simpan.svg" alt="" style="width: 60%;">
                             </i>
-                            <h5>Simpan</h5>
+                            <h5>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Saving
+                                @else
+                                Simpan
+                                @endif
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -143,7 +164,13 @@
                             <i>
                                 <img class="custom_svg" src="assets/images/2_pinjam.svg" alt="" style="width: 50%;">
                             </i>
-                            <h5>Pinjam</h5>
+                            <h5>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Loan
+                                @else
+                                Pinjam
+                                @endif
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -153,7 +180,13 @@
                             <i>
                                 <img class="custom_svg" src="assets/images/3_bisnis.svg" alt="" style="width: 50%;">
                             </i>
-                            <h5>Bisnis</h5>
+                            <h5>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Business
+                                @else
+                                Bisnis
+                                @endif
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -163,14 +196,24 @@
                             <i>
                                 <img class="custom_svg" src="assets/images/4_komersial.svg" alt="" style="width: 60%;">
                             </i>
-                            <h5>Komersial</h5>
+                            <h5>
+                                @if(Cookie::get('current_lang') == 'eng')
+                                Commercial
+                                @else
+                                Komersial
+                                @endif
+                            </h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="more-features more-features-2">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <p>Advantages of being a Cooperative member</p><a class="btn btn--bordered btn--white" href="#">Click Here</a>
+                    @else
                     <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="#">Klik Disini</a>
+                    @endif
                 </div>
             </div>
             <!-- End .row-->
@@ -184,6 +227,24 @@
       -->
     <section class="services services-2 bg-grey" id="services-2">
         <div class="container">
+            @if(Cookie::get('current_lang') == 'eng')
+            <div class="heading heading-2">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <h2 class="heading-title">Kopkar KBN Goes Forward, Members Prosper</h2>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p class="heading-desc">Employee Cooperative PT. KBN (Persero) as a cooperative engaged in the field of services, especially savings and loans, distribution of labor, supply of ATK, groceries, rental of official vehicles, etc.</p>
+                        <div class="actions-holder">
+                            <a class="btn btn--primary" href="{{ route('business') }}" style="width: 210px;">
+                                Business & Commercial
+                                <i class="energy-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @else
             <div class="heading heading-2">
                 <div class="row">
                     <div class="col-12 col-lg-6">
@@ -200,8 +261,24 @@
                     </div>
                 </div>
             </div>
+            @endif
 
             <div class="carousel owl-carousel carousel-dots" data-slide="3" data-slide-rs="false" data-autoplay="false" data-nav="false" data-dots="true" data-space="30" data-loop="true" data-speed="500" data-interval="10000">
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/5_save_pinjam.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Savings and Loans Services</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. Voluptatem explicabo sint pariatur unde commodi beatae exercitationem natus quod recusandae illum in impedit placeat eos consequuntur, quidem deleniti dignissimos, vel nostrum.</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -215,7 +292,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Mini Market Business</a></h4>
+                            <p>Lorem ipsum dolor sit amet, elite adipisicing consectetur. Ipsam aut vitae fuga quisquam aperiam odio id alias qui beatae enim rem, cum molestias, modi illo ab reprehenderit autem suscipit quidem?</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -229,7 +322,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Office Stationery Procurement</a></h4>
+                            <p>Lorem ipsum dolor sit, elite adipisicing amet consectetur. Ex eos asperiores nulla obcaecati aut mollitia ad et animi, quo consectetur, explicabo aliquid ipsa quidem dolor officiis amet. Nostrum, aliquid sit!</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -243,7 +352,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/8_alih_daya.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Outsourcing Power Service Provider</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. In temporibus laudantium maxime dignissimos corporis possimus nulla dolor, sit quae! Numquam modi autem neque inventory nulla! Ipsam iusto eligendi veniam repellendus!</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -257,7 +382,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/9_vehicle_files.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Vehicle Certificate Service Provider</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. Eos quaerat fugiat numquam natus eius repellat sit exercitationem quisquam, temporibus quos laudantium corrupti asperiores consequatur optio at quod aliquid ducimus esse.</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -271,7 +412,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/10_machine_photocopy.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="services-turbines.html">Copier rental</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, elite adipisicing. Dolor, cupiditate voluptate, inventory veritatis minus, ducimus nobis voluptatum iure vel sint ipsa! Maxime aperiam tempora similique perferendis quaerat in incidunt facere.</p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
@@ -285,6 +442,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </section>
@@ -311,6 +469,36 @@
             </div>
             <!-- End .video-wrapper-->
             <div class="about-block-wrapper">
+                @if(Cookie::get('current_lang') == 'eng')
+                <div class="about-block" style="height:100%;">
+                    <div class="heading heading-1">
+                        <p class="heading-subtitle heading-subtitle-bg">Employee Loans</p>
+                        <h2 class="heading-title">Low Interest Loans</h2>
+                        <p class="heading-desc">When you are ready, we are ready with the best offer from Employee Cooperative. Focus on pursuing your dreams without worrying about financial constraints.</p>
+                        <!-- <div class="signature-block"><a class="btn btn--secondary" href="page-about.html">Learn More <i class="energia-arrow-right"> </i></a>
+                             <div class="signature-body">
+                                 <h6>michael brian</h6>
+                                 <p>co founder</p> -->
+                        <!-- <img class="signature-img" src="assets/images/signature/1.png" alt="signature" /> -->
+                        <!-- </div>
+                         </div> -->
+                        <div class="advantages-list-holder">
+                            <div class="row">
+                                <!-- <div class="col-12 col-md-6">
+                                     <p>How can we meet the growing demand for electricity while protecting our climate?</p>
+                                 </div> -->
+                                <div class="col-12 col-md-12">
+                                    <ul class="list-unstyled advantages-list">
+                                        <li>Accessible online</li>
+                                        <li>Low interest</li>
+                                        <li>Integrated with the Company's salary system</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="about-block" style="height:100%;">
                     <div class="heading heading-1">
                         <p class="heading-subtitle heading-subtitle-bg">Pinjaman Karyawan</p>
@@ -339,6 +527,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <!-- End .about-block-wrapper-->
         </div>
@@ -354,8 +543,13 @@
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <div class="heading heading-11 text-center">
+                        @if(Cookie::get('current_lang') == 'eng')
+                        <p class="heading-subtitle">News & Announcements</p>
+                        <h2 class="heading-title">Recent Articles</h2>
+                        @else
                         <p class="heading-subtitle">Berita & Pengumuman</p>
                         <h2 class="heading-title">Artikel Terbaru</h2>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -364,6 +558,38 @@
                 @foreach($data['artikel'] as $artikel)
                 <div class="col-12 col-lg-4">
                     <div class="blog-entry" data-hover="">
+                        @if(Cookie::get('current_lang') == 'eng')
+                        <div class="entry-content">
+                            <div class="entry-meta">
+                                <div class="entry-date">{{ $artikel->formatted_dtime }}</div>
+                                <!-- End .entry-date		-->
+                                <!-- <div class="entry-author">
+                                    <p>mike dolley</p>
+                                </div> -->
+                            </div>
+                            <div class="entry-title">
+                                <h4><a href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}">{{ $artikel->title }}</a></h4>
+                            </div>
+                            <div class="entry-img-wrap">
+                                <div class="entry-img">
+                                    <a href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}">
+                                        <img src="{{ $artikel->image_link }}" alt="{{ $artikel->image_name }}" />
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End .entry-img-->
+                            <div class="entry-bio">
+                                <p>
+                                    {{ $artikel->description }}
+                                </p>
+                            </div>
+                            <div class="entry-more">
+                                <a class="btn btn--white btn-bordered" href="{{ $artikel->category == 'Berita' ? route('news') : route('announcement') }}/{{ $artikel->id }}" style="width:170px;">
+                                    More <i class="energia-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        @else
                         <div class="entry-content">
                             <div class="entry-meta">
                                 <div class="entry-date">{{ $artikel->formatted_dtime }}</div>
@@ -394,6 +620,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <!-- End .entry-content-->
                 </div>
@@ -401,7 +628,15 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="more-blog"><a href="{{ route('news') }}">Cari tahu lebih banyak tentang berita kami!</a></div>
+                    <div class="more-blog">
+                        <a href="{{ route('news') }}">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            Find out more about our news!
+                            @else
+                            Cari tahu lebih banyak tentang berita kami!
+                            @endif
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- End .row-->

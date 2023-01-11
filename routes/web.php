@@ -53,6 +53,4 @@ Route::get('media/award-and-certificate', 'ApplicationController@awardAndCertifi
 Route::get('media/calendar', 'ApplicationController@calendarPage')->name('calendar');
 
 Route::get('contact-us', 'ApplicationController@contactUsPage')->name('contact');
-
-Route::get('flaticon', 'ApplicationController@flaticonPage')->name('flaticon');
-Route::get('fontawesome', 'ApplicationController@fontAwesomePage')->name('fontawesome');
+Route::post('contact-us', 'PesanController@store');

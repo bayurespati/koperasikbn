@@ -122,8 +122,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-6">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Photos & Videos</h1>
+                            @else
                             <h1 class="title-heading">Foto & Video</h1>
-                            <!-- <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p> -->
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -132,9 +135,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex justify-content-start">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Media</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Photos & Videos</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Media</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Foto & Video</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -151,15 +160,33 @@
                     <div class="projects-filter">
                         <ul class="list-inline mb-0 d-flex justify-content-center">
                             <li>
-                                <a id="clear-filters" class="active-filter filter-item" href="javascript:void(0)" data-filter="*">All</a>
+                                <a id="clear-filters" class="active-filter filter-item" href="javascript:void(0)" data-filter="*">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    All
+                                    @else
+                                    Semua
+                                    @endif
+                                </a>
                             </li>
                             <li>
                                 <input id="radio-1" name="news_radio" type="radio" value="filter-photo" class="filter-item" />
-                                <label for="radio-1">Photos</label>
+                                <label for="radio-1">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Photos
+                                    @else
+                                    Foto
+                                    @endif
+                                </label>
                             </li>
                             <li>
                                 <input id="radio-2" name="news_radio" type="radio" value="filter-video" class="filter-item" />
-                                <label for="radio-2">Videos</label>
+                                <label for="radio-2">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    Videos
+                                    @else
+                                    Video
+                                    @endif
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -176,7 +203,11 @@
                             <div class="project-img"><img src="/{{ $datum->image_link }}" alt="{{ $datum->image_name }}" />
                                 <div class="project-hover">
                                     <div class="project-action">
+                                        @if(Cookie::get('current_lang') == 'eng')
+                                        <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/{{ $datum->image_link }}" title="{{ $datum->title }}"></a></div>
+                                        @else
                                         <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/{{ $datum->image_link }}" title="{{ $datum->title_indo }}"></a></div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -184,9 +215,9 @@
                         @else
                         <div class="project-panel-holder">
                             <div class="project-img">
-                               @php
-                               echo $datum->link
-                               @endphp
+                                @php
+                                echo $datum->link
+                                @endphp
                             </div>
                         </div>
                         @endif

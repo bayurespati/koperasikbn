@@ -47,8 +47,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Management</h1>
+                            @else
                             <h1 class="title-heading">Manajemen</h1>
-                            <!-- <p class="title-desc">We offer products, solutions, and services across the entire energy value chain. We support our customers on their way to a more sustainable future.</p> -->
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -57,9 +60,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Cooperative Profile</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Management</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Profil Koperasi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Manajemen</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -77,7 +86,11 @@
             <div class="row">
                 @if(count($data[0]) > 0)
                 <div class="col-12 d-flex justify-content-center">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <h3>Elder</h3>
+                    @else
                     <h3>Pembina</h3>
+                    @endif
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[0] as $datum)
@@ -117,7 +130,11 @@
             <div class="row mt-4">
                 @if(count($data[1]) > 0)
                 <div class="col-12 d-flex justify-content-center">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <h3>Supervisor</h3>
+                    @else
                     <h3>Pengawas</h3>
+                    @endif
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[1] as $datum)
@@ -157,7 +174,11 @@
             <div class="row mt-4">
                 @if(count($data[2]) > 0)
                 <div class="col-12 d-flex justify-content-center">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <h3>Administrator</h3>
+                    @else
                     <h3>Pengurus</h3>
+                    @endif
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[2] as $datum)
@@ -197,7 +218,11 @@
             <div class="row mt-4">
                 @if(count($data[3]) > 0)
                 <div class="col-12 d-flex justify-content-center">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <h3>Manager</h3>
+                    @else
                     <h3>Pengelola</h3>
+                    @endif
                 </div>
                 <div class="row d-flex justify-content-center">
                     @foreach($data[3] as $datum)

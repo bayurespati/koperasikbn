@@ -1,6 +1,86 @@
 <footer class="footer footer-1">
     <div class="footer-top">
         <div class="container">
+            @if(Cookie::get('current_lang') == 'eng')
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+                    <div class="footer-widget widget-links">
+                        <div class="footer-widget-title">
+                            <h5>cooperative profile</h5>
+                        </div>
+                        <div class="widget-content">
+                            <ul>
+                                <li><a href="{{ route('history') }}">Short History</a></li>
+                                <li><a href="{{ route('about') }}">Vision Mission</a></li>
+                                <li><a href="{{ route('business') }}">Cooperative Business</a></li>
+                                <li><a href="{{ route('management') }}">Management</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .col-lg-2-->
+                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+                    <div class="footer-widget widget-links">
+                        <div class="footer-widget-title">
+                            <h5>Our Products</h5>
+                        </div>
+                        <div class="widget-content">
+                            <ul>
+                                @if(Auth::user())
+                                <li><a href="{{ route('saving') }}">Save and Loan</a></li>
+                                @else
+                                <li><a href="{{ route('login') }}">Save and Loan</a></li>
+                                @endif
+                                <li><a href="{{ route('minimart') }}">Business & Commercial</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .col-lg-2-->
+                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+                    <div class="footer-widget widget-links">
+                        <div class="footer-widget-title">
+                            <a href="{{ route('faq') }}">
+                                <h5>FAQs</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="footer-widget widget-links widget-icon">
+                        <div class="footer-widget-title">
+                            <h5>Media</h5>
+                        </div>
+                        <div class="widget-content">
+                            <ul>
+                                <li><a href="{{ route('photo-video') }}">Photos & Videos</a></li>
+                                <li><a href="{{ route('news') }}">News</a></li>
+                                <li><a href="{{ route('announcement') }}">Announcement</a></li>
+                                <li><a href="{{ route('award-certificate') }}">Awards & Certifications</a></li>
+                                <li><a href="{{ route('calendar') }}">Event Calendar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .col-lg-5-->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="footer-widget widget-contact">
+                        <div class="widget-content">
+                            <ul>
+                                <li class="phone">(021)<a href="tel:021-4482-0909"> 4482-0909</a></li>
+                                <li class="phone" style="font-size: 20px;;">ext. 5101 to 5108</li>
+                                <li class="email"><a href="mailto:manager@kopkarkbn.com">manager@kopkarkbn.com</a></li>
+                                <li class="address">
+                                    <p>The Rose Building - Jl. Jawa Raya, Complex PT. KBN (Persero) Jl. Raya Cakung Cilincing, DKI Jakarta, 1410.</p>
+                                </li>
+                                <li class="directions" style="margin-bottom: 40px;"><a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8" target="_blank"><i class="energia- location-Icon"></i>get directions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .col-lg-3-->
+            </div>
+            @else
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-2">
                     <div class="footer-widget widget-links">
@@ -72,13 +152,24 @@
                                 <li class="address">
                                     <p>Gedung Mawar - Jl. Jawa Raya, Komplek PT. KBN (Persero) Jl. Raya Cakung Cilincing, DKI Jakarta, 1410.</p>
                                 </li>
-                                <li class="directions" style="margin-bottom: 40px;"><a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8" target="_blank"><i class="energia-location-Icon"></i>get directions</a></li>
+                                <li class="directions" style="margin-bottom: 40px;">
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8" target="_blank">
+                                        <i class='energia-location-Icon'></i>get directions
+                                    </a>
+                                    @else
+                                    <a href="https://maps.app.goo.gl/ggcoKRdoF1LibBrT8" target="_blank">
+                                        <i class="energia-location-Icon"></i>dapatkan petunjuk arah
+                                    </a>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!--  End .col-lg-3-->
             </div>
+            @endif
             <!-- End .row-->
         </div>
         <!--  End .container-->

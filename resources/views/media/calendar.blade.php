@@ -23,7 +23,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5">
                         <div class="title">
+                            @if(Cookie::get('current_lang') == 'eng')
+                            <h1 class="title-heading">Calendar of Events</h1>
+                            @else
                             <h1 class="title-heading">Kalender Kegiatan</h1>
+                            @endif
                             <p class="title-desc"></p>
                         </div>
                     </div>
@@ -33,9 +37,15 @@
         <div class="breadcrumb-wrap">
             <div class="container">
                 <ol class="breadcrumb d-flex">
+                    @if(Cookie::get('current_lang') == 'eng')
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Media</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Calendar of Events</li>
+                    @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Media</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Kalender Kegiatan</li>
+                    @endif
                 </ol>
                 <!-- End .row-->
             </div>
@@ -61,7 +71,7 @@
                                 </div>
                             </div>
                             @else
-                            <div class="project-img"><img src="/assets/images/no_file_icon.png" alt="No File For {{ $datum->name }}" style="padding:0px 30px 20px 30px"/>
+                            <div class="project-img"><img src="/assets/images/no_file_icon.png" alt="No File For {{ $datum->name }}" style="padding:0px 30px 20px 30px" />
                                 <div class="project-hover">
                                     <div class="project-action">
                                         <div class="project-zoom"><i class="far fa-eye"></i><a class="img-gallery-item" href="/assets/images/no_file_icon.png" title="{{ $datum->name }}"></a></div>
