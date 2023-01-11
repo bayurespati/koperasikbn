@@ -302,6 +302,20 @@ class DivisiSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'nama' => 'KOPERASI KARYAWAN',
+                'kode' => '6000',
+                'unit_id' => 6,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama' => 'STAFF KHUSUS KOPERASI',
+                'kode' => '6007',
+                'unit_id' => 6,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }
