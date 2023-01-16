@@ -95,7 +95,7 @@
                                     <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>Alat Tulis Kantor (ATK)</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Cleaning Service</span></a></li>
-                                    <li><a href="{{ route('gardening') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Perawatan Taman</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Perawatan Taman</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Driver</span></a></li>
                                     <li><a href="{{ route('administration-staff') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Staf Administrasi</span></a></li>
                                     <li><a href="{{ route('others') }}"> <span>Penyedia Jasa Tenaga Ahli Daya - Dll</span></a></li>
