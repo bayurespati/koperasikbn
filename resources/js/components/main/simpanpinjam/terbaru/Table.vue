@@ -63,11 +63,11 @@
       :items-per-page="5"
       :footer-props="footerProps"
     >
-      <template v-slot:[`item.action`]="{ item }">
-        <v-icon color="red" small class="mr-2" @click="openDialog(item)">
+      <!-- <template v-slot:[`item.action`]="{ item }"> -->
+        <!-- <v-icon color="red" small class="mr-2" @click="openDialog(item)">
           mdi-delete
-        </v-icon>
-      </template>
+        </v-icon> -->
+      <!-- </template> -->
       <template v-slot:no-data>
         <v-btn sm outlined color="indigo" style="border: 0">No data</v-btn>
       </template>
