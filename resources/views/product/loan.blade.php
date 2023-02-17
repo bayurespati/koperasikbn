@@ -225,7 +225,7 @@
                                 </td>
                                 <td style="text-align: right;">
                                     <!-- {{ number_format(($datum->jumlah_angsuran * $datum->sisa), 2, '.', ',') }} -->
-                                    {{ $datum->pot_pinjaman }}
+                                    {{ number_format(($datum->pot_pinjaman), 2, '.', ',') }}
                                 </td>
                             </tr>
                             @endforeach
