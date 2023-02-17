@@ -68,6 +68,16 @@ const actions = {
         })
     },
 
+    deleteSimpanPinjam({ commit }, data) {
+        return new Promise((resolve, reject) => {
+            axios.delete('/dashboard/simpan-pinjam/' + data).then(response => {
+                resolve(response.data)
+            }).catch(errors => {
+                reject(errors.response.data.errors)
+            })
+        })
+    },
+
     uploadSimpanPinjam({ commit }, data) {
         return new Promise((resolve, reject) => {
             axios.post('/dashboard/simpan-pinjam/upload', data, {
