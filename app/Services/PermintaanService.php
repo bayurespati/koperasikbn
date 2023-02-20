@@ -80,22 +80,33 @@ class PermintaanService
                 'is_online'          => 'required',
             ];
 
-            $messages =  $request->bahasa == "eng" ? [] : [
-                'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
-                'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
-                'user_id.required' => 'User id tidak boleh kosong',
-                'nominal.required' => 'Nominal tidak boleh kosong',
-                'nominal.numeric' => 'Nominal harus anggka',
+            $messages =  $request->bahasa == "eng" ? [
+                'jenis_pengajuan.required' => "Submission Type can't be empty",
+                'tanggal_pengajuan.required' => "Submission Date can't be empty",
+                'user_id.required' => "User ID can't be empty",
+                'nominal.required' => "Nominal (Rp) can't be empty",
+                'nominal.numeric' => "Nominal (Rp) have to be a numerical value",
+                'nominal.min' => "The available lowest Nominal (Rp) value is 100000",
+                'is_online.required' => "Service Type can't be empty",
+            ] : [
+                'jenis_pengajuan.required' => 'Jenis Pengajuan tidak boleh kosong',
+                'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
+                'user_id.required' => 'User ID tidak boleh kosong',
+                'nominal.required' => 'Nominal (Rp) tidak boleh kosong',
+                'nominal.numeric' => 'Nominal (Rp) harus angka',
                 'nominal.min' => 'Nominal paling kecil 100000',
-                'is_online.required' => 'Jenis pembayaran tidak boleh kosong',
+                'is_online.required' => 'Jenis Layanan tidak boleh kosong',
             ];
 
             //if is online
             if ($request->is_online == true) {
                 $validate['dokumen_1'] = 'required';
 
-                if ($request->bahasa == "id")
-                    $messages['dokumen_1.required'] = 'Bukti trasnfer tidak boleh kosong';
+                if ($request->bahasa == "id") {
+                    $messages['dokumen_1.required'] = 'Bukti Transfer tidak boleh kosong';
+                } else {
+                    $messages['dokumen_1.required'] = "Proof of Transfer can't be empty";
+                }
             }
         }
 
@@ -109,13 +120,21 @@ class PermintaanService
                 'keperluan'          => 'required',
             ];
 
-            $messages =  $request->bahasa == "eng" ? [] : [
-                'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
-                'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
-                'user_id.required' => 'User id tidak boleh kosong',
-                'nominal.required' => 'Nominal tidak boleh kosong',
-                'nominal.numeric' => 'Nominal harus anggka',
-                'lama_angsuran.required' => 'Lama angsuran tidak boleh kosong',
+            $messages =  $request->bahasa == "eng" ? [
+                'jenis_pengajuan.required' => "Submission Type can't be empty",
+                'tanggal_pengajuan.required' => "Submission Date can't be empty",
+                'user_id.required' => "User ID can't be empty",
+                'nominal.required' => "Nominal (Rp) can't be empty",
+                'nominal.numeric' => "Nominal (Rp) have to be a numerical value",
+                'lama_angsuran.required' => "Loan Period can't be empty",
+                'keperluan.required' => "Necessity can't be empty",
+            ] : [
+                'jenis_pengajuan.required' => 'Jenis Pengajuan tidak boleh kosong',
+                'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
+                'user_id.required' => 'User ID tidak boleh kosong',
+                'nominal.required' => 'Nominal (Rp) tidak boleh kosong',
+                'nominal.numeric' => 'Nominal (Rp) harus angka',
+                'lama_angsuran.required' => 'Lama Angsuran tidak boleh kosong',
                 'keperluan.required' => 'Keperluan tidak boleh kosong',
             ];
         }
@@ -132,14 +151,23 @@ class PermintaanService
                 'keperluan'          => 'required',
             ];
 
-            $messages =  $request->bahasa == "eng" ? [] : [
-                'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
-                'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
-                'user_id.required' => 'User id tidak boleh kosong',
-                'nominal.required' => 'Nominal tidak boleh kosong',
-                'nominal.numeric' => 'Nominal harus anggka',
-                'nominal.min' => 'Nominal paling besar ' . $max_nominal,
-                'lama_angsuran.required' => 'Lama angsuran tidak boleh kosong',
+            $messages =  $request->bahasa == "eng" ? [
+                'jenis_pengajuan.required' => "Submission Type can't be empty",
+                'tanggal_pengajuan.required' => "Submission Date can't be empty",
+                'user_id.required' => "User ID can't be empty",
+                'nominal.required' => "Nominal (Rp) can't be empty",
+                'nominal.numeric' => "Nominal (Rp) have to be a numerical value",
+                'nominal.max' => 'The available highest Nominal (Rp) value is ' . $max_nominal,
+                'lama_angsuran.required' => "Loan Period can't be empty",
+                'keperluan.required' => "Necessity can't be empty",
+            ] : [
+                'jenis_pengajuan.required' => 'Jenis Pengajuan tidak boleh kosong',
+                'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
+                'user_id.required' => 'User ID (Rp) tidak boleh kosong',
+                'nominal.required' => 'Nominal (Rp) tidak boleh kosong',
+                'nominal.numeric' => 'Nominal (Rp) harus angka',
+                'nominal.max' => 'Nominal (Rp) paling besar ' . $max_nominal,
+                'lama_angsuran.required' => 'Lama Angsuran tidak boleh kosong',
                 'keperluan.required' => 'Keperluan tidak boleh kosong',
             ];
         }
@@ -157,16 +185,26 @@ class PermintaanService
                 'is_online'          => 'required',
             ];
 
-            $messages =  $request->bahasa == "eng" ? [] : [
-                'jenis_pengajuan.required' => 'Jenis pengajuan tidak boleh kosong',
-                'tanggal_pengajuan.required' => 'Tanggal pengajuan tidak boleh kosong',
-                'user_id.required' => 'User id tidak boleh kosong',
-                'nominal.required' => 'Nominal tidak boleh kosong',
-                'nominal.numeric' => 'Nominal harus anggka',
-                'nominal.min' => 'Nominal paling besar ' . $max_nominal,
-                'lama_angsuran.required' => 'Lama angsuran tidak boleh kosong',
+            $messages =  $request->bahasa == "eng" ? [
+                'jenis_pengajuan.required' => "Submission Type can't be empty",
+                'tanggal_pengajuan.required' => "Submission Date can't be empty",
+                'user_id.required' => "User ID can't be empty",
+                'nominal.required' => "Nominal (Rp) can't be empty",
+                'nominal.numeric' => "Nominal (Rp) have to be a numerical value",
+                'nominal.max' => 'The available highest Nominal (Rp) value is ' . $max_nominal,
+                'lama_angsuran.required' => "Loan Period can't be empty",
+                'keperluan.required' => "Necessity can't be empty",
+                'is_online.required' => "Service Type can't be empty",
+            ] : [
+                'jenis_pengajuan.required' => 'Jenis Pengajuan tidak boleh kosong',
+                'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
+                'user_id.required' => 'User ID tidak boleh kosong',
+                'nominal.required' => 'Nominal (Rp) tidak boleh kosong',
+                'nominal.numeric' => 'Nominal (Rp) harus angka',
+                'nominal.max' => 'Nominal (Rp) paling besar ' . $max_nominal,
+                'lama_angsuran.required' => 'Lama Angsuran tidak boleh kosong',
                 'keperluan.required' => 'Keperluan tidak boleh kosong',
-                'is_online.required' => 'Jenis pembayaran tidak boleh kosong',
+                'is_online.required' => 'Jenis Layanan tidak boleh kosong',
             ];
 
             //if is online
@@ -175,8 +213,11 @@ class PermintaanService
                 $validate['dokumen_2'] = 'required';
 
                 if ($request->bahasa == "id") {
-                    $messages['dokumen_1.required'] = 'Ktp tidak boleh kosong';
-                    $messages['dokumen_2.required'] = 'Slip gaji tidak boleh kosong';
+                    $messages['dokumen_1.required'] = 'KTP tidak boleh kosong';
+                    $messages['dokumen_2.required'] = 'Slip Gaji tidak boleh kosong';
+                } else {
+                    $messages['dokumen_1.required'] = "KTP can't be empty";
+                    $messages['dokumen_2.required'] = "Salary Slip can't be empty";
                 }
             }
         }

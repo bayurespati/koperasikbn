@@ -268,43 +268,17 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/5_save_pinjam.svg" alt="" style="width: 26%; height: 26%;">
-                        </div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">Savings and Loans Services</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. Voluptatem explicabo sint pariatur unde commodi beatae exercitationem natus quod recusandae illum in impedit placeat eos consequuntur, quidem deleniti dignissimos, vel nostrum.</p>
-                            <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @else
-                <div>
-                    <div class="service-panel services-panel-2">
-                        <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/5_simpan_pinjam.svg" alt="" style="width: 26%; height: 26%;">
-                        </div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">Layanan Simpan Pinjam</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem explicabo sint pariatur unde commodi beatae exercitationem natus quod recusandae illum in impedit placeat eos consequuntur, quidem deleniti dignissimos, vel nostrum.</p>
-                            <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @endif
-
-                @if(Cookie::get('current_lang') == 'eng')
-                <div>
-                    <div class="service-panel services-panel-2">
-                        <div class="service-icon">
                             <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Mini Market Business</a></h4>
-                            <p>Lorem ipsum dolor sit amet, elite adipisicing consectetur. Ipsam aut vitae fuga quisquam aperiam odio id alias qui beatae enim rem, cum molestias, modi illo ab reprehenderit autem suscipit quidem?</p>
+                            <h4><a href="{{ route('minimart') }}">Canteen and Hawker Management</a></h4>
+                            <p>
+                                Management of canteens and hawkers in
+                                Archipelagic Bonded Zone both within the Zone
+                                Cakung and in the Marunda Area.
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('minimart') }}">More <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -315,10 +289,14 @@
                             <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Usaha Mini Market</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam aut vitae fuga quisquam aperiam odio id alias qui beatae enim rem, cum molestias, modi illo ab reprehenderit autem suscipit quidem?</p>
+                            <h4><a href="{{ route('minimart') }}">Pengelolaan Kantin dan Pedagang Asongan</a></h4>
+                            <p>
+                                Pengelolaan Kantin dan Pedagang Asongan dalam
+                                Kawasan Berikat Nusantara baik dalam Kawasan
+                                Cakung maupun dalam Kawasan Marunda.
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('minimart') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -328,13 +306,18 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                            <img class="custom_svg" src="assets/images/4_komersial.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Office Stationery Procurement</a></h4>
-                            <p>Lorem ipsum dolor sit, elite adipisicing amet consectetur. Ex eos asperiores nulla obcaecati aut mollitia ad et animi, quo consectetur, explicabo aliquid ipsa quidem dolor officiis amet. Nostrum, aliquid sit!</p>
+                            <h4><a href="{{ route('cleaning-service') }}">Cleaning Workforce Management</a></h4>
+                            <p>
+                                Cleaning Workforce Management (Cleaning
+                                Service, Office Boy, Street Sweeping and others)
+                                which are mainly placed in the environment of PT.
+                                Nusantara Bonded Zone (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('cleaning-service') }}">More <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -342,13 +325,18 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                            <img class="custom_svg" src="assets/images/4_komersial.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Pengadaan Alat Tulis Kantor</a></h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex eos asperiores nulla obcaecati aut mollitia ad et animi, quo consectetur, explicabo aliquid ipsa quidem dolor officiis amet. Nostrum, aliquid sit!</p>
+                            <h4><a href="{{ route('cleaning-service') }}">Pengelolaan Tenaga Kerja Kebersihan</a></h4>
+                            <p>
+                                Pengelolaan Tenaga Kerja Kebersihan (Cleaning
+                                Service, Office Boy, Penyapuan Jalan dan lain-lain)
+                                yang terutama ditempatkan di lingkungan PT.
+                                Kawasan Berikat Nusantara (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('cleaning-service') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -358,43 +346,18 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/8_alih_daya.svg" alt="" style="width: 26%; height: 26%;">
+                            <img class="custom_svg" src="assets/images/9_surat_kendaraan.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Outsourcing Power Service Provider</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. In temporibus laudantium maxime dignissimos corporis possimus nulla dolor, sit quae! Numquam modi autem neque inventory nulla! Ipsam iusto eligendi veniam repellendus!</p>
+                            <h4><a href="{{ route('driver') }}">Service Vehicle Rentals</a></h4>
+                            <p>
+                                Service Vehicle Rental for the needs of PT.
+                                Nusantara Bonded Zone (Persero) and for
+                                the need for Employees in PT. Region
+                                Bonded Nusantara (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @else
-                <div>
-                    <div class="service-panel services-panel-2">
-                        <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/8_alih_daya.svg" alt="" style="width: 26%; height: 26%;">
-                        </div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyedia Jasa Tenaga Alih Daya</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In temporibus laudantium maxime dignissimos corporis possimus nulla dolor, sit quae! Numquam modi autem neque inventore nulla! Ipsam iusto eligendi veniam repellendus!</p>
-                            <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @endif
-
-                @if(Cookie::get('current_lang') == 'eng')
-                <div>
-                    <div class="service-panel services-panel-2">
-                        <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/9_vehicle_files.svg" alt="" style="width: 26%; height: 26%;">
-                        </div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">Vehicle Certificate Service Provider</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elite. Eos quaerat fugiat numquam natus eius repellat sit exercitationem quisquam, temporibus quos laudantium corrupti asperiores consequatur optio at quod aliquid ducimus esse.</p>
-                            <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('driver') }}">More <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -405,10 +368,15 @@
                             <img class="custom_svg" src="assets/images/9_surat_kendaraan.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyedia Jasa Surat Kendaraan</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quaerat fugiat numquam natus eius repellat sit exercitationem quisquam, temporibus quos laudantium corrupti asperiores consequatur optio at quod aliquid ducimus esse.</p>
+                            <h4><a href="{{ route('driver') }}">Penyewaan Kendaraan Dinas</a></h4>
+                            <p>
+                                Penyewaan Kendaraan Dinas untuk kebutuhan PT.
+                                Kawasan Berikat Nusantara (Persero) dan untuk
+                                kebutuhan Pegawai di Lingkungan PT. Kawasan
+                                Berikat Nusantara (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('driver') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -418,13 +386,17 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/10_machine_photocopy.svg" alt="" style="width: 26%; height: 26%;">
+                            <img class="custom_svg" src="assets/images/3_bisnis.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Copier rental</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur, elite adipisicing. Dolor, cupiditate voluptate, inventory veritatis minus, ducimus nobis voluptatum iure vel sint ipsa! Maxime aperiam tempora similique perferendis quaerat in incidunt facere.</p>
+                            <h4><a href="{{ route('administration-staff') }}">Ticketing and Hotel Reservations</a></h4>
+                            <p>
+                                Ticketing and Hotel Reservations to help
+                                official travel, especially for employees of PT.
+                                Nusantara Bonded Zone (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">More <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('administration-staff') }}">More <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -432,13 +404,95 @@
                 <div>
                     <div class="service-panel services-panel-2">
                         <div class="service-icon">
-                            <img class="custom_svg" src="assets/images/10_mesin_fotokopi.svg" alt="" style="width: 26%; height: 26%;">
+                            <img class="custom_svg" src="assets/images/3_bisnis.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="services-turbines.html">Penyewaan Mesin Fotokopi</a></h4>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, cupiditate voluptate, inventore veritatis minus, ducimus nobis voluptatum iure vel sint ipsa! Maxime aperiam tempora similique perferendis quaerat in incidunt facere.</p>
+                            <h4><a href="{{ route('administration-staff') }}">Ticketing dan Reservasi Hotel</a></h4>
+                            <p>
+                                Ticketing dan Reservasi Hotel untuk membantu
+                                perjalanan dinas terutama bagi Pegawai PT.
+                                Kawasan Berikat Nusantara (Persero).
+                            </p>
                             <ul class="list-unstyled advantages-list">
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">Selengkapnya <i class="energia-arrow-right"></i></a>
+                            </ul><a class="btn btn--secondary" href="{{ route('administration-staff') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('stationary') }}">Supply Office Stationery Supplies</a></h4>
+                            <p>
+                                Supply of Office Stationery and Prints
+                                for PT. KBN (Persero) and Subsidiary PT.
+                                KBN (Persero) and investors who are in
+                                PT. Nusantara Bonded Zone (Persero).
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('stationary') }}">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('stationary') }}">Supply Kebutuhan Alat Tulis Kantor</a></h4>
+                            <p>
+                                Supply Kebutuhan Alat Tulis Kantor dan Cetakan
+                                untuk PT. KBN (Persero) dan Anak Perusahaan PT.
+                                KBN (Persero) serta investor-investor yang ada dalam
+                                lingkungan PT. Kawasan Berikat Nusantara (Persero).
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('stationary') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if(Cookie::get('current_lang') == 'eng')
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('drinks') }}">Gallon and Bottle Drinking Water Provider</a></h4>
+                            <p>
+                                Provider of Gallon and Bottle drinking water for
+                                the needs of PT. KBN (Persero) and Subsidiaries
+                                PT. KBN (Persero).
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('drinks') }}">More <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @else
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('drinks') }}">Penyedia Air minum Galon dan Botol</a></h4>
+                            <p>
+                                Penyedia Air minum Galon dan Botol untuk
+                                kebutuhan PT. KBN (Persero) dan Anak Perusahaan
+                                PT. KBN (Persero).
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('drinks') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

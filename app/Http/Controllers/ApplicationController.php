@@ -157,9 +157,9 @@ class ApplicationController extends Controller
         return view('product.cleaning-service');
     }
 
-    public function gardeningPage()
+    public function drinksPage()
     {
-        return view('product.gardening');
+        return view('product.drinks');
     }
 
     public function driverPage()

@@ -284,12 +284,12 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('gardening') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('drinks') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('gardening') }}">Gallon and Bottle Drinking Water Provider</a></h4>
+                                            <h4><a href="{{ route('drinks') }}">Gallon and Bottle Drinking Water Provider</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -298,12 +298,12 @@
                                                 PT. KBN (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('gardening') }}">more <i class="energia-arrow- right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('drinks') }}">more <i class="energia-arrow- right"></i></a></div>
                                     </div>
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('gardening') }}">Penyedia Air minum Galon dan Botol</a></h4>
+                                            <h4><a href="{{ route('drinks') }}">Penyedia Air minum Galon dan Botol</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
@@ -312,7 +312,7 @@
                                                 PT. KBN (Persero).
                                             </p>
                                         </div>
-                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('gardening') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('drinks') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     @endif
                                     <!-- End .project-content -->
