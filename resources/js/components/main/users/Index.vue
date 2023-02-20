@@ -42,6 +42,7 @@
           </v-card>
           <transition name="fade-transition">
             <list
+              :upload="upload"
               v-if="status === 'table'"
               @showEdit="showEdit($event)"
               @changeStatus="changeStatus($event)"
@@ -77,6 +78,7 @@ export default {
       status: "table",
       user: "",
       isRequest: false,
+      upload: 1,
     };
   },
 
@@ -123,6 +125,7 @@ export default {
         self.$store
           .dispatch("uploadUser", data)
           .then((response) => {
+            self.upload = new Date().getTime() / 1000;
             flash(response.message);
             self.model.file_name = null;
             self.model.file_user = null;
