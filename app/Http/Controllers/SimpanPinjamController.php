@@ -57,4 +57,21 @@ class SimpanPinjamController extends Controller
     {
         return SimpanPinjam::where('no_anggota', $request->no_anggota)->where('kode', 3)->with('user')->get();
     }
+
+
+    /** 
+     * Remove the specified resource from storage. 
+     * 
+     */
+    public function destroy(SimpanPinjam $simpan_pinjam)
+    {
+        $data = $simpan_pinjam->delete();
+
+        if (!$data)
+            return response()->json(['errors' => [
+                'error' => ['Fail delete simpan pinjam']
+            ]], 400);
+
+        return response()->json('Success delete simpan pinjam', 200);
+    }
 }

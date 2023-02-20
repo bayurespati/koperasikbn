@@ -149,7 +149,7 @@ export default {
           .then((response) => {
             self.key_word = "";
             self.deleteCurrentSimpanPinjam();
-            flash(response.message);
+            flash(response);
             self.isRequest = false;
             self.closeDialog();
           })
@@ -163,11 +163,11 @@ export default {
 
     deleteCurrentSimpanPinjam() {
       let self = this;
-      let index = _.findIndex(self.simpna_pinjam, function (sp) {
+      let index = _.findIndex(self.simpan_pinjam, function (sp) {
         return sp.id === self.sp.id;
       });
-
-      self.simpna_pinjam.splice(index, 1);
+           
+      self.simpan_pinjam.splice(index, 1);
     },
 
     openDialog(item) {

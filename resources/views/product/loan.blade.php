@@ -113,7 +113,7 @@
                             @if(Cookie::get('current_lang') == 'eng')
                             <ul class="list-unstyled d-flex justify-content-center col-12">
                                 <li class="col-md-4"><a class="d-flex justify-content-center" href="{{ route('saving') }}"> <span>Save</span>
-                                        </a>
+                                    </a>
                                 </li>
                                 <li class="col-md-4 custom-active-widget" style="margin-left: 10px;"><a class="d-flex justify-content-center" href="#"> <span> Loan</span></a></li>
                             </ul>

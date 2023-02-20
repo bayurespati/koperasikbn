@@ -103,6 +103,7 @@
 </template>
 <script>
 export default {
+  props: { upload: {} },
   data() {
     return {
       search: "",
@@ -143,6 +144,12 @@ export default {
 
   beforeMount() {
     this.getUsers();
+  },
+
+  watch:{
+    upload(){
+      this.getUsers();
+    }
   },
 
   filters: {

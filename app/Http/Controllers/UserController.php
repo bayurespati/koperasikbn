@@ -44,7 +44,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::with('role', 'divisi.unit')->where('role_id', '!=', 1)->get();
+        $data = User::orderBy('nama')->with('role', 'divisi.unit')->where('role_id', '!=', 1)->get();
 
         return response()->json([
             'status'  => 'Success',
