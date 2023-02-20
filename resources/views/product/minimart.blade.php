@@ -124,7 +124,7 @@
                                     <li><a href="{{ route('driver') }}"> <span>Service Vehicle Rentals</span></a></li>
                                     <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>Supply Office Supplies</span></a></li>
-                                    <li><a href="{{ route('gardening') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                                     <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
                                     <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li><a href="{{ route('gardening') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
                                 </ul>
                             </div>
                         </div>
