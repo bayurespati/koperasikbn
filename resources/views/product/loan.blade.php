@@ -225,7 +225,7 @@
                                 </td>
                                 <td style="text-align: right;">
                                     <!-- {{ number_format(($datum->jumlah_angsuran * $datum->sisa), 2, '.', ',') }} -->
-                                    {{ number_format($datum->saldo, 2, '.', ',') }}
+                                    {{ number_format($datum->total, 2, '.', ',') }}
                                 </td>
                             </tr>
                             @endforeach
