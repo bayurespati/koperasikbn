@@ -107,7 +107,7 @@ class ApplicationController extends Controller
         if ($data !== null && isset($data->simpans)) {
             foreach ($data->simpans as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
-                $data['totalSaldo'] = $data['totalSaldo'] + $datum->saldo;
+                $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
             }
         }
