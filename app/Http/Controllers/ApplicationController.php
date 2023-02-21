@@ -134,7 +134,7 @@ class ApplicationController extends Controller
         if ($data !== null && isset($data->pinjams)) {
             foreach ($data->pinjams as $datum) {
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
-                $data['totalSaldo'] = $datum->total;
+                $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
             }
         }
@@ -157,9 +157,9 @@ class ApplicationController extends Controller
         return view('product.cleaning-service');
     }
 
-    public function gardeningPage()
+    public function drinksPage()
     {
-        return view('product.gardening');
+        return view('product.drinks');
     }
 
     public function driverPage()
