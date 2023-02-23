@@ -13,7 +13,7 @@ class SimpanPinjam extends Model
 
     protected $guarded = [];
 
-    protected $appends = array('saldo_format');
+    protected $appends = array('saldo_format', 'total_format');
 
     public function user()
     {
@@ -23,5 +23,10 @@ class SimpanPinjam extends Model
     public function getSaldoFormatAttribute()
     {
         return number_format($this->saldo, 0, '.', ',');
+    }
+
+    public function getTotalFormatAttribute()
+    {
+        return number_format($this->total, 0, '.', ',');
     }
 }
