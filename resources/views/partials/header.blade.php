@@ -187,6 +187,9 @@
                         Login
                     </a>
                     @endif
+                    <a class="btn btn--primary" href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">
+                        <i class="fa fa-shopping-cart m-0"></i>
+                    </a>
                 </div>
                 @else
                 <div class="module-contact">
@@ -204,16 +207,11 @@
                         Masuk
                     </a>
                     @endif
-                </div>
-                @endif
-                <div class="module-contact" style="margin-left: 0;">
-                    <!-- <a class="btn btn--primary " href="#">
-                        ajukan pinjaman<i class="energia-arrow-right"></i>
-                    </a> -->
                     <a class="btn btn--primary" href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">
                         <i class="fa fa-shopping-cart m-0"></i>
                     </a>
                 </div>
+                @endif
             </div>
             <!--  End .module-holder-->
         </div>
