@@ -3475,7 +3475,12 @@ ul.dropdown-menu>li.has-dropdown>a:before {
 		display   : flex;
 		height    : 80px;
 		margin-top: 0;
+        height: 100px;
 	}
+
+    .module-holder {
+        height: 180px;
+    }
 }
 
 .module-holder.module-holder-phone .navbar-toggler {
@@ -4226,6 +4231,7 @@ ul.dropdown-menu>li.has-dropdown>a:before {
 		-ms-flex-direction   : column;
 		flex-direction       : column;
 		width                : 100%;
+        padding-top          : 10px;
 	}
 }
 
@@ -4273,6 +4279,7 @@ ul.dropdown-menu>li.has-dropdown>a:before {
 		height       : 50px;
 		width        : 100%;
 		border-radius: 8px;
+        margin-bottom: 10px;
 	}
 }
 

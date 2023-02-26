@@ -59,9 +59,16 @@
             transition: 0.3s ease-in-out;
         }
 
-        .banner_all {
-            height: 400px !important;
+        .page-title .page-title-wrap.banner_all {
+            height: 400px;
             background-color: #32c36c;
+        }
+
+        @media screen and (max-width: 991.98px) {
+            .page-title .page-title-wrap.banner_all {
+                height: 200px;
+                padding-top: 45px;
+            }
         }
     </style>
     @stack('additional_css')

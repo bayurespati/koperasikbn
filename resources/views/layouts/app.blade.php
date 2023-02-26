@@ -28,6 +28,12 @@
         a:hover {
             text-decoration: underline !important;
         }
+
+        @media screen and (max-width: 870px) {
+            .signin-signup {
+                top: 70% !important;
+            }
+        }
     </style>
 </head>
 

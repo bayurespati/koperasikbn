@@ -473,13 +473,14 @@
 
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({"scrollX": true});
         $('#myTable2').DataTable({
             "info": false,
             "info": false,
             "ordering": false,
             'order': [],
             'pageLength': 10,
+            "scrollX": true,
             "columns": [
                 // number column
                 {
