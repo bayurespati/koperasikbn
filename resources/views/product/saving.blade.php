@@ -184,7 +184,7 @@
 
                 <div class="col-12" style="margin-top: 20px;">
                     @if($data !== null && count($data->simpans) > 0)
-                    <table id="myTable" class="display">
+                    <table id="myTable" class="display nowrap" style="width:100%">
                         @if(Cookie::get('current_lang') == 'eng')
                         <thead>
                             <tr>
@@ -430,7 +430,7 @@
                     </button>
                 </div>
                 <div class="col-12" style="margin-top: 20px;">
-                    <table id="myTable2" class="display">
+                    <table id="myTable2" class="display nowrap" style="width:100%">
                         <thead>
                             @if(Cookie::get('current_lang') == 'eng')
                             <tr>
