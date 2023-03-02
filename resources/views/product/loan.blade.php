@@ -184,7 +184,7 @@
                 @endif
                 <div class="col-12" style="margin-top: 20px;">
                     @if($data !== null && count($data->pinjams) > 0)
-                    <table id="myTable1" class="display">
+                    <table id="myTable" class="display nowrap" style="width:100%">
                         <thead>
                             @if(Cookie::get('current_lang') == 'eng')
                             <tr>
@@ -520,7 +520,7 @@
                     </button>
                 </div>
                 <div class="col-12" style="margin-top: 20px;">
-                    <table id="myTable2" class="display">
+                    <table id="myTable2" class="display nowrap" style="width:100%">
                         <thead>
                             @if(Cookie::get('current_lang') == 'eng')
                             <tr>
