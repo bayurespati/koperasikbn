@@ -28,7 +28,7 @@ class UserImport implements ToModel, WithStartRow
             $temp = explode("/", $row[1]);
             $tanggal_masuk = $temp[2] . '-' . $temp[0] . '-' . $temp[1];
 
-            $record = user::where('no_anggota', $row[0])->first();
+            $record = user::where('nip', $row[3])->first();
 
             if (is_null($record)) {
                 return new User([
