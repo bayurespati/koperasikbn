@@ -130,8 +130,11 @@
 
             <div class="row">
                 @if(Cookie::get('current_lang') == 'eng')
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center" style="position: relative;">
                     <h5 style="margin-bottom: 10px;">Cooperative Cut Details</h5>
+                    <a href="/download/saveloan_pdf/eng" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
+                        Download Report
+                    </a>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5>
@@ -156,8 +159,11 @@
                     <b>Last updated: {{ $data->lastUpdated }}</b>
                 </div>
                 @else
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center" style="position: relative;">
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
+                    <a href="/download/saveloan_pdf/id" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
+                        Unduh Laporan
+                    </a>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5>
@@ -562,7 +568,9 @@
 <script src="{{ asset('js/simpan-pinjam.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable({"scrollX": true});
+        $('#myTable').DataTable({
+            "scrollX": true
+        });
         $('#myTable2').DataTable({
             "info": false,
             "ordering": false,
