@@ -16,6 +16,7 @@ Route::get('/*', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'ApplicationController@index')->name('index');
+Route::get('/download/saveloan_pdf/{lang}', 'ApplicationController@PrintSaveLoanPdf');
 
 Route::get('profile/history', 'ApplicationController@historyPage')->name('history');
 Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about');

@@ -14,6 +14,7 @@ use App\Models\Penghargaan;
 use App\Models\SimpanPinjam;
 use App\Models\Video;
 use App\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -140,6 +141,55 @@ class ApplicationController extends Controller
         }
 
         return view('product.loan', ['data' => $data]);
+    }
+
+    public function printSaveLoanPdf($lang)
+    {
+        if ($lang !== 'eng' && $lang !== 'id') {
+            abort('404');
+        }
+
+        // return Auth::user();
+        $data = Auth::user() !== null
+            ? User::where('id', '=', Auth::user()->id)->with(['simpans', 'pinjams', 'divisi', 'jabatanKbn'])->first()
+            : null;
+
+        $data['totalAngsuran'] = 0;
+        $data['totalSaldo'] = 0;
+        $data['lastUpdated'] = 'Belum ada data';
+
+        $data['currDate'] = Carbon::now()->locale('id');
+
+        $data['currDate']->settings(['formatFunction' => 'translatedFormat']);
+
+        $data['bulan'] = $data['currDate']->format('F');
+        $data['tahun'] = $data['currDate']->format('Y');
+        $data['currDate'] = $data['currDate']->format('d M Y');
+        $data['lang'] = $lang;
+
+        if ($data !== null && isset($data->simpans)) {
+            foreach ($data->simpans as $datum) {
+                $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
+                $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
+                $data['lastUpdated'] = $datum->created_at;
+            }
+        }
+
+        if ($data !== null && isset($data->pinjams)) {
+            foreach ($data->pinjams as $datum) {
+                $data['totalAngsuranPinjam'] = $data['totalAngsuranPinjam'] + $datum->jumlah_angsuran;
+                $data['totalSaldoPinjam'] = $data['totalSaldoPinjam'] + $datum->total;
+                $data['lastUpdated'] = $datum->created_at;
+            }
+        }
+
+        // return view('print.saveloan_pdf', ['data' => $data]);
+
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.saveloan_pdf', ['data' => $data]);
+        $pdf->setPaper('A4', 'landscape');
+        // return $pdf->download('laporan-simpan-pinjam.pdf');
+        return $pdf->stream('laporan-simpan-pinjam.pdf');
     }
 
     public function minimartPage()
