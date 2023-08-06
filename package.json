@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "js-file-download": "^0.4.12",
         "vue-router": "^3.5.3",
         "vue2-editor": "^2.10.3",
         "vuelidate": "^0.7.6",

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Imports\SimpanPinjamImport;
 use App\Models\SimpanPinjam;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class SimpanPinjamController extends Controller
 {
@@ -59,6 +61,30 @@ class SimpanPinjamController extends Controller
     }
 
 
+    public function download(Request $request)
+    {
+        $dats = SimpanPinjam::Where('kode', $request->jenis)
+            ->select([DB::raw("SUM(jumlah_angsuran) as total_angsuran"), 'no_anggota'])
+            ->groupBy('no_anggota')
+            ->with('user')
+            ->get();
+
+        $total = SimpanPinjam::Where('kode', $request->jenis)->sum('jumlah_angsuran');
+
+        $periode = explode("-", $request->periode);
+        $tanggal = explode("-", $request->tanggal);
+        $data['bulan'] = $this->getMonth($periode[1]);
+        $data['tahun'] = $periode[0];
+        $data['tipe'] = $this->getTipe($request->jenis);
+        $data['results'] = $dats;
+        $data['total'] = $total;
+        $data['tanggal_ttd'] = $tanggal[2] . " " . $this->getMonth($tanggal[1]) . " " . $tanggal[0];
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.simpanpinjampdf', ['data' => $data]);
+        $pdf->setPaper('A4');
+        return $pdf->stream('laporan.pdf');
+    }
+
     /** 
      * Remove the specified resource from storage. 
      * 
@@ -73,5 +99,57 @@ class SimpanPinjamController extends Controller
             ]], 400);
 
         return response()->json('Success delete simpan pinjam', 200);
+    }
+
+    private function getTipe($value)
+    {
+        if ((int) $value == 1)
+            return "Simpanan Wajib";
+        if ((int) $value == 2)
+            return "Simpanan Sukarela";
+        if ((int) $value == 3)
+            return "Pinjaman";
+    }
+
+    private function getMonth($month)
+    {
+        switch ($month) {
+            case  1:
+                return  "Januari";
+                break;
+            case  2:
+                return  "Februari";
+                break;
+            case  3:
+                return  "Maret";
+                break;
+            case  4:
+                return  "April";
+                break;
+            case  5:
+                return  "Mei";
+                break;
+            case  6:
+                return  "Juni";
+                break;
+            case  7:
+                return  "Juli";
+                break;
+            case  8:
+                return  "Agustus";
+                break;
+            case  9:
+                return  "September";
+                break;
+            case  10:
+                return  "Oktober";
+                break;
+            case  11:
+                return  "November";
+                break;
+            case  12:
+                return  "Desember";
+                break;
+        }
     }
 }

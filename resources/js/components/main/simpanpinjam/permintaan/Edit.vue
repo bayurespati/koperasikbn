@@ -298,7 +298,6 @@ export default {
           is_online: self.model.is_online,
           id: self.permintaan.id,
         };
-        console.log(data);
         self.isRequest = true;
         self.$store
           .dispatch("editPermintaan", data)
@@ -321,7 +320,6 @@ export default {
     },
 
     download(url, label) {
-      console.log(url);
       Axios.get(url, { responseType: "blob" })
         .then((response) => {
           const blob = new Blob([response.data], { type: "application/*" });
