@@ -85,6 +85,32 @@ class SimpanPinjamController extends Controller
         return $pdf->stream('laporan.pdf');
     }
 
+    public function pinjaman_insidentil(Request $request)
+    {
+        // $dats = SimpanPinjam::Where('kode', $request->jenis)
+        //     ->select([DB::raw("SUM(jumlah_angsuran) as total_angsuran"), 'no_anggota'])
+        //     ->groupBy('no_anggota')
+        //     ->with('user')
+        //     ->get();
+
+        $total = SimpanPinjam::Where('kode', $request->jenis)->sum('jumlah_angsuran');
+
+        // $periode = explode("-", $request->periode);
+        // $tanggal = explode("-", $request->tanggal);
+        // $data['bulan'] = $this->getMonth($periode[1]);
+        // $data['tahun'] = $periode[0];
+        // $data['tipe'] = $this->getTipe($request->jenis);
+        // $data['results'] = $dats;
+        $data['total'] = $total;
+        // $data['tanggal_ttd'] = $tanggal[2] . " " . $this->getMonth($tanggal[1]) . " " . $tanggal[0];
+        // return view('print.pinjaman_insidentil');
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.pinjaman_insidentil', ['data' => $data]);
+        $pdf->setPaper('A4', 'landscape');
+
+        return $pdf->stream('pinjaman_isidentil.pdf');
+    }
+
     /** 
      * Remove the specified resource from storage. 
      * 
