@@ -126,7 +126,7 @@ export default {
                 children: [
                     {
                         icon: "mdi-18px mdi-home",
-                        text: "Terbaru",
+                        text: "Laporan",
                         link: "/terbaru",
                         permission: [1, 2],
                     },
@@ -287,7 +287,7 @@ export default {
                 children: [
                     {
                         icon: "mdi-18px mdi-home",
-                        text: "Terbaru",
+                        text: "Laporan",
                         link: "/terbaru",
                         permission: [1, 2],
                     },

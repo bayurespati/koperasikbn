@@ -107,8 +107,6 @@
         });
 
         $('#button-lang-eng').on('click', function() {
-            console.log('kontol');
-
             Cookies.set('current_lang', 'eng', {
                 expires: 30
             });
@@ -128,7 +126,6 @@
                 .done(function(response) {
                     window.location = '/';
                 }).fail(function(error) {
-                    console.log(error);
                 }).always(function() {});
         }
     </script>

@@ -162,9 +162,7 @@ export default {
       if (!this.searchTerm) {
         this.users = this.usersCopy;
       }
-      // console.log(this.searchTerm);
       this.users = this.usersCopy.filter((user) => {
-        console.log(user);
         return (
           user.nama.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1
         );
@@ -177,7 +175,6 @@ export default {
       }
 
       this.fruits = this.fruitsCopy.filter((fruit) => {
-        console.log(this.searchTerm.toLowerCase());
         // return fruit.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
       });
     },

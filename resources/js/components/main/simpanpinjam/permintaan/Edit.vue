@@ -63,6 +63,7 @@
                 persistent-hint
                 required
                 small-chips
+                :disabled="permintaan.status == 4 || permintaan.status == `4` || permintaan.status == 3 || permintaan.status == `3` "
               ></v-select>
             </v-col>
 
@@ -145,6 +146,45 @@
           </v-row>
         </v-container>
       </v-form>
+
+      <!--======================================================================================
+          MODAL
+      ==========================================================================================-->
+      <v-dialog v-model="dialog" class="text-center" max-width="500px">
+        <v-card class="text-center pb-0">
+          <v-card-text class="pb-0">
+            <v-container>
+              <v-row>
+                <v-col cols="12" class="text-center mb-0">
+                  <v-text-field
+                    outlined
+                    color="red"
+                    v-model="key_word"
+                    class="text--danger-3 mt-3 text-xs-center"
+                    label="ketik 'SETUJU' untuk melajutkan"
+                  ></v-text-field>
+                  <v-btn
+                    sm
+                    outlined
+                    color="success"
+                    text
+                    @click="save()">
+                   Save 
+                  </v-btn>
+                  <v-btn
+                    sm
+                    outlined
+                    color="error"
+                    text
+                    @click="dialog = false">
+                    Cancel
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-card>
   </div>
 </template>
@@ -178,6 +218,8 @@ export default {
       valid: false,
       isRequest: false,
       alert: true,
+      dialog: false,
+      key_word: "",
       statuses: [
         {
           nama: "Diajukan",
@@ -239,7 +281,15 @@ export default {
       let self = this;
       self.$v.$touch();
 
+      if(self.model.status == 4)
+        self.dialog = true;
+
       if (!self.isRequest && self.isValid) {
+        let temp = true;
+
+       if(self.model.status == 4){temp = this.key_word == "SETUJU"}
+
+       if(temp){
         const data = {
           keterangan: self.model.keterangan,
           dokumen_1: self.model.dokumen_1,
@@ -248,7 +298,6 @@ export default {
           is_online: self.model.is_online,
           id: self.permintaan.id,
         };
-        console.log(data);
         self.isRequest = true;
         self.$store
           .dispatch("editPermintaan", data)
@@ -266,11 +315,11 @@ export default {
               self.isRequest = false;
             });
           });
+       }
       }
     },
 
     download(url, label) {
-      console.log(url);
       Axios.get(url, { responseType: "blob" })
         .then((response) => {
           const blob = new Blob([response.data], { type: "application/*" });

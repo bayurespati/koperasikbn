@@ -1,5 +1,4 @@
-import { data } from 'jquery';
-import Vue from 'Vue'
+import { data } from "jquery";
 
 const state = {
     simpan_pinjam: [],
@@ -9,15 +8,15 @@ const state = {
 
 const getters = {
     simpna_pinjam(state) {
-        return state.simpan_pinjam
+        return state.simpan_pinjam;
     },
 
     simpan(state) {
-        return state.simpan
+        return state.simpan;
     },
 
     pinjam(state) {
-        return state.pinjam
+        return state.pinjam;
     },
 };
 
@@ -34,62 +33,76 @@ const mutations = {
 };
 
 const actions = {
-
     getSimpanPinjam({ commit }) {
         return new Promise((resolve, reject) => {
-            axios.get('/dashboard/simpan-pinjam').then(response => {
-                resolve(response);
-                commit('set_simpan_pinjam', response.data.data);
-            }).catch(errors => {
-                reject(errors.response.data.errors)
-            })
-        })
+            axios
+                .get("/dashboard/simpan-pinjam")
+                .then((response) => {
+                    resolve(response);
+                    commit("set_simpan_pinjam", response.data.data);
+                })
+                .catch((errors) => {
+                    reject(errors.response.data.errors);
+                });
+        });
     },
 
     getSimpanan({ commit }) {
         return new Promise((resolve, reject) => {
-            axios.get('/dashboard/simpan-pinjam/simpan').then(response => {
-                resolve(response.data)
-                commit('set_simpan', response.data.data);
-            }).catch(errors => {
-                reject(errors.response.data.errors)
-            })
-        })
+            axios
+                .get("/dashboard/simpan-pinjam/simpan")
+                .then((response) => {
+                    resolve(response.data);
+                    commit("set_simpan", response.data.data);
+                })
+                .catch((errors) => {
+                    reject(errors.response.data.errors);
+                });
+        });
     },
 
     getPinjaman({ commit }) {
         return new Promise((resolve, reject) => {
-            axios.get('/dashboard/simpan-pinjam/pinjam').then(response => {
-                resolve(response.data)
-                commit('set_pinjam', response.data.data);
-            }).catch(errors => {
-                reject(errors.response.data.errors)
-            })
-        })
+            axios
+                .get("/dashboard/simpan-pinjam/pinjam")
+                .then((response) => {
+                    resolve(response.data);
+                    commit("set_pinjam", response.data.data);
+                })
+                .catch((errors) => {
+                    reject(errors.response.data.errors);
+                });
+        });
     },
 
     deleteSimpanPinjam({ commit }, data) {
         return new Promise((resolve, reject) => {
-            axios.delete('/dashboard/simpan-pinjam/' + data).then(response => {
-                resolve(response.data)
-            }).catch(errors => {
-                reject(errors.response.data.errors)
-            })
-        })
+            axios
+                .delete("/dashboard/simpan-pinjam/" + data)
+                .then((response) => {
+                    resolve(response.data);
+                })
+                .catch((errors) => {
+                    reject(errors.response.data.errors);
+                });
+        });
     },
 
     uploadSimpanPinjam({ commit }, data) {
         return new Promise((resolve, reject) => {
-            axios.post('/dashboard/simpan-pinjam/upload', data, {
-                Headers: {
-                    'enctype': 'multipart/form-data'
-                }
-            }).then(response => {
-                resolve(response.data)
-            }).catch(errors => {
-                reject(errors.response.data.errors)
-            })
-        })
+            axios
+                .post("/dashboard/simpan-pinjam/upload", data, {
+                    Headers: {
+                        enctype: "multipart/form-data",
+                    },
+                })
+                .then((response) => {
+                    resolve(response.data);
+                })
+                .catch((errors) => {
+                    reject(errors.response.data.errors);
+                });
+        });
     },
 };
 
@@ -98,4 +111,4 @@ export default {
     getters,
     actions,
     mutations,
-}
+};
