@@ -159,7 +159,7 @@
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
-                    <a href="/download/saveloan_pdf/id" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
+                    <a href="/download/saveloan_pdf/id"target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
                 </div>
