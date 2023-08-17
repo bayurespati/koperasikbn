@@ -824,7 +824,7 @@
 
     function postLoan() {
         let currentdate = new Date();
-        let dateFormatted = currentdate.getFullYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+        let dateFormatted = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
 
         let data = null;
 
