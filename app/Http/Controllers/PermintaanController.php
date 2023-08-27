@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\PermintaanService;
 use App\Models\Permintaan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\User;
 
 class PermintaanController extends Controller
@@ -86,5 +87,17 @@ class PermintaanController extends Controller
             ]], 400);
 
         return response()->json('berhasil melakukan update pengajuan', 200);
+    }
+
+    public function download_pinjaman_insidentil(Request $request)
+    {
+        $permintaan = Permintaan::Where('id', $request->id)->with(['user.divisi','pengajuan'])->first();
+        $data['permintaan'] = $permintaan;
+        // dd($data);
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.pinjaman_insidentil', ['data' => $data]);
+        $pdf->setPaper('A4', 'landscape');
+
+        return $pdf->stream('pinjaman_isidentil.pdf');
     }
 }

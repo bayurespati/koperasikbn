@@ -65,16 +65,16 @@
             </div>
             <div class="row" style="margin-left: 30px; margin-top: 10px">
                 <div class="col-12 text-left">
-                    <h5 style="font-weight: normal;">NAMA <spans style="color: white">----------------------------</span><span style="color: black">: Bayu Respati</span></h5>
-                    <h5 style="font-weight: normal;">BAGIAN / UNIT KERJA<spans style="color: white">------</span><span style="color: black">: Bayu Respati</span></h5>
-                    <h5 style="font-weight: normal;">NO. TELPON / HP<spans style="color: white">----- -------</span><span style="color: black">: Bayu Respati</span></h5>
+                    <h5 style="font-weight: normal;">NAMA <spans style="color: white">----------------------------</span><span style="color: black">: {{$data['permintaan']['user']['nama']}}</span></h5>
+                    <h5 style="font-weight: normal;">BAGIAN / UNIT KERJA<spans style="color: white">------</span><span style="color: black">: {{$data['permintaan']['user']['divisi']['nama'] ?? '-'}}</span></h5>
+                    <h5 style="font-weight: normal;">NO. TELPON / HP<spans style="color: white">----- -------</span><span style="color: black">: {{$data['permintaan']['user']['phone'] ?? '-'}}</span></h5>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-left">
                     <h5 style="font-weight: normal; margin-top: 10px" align="justify">
-                        Mohon diberikan Pinjaman Insedentil sebesar Rp. <span style="font-weight: bold; text-transform: uppercase">{{"10.000.000"}}</span>, yang akan saya pergunakan
-                        untuk <span style="font-weight: bold; text-transform: uppercase">{{ "Party sampe ada yang ada yang ada yang dimas minta coba panjangain sampe mane" }}</span> dan bersedia untuk dipotong bulan <span style="font-weight: bold; text-transform: uppercase">{{ "JUNI" }} </span>dan dengan ini saya menyatakan:
+                        Mohon diberikan Pinjaman Insedentil sebesar Rp. <span style="font-weight: bold; text-transform: uppercase">{{ number_format($data['permintaan']['nominal'], 2, '.', ',') }}</span>, yang akan saya pergunakan
+                        untuk <span style="font-weight: bold; text-transform: uppercase">{{ $data['permintaan']['keperluan'] }}</span> dan bersedia untuk dipotong bulan <span style="font-weight: bold; text-transform: uppercase">{{ "JUNI" }} </span>dan dengan ini saya menyatakan:
                     </h5>
                     <div style="margin-left: 30px; margin-top: 10px;">
                         <h5 style="font-weight: normal;">

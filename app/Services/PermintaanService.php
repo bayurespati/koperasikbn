@@ -54,6 +54,7 @@ class PermintaanService
             }
             $model->status = $request->status;
             $model->keterangan = $request->keterangan;
+            $model->nilai_angsuran = $request->nilai_angsuran;
             $model->update();
             return true;
         } catch (\Exception $e) {

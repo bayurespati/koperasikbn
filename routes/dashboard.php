@@ -31,6 +31,7 @@ Route::get('simpan-pinjam/simpanan-personal', 'SimpanPinjamController@getSimpana
 Route::get('simpan-pinjam/pinjaman-personal', 'SimpanPinjamController@getPinjamanPersonal');
 
 Route::get('permintaan/by-user-id', 'PermintaanController@getByUserId');
+Route::get('permintaan/download/pinjaman-insidentil', 'PermintaanController@download_pinjaman_insidentil');
 
 /*
 |--------------------------------------------------------------------------
