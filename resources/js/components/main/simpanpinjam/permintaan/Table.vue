@@ -126,7 +126,7 @@ export default {
                     "/dashboard/permintaan/download/pinjaman-insidentil?id=" +
                     item.id;
             } else {
-                url = "/dashboard/permintaan/download/pinjaman?id=" + item.id;
+                url = "/dashboard/permintaan/download/pinjaman-jangka-pp?id=" + item.id;
             }
             const link = document.createElement("a");
             link.href = url;

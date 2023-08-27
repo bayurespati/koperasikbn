@@ -91,13 +91,76 @@ class PermintaanController extends Controller
 
     public function download_pinjaman_insidentil(Request $request)
     {
-        $permintaan = Permintaan::Where('id', $request->id)->with(['user.divisi','pengajuan'])->first();
+        $permintaan = Permintaan::Where('id', $request->id)->with(['user.divisi', 'pengajuan'])->first();
         $data['permintaan'] = $permintaan;
-        // dd($data);
         $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadview('print.pinjaman_insidentil', ['data' => $data]);
         $pdf->setPaper('A4', 'landscape');
 
         return $pdf->stream('pinjaman_isidentil.pdf');
+    }
+
+    public function download_pinjaman_jangka_pp(Request $request)
+    {
+        $pinjaman = Permintaan::Where('id', $request->id)->with(['user.divisi', 'pengajuan'])->first();
+        $jenisPinjaman = '';
+        if ($request->tipe == 2) {
+            $jenisPinjaman = 'pendek';
+        } else if ($request->tipe == 4) {
+            $jenisPinjaman = 'panjang';
+        }
+
+        $tanggal = explode("-", $pinjaman->tanggal_pengajuan);
+        $data['jenis'] = $jenisPinjaman;
+        $data['pinjaman'] = $pinjaman;
+        $data['tanggal'] = $tanggal[2] . " " . $this->getMonth($tanggal[1]) . " " . $tanggal[0];
+
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.pinjaman_jangka_pp', ['data' => $data]);
+        $pdf->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pinjaman-jangka' . $jenisPinjaman . '.pdf');
+    }
+
+    private function getMonth($month)
+    {
+        switch ($month) {
+            case  1:
+                return  "Januari";
+                break;
+            case  2:
+                return  "Februari";
+                break;
+            case  3:
+                return  "Maret";
+                break;
+            case  4:
+                return  "April";
+                break;
+            case  5:
+                return  "Mei";
+                break;
+            case  6:
+                return  "Juni";
+                break;
+            case  7:
+                return  "Juli";
+                break;
+            case  8:
+                return  "Agustus";
+                break;
+            case  9:
+                return  "September";
+                break;
+            case  10:
+                return  "Oktober";
+                break;
+            case  11:
+                return  "November";
+                break;
+            case  12:
+                return  "Desember";
+                break;
+        }
     }
 }

@@ -75,7 +75,7 @@
                                     <h5 style="font-weight: normal;">Tanggal Pengajuan</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: DD-MM-YYYY</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['tanggal']}} </h5>
                                 </td>
                             </tr>
                         </tbody>
@@ -91,7 +91,7 @@
                                     <h5 style="font-weight: normal;">Yang bertanda tangan di bawah ini</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: Bayu Respati</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['nama']}} </h5>
                                 </td>
                             </tr>
                         </tbody>
@@ -107,7 +107,7 @@
                                     <h5 style="font-weight: normal;">Nama</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: Bayu Respati</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['nama']}} </h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -115,7 +115,7 @@
                                     <h5 style="font-weight: normal;">Bagian / Bidang</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: Depan / Datar</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['divisi']['nama'] ?? '-'}} </h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -123,7 +123,7 @@
                                     <h5 style="font-weight: normal;">N.P.P.</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: 123123124133123</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['nip']}} </h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -131,7 +131,7 @@
                                     <h5 style="font-weight: normal;">No. Telpon</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: 080989999</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['phone'] ?? '-'}}</h5>
                                 </td>
                             </tr>
                         </tbody>
@@ -163,7 +163,7 @@
                                     <h5 style="font-weight: normal;">Pinjaman Pokok</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: 14,000,000</h5>
+                                    <h5 style="font-weight: normal;">: {{ number_format($data['pinjaman']['nominal'], 2, '.', ',') }} </h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -171,7 +171,7 @@
                                     <h5 style="font-weight: normal;">Lama Angsuran</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: 1 Tahun 2 Bulan</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['lama_angsuran'] ?? '-'}} Bulan</h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -179,7 +179,7 @@
                                     <h5 style="font-weight: normal;">Besar Angsuran</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: 1,000,000 Per Bulan</h5>
+                                    <h5 style="font-weight: normal;">: {{ number_format($data['pinjaman']['nilai_angsuran'], 2, '.', ',') }} Per Bulan</h5>
                                 </td>
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
@@ -187,7 +187,7 @@
                                     <h5 style="font-weight: normal;">Keperluan</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: Sangat penting dan pribadi tapi kalau pengen tw banget gw mw perbaikin pagar depan rumah</h5>
+                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['keperluan'] ?? '-'}} </h5>
                                 </td>
                             </tr>
                         </tbody>
@@ -248,7 +248,7 @@
                             <tr>
                                 <td></td>
                                 <td class="text-center" style="width: 300px; padding: 100px 0 0 0;">
-                                    <h5 style="font-weight: normal;">Nama yang panjang banget untuk tandatangan</h5>
+                                    <h5 style="font-weight: normal;"> {{$data['pinjaman']['user']['nama']}} </h5>
                                 </td>
                             </tr>
                         </tbody>
