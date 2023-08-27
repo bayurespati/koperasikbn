@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Imports\SimpanPinjamImport;
+use App\Models\Permintaan;
 use App\Models\SimpanPinjam;
 use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -85,7 +86,7 @@ class SimpanPinjamController extends Controller
         return $pdf->stream('laporan.pdf');
     }
 
-    public function pinjaman_insidentil(Request $request)
+    public function download_pinjaman_insidentil(Request $request)
     {
         $total = SimpanPinjam::Where('kode', $request->jenis)->sum('jumlah_angsuran');
         $data['total'] = $total;
@@ -93,12 +94,33 @@ class SimpanPinjamController extends Controller
             ->loadview('print.pinjaman_insidentil', ['data' => $data]);
         $pdf->setPaper('A4', 'landscape');
 
-        return $pdf->stream('pinjaman_isidentil.pdf');
+        return $pdf->stream('pinjaman_insidentil.pdf');
     }
 
-    /** 
-     * Remove the specified resource from storage. 
-     * 
+    public function download_pinjaman_jangka_pp(Request $request)
+    {
+        $pinjaman = Permintaan::where('id', $request->id);
+        dd($pinjaman);
+        // return view('print.pinjaman_jangka_pp');
+        $jenisPinjaman = '';
+        if ($request->tipe == 2) {
+            $jenisPinjaman = 'pendek';
+        } else if($request->tipe == 4) {
+            $jenisPinjaman = 'panjang';
+        }
+
+        $data['jenis'] = $jenisPinjaman;
+
+        $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadview('print.pinjaman_jangka_pp', ['data' => $data]);
+        $pdf->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pinjaman-jangka' . $jenisPinjaman . '.pdf');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
      */
     public function destroy(SimpanPinjam $simpan_pinjam)
     {

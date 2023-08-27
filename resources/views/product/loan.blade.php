@@ -161,7 +161,7 @@
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
-                    <a href="/download/saveloan_pdf/id" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
+                    <a href="/download/saveloan_pdf/id" target=”_blank”  class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
                 </div>
@@ -535,6 +535,7 @@
                                 <th style="text-align: center;">Submission Type</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Document</th>
+                                <th style="text-align: center;">Request Document</th>
                                 <th style="text-align: right;">Status</th>
                                 <th style="text-align: right;">Description</th>
                             </tr>
@@ -545,6 +546,7 @@
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Dokumen</th>
+                                <th style="text-align: center;">Dokumen Permintaan</th>
                                 <th style="text-align: right;">Status</th>
                                 <th style="text-align: right;">Keterangan</th>
                             </tr>
@@ -601,7 +603,11 @@
                     className: 'text-center'
                 },
                 {
-                    data: "status",
+                    data: null,
+                    className: 'text-center'
+                },
+                {
+                    data: 'status',
                     className: 'text-center'
                 },
                 {
@@ -660,9 +666,18 @@
                             return '-';
                         }
                     }
+                }, {
+                    targets: [5],
+                    render: function() {
+                        return `
+                        <button type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                            <soan style="font-weight: normal; font-size: 12px;">download</span>
+                        </button>
+                        `;
+                    }
                 },
                 {
-                    targets: [5],
+                    targets: [6],
                     render: function(data) {
                         if (data == 1 || data == '1') {
                             return 'Diajukan';
@@ -910,6 +925,111 @@
         }
     }
 
+    $('#myTable2 tbody').on('click', 'button[name="download-request"]', function() {
+        var data = $('#myTable2').DataTable().row($(this).parents('tr')).data();
+        if (data == undefined) {
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }
+            var data = $('#myTable2').DataTable().row(selected_row).data();
+        }
+
+        console.log(data);
+
+        let route = '';
+        if(data.jenis_pengajuan_id == 3) {
+            // insidentil
+        } else if(data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
+            // jangka pp
+        }
+
+        // $.post('/api/permintaan', data)
+        //     .done(function(response) {
+        //         getPengajuan();
+
+        //         let message = response;
+        //         let preContent = document.createElement('pre');
+
+        //         preContent.innerHTML = message;
+
+        //         swal({
+        //             title: "Yay!",
+        //             content: preContent,
+        //             icon: "success",
+        //             button: "Close",
+        //         });
+
+        //         emptyForm();
+        //     }).fail(function(error) {
+        //         let message = '';
+        //         let errorMessage = error.responseJSON.message;
+        //         let preContent = document.createElement('pre');
+
+        //         $.each(errorMessage, function(key, value) {
+        //             message = message + value[0] + '<br>';
+        //         });
+
+        //         preContent.innerHTML = message;
+
+        //         swal({
+        //             title: "Oops!",
+        //             content: preContent,
+        //             icon: "error",
+        //             button: "Close",
+        //         });
+        //     }).always(function() {
+        //         loanSubmitButton.prop('disabled', false);
+        //     });
+
+        // axios.get(baseURL + 'export-list/download/' + data.file_name).then(function(response) {
+        //     if (response.data.rc == '00' && response.data.rc_desc == 'Success') {
+        //         var link = document.createElement('a');
+        //         link.href = response.data.url;
+        //         document.body.appendChild(link);
+        //         link.click();
+        //         document.body.removeChild(link);
+        //     } else {
+        //         // show message popup
+        //         Swal.fire({
+        //             text: response.data.rc + ': ' + response.data.rc_desc,
+        //             icon: "error",
+        //             buttonsStyling: false,
+        //             confirmButtonText: "Ok",
+        //             customClass: {
+        //                 confirmButton: "btn btn-primary"
+        //             }
+        //         }).then(function(result) {
+        //             if ((result.isConfirmed || result.isDismissed) && response.data.rc == 'TIMEOUT') {
+        //                 location.reload();
+        //             }
+        //         });
+        //     }
+        // }).catch(function(error) {
+        //     console.log(error);
+
+        //     let dataMessage = error.response.data.message;
+        //     let dataErrors = error.response.data.errors;
+
+        //     for (const errorsKey in dataErrors) {
+        //         if (!dataErrors.hasOwnProperty(errorsKey)) continue;
+        //         dataMessage += "\r\n" + dataErrors[errorsKey];
+        //     }
+
+        //     if (error.response) {
+        //         Swal.fire({
+        //             text: dataMessage,
+        //             icon: "error",
+        //             buttonsStyling: false,
+        //             confirmButtonText: "Ok, got it!",
+        //             customClass: {
+        //                 confirmButton: "btn btn-primary"
+        //             }
+        //         });
+        //     }
+        // });
+    });
+
     function checkIfBothFileFilled() {
         if (doc1Checked && doc2Checked) {
             postLoan();
@@ -982,6 +1102,7 @@
             .done(function(response) {
                 $('#myTable2').DataTable().clear();
                 $('#myTable2').DataTable().rows.add(response).draw();
+                console.log(response);
 
                 instantiateImageEnlargable();
             }).fail(function(error) {
