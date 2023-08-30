@@ -94,7 +94,7 @@
             <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="false" data-space="0" data-loop="true" data-speed="800" data-interval="10000">
                 @foreach($data['banner'] as $banner)
                 <div class="slide bg-overlay bg-overlay-dark-slider-2">
-                    <div class="bg-section"><img src="{{ $banner->image_link }}" alt="{{ $banner->image_name }}" /></div>
+                    <div class="bg-section"><img src="{{ $banner->image_link }}" alt="{{ $banner->image_name }}"/></div>
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-7">
@@ -210,9 +210,9 @@
             <div class="row">
                 <div class="more-features more-features-2">
                     @if(Cookie::get('current_lang') == 'eng')
-                    <p>Advantages of being a Cooperative member</p><a class="btn btn--bordered btn--white" href="#">Click Here</a>
+                    <p>Advantages of being a Cooperative member</p><a class="btn btn--bordered btn--white" href="{{ route('faq') }}">Click Here</a>
                     @else
-                    <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="#">Klik Disini</a>
+                    <p>Keuntungan menjadi anggota Koperasi</p><a class="btn btn--bordered btn--white" href="{{ route('faq') }}">Klik Disini</a>
                     @endif
                 </div>
             </div>

@@ -35,8 +35,8 @@
         <div class="block-right">
             <!-- Start .social-links-->
             <div class="social-links">
-                <a class="share-facebook" style="font-size:22px;" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
-                    <i class="energia-facebook"></i>
+                <a class="share-facebook" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
+                    <i style="font-size:22px; padding-top: 2px;" class="energia-facebook"></i>
                 </a>
                 <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">
                     <img src="/fonts/instagram-round.svg" alt="instagram" style="width: 22px; filter: invert(63%) sepia(58%) saturate(494%) hue-rotate(91deg) brightness(89%) contrast(94%);">
