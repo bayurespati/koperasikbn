@@ -131,14 +131,14 @@
             <div class="row">
                 @if(Cookie::get('current_lang') == 'eng')
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
-                    <h5 style="margin-bottom: 10px;">Cooperative Cut Details</h5>
-                    <a href="/download/saveloan_pdf/eng" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
+                    <h5 style="margin-bottom: 10px;">Latest Salary Cuts</h5>
+                    <a href="/download/saveloan_pdf/eng" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
                         Download Report
                     </a>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5>
-                </div>
+                <!-- <div class="col-12 d-flex justify-content-center"> -->
+                    <!-- <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5> -->
+                <!-- </div> -->
                 <div class="col-12" style="margin-top: 20px;">
                     <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
                         <table class="table">
@@ -160,14 +160,14 @@
                 </div>
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
-                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi Terkini</h5>
                     <a href="/download/saveloan_pdf/id" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5>
-                </div>
+                <!-- <div class="col-12 d-flex justify-content-center"> -->
+                    <!-- <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5> -->
+                <!-- </div> -->
                 <div class="col-12" style="margin-top: 20px;">
                     <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
                         <table class="table">
