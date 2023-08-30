@@ -88,10 +88,10 @@
                         <tbody>
                             <tr style="padding: 0 0 4px 0;">
                                 <td style="width: 300px; padding: 0">
-                                    <h5 style="font-weight: normal;">Yang bertanda tangan di bawah ini</h5>
+                                    <h5 style="font-weight: normal;">Yang bertanda tangan di bawah ini:</h5>
                                 </td>
                                 <td style="padding: 0">
-                                    <h5 style="font-weight: normal;">: {{$data['pinjaman']['user']['nama']}} </h5>
+                                    <h5 style="font-weight: normal;"></h5>
                                 </td>
                             </tr>
                         </tbody>
@@ -178,9 +178,15 @@
                                 <td style="width: 250px; padding: 0">
                                     <h5 style="font-weight: normal;">Besar Angsuran</h5>
                                 </td>
-                                <td style="padding: 0">
+                                @if($data['pinjaman']['nilai_angsuran'] !== null)
+                                <td style="padding: 0;">
                                     <h5 style="font-weight: normal;">: {{ number_format($data['pinjaman']['nilai_angsuran'], 2, '.', ',') }} Per Bulan</h5>
                                 </td>
+                                @else
+                                <td style="padding: 0;">
+                                    <h5 style="font-weight: normal; color: crimson;">: Besar angsuran akan muncul setelah pengajuan disetujui </h5>
+                                </td>
+                                @endif
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
                                 <td style="width: 250px; padding: 0">
@@ -216,7 +222,7 @@
                             2. Atas Pinjaman dan Kewajiban tersebut di atas saya bersedia dipotong gaji setiap bulannya sesuai angsuran pinjaman maupun kewajiban yang ada.
                         </h5>
                         <h5 style="font-weight: normal;" align="justify">
-                            3. Selama fasilitas ini berjalan saya tidak akan mengundurkan diri sebagai karyawan PT. (Persero) KBN/insert-data-here dan Anggota Koperasi dan Apabila saya mengundurkan diri/menjalankan MPP/Pensiun/PHK karena Wanprestasi maka saya bersedia melakukan pemotongan/pelunasan atas seluruh kewajiban pinjaman dengan hak-hak yang ada di Koperasi Karyawan/PT. Kawasan Berikat Nusantara (Persero).
+                            3. Selama fasilitas ini berjalan saya tidak akan mengundurkan diri sebagai karyawan PT. (Persero) KBN dan Anggota Koperasi dan Apabila saya mengundurkan diri/menjalankan MPP/Pensiun/PHK karena Wanprestasi maka saya bersedia melakukan pemotongan/pelunasan atas seluruh kewajiban pinjaman dengan hak-hak yang ada di Koperasi Karyawan/PT. Kawasan Berikat Nusantara (Persero).
                         </h5>
                     </div>
                 </div>

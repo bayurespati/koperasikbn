@@ -131,14 +131,14 @@
             <div class="row">
                 @if(Cookie::get('current_lang') == 'eng')
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
-                    <h5 style="margin-bottom: 10px;">Cooperative Cut Details</h5>
-                    <a href="/download/saveloan_pdf/eng" class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
+                    <h5 style="margin-bottom: 10px;">Latest Salary Cuts</h5>
+                    <a href="/download/saveloan_pdf/eng" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
                         Download Report
                     </a>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5>
-                </div>
+                <!-- <div class="col-12 d-flex justify-content-center"> -->
+                    <!-- <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5> -->
+                <!-- </div> -->
                 <div class="col-12" style="margin-top: 20px;">
                     <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
                         <table class="table">
@@ -160,14 +160,14 @@
                 </div>
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
-                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
-                    <a href="/download/saveloan_pdf/id" target=”_blank”  class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi Terkini</h5>
+                    <a href="/download/saveloan_pdf/id" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5>
-                </div>
+                <!-- <div class="col-12 d-flex justify-content-center"> -->
+                    <!-- <h5 style="margin-bottom: 10px;">Bulan {{ $data->bulan }}</h5> -->
+                <!-- </div> -->
                 <div class="col-12" style="margin-top: 20px;">
                     <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
                         <table class="table">
@@ -668,12 +668,22 @@
                     }
                 }, {
                     targets: [5],
-                    render: function() {
-                        return `
-                        <button type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
-                            <soan style="font-weight: normal; font-size: 12px;">download</span>
-                        </button>
-                        `;
+                    render: function(data) {
+                        if (data.jenis_pengajuan_id == 3) {
+                            // insidentil
+                            return `
+                            <a href="/dashboard/permintaan/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                                <span style="font-weight: normal; font-size: 12px;">download</span>
+                            </a>
+                            `;
+                        } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
+                            // jangka pp
+                            return `
+                            <a href="/dashboard/permintaan/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                                <span style="font-weight: normal; font-size: 12px;">download</span>
+                            </a>
+                            `;
+                        }
                     }
                 },
                 {
@@ -704,208 +714,308 @@
                 });
             }
         });
-    });
 
-    $('#loan-amount').mask('000.000.000.000.000', {
-        reverse: true
-    });
 
-    let isFormShown = false;
-    $('#display-form-btn').on('click', function() {
-        isFormShown = !isFormShown;
 
-        if (isFormShown) {
-            $('#loan-form').removeClass('d-none');
-            $('#display-form-button-title').text('Cancel');
-            emptyForm();
-        } else {
-            $('#loan-form').addClass('d-none');
-            $('#display-form-button-title').text('Buat Pengajuan Pinjaman');
-        }
-    });
+        $('#loan-amount').mask('000.000.000.000.000', {
+            reverse: true
+        });
 
-    const loanPeriod1 = $('#loan-period-1');
-    loanPeriod1.mask('00', {
-        onComplete: function(period) {
-            if (period < 1 || period > 12) {
-                loanPeriod1.val('');
-            }
-        }
-    });
+        let isFormShown = false;
+        $('#display-form-btn').on('click', function() {
+            isFormShown = !isFormShown;
 
-    const loanPeriod3 = $('#loan-period-3');
-    loanPeriod3.mask('00', {
-        onComplete: function(period) {
-            if (period < 13 || period > 96) {
-                loanPeriod3.val('1');
-            }
-        }
-    });
-
-    let loanSubmitButton = $('#loan-submit-button');
-    loanSubmitButton.prop('disabled', true);
-
-    let doc1Name = null;
-    let doc1Content = null;
-
-    let doc2Name = null;
-    let doc2Content = null;
-
-    let typeOfPinjaman = '-';
-    $('#loan-type').on('change', function() {
-        typeOfPinjaman = $('#loan-type').val();
-        $('#service-type').val('-').trigger('change');
-        $('select').niceSelect('update');
-
-        if (typeOfPinjaman == '-') {
-            $('#loan-amount-wrapper').addClass('d-none');
-            $('#loan-period-1-wrapper').addClass('d-none');
-            $('#loan-period-2-wrapper').addClass('d-none');
-            $('#loan-period-3-wrapper').addClass('d-none');
-            $('#loan-use-wrapper').addClass('d-none');
-
-            $('#service-type-wrapper').addClass('d-none')
-            $('#info-box-2-wrapper').addClass('d-none');
-            loanSubmitButton.prop('disabled', true);
-        } else {
-            $('#loan-amount-wrapper').removeClass('d-none');
-            $('#loan-use-wrapper').removeClass('d-none');
-
-            if (typeOfPinjaman == '0') {
-                $('#loan-period-1-wrapper').removeClass('d-none');
-                $('#loan-period-2-wrapper').addClass('d-none');
-                $('#loan-period-3-wrapper').addClass('d-none');
-
-                $('#service-type-wrapper').addClass('d-none');
-                $('#info-box-2-wrapper').addClass('d-none');
-                loanSubmitButton.prop('disabled', false);
-            } else if (typeOfPinjaman == '1') {
-                $('#loan-period-1-wrapper').addClass('d-none');
-                $('#loan-period-2-wrapper').removeClass('d-none');
-                $('#loan-period-3-wrapper').addClass('d-none');
-
-                $('#service-type-wrapper').addClass('d-none');
-                $('#info-box-2-wrapper').addClass('d-none')
-                loanSubmitButton.prop('disabled', false);
-            } else if (typeOfPinjaman == '2') {
-                $('#loan-period-1-wrapper').addClass('d-none');
-                $('#loan-period-2-wrapper').addClass('d-none');
-                $('#loan-period-3-wrapper').removeClass('d-none');
-
-                $('#service-type-wrapper').removeClass('d-none');
-                $('#info-box-2-wrapper').addClass('d-none')
-                loanSubmitButton.prop('disabled', true);
+            if (isFormShown) {
+                $('#loan-form').removeClass('d-none');
+                $('#display-form-button-title').text('Cancel');
+                emptyForm();
             } else {
+                $('#loan-form').addClass('d-none');
+                $('#display-form-button-title').text('Buat Pengajuan Pinjaman');
+            }
+        });
+
+        const loanPeriod1 = $('#loan-period-1');
+        loanPeriod1.mask('00', {
+            onComplete: function(period) {
+                if (period < 1 || period > 12) {
+                    loanPeriod1.val('');
+                }
+            }
+        });
+
+        const loanPeriod3 = $('#loan-period-3');
+        loanPeriod3.mask('00', {
+            onComplete: function(period) {
+                if (period < 13 || period > 96) {
+                    loanPeriod3.val('1');
+                }
+            }
+        });
+
+        let loanSubmitButton = $('#loan-submit-button');
+        loanSubmitButton.prop('disabled', true);
+
+        let doc1Name = null;
+        let doc1Content = null;
+
+        let doc2Name = null;
+        let doc2Content = null;
+
+        let typeOfPinjaman = '-';
+        $('#loan-type').on('change', function() {
+            typeOfPinjaman = $('#loan-type').val();
+            $('#service-type').val('-').trigger('change');
+            $('select').niceSelect('update');
+
+            if (typeOfPinjaman == '-') {
                 $('#loan-amount-wrapper').addClass('d-none');
                 $('#loan-period-1-wrapper').addClass('d-none');
                 $('#loan-period-2-wrapper').addClass('d-none');
                 $('#loan-period-3-wrapper').addClass('d-none');
                 $('#loan-use-wrapper').addClass('d-none');
-                $('#service-type-wrapper').addClass('d-none');
-                $('#info-box-2-wrapper').removeClass('d-none');
+
+                $('#service-type-wrapper').addClass('d-none')
+                $('#info-box-2-wrapper').addClass('d-none');
                 loanSubmitButton.prop('disabled', true);
+            } else {
+                $('#loan-amount-wrapper').removeClass('d-none');
+                $('#loan-use-wrapper').removeClass('d-none');
+
+                if (typeOfPinjaman == '0') {
+                    $('#loan-period-1-wrapper').removeClass('d-none');
+                    $('#loan-period-2-wrapper').addClass('d-none');
+                    $('#loan-period-3-wrapper').addClass('d-none');
+
+                    $('#service-type-wrapper').addClass('d-none');
+                    $('#info-box-2-wrapper').addClass('d-none');
+                    loanSubmitButton.prop('disabled', false);
+                } else if (typeOfPinjaman == '1') {
+                    $('#loan-period-1-wrapper').addClass('d-none');
+                    $('#loan-period-2-wrapper').removeClass('d-none');
+                    $('#loan-period-3-wrapper').addClass('d-none');
+
+                    $('#service-type-wrapper').addClass('d-none');
+                    $('#info-box-2-wrapper').addClass('d-none')
+                    loanSubmitButton.prop('disabled', false);
+                } else if (typeOfPinjaman == '2') {
+                    $('#loan-period-1-wrapper').addClass('d-none');
+                    $('#loan-period-2-wrapper').addClass('d-none');
+                    $('#loan-period-3-wrapper').removeClass('d-none');
+
+                    $('#service-type-wrapper').removeClass('d-none');
+                    $('#info-box-2-wrapper').addClass('d-none')
+                    loanSubmitButton.prop('disabled', true);
+                } else {
+                    $('#loan-amount-wrapper').addClass('d-none');
+                    $('#loan-period-1-wrapper').addClass('d-none');
+                    $('#loan-period-2-wrapper').addClass('d-none');
+                    $('#loan-period-3-wrapper').addClass('d-none');
+                    $('#loan-use-wrapper').addClass('d-none');
+                    $('#service-type-wrapper').addClass('d-none');
+                    $('#info-box-2-wrapper').removeClass('d-none');
+                    loanSubmitButton.prop('disabled', true);
+                }
+            }
+
+            $('#loan-file-1-wrapper').addClass('d-none');
+            $('#loan-file-2-wrapper').addClass('d-none');
+            $('#info-box-1-wrapper').addClass('d-none');
+        });
+
+        let typeOfService = '-';
+        $('#service-type').on('change', function() {
+            typeOfService = $('#service-type').val();
+
+            if (typeOfService == 0) {
+                $('#loan-file-1-wrapper').addClass('d-none');
+                $('#loan-file-2-wrapper').addClass('d-none');
+                $('#info-box-1-wrapper').removeClass('d-none');
+                loanSubmitButton.prop('disabled', false);
+            } else if (typeOfService == 1) {
+                $('#loan-file-1-wrapper').removeClass('d-none');
+                $('#loan-file-2-wrapper').removeClass('d-none');
+                $('#info-box-1-wrapper').addClass('d-none');
+                loanSubmitButton.prop('disabled', false);
+            } else {
+                $('#loan-file-1-wrapper').addClass('d-none');
+                $('#loan-file-2-wrapper').addClass('d-none');
+                $('#info-box-1-wrapper').addClass('d-none');
+                loanSubmitButton.prop('disabled', true);
+            }
+        });
+
+        let doc1Checked = false;
+        let doc2Checked = false;
+
+        function postLoan() {
+            let currentdate = new Date();
+            let dateFormatted = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
+
+            let data = null;
+
+            if (typeOfPinjaman == 0) {
+                data = {
+                    _token: "{{ csrf_token() }}",
+                    jenis_pengajuan_id: 2,
+                    tanggal_pengajuan: dateFormatted,
+                    user_id: $('#loan-id').val(),
+                    nominal: $('#loan-amount').cleanVal(),
+                    lama_angsuran: $('#loan-period-1').cleanVal(),
+                    keperluan: $('#loan-use').val(),
+                };
+            } else if (typeOfPinjaman == 1) {
+                data = {
+                    _token: "{{ csrf_token() }}",
+                    jenis_pengajuan_id: 3,
+                    tanggal_pengajuan: dateFormatted,
+                    user_id: $('#loan-id').val(),
+                    nominal: $('#loan-amount').cleanVal(),
+                    lama_angsuran: $('#loan-period-2').val(),
+                    keperluan: $('#loan-use').val(),
+                };
+            } else if (typeOfPinjaman == 2) {
+                data = {
+                    _token: "{{ csrf_token() }}",
+                    user_id: $('#loan-id').val(),
+                    jenis_pengajuan_id: 4,
+                    tanggal_pengajuan: dateFormatted,
+                    nominal: $('#loan-amount').cleanVal(),
+                    lama_angsuran: $('#loan-period-3').cleanVal(),
+                    is_online: $('#service-type').val(),
+                    keperluan: $('#loan-use').val(),
+                    dokumen_1: doc1Content,
+                    dokumen_1_name: doc1Name,
+                    dokumen_2: doc2Content,
+                    dokumen_2_name: doc2Name,
+                };
+            } else {
+                data = null;
+            }
+
+            if (data !== null) {
+                loanSubmitButton.prop('disabled', true);
+
+                $.post('/api/permintaan', data)
+                    .done(function(response) {
+                        getPengajuan();
+
+                        let message = response;
+                        let preContent = document.createElement('pre');
+
+                        preContent.innerHTML = message;
+
+                        swal({
+                            title: "Yay!",
+                            content: preContent,
+                            icon: "success",
+                            button: "Close",
+                        });
+
+                        emptyForm();
+                    }).fail(function(error) {
+                        let message = '';
+                        let errorMessage = error.responseJSON.message;
+                        let preContent = document.createElement('pre');
+
+                        $.each(errorMessage, function(key, value) {
+                            message = message + value[0] + '<br>';
+                        });
+
+                        preContent.innerHTML = message;
+
+                        swal({
+                            title: "Oops!",
+                            content: preContent,
+                            icon: "error",
+                            button: "Close",
+                        });
+                    }).always(function() {
+                        loanSubmitButton.prop('disabled', false);
+                    });
             }
         }
 
-        $('#loan-file-1-wrapper').addClass('d-none');
-        $('#loan-file-2-wrapper').addClass('d-none');
-        $('#info-box-1-wrapper').addClass('d-none');
-    });
-
-    let typeOfService = '-';
-    $('#service-type').on('change', function() {
-        typeOfService = $('#service-type').val();
-
-        if (typeOfService == 0) {
-            $('#loan-file-1-wrapper').addClass('d-none');
-            $('#loan-file-2-wrapper').addClass('d-none');
-            $('#info-box-1-wrapper').removeClass('d-none');
-            loanSubmitButton.prop('disabled', false);
-        } else if (typeOfService == 1) {
-            $('#loan-file-1-wrapper').removeClass('d-none');
-            $('#loan-file-2-wrapper').removeClass('d-none');
-            $('#info-box-1-wrapper').addClass('d-none');
-            loanSubmitButton.prop('disabled', false);
-        } else {
-            $('#loan-file-1-wrapper').addClass('d-none');
-            $('#loan-file-2-wrapper').addClass('d-none');
-            $('#info-box-1-wrapper').addClass('d-none');
-            loanSubmitButton.prop('disabled', true);
-        }
-    });
-
-    let doc1Checked = false;
-    let doc2Checked = false;
-
-    function postLoan() {
-        let currentdate = new Date();
-        let dateFormatted = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-
-        let data = null;
-
-        if (typeOfPinjaman == 0) {
-            data = {
-                _token: "{{ csrf_token() }}",
-                jenis_pengajuan_id: 2,
-                tanggal_pengajuan: dateFormatted,
-                user_id: $('#loan-id').val(),
-                nominal: $('#loan-amount').cleanVal(),
-                lama_angsuran: $('#loan-period-1').cleanVal(),
-                keperluan: $('#loan-use').val(),
-            };
-        } else if (typeOfPinjaman == 1) {
-            data = {
-                _token: "{{ csrf_token() }}",
-                jenis_pengajuan_id: 3,
-                tanggal_pengajuan: dateFormatted,
-                user_id: $('#loan-id').val(),
-                nominal: $('#loan-amount').cleanVal(),
-                lama_angsuran: $('#loan-period-2').val(),
-                keperluan: $('#loan-use').val(),
-            };
-        } else if (typeOfPinjaman == 2) {
-            data = {
-                _token: "{{ csrf_token() }}",
-                user_id: $('#loan-id').val(),
-                jenis_pengajuan_id: 4,
-                tanggal_pengajuan: dateFormatted,
-                nominal: $('#loan-amount').cleanVal(),
-                lama_angsuran: $('#loan-period-3').cleanVal(),
-                is_online: $('#service-type').val(),
-                keperluan: $('#loan-use').val(),
-                dokumen_1: doc1Content,
-                dokumen_1_name: doc1Name,
-                dokumen_2: doc2Content,
-                dokumen_2_name: doc2Name,
-            };
-        } else {
-            data = null;
+        function checkIfBothFileFilled() {
+            if (doc1Checked && doc2Checked) {
+                postLoan();
+            }
         }
 
-        if (data !== null) {
-            loanSubmitButton.prop('disabled', true);
+        function checkFile() {
+            let file1 = null;
+            file1 = document.getElementById('loan-file-1').files[0];
 
-            $.post('/api/permintaan', data)
+            let file2 = null;
+            file2 = document.getElementById('loan-file-2').files[0];
+
+            if (file1 !== null && file1 !== undefined) {
+                doc1Name = file1['name'];
+                const fr1 = new FileReader();
+
+                fr1.addEventListener("load", () => {
+                    doc1Content = fr1.result;
+                    doc1Checked = true;
+                });
+
+                fr1.readAsDataURL(file1);
+                checkIfBothFileFilled();
+            } else {
+                doc1Checked = false;
+            }
+
+            if (file2 !== null && file2 !== undefined) {
+                doc2Name = file2['name'];
+                const fr2 = new FileReader();
+
+                fr2.addEventListener("load", () => {
+                    doc2Content = fr2.result;
+                    doc2Checked = true;
+                });
+
+                fr2.readAsDataURL(file2);
+                checkIfBothFileFilled();
+            } else {
+                doc2Checked = false;
+            }
+        };
+
+        loanSubmitButton.on('click', function() {
+            if (typeOfPinjaman == 0 || typeOfPinjaman == 1 || (typeOfPinjaman == 2 && typeOfService == 0)) {
+                doc1Name = null;
+                doc1Content = null;
+
+                doc2Name = null;
+                doc2Content = null;
+
+                postLoan();
+            } else if (typeOfService == 1 && typeOfPinjaman == 2) {
+                checkFile();
+            }
+        });
+
+        const reloadTable2Btn = $('#reload-table-2-btn');
+        reloadTable2Btn.on('click', function() {
+            getPengajuan();
+        });
+
+        function getPengajuan() {
+            reloadTable2Btn.prop('disabled', true);
+
+            $.get('/api/permintaan/by-user-id', {
+                    user_id: $('#loan-id').val()
+                })
                 .done(function(response) {
-                    getPengajuan();
+                    $('#myTable2').DataTable().clear();
+                    $('#myTable2').DataTable().rows.add(response).draw();
+                    console.log(response);
 
-                    let message = response;
-                    let preContent = document.createElement('pre');
-
-                    preContent.innerHTML = message;
-
-                    swal({
-                        title: "Yay!",
-                        content: preContent,
-                        icon: "success",
-                        button: "Close",
-                    });
-
-                    emptyForm();
+                    instantiateImageEnlargable();
                 }).fail(function(error) {
                     let message = '';
                     let errorMessage = error.responseJSON.message;
                     let preContent = document.createElement('pre');
+
 
                     $.each(errorMessage, function(key, value) {
                         message = message + value[0] + '<br>';
@@ -915,238 +1025,37 @@
 
                     swal({
                         title: "Oops!",
+                        // text: message,
                         content: preContent,
                         icon: "error",
                         button: "Close",
                     });
                 }).always(function() {
-                    loanSubmitButton.prop('disabled', false);
+                    reloadTable2Btn.prop('disabled', false);
                 });
         }
-    }
 
-    $('#myTable2 tbody').on('click', 'button[name="download-request"]', function() {
-        var data = $('#myTable2').DataTable().row($(this).parents('tr')).data();
-        if (data == undefined) {
-            var selected_row = $(this).parents('tr');
-            if (selected_row.hasClass('child')) {
-                selected_row = selected_row.prev();
-            }
-            var data = $('#myTable2').DataTable().row(selected_row).data();
-        }
-
-        console.log(data);
-
-        let route = '';
-        if(data.jenis_pengajuan_id == 3) {
-            // insidentil
-        } else if(data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
-            // jangka pp
-        }
-
-        // $.post('/api/permintaan', data)
-        //     .done(function(response) {
-        //         getPengajuan();
-
-        //         let message = response;
-        //         let preContent = document.createElement('pre');
-
-        //         preContent.innerHTML = message;
-
-        //         swal({
-        //             title: "Yay!",
-        //             content: preContent,
-        //             icon: "success",
-        //             button: "Close",
-        //         });
-
-        //         emptyForm();
-        //     }).fail(function(error) {
-        //         let message = '';
-        //         let errorMessage = error.responseJSON.message;
-        //         let preContent = document.createElement('pre');
-
-        //         $.each(errorMessage, function(key, value) {
-        //             message = message + value[0] + '<br>';
-        //         });
-
-        //         preContent.innerHTML = message;
-
-        //         swal({
-        //             title: "Oops!",
-        //             content: preContent,
-        //             icon: "error",
-        //             button: "Close",
-        //         });
-        //     }).always(function() {
-        //         loanSubmitButton.prop('disabled', false);
-        //     });
-
-        // axios.get(baseURL + 'export-list/download/' + data.file_name).then(function(response) {
-        //     if (response.data.rc == '00' && response.data.rc_desc == 'Success') {
-        //         var link = document.createElement('a');
-        //         link.href = response.data.url;
-        //         document.body.appendChild(link);
-        //         link.click();
-        //         document.body.removeChild(link);
-        //     } else {
-        //         // show message popup
-        //         Swal.fire({
-        //             text: response.data.rc + ': ' + response.data.rc_desc,
-        //             icon: "error",
-        //             buttonsStyling: false,
-        //             confirmButtonText: "Ok",
-        //             customClass: {
-        //                 confirmButton: "btn btn-primary"
-        //             }
-        //         }).then(function(result) {
-        //             if ((result.isConfirmed || result.isDismissed) && response.data.rc == 'TIMEOUT') {
-        //                 location.reload();
-        //             }
-        //         });
-        //     }
-        // }).catch(function(error) {
-        //     console.log(error);
-
-        //     let dataMessage = error.response.data.message;
-        //     let dataErrors = error.response.data.errors;
-
-        //     for (const errorsKey in dataErrors) {
-        //         if (!dataErrors.hasOwnProperty(errorsKey)) continue;
-        //         dataMessage += "\r\n" + dataErrors[errorsKey];
-        //     }
-
-        //     if (error.response) {
-        //         Swal.fire({
-        //             text: dataMessage,
-        //             icon: "error",
-        //             buttonsStyling: false,
-        //             confirmButtonText: "Ok, got it!",
-        //             customClass: {
-        //                 confirmButton: "btn btn-primary"
-        //             }
-        //         });
-        //     }
-        // });
-    });
-
-    function checkIfBothFileFilled() {
-        if (doc1Checked && doc2Checked) {
-            postLoan();
-        }
-    }
-
-    function checkFile() {
-        let file1 = null;
-        file1 = document.getElementById('loan-file-1').files[0];
-
-        let file2 = null;
-        file2 = document.getElementById('loan-file-2').files[0];
-
-        if (file1 !== null && file1 !== undefined) {
-            doc1Name = file1['name'];
-            const fr1 = new FileReader();
-
-            fr1.addEventListener("load", () => {
-                doc1Content = fr1.result;
-                doc1Checked = true;
+        function instantiateImageEnlargable() {
+            var $imgPopup = $(".img-popup");
+            $imgPopup.magnificPopup({
+                type: "image"
             });
-
-            fr1.readAsDataURL(file1);
-            checkIfBothFileFilled();
-        } else {
-            doc1Checked = false;
         }
 
-        if (file2 !== null && file2 !== undefined) {
-            doc2Name = file2['name'];
-            const fr2 = new FileReader();
+        setTimeout(() => {
+            getPengajuan();
+        }, 1000);
 
-            fr2.addEventListener("load", () => {
-                doc2Content = fr2.result;
-                doc2Checked = true;
-            });
-
-            fr2.readAsDataURL(file2);
-            checkIfBothFileFilled();
-        } else {
-            doc2Checked = false;
-        }
-    };
-
-    loanSubmitButton.on('click', function() {
-        if (typeOfPinjaman == 0 || typeOfPinjaman == 1 || (typeOfPinjaman == 2 && typeOfService == 0)) {
-            doc1Name = null;
-            doc1Content = null;
-
-            doc2Name = null;
-            doc2Content = null;
-
-            postLoan();
-        } else if (typeOfService == 1 && typeOfPinjaman == 2) {
-            checkFile();
+        function emptyForm() {
+            $('#loan-amount').val('');
+            $('#loan-period-1').val('');
+            $('#service-type').val('-').trigger('change');
+            $('#loan-type').val('-').trigger('change');
+            $('#loan-use').val('');
+            $('#loan-file-1').val(null);
+            $('#loan-file-2').val(null);
+            $('select').niceSelect('update');
         }
     });
-
-    const reloadTable2Btn = $('#reload-table-2-btn');
-    reloadTable2Btn.on('click', function() {
-        getPengajuan();
-    });
-
-    function getPengajuan() {
-        reloadTable2Btn.prop('disabled', true);
-
-        $.get('/api/permintaan/by-user-id', {
-                user_id: $('#loan-id').val()
-            })
-            .done(function(response) {
-                $('#myTable2').DataTable().clear();
-                $('#myTable2').DataTable().rows.add(response).draw();
-                console.log(response);
-
-                instantiateImageEnlargable();
-            }).fail(function(error) {
-                let message = '';
-                let errorMessage = error.responseJSON.message;
-                let preContent = document.createElement('pre');
-
-
-                $.each(errorMessage, function(key, value) {
-                    message = message + value[0] + '<br>';
-                });
-
-                preContent.innerHTML = message;
-
-                swal({
-                    title: "Oops!",
-                    // text: message,
-                    content: preContent,
-                    icon: "error",
-                    button: "Close",
-                });
-            }).always(function() {
-                reloadTable2Btn.prop('disabled', false);
-            });
-    }
-
-    function instantiateImageEnlargable() {
-        var $imgPopup = $(".img-popup");
-        $imgPopup.magnificPopup({
-            type: "image"
-        });
-    }
-
-    getPengajuan();
-
-    function emptyForm() {
-        $('#loan-amount').val('');
-        $('#loan-period-1').val('');
-        $('#service-type').val('-').trigger('change');
-        $('#loan-type').val('-').trigger('change');
-        $('#loan-use').val('');
-        $('#loan-file-1').val(null);
-        $('#loan-file-2').val(null);
-        $('select').niceSelect('update');
-    }
 </script>
 @endpush

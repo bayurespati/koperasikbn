@@ -184,7 +184,7 @@
                             <ul class="list-unstyled social-icons d-flex align-items-center">
                                 <li>
                                     <a class="share-facebook" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
-                                        <i class="energia-facebook"></i>
+                                        <i class="energia-facebook" style="font-size:22px; padding-bottom: 2px;"></i>
                                         Facebook
                                     </a>
                                 </li>
