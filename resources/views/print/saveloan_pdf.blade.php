@@ -76,9 +76,9 @@
                 <div class="col-12 text-center">
                     <h5>
                         @if($data->lang == 'eng')
-                        Savings and Loans Balance of Members for the Period of {{ $data->bulan }} {{ $data->tahun }}
+                        Latest Savings and Loans Balance
                         @else
-                        Saldo Simpan Pinjam Anggota Periode {{ $data->bulan }} {{ $data->tahun }}
+                        Saldo Simpan dan Pinjam Terbaru
                         @endif
                     </h5>
                 </div>
@@ -111,6 +111,13 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="row" style="text-align: right; padding-right: 60px;">
+                @if($data->lang == 'eng')
+                <b>Last updated: {{ $data->lastUpdated }}</b>
+                @else
+                <b>Terakhir diperbarui: {{ $data->lastUpdated }}</b>
+                @endif
             </div>
             <div class="row mb-4" style="padding-left: 60px; padding-right: 60px;">
                 <table class="table table-bordered page-break">

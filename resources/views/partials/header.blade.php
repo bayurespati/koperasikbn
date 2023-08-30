@@ -27,7 +27,7 @@
                 @endif
                 <div class="contact-infos"><i class="energia-location-Icon"></i>
                     <div class="contact-body">
-                        <p><a href="https://goo.gl/maps/CLksE8MWNYK1wi8T6" target="_blank">Gedung Mawar - Jl. Jawa Raya, Komplek PT. KBN (Persero)</a></p>
+                        <p><a href="https://goo.gl/maps/pP3ZfaDMHyP7rBa69" target="_blank">Gedung Mawar - Jl. Jawa Raya, Komplek PT. KBN (Persero)</a></p>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <div class="block-right">
             <!-- Start .social-links-->
             <div class="social-links">
-                <a class="share-facebook" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
+                <a class="share-facebook" style="font-size:22px;" href="https://www.facebook.com/groups/1013674399210919" target="_blank">
                     <i class="energia-facebook"></i>
                 </a>
                 <a class="share-instagram" href="https://www.instagram.com/kopkarkbn/" target="_blank">

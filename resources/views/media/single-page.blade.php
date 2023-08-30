@@ -89,7 +89,7 @@
                             </div>
                             <div class="entry-holder">
                                 <div class="entry-share"><span>share this article</span>
-                                    <div><a class="share-facebook" href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a><a class="share-instagram" href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a class="share-twitter" href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
+                                    <div><a class="share-facebook" href="javascript:void(0)"><i class="fab fa-facebook-f" style="font-size:22px;"></i></a><a class="share-instagram" href="javascript:void(0)"><i class="fab fa-twitter"></i></a><a class="share-twitter" href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
                                 </div>
                             </div>
                         </div>
