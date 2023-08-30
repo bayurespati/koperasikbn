@@ -159,7 +159,7 @@
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
-                    <a href="/download/saveloan_pdf/id"target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
+                    <a href="/download/saveloan_pdf/id" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
                 </div>
@@ -444,6 +444,7 @@
                                 <th style="text-align: center;">Submission Type</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Document</th>
+                                <th style="text-align: center;">Request Document</th>
                                 <th style="text-align: right;">Status</th>
                                 <th style="text-align: right;">Description</th>
                             </tr>
@@ -454,6 +455,7 @@
                                 <th style="text-align: center;">Jenis Pengajuan</th>
                                 <th style="text-align: right;">Nominal (Rupiah)</th>
                                 <th style="text-align: center;">Dokumen</th>
+                                <th style="text-align: center;">Dokumen Permintaan</th>
                                 <th style="text-align: right;">Status</th>
                                 <th style="text-align: right;">Keterangan</th>
                             </tr>
@@ -512,6 +514,10 @@
                     className: 'text-center'
                 },
                 {
+                    data: null,
+                    className: 'text-center'
+                },
+                {
                     data: "status",
                     className: 'text-center'
                 },
@@ -521,32 +527,32 @@
                 },
             ],
             "columnDefs": [{
-                targets: [1],
-                render: function(data) {
-                    const date = new Date(data);
+                    targets: [1],
+                    render: function(data) {
+                        const date = new Date(data);
 
-                    let d = date;
-                    d = [
-                        '' + d.getDate(),
-                        '' + (d.getMonth() + 1),
-                        '' + d.getFullYear(),
-                        '' + d.getHours(),
-                        '' + d.getMinutes()
-                    ]; // take last 2 digits of every component
+                        let d = date;
+                        d = [
+                            '' + d.getDate(),
+                            '' + (d.getMonth() + 1),
+                            '' + d.getFullYear(),
+                            '' + d.getHours(),
+                            '' + d.getMinutes()
+                        ]; // take last 2 digits of every component
 
-                    // join the components into date
-                    return d.slice(0, 3).join('-') + ' | ' + d.slice(3).join(':');
-                }
-            }, {
-                targets: [2],
-                render: function(data) {
-                    return data['nama'];
-                }
-            }, {
-                targets: [4],
-                render: function(data) {
-                    if (data !== '' && data !== null) {
-                        return `
+                        // join the components into date
+                        return d.slice(0, 3).join('-') + ' | ' + d.slice(3).join(':');
+                    }
+                }, {
+                    targets: [2],
+                    render: function(data) {
+                        return data['nama'];
+                    }
+                }, {
+                    targets: [4],
+                    render: function(data) {
+                        if (data !== '' && data !== null) {
+                            return `
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-12 col-md-6 project-item">
                                 <div class="project-panel">
@@ -566,24 +572,45 @@
                             </div>
                         </div>
                         `;
-                    } else {
-                        return '-';
+                        } else {
+                            return '-';
+                        }
+                    }
+                }, {
+                    targets: [5],
+                    render: function(data) {
+                        if (data.jenis_pengajuan_id == 3) {
+                            // insidentil
+                            return `
+                            <a href="/dashboard/permintaan/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                                <span style="font-weight: normal; font-size: 12px;">download</span>
+                            </a>
+                            `;
+                        } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
+                            // jangka pp
+                            return `
+                            <a href="/dashboard/permintaan/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                                <span style="font-weight: normal; font-size: 12px;">download</span>
+                            </a>
+                            `;
+                        }
+                    }
+                },
+                {
+                    targets: [6],
+                    render: function(data) {
+                        if (data == 1 || data == '1') {
+                            return 'Diajukan';
+                        } else if (data == 2 || data == '2') {
+                            return 'Diproses';
+                        } else if (data == 3 || data == '3') {
+                            return 'Ditolak';
+                        } else if (data == 4 || data == '4') {
+                            return 'Disetujui';
+                        }
                     }
                 }
-            }, {
-                targets: [5],
-                render: function(data) {
-                    if (data == 1 || data == '1') {
-                        return 'Diajukan';
-                    } else if (data == 2 || data == '2') {
-                        return 'Diproses';
-                    } else if (data == 3 || data == '3') {
-                        return 'Ditolak';
-                    } else if (data == 4 || data == '4') {
-                        return 'Disetujui';
-                    }
-                }
-            }],
+            ],
             "drawCallback": function(settings) {
                 var $imgPopup = $(".img-popup");
                 $imgPopup.magnificPopup({
@@ -597,188 +624,190 @@
                 });
             }
         });
-    });
 
-    $('#saving-amount').mask('000.000.000.000.000', {
-        reverse: true
-    });
+        $('#saving-amount').mask('000.000.000.000.000', {
+            reverse: true
+        });
 
-    let isFormShown = false;
-    $('#display-form-btn').on('click', function() {
-        isFormShown = !isFormShown;
+        let isFormShown = false;
+        $('#display-form-btn').on('click', function() {
+            isFormShown = !isFormShown;
 
-        if (isFormShown) {
-            $('#saving-form').removeClass('d-none');
-            $('#display-form-button-title').text('Cancel');
-            emptyForm();
-        } else {
-            $('#saving-form').addClass('d-none');
-            $('#display-form-button-title').text('Buat Pengajuan Simpanan Sukarela');
-        }
-    })
+            if (isFormShown) {
+                $('#saving-form').removeClass('d-none');
+                $('#display-form-button-title').text('Cancel');
+                emptyForm();
+            } else {
+                $('#saving-form').addClass('d-none');
+                $('#display-form-button-title').text('Buat Pengajuan Simpanan Sukarela');
+            }
+        })
 
-    let typeOfService = '-';
-    let docName = null;
-    let docContent = null;
-    savingSubmitButton = $('#saving-submit');
-    savingSubmitButton.prop('disabled', true);
-    $('#service-type').on('change', function() {
-        typeOfService = $('#service-type').val();
+        let typeOfService = '-';
+        let docName = null;
+        let docContent = null;
+        savingSubmitButton = $('#saving-submit');
+        savingSubmitButton.prop('disabled', true);
+        $('#service-type').on('change', function() {
+            typeOfService = $('#service-type').val();
 
-        if (typeOfService == 1) {
-            $('#saving-file-wrapper').removeClass('d-none');
-            $('#info-box-wrapper').addClass('d-none');
-            savingSubmitButton.prop('disabled', false);
-        } else if (typeOfService == 0) {
-            $('#saving-file-wrapper').addClass('d-none');
-            $('#info-box-wrapper').removeClass('d-none');
-            savingSubmitButton.prop('disabled', false);
-        } else {
-            $('#saving-file-wrapper').addClass('d-none');
-            $('#info-box-wrapper').addClass('d-none');
-            savingSubmitButton.prop('disabled', true);
-        }
-    });
+            if (typeOfService == 1) {
+                $('#saving-file-wrapper').removeClass('d-none');
+                $('#info-box-wrapper').addClass('d-none');
+                savingSubmitButton.prop('disabled', false);
+            } else if (typeOfService == 0) {
+                $('#saving-file-wrapper').addClass('d-none');
+                $('#info-box-wrapper').removeClass('d-none');
+                savingSubmitButton.prop('disabled', false);
+            } else {
+                $('#saving-file-wrapper').addClass('d-none');
+                $('#info-box-wrapper').addClass('d-none');
+                savingSubmitButton.prop('disabled', true);
+            }
+        });
 
-    function checkFile() {
-        let file = null;
-        file = document.getElementById('saving-file').files[0];
+        function checkFile() {
+            let file = null;
+            file = document.getElementById('saving-file').files[0];
 
-        if (file !== null && file !== undefined) {
-            docName = file['name'];
-            const fr = new FileReader();
+            if (file !== null && file !== undefined) {
+                docName = file['name'];
+                const fr = new FileReader();
 
-            fr.addEventListener("load", () => {
-                docContent = fr.result;
+                fr.addEventListener("load", () => {
+                    docContent = fr.result;
+                    postSaving();
+                });
+
+                fr.readAsDataURL(file);
+            } else {
                 postSaving();
-            });
-
-            fr.readAsDataURL(file);
-        } else {
-            postSaving();
-        }
-    };
-
-    savingSubmitButton.on('click', function() {
-        if (typeOfService == 1) {
-            checkFile();
-        } else {
-            docName = null;
-            docContent = null;
-            postSaving()
-        }
-    });
-
-    function postSaving() {
-        let currentdate = new Date();
-        let dateFormatted = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-
-        let data = {
-            _token: "{{ csrf_token() }}",
-            user_id: $('#saving-id').val(),
-            jenis_pengajuan_id: 1,
-            tanggal_pengajuan: dateFormatted,
-            nominal: $('#saving-amount').cleanVal(),
-            is_online: $('#service-type').val(),
-            dokumen_1: docContent,
-            dokumen_1_name: docName,
+            }
         };
 
-        savingSubmitButton.prop('disabled', true);
-
-        $.post('/api/permintaan', data)
-            .done(function(response) {
-                getPengajuan();
-
-                let message = response;
-                let preContent = document.createElement('pre');
-
-                preContent.innerHTML = message;
-
-                swal({
-                    title: "Yay!",
-                    content: preContent,
-                    icon: "success",
-                    button: "Close",
-                });
-
-                emptyForm();
-            }).fail(function(error) {
-                let message = '';
-                let errorMessage = error.responseJSON.message;
-                let preContent = document.createElement('pre');
-
-                $.each(errorMessage, function(key, value) {
-                    message = message + value[0] + '<br>';
-                });
-
-                preContent.innerHTML = message;
-
-                swal({
-                    title: "Oops!",
-                    content: preContent,
-                    icon: "error",
-                    button: "Close",
-                });
-            }).always(function() {
-                savingSubmitButton.prop('disabled', false);
-            });
-    }
-
-    const reloadTable2Btn = $('#reload-table-2-btn');
-    reloadTable2Btn.on('click', function() {
-        getPengajuan();
-    });
-
-    function getPengajuan() {
-        reloadTable2Btn.prop('disabled', true);
-
-        $.get('/api/permintaan/by-user-id', {
-                user_id: $('#saving-id').val()
-            })
-            .done(function(response) {
-                $('#myTable2').DataTable().clear();
-                $('#myTable2').DataTable().rows.add(response).draw();
-
-                instantiateImageEnlargable();
-            }).fail(function(error) {
-                let message = '';
-                let errorMessage = error.responseJSON.message;
-                let preContent = document.createElement('pre');
-
-
-                $.each(errorMessage, function(key, value) {
-                    message = message + value[0] + '<br>';
-                });
-
-                preContent.innerHTML = message;
-
-                swal({
-                    title: "Oops!",
-                    // text: message,
-                    content: preContent,
-                    icon: "error",
-                    button: "Close",
-                });
-            }).always(function() {
-                reloadTable2Btn.prop('disabled', false);
-            });
-    }
-
-    function instantiateImageEnlargable() {
-        var $imgPopup = $(".img-popup");
-        $imgPopup.magnificPopup({
-            type: "image"
+        savingSubmitButton.on('click', function() {
+            if (typeOfService == 1) {
+                checkFile();
+            } else {
+                docName = null;
+                docContent = null;
+                postSaving()
+            }
         });
-    }
 
-    getPengajuan();
+        function postSaving() {
+            let currentdate = new Date();
+            let dateFormatted = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
 
-    function emptyForm() {
-        $('#saving-amount').val('');
-        $('#service-type').val('-').trigger('change');
-        $('#saving-file').val(null);
-        $('select').niceSelect('update');
-    }
+            let data = {
+                _token: "{{ csrf_token() }}",
+                user_id: $('#saving-id').val(),
+                jenis_pengajuan_id: 1,
+                tanggal_pengajuan: dateFormatted,
+                nominal: $('#saving-amount').cleanVal(),
+                is_online: $('#service-type').val(),
+                dokumen_1: docContent,
+                dokumen_1_name: docName,
+            };
+
+            savingSubmitButton.prop('disabled', true);
+
+            $.post('/api/permintaan', data)
+                .done(function(response) {
+                    getPengajuan();
+
+                    let message = response;
+                    let preContent = document.createElement('pre');
+
+                    preContent.innerHTML = message;
+
+                    swal({
+                        title: "Yay!",
+                        content: preContent,
+                        icon: "success",
+                        button: "Close",
+                    });
+
+                    emptyForm();
+                }).fail(function(error) {
+                    let message = '';
+                    let errorMessage = error.responseJSON.message;
+                    let preContent = document.createElement('pre');
+
+                    $.each(errorMessage, function(key, value) {
+                        message = message + value[0] + '<br>';
+                    });
+
+                    preContent.innerHTML = message;
+
+                    swal({
+                        title: "Oops!",
+                        content: preContent,
+                        icon: "error",
+                        button: "Close",
+                    });
+                }).always(function() {
+                    savingSubmitButton.prop('disabled', false);
+                });
+        }
+
+        const reloadTable2Btn = $('#reload-table-2-btn');
+        reloadTable2Btn.on('click', function() {
+            getPengajuan();
+        });
+
+        function getPengajuan() {
+            reloadTable2Btn.prop('disabled', true);
+
+            $.get('/api/permintaan/by-user-id', {
+                    user_id: $('#saving-id').val()
+                })
+                .done(function(response) {
+                    $('#myTable2').DataTable().clear();
+                    $('#myTable2').DataTable().rows.add(response).draw();
+
+                    instantiateImageEnlargable();
+                }).fail(function(error) {
+                    let message = '';
+                    let errorMessage = error.responseJSON.message;
+                    let preContent = document.createElement('pre');
+
+
+                    $.each(errorMessage, function(key, value) {
+                        message = message + value[0] + '<br>';
+                    });
+
+                    preContent.innerHTML = message;
+
+                    swal({
+                        title: "Oops!",
+                        // text: message,
+                        content: preContent,
+                        icon: "error",
+                        button: "Close",
+                    });
+                }).always(function() {
+                    reloadTable2Btn.prop('disabled', false);
+                });
+        }
+
+        function instantiateImageEnlargable() {
+            var $imgPopup = $(".img-popup");
+            $imgPopup.magnificPopup({
+                type: "image"
+            });
+        }
+
+        setTimeout(function() {
+            getPengajuan();
+        }, 1000);
+
+        function emptyForm() {
+            $('#saving-amount').val('');
+            $('#service-type').val('-').trigger('change');
+            $('#saving-file').val(null);
+            $('select').niceSelect('update');
+        }
+    });
 </script>
 @endpush

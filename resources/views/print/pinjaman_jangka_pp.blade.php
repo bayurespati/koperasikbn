@@ -178,9 +178,15 @@
                                 <td style="width: 250px; padding: 0">
                                     <h5 style="font-weight: normal;">Besar Angsuran</h5>
                                 </td>
-                                <td style="padding: 0">
+                                @if($data['pinjaman']['nilai_angsuran'] !== null)
+                                <td style="padding: 0;">
                                     <h5 style="font-weight: normal;">: {{ number_format($data['pinjaman']['nilai_angsuran'], 2, '.', ',') }} Per Bulan</h5>
                                 </td>
+                                @else
+                                <td style="padding: 0; background-color: crimson;">
+                                    <h5 style="font-weight: normal;"></h5>
+                                </td>
+                                @endif
                             </tr>
                             <tr style="padding: 0 0 4px 0;">
                                 <td style="width: 250px; padding: 0">
