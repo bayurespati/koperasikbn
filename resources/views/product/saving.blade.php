@@ -135,7 +135,7 @@
                     </a>
                 </div>
                 <!-- <div class="col-12 d-flex justify-content-center"> -->
-                    <!-- <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5> -->
+                <!-- <h5 style="margin-bottom: 10px;">Month {{ $data->bulan }}</h5> -->
                 <!-- </div> -->
                 <div class="col-12" style="margin-top: 20px;">
                     <div class="project-details" style="padding-left: 40px; border-left: 4px solid var(--global--color-primary);">
@@ -582,17 +582,19 @@
                         if (data.jenis_pengajuan_id == 3) {
                             // insidentil
                             return `
-                            <a href="/dashboard/permintaan/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                            <a href="/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
                         } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
                             // jangka pp
                             return `
-                            <a href="/dashboard/permintaan/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                            <a href="/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
+                        } else {
+                            return '-';
                         }
                     }
                 },

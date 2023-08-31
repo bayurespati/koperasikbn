@@ -17,6 +17,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'ApplicationController@index')->name('index');
 Route::get('/download/saveloan_pdf/{lang}', 'ApplicationController@PrintSaveLoanPdf');
+Route::get('/download/pinjaman-insidentil', 'PermintaanController@download_pinjaman_insidentil');
+Route::get('/download/pinjaman-jangka-pp', 'PermintaanController@download_pinjaman_jangka_pp');
 
 Route::get('profile/history', 'ApplicationController@historyPage')->name('history');
 Route::get('profile/about-us', 'ApplicationController@aboutUsPage')->name('about');

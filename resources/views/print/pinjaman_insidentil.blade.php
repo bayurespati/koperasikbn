@@ -49,7 +49,7 @@
 <body>
     <header>
         <center>
-            <img src="http://koperasikbn.test/assets/images/letterhead-kopkar-svg.png" alt="Kop Surat Koperasi KBN" style="width: 80%;" />
+            <img src="{{ env('APP_URL') }}/assets/images/letterhead-kopkar.svg" alt="Kop Surat Koperasi KBN" style="width: 80%;" />
         </center>
     </header>
     <div>
