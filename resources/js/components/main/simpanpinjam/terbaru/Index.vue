@@ -267,9 +267,10 @@ export default {
         },
 
         download() {
+            console.log(this.model.periode);
             const link = document.createElement("a");
             link.href =
-                "http://koperasikbn.test/dashboard/simpan-pinjam/download?periode=" +
+                "/dashboard/simpan-pinjam/download?periode=" +
                 this.model.periode +
                 "&tanggal=" +
                 this.model.tanggal +
