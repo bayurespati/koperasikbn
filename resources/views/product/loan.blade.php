@@ -672,14 +672,14 @@
                         if (data.jenis_pengajuan_id == 3) {
                             // insidentil
                             return `
-                            <a href="/dashboard/permintaan/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                            <a href="/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
                         } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
                             // jangka pp
                             return `
-                            <a href="/dashboard/permintaan/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
+                            <a href="/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
