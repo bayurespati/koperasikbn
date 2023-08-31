@@ -683,6 +683,8 @@
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
+                        } else {
+                            return '-';
                         }
                     }
                 },
