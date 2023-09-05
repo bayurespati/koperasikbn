@@ -93,6 +93,8 @@ class PermintaanController extends Controller
     {
         $permintaan = Permintaan::Where('id', $request->id)->with(['user.divisi', 'pengajuan'])->first();
         $data['permintaan'] = $permintaan;
+        $data['bulan'] = $permintaan->updated_at !== null ? ($permintaan->updated_at)->format('F') : 'Error';
+
         $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadview('print.pinjaman_insidentil', ['data' => $data]);
         $pdf->setPaper('A4', 'landscape');

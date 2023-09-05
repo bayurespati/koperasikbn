@@ -102,7 +102,7 @@ class ApplicationController extends Controller
 
         $data['currDate']->settings(['formatFunction' => 'translatedFormat']);
 
-        $data['bulan'] = $data['currDate']->format('F');
+        // $data['bulan'] = $data['currDate']->format('F');
         $data['currDate'] = $data['currDate']->format('d M Y');
 
         if ($data !== null && isset($data->simpans)) {
@@ -110,6 +110,8 @@ class ApplicationController extends Controller
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
+                $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
 
@@ -137,6 +139,8 @@ class ApplicationController extends Controller
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
+                $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
 
@@ -172,6 +176,8 @@ class ApplicationController extends Controller
                 $data['totalAngsuran'] = $data['totalAngsuran'] + $datum->jumlah_angsuran;
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
+                $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
 
@@ -180,6 +186,8 @@ class ApplicationController extends Controller
                 $data['totalAngsuranPinjam'] = $data['totalAngsuranPinjam'] + $datum->jumlah_angsuran;
                 $data['totalSaldoPinjam'] = $data['totalSaldoPinjam'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
+                $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
 

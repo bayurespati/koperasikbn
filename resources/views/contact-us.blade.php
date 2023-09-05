@@ -123,7 +123,7 @@
                                             </select>
                                         </div>
                                         <div class="col-12">
-                                            <textarea required class="form-control" id="contact-infos" placeholder="Informasi Tambahan" name="pertanyaan" cols="30" rows="10"></textarea>
+                                            <textarea required class="form-control" id="contact-infos" placeholder="Informasi Tambahan" name="pertanyaan" cols="30" rows="10" style="line-height: normal;"></textarea>
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn--secondary">

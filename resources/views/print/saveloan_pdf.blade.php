@@ -10,15 +10,21 @@
             page-break-after: always;
         }
 
-        table tr td,
+        /* table tr td,
         table tr th {
             font-size: 12pt;
+        } */
+
+        table tr,
+        table tr td,
+        table tr th {
+            padding: 4px 6px !important;
         }
 
         table.table-bordered tr td,
         table.table-bordered tr th {
-            font-size: 12pt;
-            border: 5px solid black !important;
+            /* font-size: 12pt; */
+            border: 1px solid black !important;
         }
 
         /**
@@ -31,7 +37,7 @@
 
         /** Define now the real margins of every page in the PDF **/
         body {
-            margin-top: 5.5cm;
+            margin-top: 5cm;
             margin-left: 2cm;
             margin-right: 2cm;
             margin-bottom: 2cm;
@@ -43,7 +49,7 @@
             top: 1.5cm;
             left: 0cm;
             right: 0cm;
-            height: 3cm;
+            height: 1cm;
         }
 
         .pagenum:before {
@@ -55,6 +61,12 @@
             bottom: 0cm;
             right: 0.5cm;
             height: 1cm;
+        }
+
+        .force-font-size tr th,
+        .force-font-size tr td,
+        .force-font-size {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -76,17 +88,17 @@
                 <div class="col-12 text-center">
                     <h5>
                         @if($data->lang == 'eng')
-                        Latest Savings and Loans Balance
+                        Latest Savings and Loans Balance {{ $data->bulan }} / {{ $data->tahun }}
                         @else
-                        Saldo Simpan dan Pinjam Terbaru
+                        Slip Potongan Simpan & Pinjam {{ $data->bulan }} / {{ $data->tahun }}
                         @endif
                     </h5>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12" style="margin-top: 20px;">
+                <div class="col-12" style="margin-top: 10px;">
                     <div class="project-details" style="margin-left: 40px; margin-right: 80px; border-left: 4px solid var(--global--color-primary);">
-                        <table class="table mb-5">
+                        <table class="table force-font-size mb-1">
                             <tbody>
                                 @if($data->lang == 'eng')
                                 <tr>
@@ -112,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="text-align: right; padding-right: 60px;">
+            <div class="row force-font-size" style="text-align: right; padding-right: 60px;">
                 @if($data->lang == 'eng')
                 <b>Last updated: {{ $data->lastUpdated }}</b>
                 @else
@@ -120,7 +132,7 @@
                 @endif
             </div>
             <div class="row mb-4" style="padding-left: 60px; padding-right: 60px;">
-                <table class="table table-bordered page-break">
+                <table class="table table-bordered force-font-size">
                     <thead>
                         @if($data->lang == 'eng')
                         <tr>
@@ -159,6 +171,15 @@
                                 @endif
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: center;">
+                                @if($data->lang == 'eng')
+                                There are no loan data yet
+                                @else
+                                Data belum tersedia
+                                @endif
+                            </td>
+                        </tr>
                         @endif
                     </tbody>
                     <tfoot>
@@ -175,7 +196,7 @@
                 </table>
             </div>
             <div class="row" style="padding-left: 60px; padding-right: 60px;">
-                <table class="table table-bordered">
+                <table class="table table-bordered force-font-size">
                     <thead>
                         @if($data->lang == 'eng')
                         <tr>
@@ -222,6 +243,33 @@
                         </tr>
                         @endforeach
                         @else
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                @if($data->lang == 'eng')
+                                There are no saving data yet
+                                @else
+                                Data belum tersedia
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                @if($data->lang == 'eng')
+                                There are no saving data yet
+                                @else
+                                Data belum tersedia
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                @if($data->lang == 'eng')
+                                There are no saving data yet
+                                @else
+                                Data belum tersedia
+                                @endif
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="5" style="text-align: center;">
                                 @if($data->lang == 'eng')

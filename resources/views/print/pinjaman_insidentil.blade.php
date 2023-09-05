@@ -97,7 +97,7 @@
                 <div class="col-12">
                     <h5 style="font-weight: normal; margin-top: 10px" align="justify">
                         Mohon diberikan Pinjaman Insidentil sebesar Rp. <span style="font-weight: bold; text-transform: uppercase">{{ number_format($data['permintaan']['nominal'], 2, '.', ',') }}</span>, yang akan saya pergunakan
-                        untuk <span style="font-weight: bold; text-transform: uppercase">{{ $data['permintaan']['keperluan'] }}</span> dan bersedia untuk dipotong bulan <span style="font-weight: bold; text-transform: uppercase">{{ "JUNI" }} </span>dan dengan ini saya menyatakan:
+                        untuk <span style="font-weight: bold; text-transform: uppercase">{{ $data['permintaan']['keperluan'] }}</span> dan bersedia untuk dipotong bulan <span style="font-weight: bold; text-transform: uppercase">{{ $data['bulan'] }} </span>dan dengan ini saya menyatakan:
                     </h5>
                 </div>
             </div>
