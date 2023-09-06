@@ -7,8 +7,18 @@
       <v-form v-model="valid">
         <v-container>
           <v-row>
+            <!--=========================================================================================
+                IS ACTIVE 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="12">
+              <v-checkbox
+                v-model="model.is_custom"
+                label="is custom"
+              ></v-checkbox>
+            </v-col>
+
             <!--======================================================================================
-                NAMA
+                NAMA JABATAN
             ==========================================================================================-->
             <v-col cols="12" xs="12" md="6">
               <v-text-field
@@ -16,7 +26,22 @@
                 @blur="$v.model.nama.$touch()"
                 :error-messages="namaError"
                 v-model="model.nama"
-                label="Nama"
+                label="Nama jabatan"
+                required
+              >
+              </v-text-field>
+            </v-col>
+
+            <!--======================================================================================
+                NAMA PEJABAT
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="6" v-if="model.is_custom">
+              <v-text-field
+                @input="$v.model.user_name.$touch()"
+                @blur="$v.model.user_name.$touch()"
+                :error-messages="namaError"
+                v-model="model.user_name"
+                label="Nama Penjabat"
                 required
               >
               </v-text-field>
@@ -25,18 +50,7 @@
             <!--======================================================================================
                   USER 
               ==========================================================================================-->
-            <v-col cols="12" xs="12" md="6">
-              <!-- <v-select
-                @input="search"
-                v-model="model.user"
-                :items="users"
-                label="Pejabat"
-                item-text="nama"
-                item-value="id"
-                persistent-hint
-                required
-                small-chips
-              ></v-select> -->
+            <v-col cols="12" xs="12" md="6" v-if="!model.is_custom">
               <v-select
                 v-model="model.user"
                 :items="users"
@@ -58,6 +72,40 @@
                   <v-divider class="mt-2"></v-divider>
                 </template>
               </v-select>
+            </v-col>
+
+            <!--======================================================================================
+                SHOW IMAGE 
+            ==========================================================================================-->
+            <v-col cols="12" v-if="model.is_custom && model.image_url">
+              <v-img
+                :src="model.image_url"
+                max-height="200"
+                contain
+                aspect-ratio="1.7"
+              ></v-img>
+            </v-col>
+
+            <!--======================================================================================
+                SHOW IMAGE 
+            ==========================================================================================-->
+            <v-col cols="12" xs="12" md="12" v-if="model.is_custom">
+              <v-text-field
+                @input="$v.model.image_name.$touch()"
+                @blur="$v.model.image_name.$touch()"
+                :error-messages="imageError"
+                prepend-icon="mdi-camera"
+                v-model="model.image_name"
+                @click="pickFile"
+                lavel="Image"
+              ></v-text-field>
+              <input
+                @change="onFilePicked"
+                accept="image/*"
+                style="display: none"
+                type="file"
+                ref="imageUpload"
+              />
             </v-col>
 
             <!--======================================================================================
@@ -91,6 +139,11 @@ export default {
       model: {
         nama: "",
         user: "",
+        is_custom: false,
+        image_name: "",
+        image_file: null,
+        image_url: "",
+        user_name: "",
       },
       searchTerm: "",
       valid: false,
@@ -104,6 +157,8 @@ export default {
   validations: {
     model: {
       nama: { required },
+      user_name: { required },
+      image_name: { required },
     },
   },
 
@@ -118,13 +173,32 @@ export default {
     }),
 
     isValid() {
+      if(this.model.is_custom){
+        return this.userNameError.length == 0 
+        && this.namaError.length == 0 
+        && this.imageError.length == 0;
+      }
       return this.namaError.length == 0;
+    },
+
+    imageError() {
+      const errors = [];
+      if (!this.$v.model.image_name.$dirty) return errors;
+      !this.$v.model.image_name.required && errors.push("Gambar harus diisi.");
+      return errors;
     },
 
     namaError() {
       const errors = [];
       if (!this.$v.model.nama.$dirty) return errors;
-      !this.$v.model.nama.required && errors.push("Nama harus diisi.");
+      !this.$v.model.nama.required && errors.push("Nama jabatan harus diisi.");
+      return errors;
+    },
+
+    userNameError() {
+      const errors = [];
+      if (!this.$v.model.user_name.$dirty) return errors;
+      !this.$v.model.user_name.required && errors.push("Nama Pejabat harus diisi.");
       return errors;
     },
   },
@@ -133,10 +207,15 @@ export default {
     save(content) {
       this.$v.$touch();
       let self = this;
+      console.log(self.isValid,this.userNameError.length == 0 , this.namaError.length == 0 , this.imageError.length == 0 );
       if (!self.isRequest && self.isValid) {
         const data = {
           nama: self.model.nama,
           user_id: self.model.user,
+          user_name: self.model.user_name,
+          is_custom: self.model.is_custom,
+          image_name: self.model.image_name,
+          image_file: self.model.image_url,
         };
         self.isRequest = true;
         self.$store
@@ -158,6 +237,35 @@ export default {
       }
     },
 
+    pickFile() {
+      this.$refs.imageUpload.click();
+    },
+
+    onFilePicked(e) {
+      let files = null;
+      files = e.target.files;
+
+      if (files[0] !== undefined) {
+        this.model.image_name = files[0].name;
+
+        if (this.model.image_name.lastIndexOf(".") <= 0) {
+          return;
+        }
+        const fr = new FileReader();
+
+        fr.readAsDataURL(files[0]);
+
+        fr.addEventListener("load", () => {
+          this.model.image_url = fr.result;
+          this.model.image_file = files[0];
+        });
+      } else {
+        this.model.image_url = "";
+        this.model.image_file = "";
+        this.model.image_name = "";
+      }
+    },
+
     search(e) {
       if (!this.searchTerm) {
         this.users = this.usersCopy;
@@ -169,19 +277,14 @@ export default {
       });
     },
 
-    searchFruits(e) {
-      if (!this.searchTerm) {
-        this.fruits = this.fruitsCopy;
-      }
-
-      this.fruits = this.fruitsCopy.filter((fruit) => {
-        // return fruit.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-      });
-    },
-
     clearForm() {
       this.$v.$reset();
       this.model.nama = "";
+      this.model.image_file = "";
+      this.model.image_name = "";
+      this.model.image_url = "";
+      this.model.user_name = "";
+      this.model.is_custom = "";
     },
 
     close() {

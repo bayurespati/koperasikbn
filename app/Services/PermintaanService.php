@@ -25,7 +25,8 @@ class PermintaanService
                 'dokumen_1_name',
                 'dokumen_2_name',
                 'dokumen_3_name',
-                'lama_angsuran'
+                'lama_angsuran',
+                'phone'
             );
             $model = Permintaan::make($paylod);
             if (($request->jenis_pengajuan_id == 1  || $request->jenis_pengajuan_id == 4) && $request->is_online) {
@@ -37,6 +38,11 @@ class PermintaanService
                 $model->dokumen_2_name = $request->dokumen_2_name;
             }
             $model->save();
+
+            $user = User::where('id', $request->user_id)->first();
+            $user->phone = $request->phone;
+            $user->update();
+
             return true;
         } catch (\Exception $e) {
             dd($e->getMessage());
@@ -88,7 +94,7 @@ class PermintaanService
                 'user_id.required'           => "User ID can't be empty",
                 'nominal.required'           => "Nominal (Rp) can't be empty",
                 'nominal.numeric'            => "Nominal (Rp) have to be a numerical value",
-                'nominal.min'                => "The available lowest Nominal (Rp) value is 100000",
+                'nominal.min'                => "The available lowest Nominal (Rp) value is 100.000",
             ] : [
                 'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
                 'jenis_pengajuan.required'   => 'Jenis Pengajuan tidak boleh kosong',
@@ -96,7 +102,7 @@ class PermintaanService
                 'user_id.required'           => 'User ID tidak boleh kosong',
                 'nominal.required'           => 'Nominal (Rp) tidak boleh kosong',
                 'nominal.numeric'            => 'Nominal (Rp) harus angka',
-                'nominal.min'                => 'Nominal paling kecil 100000',
+                'nominal.min'                => 'Nominal paling kecil 100.000',
             ];
 
             //if is online
@@ -141,13 +147,14 @@ class PermintaanService
         }
 
         if ($request->jenis_pengajuan_id == 3) {
-            $max_nominal = $user->tipe == "C" ? "500000" : "2000000";
+            $max_nominal = $user->tipe == "C" ? "500.000" : "200.0000";
+            $max_nominal_validasi = $user->tipe == "C" ? "500000" : "2000000";
 
             $validate = [
                 'jenis_pengajuan_id' => 'required',
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
-                'nominal'            => 'required|numeric|max:' . $max_nominal,
+                'nominal'            => 'required|numeric|max:' . $max_nominal_validasi,
                 'lama_angsuran'      => 'required',
                 'keperluan'          => 'required',
             ];
@@ -174,13 +181,14 @@ class PermintaanService
         }
 
         if ($request->jenis_pengajuan_id == 4) {
-            $max_nominal = $user->tipe == "C" ? "500000" : "2000000";
+            // $max_nominal = $user->tipe == "C" ? "500.000" : "200.0000";
 
             $validate = [
                 'jenis_pengajuan_id' => 'required',
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
-                'nominal'            => 'required|numeric|max:' . $max_nominal,
+                // 'nominal'            => 'required|numeric|max:' . $max_nominal,
+                'nominal'            => 'required|numeric',
                 'lama_angsuran'      => 'required',
                 'keperluan'          => 'required',
                 'is_online'          => 'required',
@@ -195,7 +203,7 @@ class PermintaanService
                 'user_id.required'           => "User ID can't be empty",
                 'nominal.required'           => "Nominal (Rp) can't be empty",
                 'nominal.numeric'            => "Nominal (Rp) have to be a numerical value",
-                'nominal.max'                => 'The available highest Nominal (Rp) value is ' . $max_nominal,
+                // 'nominal.max'                => 'The available highest Nominal (Rp) value is ' . $max_nominal,
             ] : [
                 'tanggal_pengajuan.required' => 'Tanggal Pengajuan tidak boleh kosong',
                 'jenis_pengajuan.required'   => 'Jenis Pengajuan tidak boleh kosong',
@@ -205,7 +213,7 @@ class PermintaanService
                 'user_id.required'           => 'User ID tidak boleh kosong',
                 'nominal.required'           => 'Nominal (Rp) tidak boleh kosong',
                 'nominal.numeric'            => 'Nominal (Rp) harus angka',
-                'nominal.max'                => 'Nominal (Rp) paling besar ' . $max_nominal,
+                // 'nominal.max'                => 'Nominal (Rp) paling besar ' . $max_nominal,
             ];
 
             //if is online

@@ -30,6 +30,8 @@ class CreatePermintaanTable extends Migration
             $table->text('keterangan')->nullable();
             $table->text('keperluan')->nullable();
             $table->integer('lama_angsuran')->nullable();
+            $table->integer('nilai_angsuran')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

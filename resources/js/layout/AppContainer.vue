@@ -44,9 +44,7 @@
                                 link
                             >
                                 <v-list-item-icon></v-list-item-icon>
-                                <v-list-item-title
-                                    v-text="child.text"
-                                ></v-list-item-title>
+                                <v-list-item-title v-text="child.text"></v-list-item-title>
                             </v-list-item>
                         </v-list-group>
 
@@ -278,27 +276,27 @@ export default {
                     },
                 ],
             },
-            {
-                "icon-alt": "mdi-chevron-down",
-                parent_icon: "mdi-18px mdi-bank",
-                text: "Simpan & Pinjam",
-                model: false,
-                permission: [1, 2],
-                children: [
-                    {
-                        icon: "mdi-18px mdi-home",
-                        text: "Laporan",
-                        link: "/terbaru",
-                        permission: [1, 2],
-                    },
-                    {
-                        icon: "mdi-18px mdi-home",
-                        text: "Permintaan",
-                        link: "/permintaan",
-                        permission: [1, 2],
-                    },
-                ],
-            },
+            // {
+            //     "icon-alt": "mdi-chevron-down",
+            //     parent_icon: "mdi-18px mdi-bank",
+            //     text: "Simpan & Pinjam",
+            //     model: false,
+            //     permission: [1, 2],
+            //     children: [
+            //         {
+            //             icon: "mdi-18px mdi-home",
+            //             text: "Laporan",
+            //             link: "/terbaru",
+            //             permission: [1, 2],
+            //         },
+            //         {
+            //             icon: "mdi-18px mdi-home",
+            //             text: "Permintaan",
+            //             link: "/permintaan",
+            //             permission: [1, 2],
+            //         },
+            //     ],
+            // },
             {
                 icon: "mdi-18px mdi-calendar-text",
                 text: "Kalender",

@@ -23,19 +23,34 @@ class JabatanKoperasiRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
-            'user_id' => 'required|unique:jabatan_koperasi,user_id,' . $this->id,
-        ];
+        if ($this->is_custom)
+            return [
+                'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
+                'user_name' => 'required',
+                'image_name' => 'required',
+            ];
+        else
+            return [
+                'nama' => 'required|unique:jabatan_koperasi,nama,' . $this->id,
+                'user_id' => 'required|unique:jabatan_koperasi,user_id,' . $this->id,
+            ];
     }
 
     public function messages()
     {
-        return [
-            'nama.required' => 'Nama harus diisi',
-            'nama.unique' => 'Nama sudah ada',
-            'user_id.required' => 'User harus dipilih',
-            'user_id.unique' => 'User sudah ada memiliki jabatan'
-        ];
+        if ($this->is_custom)
+            return [
+                'nama.required' => 'Nama jabatan harus diisi',
+                'nama.unique' => 'Nama jabatan sudah ada',
+                'user_name' => 'Nama pejabat harus diisi',
+                'image_name' => 'Gambar harus diisi'
+            ];
+        else
+            return [
+                'nama.required' => 'Nama harus diisi',
+                'nama.unique' => 'Nama sudah ada',
+                'user_id.required' => 'User harus dipilih',
+                'user_id.unique' => 'User sudah ada memiliki jabatan'
+            ];
     }
 }

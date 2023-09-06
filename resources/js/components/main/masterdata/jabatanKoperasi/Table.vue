@@ -67,6 +67,11 @@
       :items-per-page="5"
       :footer-props="footerProps"
     >
+      <template v-slot:[`item.user`]="{ item }">
+        <div class="p-2">
+          {{ item.is_custom ? item.user_name : (item.user == null ? "" : item.user.nama)  }}
+        </div>
+      </template>
       <template v-slot:[`item.action`]="{ item }">
         <v-icon color="orange" small class="mr-2" @click="edit(item)">
           mdi-pencil-box
@@ -107,7 +112,7 @@ export default {
           text: "User",
           align: "left",
           sortable: false,
-          value: "user.nama",
+          value: "user",
         },
         { text: "Actions", value: "action", sortable: false },
       ],
