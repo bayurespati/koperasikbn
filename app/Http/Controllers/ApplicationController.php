@@ -65,16 +65,21 @@ class ApplicationController extends Controller
         $pengawas = [];
         $pengurus = [];
         $pengelola = [];
+        $staff = [];
 
         foreach ($data as $datum) {
-            if (str_contains(strtolower($datum['nama']), 'pembina')) {
-                array_push($pembina, $datum);
-            } else if (str_contains(strtolower($datum['nama']), 'pengawas')) {
-                array_push($pengawas, $datum);
-            } else if (str_contains(strtolower($datum['nama']), 'pengurus')) {
-                array_push($pengurus, $datum);
-            } else if (str_contains(strtolower($datum['nama']), 'pengelola')) {
-                array_push($pengelola, $datum);
+            if ($datum->user_id !== null || $datum->is_custom !== null) {
+                if (str_contains(strtolower($datum['nama']), 'pembina')) {
+                    array_push($pembina, $datum);
+                } else if (str_contains(strtolower($datum['nama']), 'pengawas')) {
+                    array_push($pengawas, $datum);
+                } else if (str_contains(strtolower($datum['nama']), 'pengurus')) {
+                    array_push($pengurus, $datum);
+                } else if (str_contains(strtolower($datum['nama']), 'pengelola')) {
+                    array_push($pengelola, $datum);
+                } else {
+                    array_push($staff, $datum);
+                }
             }
         }
 
@@ -83,6 +88,7 @@ class ApplicationController extends Controller
         array_push($management, $pengawas);
         array_push($management, $pengurus);
         array_push($management, $pengelola);
+        array_push($management, $staff);
 
         return view('profile.our-team', ['data' => $management]);
     }
