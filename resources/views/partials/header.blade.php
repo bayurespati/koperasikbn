@@ -196,19 +196,22 @@
                     @if(Auth::user())
                     @if(Auth::user()->role_id !== 3)
                     <a class="btn btn--primary" href="{{ route('login') }}">
-                        Dasbor
+                        <p class="m-0 p-0" style="color: white;"><b>Dasbor</b></p>
                     </a>
                     @endif
                     <a class="btn btn--primary" onclick="logoutFunc()" href="#">
-                        Keluar
+                        <p class="m-0 p-0" style="color: white;"><b>Keluar</b></p>
                     </a>
                     @else
                     <a class="btn btn--primary" href="{{ route('login') }}">
-                        Masuk
+                        <p class="m-0 p-0" style="color: white;"><b>Masuk</b></p>
                     </a>
                     @endif
                     <a class="btn btn--primary" href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">
-                        <i class="fa fa-shopping-cart m-0"></i>
+                        <div>
+                            <i class="fa fa-shopping-cart m-0 d-lg-block d-md-none d-sm-none"></i>
+                            <p class="m-0 p-0" style="color: white; font-size: 12px;"><b>PADI UMKM</b></p>
+                        </div>
                     </a>
                 </div>
                 @endif

@@ -222,7 +222,7 @@
                             2. Atas Pinjaman dan Kewajiban tersebut di atas saya bersedia dipotong gaji setiap bulannya sesuai angsuran pinjaman maupun kewajiban yang ada.
                         </h5>
                         <h5 style="font-weight: normal;" align="justify">
-                            3. Selama fasilitas ini berjalan saya tidak akan mengundurkan diri sebagai karyawan PT. (Persero) KBN dan Anggota Koperasi dan Apabila saya mengundurkan diri/menjalankan MPP/Pensiun/PHK karena Wanprestasi maka saya bersedia melakukan pemotongan/pelunasan atas seluruh kewajiban pinjaman dengan hak-hak yang ada di Koperasi Karyawan/PT. Kawasan Berikat Nusantara (Persero).
+                            3. Selama fasilitas ini berjalan saya tidak akan mengundurkan diri sebagai karyawan PT. (Persero) KBN//Karyawan Kopkar KBN dan Anggota Koperasi dan Apabila saya mengundurkan diri/menjalankan MPP/Pensiun/PHK karena Wanprestasi maka saya bersedia melakukan pemotongan/pelunasan atas seluruh kewajiban pinjaman dengan hak-hak yang ada di Koperasi Karyawan/PT. Kawasan Berikat Nusantara (Persero).
                         </h5>
                     </div>
                 </div>

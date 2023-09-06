@@ -129,7 +129,11 @@
             <div class="row">
                 @if(Cookie::get('current_lang') == 'eng')
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
+                    @if($data->lastUpdated == 'Belum ada data')
                     <h5 style="margin-bottom: 10px;">Latest Salary Cuts</h5>
+                    @else
+                    <h5 style="margin-bottom: 10px;">Latest Salary Cuts ({{ $data->bulan }} / {{$data->tahun}})</h5>
+                    @endif
                     <a href="/download/saveloan_pdf/eng" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 176px; position:absolute; right: 13px;" id="download-report">
                         Download Report
                     </a>
@@ -158,7 +162,11 @@
                 </div>
                 @else
                 <div class="col-12 d-flex justify-content-center" style="position: relative;">
-                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi Terkini</h5>
+                    @if($data->lastUpdated == 'Belum ada data')
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
+                    @else
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi {{ $data->bulan }} / {{ $data->tahun }}</h5>
+                    @endif
                     <a href="/download/saveloan_pdf/id" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan
                     </a>
@@ -286,7 +294,7 @@
                                 <form class="savingForm">
                                     <input type="hidden" id="saving-id" name="saving-id" required="" value="{{ $data->id }}">
                                     <div class="row">
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-12">
                                             <label for="saving-date">
                                                 @if(Cookie::get('current_lang') == 'eng')
                                                 Date of Filling
@@ -305,6 +313,16 @@
                                                 @endif
                                             </label>
                                             <input class="form-control" type="text" id="saving-name" name="saving-name" required="" value="{{ $data->nama }}" disabled />
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="phone-number">
+                                                @if(Cookie::get('current_lang') == 'eng')
+                                                Phone Number
+                                                @else
+                                                Nomor Telepon
+                                                @endif
+                                            </label>
+                                            <input class="form-control" type="text" id="phone-number" name="phone-number" required="" value=""/>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <label for="saving-member-id">
@@ -533,11 +551,11 @@
 
                         let d = date;
                         d = [
-                            '' + d.getDate(),
-                            '' + (d.getMonth() + 1),
+                            ('' + d.getDate()).length == 1 ? '0' + d.getDate() : d.getDate(),
+                            ('' + (d.getMonth() + 1)).length ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1),
                             '' + d.getFullYear(),
-                            '' + d.getHours(),
-                            '' + d.getMinutes()
+                            ('' + d.getHours()).length == 1 ? '0' + d.getHours() : d.getHours(),
+                            ('' + d.getMinutes()).length == 1 ? '0' + d.getMinutes() : d.getMinutes()
                         ]; // take last 2 digits of every component
 
                         // join the components into date
@@ -579,23 +597,25 @@
                 }, {
                     targets: [5],
                     render: function(data) {
-                        if (data.jenis_pengajuan_id == 3) {
-                            // insidentil
-                            return `
+                        if (data.status == 4 || data.status == '4') {
+                            if (data.jenis_pengajuan_id == 3) {
+                                // insidentil
+                                return `
                             <a href="/download/pinjaman-insidentil?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
-                        } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
-                            // jangka pp
-                            return `
+                            } else if (data.jenis_pengajuan_id == 4 || data.jenis_pengajuan_id == 2) {
+                                // jangka pp
+                                return `
                             <a href="/download/pinjaman-jangka-pp?id=` + data.id + `" target="_blank" type="button" class="btn btn-sm btn-primary py-1" name="download-request" style="width: auto; height: auto;">
                                 <span style="font-weight: normal; font-size: 12px;">download</span>
                             </a>
                             `;
-                        } else {
-                            return '-';
+                            }
                         }
+
+                        return '-';
                     }
                 },
                 {
@@ -705,6 +725,7 @@
                 _token: "{{ csrf_token() }}",
                 user_id: $('#saving-id').val(),
                 jenis_pengajuan_id: 1,
+                phone: $('#phone-number').val(),
                 tanggal_pengajuan: dateFormatted,
                 nominal: $('#saving-amount').cleanVal(),
                 is_online: $('#service-type').val(),
@@ -805,6 +826,7 @@
         }, 1000);
 
         function emptyForm() {
+            $('#phone-number').val('');
             $('#saving-amount').val('');
             $('#service-type').val('-').trigger('change');
             $('#saving-file').val(null);
