@@ -17,10 +17,10 @@ class CreateJabatanKoperasiTable extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->bigInteger('user_id')->nullable();
-            $table->boolean('is_custom')->unique();
-            $table->string('image_name')->unique();
-            $table->string('image_link')->unique();
-            $table->string('use_name')->unique();
+            $table->boolean('is_custom')->nullable();
+            $table->string('image_name')->nullable();
+            $table->string('image_link')->nullable();
+            $table->string('user_name')->nullable();
             $table->timestamps();
         });
     }
