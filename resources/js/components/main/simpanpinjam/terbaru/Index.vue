@@ -173,12 +173,12 @@
                                     small
                                     color="success"
                                     @click="download()"
-                                    :disabled="isRequest"
+                                    :disabled="isDownload"
                                 >
                                     {{
-                                        isRequest
+                                        isDownload
                                             ? "File sedang di download mohon tunggu"
-                                            : "DOWNLOADS"
+                                            : "DOWNLOAD"
                                     }}
                                 </v-btn>
                             </v-col>
@@ -225,6 +225,7 @@ export default {
             status: "table",
             user: "",
             isRequest: false,
+            isDownload: false,
             jenis: [
                 { nama: "Simpan Wajib", id: 1 },
                 { nama: "Simpana Sukrela", id: 2 },
@@ -267,17 +268,34 @@ export default {
         },
 
         download() {
-            console.log(this.model.periode);
-            const link = document.createElement("a");
-            link.href =
-                "/dashboard/simpan-pinjam/download?periode=" +
-                this.model.periode +
-                "&tanggal=" +
-                this.model.tanggal +
-                "&jenis=" +
-                this.model.jenis;
-            link.download = "LAPORAN.PDF";
-            link.click();
+            let self = this;
+            self.isDownload = true;
+            console.log(self.isDownload);
+            axios({
+                url:
+                    "/dashboard/simpan-pinjam/download?periode=" +
+                    this.model.periode +
+                    "&tanggal=" +
+                    this.model.tanggal +
+                    "&jenis=" +
+                    this.model.jenis,
+                method: "GET",
+                responseType: "arraybuffer",
+            }).then((response) => {
+                self.isDownload = false;
+                self.model.jenis = null;
+                self.model.periode = null;
+                self.model.tanggal = null;
+                self.isDownload = false;
+                let blob = new Blob([response.data], {
+                    type: "application/pdf",
+                });
+                let link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "laporan.pdf";
+                link.click();
+            });
+            console.log(self.isDownload);
         },
 
         save() {
