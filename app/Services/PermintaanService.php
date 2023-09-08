@@ -123,7 +123,7 @@ class PermintaanService
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
                 'nominal'            => 'required|numeric',
-                'lama_angsuran'      => 'required',
+                'lama_angsuran'      => 'required|numeric|min:1|max:12',
                 'keperluan'          => 'required',
             ];
 
@@ -155,7 +155,7 @@ class PermintaanService
                 'tanggal_pengajuan'  => 'required',
                 'user_id'            => 'required',
                 'nominal'            => 'required|numeric|max:' . $max_nominal_validasi,
-                'lama_angsuran'      => 'required',
+                'lama_angsuran'      => 'required|mix:1',
                 'keperluan'          => 'required',
             ];
 
@@ -189,7 +189,7 @@ class PermintaanService
                 'user_id'            => 'required',
                 // 'nominal'            => 'required|numeric|max:' . $max_nominal,
                 'nominal'            => 'required|numeric',
-                'lama_angsuran'      => 'required',
+                'lama_angsuran'      => 'required|numeric|min:1|max:120',
                 'keperluan'          => 'required',
                 'is_online'          => 'required',
             ];
