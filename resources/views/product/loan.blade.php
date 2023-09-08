@@ -167,7 +167,7 @@
                     @if($data->lastUpdated == 'Belum ada data')
                     <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi</h5>
                     @else
-                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi {{ $data->bulan }} / {{ $data->tahun }}</h5>
+                    <h5 style="margin-bottom: 10px;">Rincian Potongan Koperasi {{ $data->bulan_ind }} / {{ $data->tahun }}</h5>
                     @endif
                     <a href="/download/saveloan_pdf/id" target=”_blank” class="btn btn-primary d-flex justify-content-center" style="height: 30px; width: 172px; position:absolute; right: 13px;" id="download-report">
                         Unduh Laporan

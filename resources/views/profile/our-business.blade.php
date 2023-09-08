@@ -122,7 +122,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('cleaning-service') }}"></a><img src="/assets/images/projects/modern/2.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('cleaning-service') }}"></a><img src="/assets/images/cleaning-service.jpeg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -163,7 +163,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('driver') }}"></a><img src="/assets/images/projects/modern/3.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('driver') }}"></a><img src="/assets/images/sewa-kendaraan.jpeg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -243,7 +243,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('stationary') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('stationary') }}"></a><img src="/assets/images/alat-tulis-kantor.jpeg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">

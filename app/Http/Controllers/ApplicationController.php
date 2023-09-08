@@ -117,6 +117,7 @@ class ApplicationController extends Controller
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
                 $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['bulan_ind'] = $this->getMonth($data['lastUpdated']->format('F'));
                 $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
@@ -146,6 +147,7 @@ class ApplicationController extends Controller
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
                 $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['bulan_ind'] = $this->getMonth($data['lastUpdated']->format('F'));
                 $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
@@ -183,6 +185,7 @@ class ApplicationController extends Controller
                 $data['totalSaldo'] = $data['totalSaldo'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
                 $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['bulan_ind'] = $this->getMonth($data['lastUpdated']->format('F'));
                 $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
@@ -193,6 +196,7 @@ class ApplicationController extends Controller
                 $data['totalSaldoPinjam'] = $data['totalSaldoPinjam'] + $datum->total;
                 $data['lastUpdated'] = $datum->created_at;
                 $data['bulan'] = $data['lastUpdated']->format('F');
+                $data['bulan_ind'] = $this->getMonth($data['lastUpdated']->format('F'));
                 $data['tahun'] = $data['lastUpdated']->format('Y');
             }
         }
@@ -382,5 +386,47 @@ class ApplicationController extends Controller
     public function fontAwesomePage()
     {
         return view('fontawesome');
+    }
+
+    private function getMonth($month)
+    {
+        switch ($month) {
+            case  'January':
+                return  "Januari";
+                break;
+            case  'February':
+                return  "Februari";
+                break;
+            case  'March':
+                return  "Maret";
+                break;
+            case  'April':
+                return  "April";
+                break;
+            case  'May':
+                return  "Mei";
+                break;
+            case  'June':
+                return  "Juni";
+                break;
+            case  'July':
+                return  "Juli";
+                break;
+            case  'August':
+                return  "Agustus";
+                break;
+            case  'September':
+                return  "September";
+                break;
+            case  'October':
+                return  "Oktober";
+                break;
+            case  'November':
+                return  "November";
+                break;
+            case  'December':
+                return  "Desember";
+                break;
+        }
     }
 }
