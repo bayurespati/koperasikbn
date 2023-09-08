@@ -120,7 +120,9 @@
                                     @if($datum->is_custom == 1)
                                     <h6>{{ $datum->nama }}</h6>
                                     @else
+                                    @if($datum->user->jabatanKbn !== null)
                                     <h6 class="mb-2">{{ $datum->user->jabatanKbn->nama }}</h6>
+                                    @endif
                                     <h6>{{ $datum->nama }}</h6>
                                     @endif
                                 </div>
@@ -172,7 +174,9 @@
                                     @if($datum->is_custom == 1)
                                     <h6>{{ $datum->nama }}</h6>
                                     @else
+                                    @if($datum->user->jabatanKbn !== null)
                                     <h6 class="mb-2">{{ $datum->user->jabatanKbn->nama }}</h6>
+                                    @endif
                                     <h6>{{ $datum->nama }}</h6>
                                     @endif
                                 </div>
@@ -224,7 +228,9 @@
                                     @if($datum->is_custom == 1)
                                     <h6>{{ $datum->nama }}</h6>
                                     @else
+                                    @if($datum->user->jabatanKbn !== null)
                                     <h6 class="mb-2">{{ $datum->user->jabatanKbn->nama }}</h6>
+                                    @endif
                                     <h6>{{ $datum->nama }}</h6>
                                     @endif
                                 </div>
@@ -276,7 +282,9 @@
                                     @if($datum->is_custom == 1)
                                     <h6>{{ $datum->nama }}</h6>
                                     @else
+                                    @if($datum->user->jabatanKbn !== null)
                                     <h6 class="mb-2">{{ $datum->user->jabatanKbn->nama }}</h6>
+                                    @endif
                                     <h6>{{ $datum->nama }}</h6>
                                     @endif
                                 </div>
@@ -328,7 +336,9 @@
                                     @if($datum->is_custom == 1)
                                     <h6>{{ $datum->nama }}</h6>
                                     @else
+                                    @if($datum->user->jabatanKbn !== null)
                                     <h6 class="mb-2">{{ $datum->user->jabatanKbn->nama }}</h6>
+                                    @endif
                                     <h6>{{ $datum->nama }}</h6>
                                     @endif
                                 </div>
