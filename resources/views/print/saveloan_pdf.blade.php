@@ -90,7 +90,7 @@
                         @if($data->lang == 'eng')
                         Latest Savings and Loans Balance {{ $data->bulan }} / {{ $data->tahun }}
                         @else
-                        Slip Potongan Simpan & Pinjam {{ $data->bulan }} / {{ $data->tahun }}
+                        Slip Potongan Simpan & Pinjam {{ $data->bulan_ind }} / {{ $data->tahun }}
                         @endif
                     </h5>
                 </div>
