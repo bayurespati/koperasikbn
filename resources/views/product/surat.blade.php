@@ -1,7 +1,7 @@
 @extends('layouts.master_fe')
 
 @push('title')
-<title>Koperasi KBN - Produk Kami - Minimarket</title>
+<title>Koperasi KBN - Produk Kami - Pengurusan Jasa Surat Kendaraan</title>
 @endpush
 
 @push('additional_css')
@@ -43,15 +43,16 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Canteen and Hawker Management</h1>
+                            <h1 class="title-heading">Supply Office Supplies</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Management of canteens and hawkers in
-                                Archipelagic Bonded Zone both within the Zone
-                                Cakung and in the Marunda Area.
+                                Supply of Office Stationery and Prints
+                                for PT. KBN (Persero) and Subsidiary PT.
+                                KBN (Persero) and investors who are in
+                                PT. Nusantara Bonded Zone (Persero).
                             </p>
                         </div>
                     </div>
@@ -60,23 +61,23 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">MINIMARKET</h1>
+                            <h1 class="title-heading">PENGURUSAN JASA SURAT KENDARAAN</h1>                           
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Sebagai sokoguru ekonomi bangsa, Koperasi Karyawan PT. KBN 
-                                menyediakan mini market untuk memenuhi kebutuhan sembako, 
-                                pangan dan lain-lain untuk anggota koperasi maupun masyarakat umum 
-                                dan harga yang bersaing dengan retail-retail serupa sehingga tepat 
-                                menjadi solusi kebutuhan rumah tangga anda.
+                                Terbatasnya waktu anda dalam mengurus surat-surat kendaraan baik untuk 
+                                pribadi maupun untuk perusahaan anda sudah tidak menajdi masalah. Cukup 
+                                menghubungi Koperasi Karyawan PT. KBN, kami siap membantu anda mengurus 
+                                surat-surat kendaraan seperti STNK, KIER dan Sertifikat Uji Emisi ditambah 
+                                dengan sistem pembayaran yang fleksibel di Koperasi Karyawan PT. KBN
                             </p>
                         </div>
                     </div>
                 </div>
                 @endif
-
                 <!-- End .row-->
             </div>
         </div>
@@ -86,11 +87,11 @@
                     @if(Cookie::get('current_lang') == 'eng')
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Our Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Canteen and Hawker Management</li>
+                    <li class="breadcrumb-item active" aria-current="page">Supply for office supplies</li>
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Minimarket</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pengurusan Jasa Surat Kendaraan</li>
                     @endif
                 </ol>
             </div>
@@ -108,10 +109,10 @@
             <div class="row">
                 <div class="col-12 col-lg-4 order-1">
                     <!--
-                    ============================
-                    Services Sidebar
-                    ============================
-                    -->
+              ============================
+              Services Sidebar
+              ============================
+              -->
                     <div class="sidebar sidebar-service">
                         <!-- Services-->
                         @if(Cookie::get('current_lang') == 'eng')
@@ -121,12 +122,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li class="custom-active-widget"><a href="#"> <span>Canteen and Hawker Management</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Workforce Management</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Service Vehicle Rentals</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Office Supplies</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>                                                                       
                                 </ul>
                             </div>
                         </div>
@@ -137,15 +140,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li class="custom-active-widget"><a href="#"> <span>Minimarket</span></a></li>
+                                <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
                                     <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
-                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
-                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
-                                </ul>
+                                    <li class="custom-active-widget"><a href="#"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>                                                                       
                             </div>
                         </div>
                         @endif
@@ -203,22 +205,22 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">overview</h5>
                                 <p class="entry-desc">
-                                    As a supporting facility in the area to be able to help provide the food and drink needs of tenants, the majority of which are labor-intensive companies, both in the Marunda area and in the Cakung area.
-                                </p>
-                                <p class="entry-desc">
-                                    A well-managed canteen will provide healthy, nutritious food, paying attention to hygiene and sanitation aspects for health, because many workers spend part of their time in the area so the availability of food that is healthy and safe for consumption is very important.
+                                    Started as a Supporting Business providing Office Stationery for PT. Kawasan Berikat Nusantara (Persero), until now Kopkar KBN is able to provide ATK needs for Tenants in the Area and outside the Area by synchronizing the PADI Platform which is the Government's Online Shop as a sales base for ATK Kopkar KBN products.
                                 </p>
                                 <p class="entry-desc" style="margin-bottom: 0;">
-                                    Types of Canteens & Peddlers managed:
+                                    How to Purchase:
                                 </p>
                                 <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
                                     <li>
-                                        Food Court
+                                        Offline: Come directly to the KBN Kopkar Office
                                     </li>
                                     <li>
-                                        Los/Lapak Traders
+                                        Online : Through the Government-Owned Online Shop Platform, namely&nbsp;<span><a href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">PADI UMKM</a></span>
                                     </li>
                                 </ul>
+                                <p class="entry-desc">
+                                    We also serve companies that are interested in collaborating with Drop Point with a monthly billing system.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -228,22 +230,35 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">gambaran</h5>
                                 <p class="entry-desc">
-                                    Sebagai Fasilitas penunjang didalam Kawasan untuk dapat membantu menyediakan kebutuhan Makan dan Minum dari Tenan-Tenan yang mayoritas perusahaan padat karya baik di Kawasan Marunda maupun di Kawasan Cakung.
-                                </p>
-                                <p class="entry-desc">
-                                    Kantin yang dikelola baik akan menyediakan makanan yang sehat bergizi, memperhatikan aspek higienitas serta sanitasinya untuk kesehatan, karena banyak tenaga kerja menghabiskan sebagian waktu didalam Kawasan sehingga tersedianya pangan yang sehat dan aman untuk dikonsumsi menjadi sangat penting.
+                                    Jasa pengurusan surat kendaraan adalah layanan yang menyediakan bantuan 
+                                    dalam proses administratif terkait dokumen dan perizinan kendaraan 
+                                    bermotor. Hal ini termasuk dalam mengurus berbagai jenis surat kendaraan
+                                    seperti Surat Tanda Nomor Kendaraan (STNK), Buku Registrasi Kendaraan
+                                     Bermotor (BPKB), dan dokumen terkait lainnya
                                 </p>
                                 <p class="entry-desc" style="margin-bottom: 0;">
-                                    Jenis Kantin & Pedagang Asongan yang dikelola:
+                                    Jasa pengurusan surat kendaraan yang kami layanani adalah:
                                 </p>
                                 <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
                                     <li>
-                                        Food Court
+                                        Perpanjangan STNK
+                                    </li>  
+                                    <li>
+                                        Mutasi Kendaraan
                                     </li>
                                     <li>
-                                        Pedagang Los/Lapak
+                                        Penggantian STNK atau BPKB yang Hilang
+                                    </li>
+                                    <li>
+                                        Perubahan Data Kendaraan
+                                    </li>
+                                    <li>
+                                        Pembayaran Pajak Kendaraan
                                     </li>
                                 </ul>
+                                <p class="entry-desc">
+                                    Kami juga melayani pengurusan dokumen - dokunen kendaraan lainnya.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -273,6 +288,7 @@
                 </div>
                 <!-- End .col-lg-8-->
             </div>
+            <!-- End .row-->
         </div>
         <!-- End .container-->
     </section>

@@ -289,11 +289,11 @@
                             <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('minimart') }}">Pengelolaan Kantin dan Pedagang Asongan</a></h4>
+                            <h4><a href="{{ route('minimart') }}">Minimarket</a></h4>
                             <p>
-                                Pengelolaan Kantin dan Pedagang Asongan dalam
-                                Kawasan Berikat Nusantara baik dalam Kawasan
-                                Cakung maupun dalam Kawasan Marunda.
+                                Sebagai sokoguru ekonomi bangsa, Koperasi Karyawan PT. KBN menyediakan mini market untuk 
+                                memenuhi kebutuhan sembako, pangan dan lain-lain untuk anggota koperasi maupun masyarakat umum 
+                                dan harga yang bersaing dengan retail-retail serupa. 
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('minimart') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -328,12 +328,10 @@
                             <img class="custom_svg" src="assets/images/4_komersial.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('cleaning-service') }}">Pengelolaan Tenaga Kerja Kebersihan</a></h4>
+                            <h4><a href="{{ route('cleaning-service') }}">Cleaning Service</a></h4>
                             <p>
-                                Pengelolaan Tenaga Kerja Kebersihan (Cleaning
-                                Service, Office Boy, Penyapuan Jalan dan lain-lain)
-                                yang terutama ditempatkan di lingkungan PT.
-                                Kawasan Berikat Nusantara (Persero).
+                                Koperasi telah lebih dari 25 tahun menjadi partner PT. Kawasan Berikat 
+                                Nusantara dan Anak Perusahaan PT. KBN
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('cleaning-service') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -368,12 +366,10 @@
                             <img class="custom_svg" src="assets/images/9_surat_kendaraan.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('driver') }}">Penyewaan Kendaraan Dinas</a></h4>
+                            <h4><a href="{{ route('driver') }}">Driver</a></h4>
                             <p>
-                                Penyewaan Kendaraan Dinas untuk kebutuhan PT.
-                                Kawasan Berikat Nusantara (Persero) dan untuk
-                                kebutuhan Pegawai di Lingkungan PT. Kawasan
-                                Berikat Nusantara (Persero).
+                                Kami menyediakan pengemudi profesional baik untuk  pribadi atau untuk dinas 
+                                perusahaan sesuai dengan kebutuhan anda.
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('driver') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -407,11 +403,10 @@
                             <img class="custom_svg" src="assets/images/3_bisnis.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('administration-staff') }}">Ticketing dan Reservasi Hotel</a></h4>
+                            <h4><a href="{{ route('administration-staff') }}">Staf Administrasi </a></h4>
                             <p>
-                                Ticketing dan Reservasi Hotel untuk membantu
-                                perjalanan dinas terutama bagi Pegawai PT.
-                                Kawasan Berikat Nusantara (Persero).
+                                Kami siapkan untuk membantu perusahaan anda agar dapat bekerja lebih efektif 
+                                dalam kinerjanya di perusahaan anda.
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('administration-staff') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -446,12 +441,11 @@
                             <img class="custom_svg" src="assets/images/7_atk.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('stationary') }}">Supply Kebutuhan Alat Tulis Kantor</a></h4>
+                            <h4><a href="{{ route('stationary') }}">ATK (Alat Tulis Kantor)</a></h4>
                             <p>
-                                Supply Kebutuhan Alat Tulis Kantor dan Cetakan
-                                untuk PT. KBN (Persero) dan Anak Perusahaan PT.
-                                KBN (Persero) serta investor-investor yang ada dalam
-                                lingkungan PT. Kawasan Berikat Nusantara (Persero).
+                                Supply dan penyediaan kebutuhan alat tulis kantor di PT. Kawasan Berikat Nusantara, 
+                                Anak Perusahaan dan vendor-vendor lainnya di sekitar Kawasan Berikat Nusantara baik 
+                                di Kawasan Cakung maupun di Kawasan Marunda.
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('stationary') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -485,11 +479,10 @@
                             <img class="custom_svg" src="assets/images/6_mini_market.svg" alt="" style="width: 26%; height: 26%;">
                         </div>
                         <div class="service-content">
-                            <h4><a href="{{ route('drinks') }}">Penyedia Air minum Galon dan Botol</a></h4>
+                            <h4><a href="{{ route('drinks') }}">Penyewaan Mesin Fotocopy </a></h4>
                             <p>
-                                Penyedia Air minum Galon dan Botol untuk
-                                kebutuhan PT. KBN (Persero) dan Anak Perusahaan
-                                PT. KBN (Persero).
+                                Koperasi menyediakan jasa sewa Mesin fotocopy untuk PT. Kawasan Berikat Nusantara, Anak Perusahaan dan Vendor di sekitar Kawasan Berikat Nusantara, 
+                                yang dilengkapi oleh operator yang menjalankan mesin tersebut. 
                             </p>
                             <ul class="list-unstyled advantages-list">
                             </ul><a class="btn btn--secondary" href="{{ route('drinks') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
@@ -497,6 +490,41 @@
                     </div>
                 </div>
                 @endif
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/1_simpan.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('simpan') }}">Simpan Pinjam</a></h4>
+                            <p>
+                                Sebagai lembaga keuangan dengan cita –cita luhur mensejahterakan anggota 
+                                dan dapat berguna bagi warga sekitarnya, kami menjadi solusi finansial 
+                                anggota koperasi, baik untuk kebutuhan konsumtif, kesehatan, pendidikan 
+                                dan lain-lain. 
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('simpan') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="service-panel services-panel-2">
+                        <div class="service-icon">
+                            <img class="custom_svg" src="assets/images/9_surat_kendaraan.svg" alt="" style="width: 26%; height: 26%;">
+                        </div>
+                        <div class="service-content">
+                            <h4><a href="{{ route('surat') }}">Pengurusan Jasa Surat Kendaraan</a></h4>
+                            <p>
+                                Koperasi Karyawan PT. KBN siap membantu anda mengurus surat-surat 
+                                kendaraan seperti STNK, KIER dan Sertifikat Uji Emisi ditambah dengan 
+                                sistem pembayaran yang fleksibel. 
+                            </p>
+                            <ul class="list-unstyled advantages-list">
+                            </ul><a class="btn btn--secondary" href="{{ route('surat') }}">Selengkapnya <i class="energia-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

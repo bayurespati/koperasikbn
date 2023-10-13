@@ -83,7 +83,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('minimart') }}"></a><img src="/assets/images/projects/modern/1.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('minimart') }}"></a><img src="/assets/images/toko.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -102,13 +102,14 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('minimart') }}">Pengelolaan Kantin dan Pedagang Asongan</a></h4>
+                                            <h4><a href="{{ route('minimart') }}">Minimarket</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Pengelolaan Kantin dan Pedagang Asongan dalam
-                                                Kawasan Berikat Nusantara baik dalam Kawasan
-                                                Cakung maupun dalam Kawasan Marunda.
+                                                Sebagai sokoguru ekonomi bangsa, Koperasi Karyawan PT. KBN menyediakan mini market 
+                                                untuk memenuhi kebutuhan sembako, pangan dan lain-lain untuk anggota koperasi maupun 
+                                                masyarakat umum dan harga yang bersaing dengan retail-retail serupa sehingga tepat 
+                                                menjadi solusi kebutuhan rumah tangga anda.
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('minimart') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
@@ -122,7 +123,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('cleaning-service') }}"></a><img src="/assets/images/cleaning-service.jpeg" alt="project image" style="height: 335px;"/></div>
+                                    <div class="project-img"><a class="link" href="{{ route('cleaning-service') }}"></a><img src="/assets/images/cleaning-service2.jpg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -142,14 +143,18 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('cleaning-service') }}">Pengelolaan Tenaga Kerja Kebersihan</a></h4>
+                                            <h4><a href="{{ route('cleaning-service') }}">Cleaning Service</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Pengelolaan Tenaga Kerja Kebersihan (Cleaning
-                                                Service, Office Boy, Penyapuan Jalan dan lain-lain)
-                                                yang terutama ditempatkan di lingkungan PT.
-                                                Kawasan Berikat Nusantara (Persero).
+                                                Cleaning service merupakan sebuah layanan kebersihan, 
+                                                kerapihan serta higienis pada sebuah gedung, perkantoran, rumah sakit, 
+                                                hotel, apartement atau bangunan yang lainnya baik untuk area indoor atau 
+                                                outdoor sehingga tercipta suasana bersih, nyaman, fresh guna menunjang 
+                                                aktifitas Anda. Selain itu, cleaning service juga berguna untuk menjaga 
+                                                semua barang-barang didalamnya sehingga barang-barang tersebut jadi bersih 
+                                                dan terawat. Koperasi telah lebih dari 25 tahun menjadi partner PT. Kawasan 
+                                                Berikat Nusantara dan Anak Perusahaan PT. KBN.
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('cleaning-service') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
@@ -163,7 +168,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('driver') }}"></a><img src="/assets/images/sewa-kendaraan.jpeg" alt="project image" style="height: 335px;"/></div>
+                                    <div class="project-img"><a class="link" href="{{ route('driver') }}"></a><img src="/assets/images/driver.jpeg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -183,14 +188,19 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('driver') }}">Penyewaan Kendaraan Dinas</a></h4>
+                                            <h4><a href="{{ route('driver') }}">Driver </a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Penyewaan Kendaraan Dinas untuk kebutuhan PT.
-                                                Kawasan Berikat Nusantara (Persero) dan untuk
-                                                kebutuhan Pegawai di Lingkungan PT. Kawasan
-                                                Berikat Nusantara (Persero).
+                                                Kami menyediakan pengemudi profesional baik untuk  pribadi 
+                                                atau untuk dinas perusahaan sesuai dengan kebutuhan anda.
+                                            </p>
+                                            <p>
+                                                Kami sebagai perusahaan yang bergerak pada outsourching 
+                                                menyediakan tenaga Sopir yang telah kami seleksi, didik dan 
+                                                siap ditempatkan di perusahaan/instansi dengan berbagai 
+                                                latar belakang bisinis.
+
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('driver') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
@@ -204,7 +214,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('administration-staff') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('administration-staff') }}"></a><img src="/assets/images/staf-administrasi.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -223,13 +233,15 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('administration-staff') }}">Ticketing dan Reservasi Hotel</a></h4>
+                                            <h4><a href="{{ route('administration-staff') }}">Staf Administrasi</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Ticketing dan Reservasi Hotel untuk membantu
-                                                perjalanan dinas terutama bagi Pegawai PT.
-                                                Kawasan Berikat Nusantara (Persero).
+                                                Staf Aministrasi terlatih dan berpengalaman baik lulusan SLTA, 
+                                                D-3 dan S-1 kami siapkan untuk membantu perusahaan anda agar dapat 
+                                                bekerja lebih efektif dalam kinerjanya, dengan seleksi dan 
+                                                pendidikan yang tepat agar menjadi pioneer di latar belakang 
+                                                perusahaan anda.
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('administration-staff') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
@@ -243,7 +255,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('stationary') }}"></a><img src="/assets/images/alat-tulis-kantor.jpeg" alt="project image" style="height: 335px;"/></div>
+                                    <div class="project-img"><a class="link" href="{{ route('stationary') }}"></a><img src="/assets/images/atk.jpg" alt="project image" style="height: 335px;"/></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -263,14 +275,19 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('stationary') }}">Supply Kebutuhan Alat Tulis Kantor</a></h4>
+                                            <h4><a href="{{ route('stationary') }}">ATK (Alat Tulis Kantor)</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Supply Kebutuhan Alat Tulis Kantor dan Cetakan
-                                                untuk PT. KBN (Persero) dan Anak Perusahaan PT.
-                                                KBN (Persero) serta investor-investor yang ada dalam
-                                                lingkungan PT. Kawasan Berikat Nusantara (Persero).
+                                                Supply dan penyediaan kebutuhan alat tulis kantor di PT. Kawasan 
+                                                Berikat Nusantara, Anak Perusahaan dan vendor-vendor lainnya di 
+                                                sekitar Kawasan Berikat Nusantara baik di Kawasan Cakung maupun di 
+                                                Kawasan Marunda.
+                                            </p>
+                                            <p>    
+                                                Dengan keunggulan pembayaran sistem tempo dimana petugas kami 
+                                                mengirimkan dulu kebutuhan ATK Perusahaan anda dan ditagihkan 
+                                                pada bulan berikutnya atau sesuai kesepakatan dengan PIC Koperasi.
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('stationary') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
@@ -284,7 +301,7 @@
                         <div>
                             <div class="project-panel" data-hover="">
                                 <div class="project-panel-holder">
-                                    <div class="project-img"><a class="link" href="{{ route('drinks') }}"></a><img src="/assets/images/projects/modern/4.jpg" alt="project image" /></div>
+                                    <div class="project-img"><a class="link" href="{{ route('drinks') }}"></a><img src="/assets/images/mesin-fotokopi.jpg" alt="project image" /></div>
                                     <!-- End .project-img-->
                                     @if(Cookie::get('current_lang') == 'eng')
                                     <div class="project-content">
@@ -303,16 +320,104 @@
                                     @else
                                     <div class="project-content">
                                         <div class="project-title">
-                                            <h4><a href="{{ route('drinks') }}">Penyedia Air minum Galon dan Botol</a></h4>
+                                            <h4><a href="{{ route('drinks') }}">Penyewaan Mesin Fotocopy</a></h4>
                                         </div>
                                         <div class="project-desc">
                                             <p>
-                                                Penyedia Air minum Galon dan Botol untuk
-                                                kebutuhan PT. KBN (Persero) dan Anak Perusahaan
-                                                PT. KBN (Persero).
+                                                Memaksimalkan pelayanan Koperasi kepada PT. Kawasan Berikat 
+                                                Nusantara, Anak Perusahaan dan Vendor di sekitar Kawasan 
+                                                Berikat Nusantara, kami menyediakan mesin fotocopy yang dapat 
+                                                disewa dan dilengkapi oleh operator yang menjalankan mesin 
+                                                tersebut sehingga mempermudah Karyawan Perusahaan anda dalam 
+                                                memperbanyak dokumen perusahaan dan menyimpan arsip dari 
+                                                surat-surat perusahaan anda.
                                             </p>
                                         </div>
                                         <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('drinks') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                    </div>
+                                    @endif
+                                    <!-- End .project-content -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="project-panel" data-hover="">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><a class="link" href="{{ route('drinks') }}"></a><img src="/assets/images/jasa-surat-kendaraan.jpg" alt="project image" /></div>
+                                    <!-- End .project-img-->
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <div class="project-content">
+                                        <div class="project-title">
+                                            <h4><a href="{{ route('drinks') }}">Gallon and Bottle Drinking Water Provider</a></h4>
+                                        </div>
+                                        <div class="project-desc">
+                                            <p>
+                                                Provider of Gallon and Bottle drinking water for
+                                                the needs of PT. KBN (Persero) and Subsidiaries
+                                                PT. KBN (Persero).
+                                            </p>
+                                        </div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('drinks') }}">more <i class="energia-arrow- right"></i></a></div>
+                                    </div>
+                                    @else
+                                    <div class="project-content">
+                                        <div class="project-title">
+                                            <h4><a href="{{ route('drinks') }}">Pengurusan Jasa Surat Kendaraan</a></h4>
+                                        </div>
+                                        <div class="project-desc">
+                                            <p>
+                                                Terbatasnya waktu anda dalam mengurus surat-surat kendaraan baik untuk 
+                                                pribadi maupun untuk perusahaan anda sudah tidak menajdi masalah. 
+                                                Cukup menghubungi Koperasi Karyawan PT. KBN, kami siap membantu anda 
+                                                mengurus surat-surat kendaraan seperti STNK, KIER dan Sertifikat Uji 
+                                                Emisi ditambah dengan sistem pembayaran yang fleksibel di Koperasi 
+                                                Karyawan PT. KBN.
+                                            </p>
+                                        </div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('drinks') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
+                                    </div>
+                                    @endif
+                                    <!-- End .project-content -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="project-panel" data-hover="">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><a class="link" href="{{ route('simpan') }}"></a><img src="/assets/images/Simpanpinjam.jpg" alt="project image" /></div>
+                                    <!-- End .project-img-->
+                                    @if(Cookie::get('current_lang') == 'eng')
+                                    <div class="project-content">
+                                        <div class="project-title">
+                                            <h4><a href="{{ route('simpan') }}">Gallon and Bottle Drinking Water Provider</a></h4>
+                                        </div>
+                                        <div class="project-desc">
+                                            <p>
+                                                Provider of Gallon and Bottle drinking water for
+                                                the needs of PT. KBN (Persero) and Subsidiaries
+                                                PT. KBN (Persero).
+                                            </p>
+                                        </div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('simpan') }}">more <i class="energia-arrow- right"></i></a></div>
+                                    </div>
+                                    @else
+                                    <div class="project-content">
+                                        <div class="project-title">
+                                            <h4><a href="{{ route('simpan') }}">Simpan Pinjam</a></h4>
+                                        </div>
+                                        <div class="project-desc">
+                                            <p>
+                                                Sebagai lembaga keuangan dengan cita–cita luhur mensejahterakan anggota 
+                                                dan dapat berguna bagi warga sekitarnya, kami menjadi solusi finansial 
+                                                anggota koperasi, baik untuk kebutuhan konsumtif, kesehatan, pendidikan 
+                                                dan lain-lain. Jangka waktu yang disusun secara fleksibel dengan jenis 
+                                                pinjaman serta margin yang terjangkau dan sasaran yang tepat sehingga 
+                                                dapat membantu anggota koperasi untuk memenuhi kebutuhannya
+                                            </p>
+                                        </div>
+                                        <div class="project-more"> <a class="btn btn--bordered btn--white" href="{{ route('simpan') }}">selengkapnya <i class="energia-arrow-right"></i></a></div>
                                     </div>
                                     @endif
                                     <!-- End .project-content -->

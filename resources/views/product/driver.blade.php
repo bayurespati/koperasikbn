@@ -61,16 +61,18 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Penyewaan Kendaraan Dinas</h1>
+                            <h1 class="title-heading">DRIVER</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Penyewaan Kendaraan Dinas untuk kebutuhan PT.
-                                Kawasan Berikat Nusantara (Persero) dan untuk
-                                kebutuhan Pegawai di Lingkungan PT. Kawasan
-                                Berikat Nusantara (Persero).
+                                Kami menyediakan pengemudi profesional baik untuk  pribadi atau untuk 
+                                dinas perusahaan sesuai dengan kebutuhan anda.
+                                kami sebagai perusahaan yang bergerak pada outsourching menyediakan 
+                                tenaga Sopir yang telah kami seleksi, didik dan siap ditempatkan di 
+                                perusahaan/instansi dengan berbagai latar belakang bisinis
+
                             </p>
                         </div>
                     </div>
@@ -89,7 +91,7 @@
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Penyewaan Kendaraan Dinas</li>
+                    <li class="breadcrumb-item active" aria-current="page">Driver</li>
                     @endif
                 </ol>
             </div>
@@ -136,12 +138,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -237,32 +241,26 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">gambaran</h5>
                                 <p class="entry-desc">
-                                    Layanan Sewa Kendaraan untuk Korporasi maupun Personal yang mengutamakan kenyamanan sehingga memperlancar mobilitas pekerjaan perusahaan anda. Menyediakan kendaraan dari beberapa merk dan pabrikan terkenal sehingga menjadi solusi yang tepat ketika perusahaan anda yang seringkali berganti jenis kendaraan serta ditunjang dengan penanganan service yang tepat sesuai standar pabrikan dalam setiap prosedur perawatan kendaraan.
+                                    Kami menyediakan layanan orang yang terlatih dan terampil untuk mengemudikan kendaraan Anda. Jasa semacam ini dapat bermanfaat dalam berbagai situasi dan berbagai jenis kendaraan untuk mendukung kelancaran bisnis dan kegiatan baik atas nama perusahaan maupun pribadi.
                                 </p>
                                 <p class="entry-desc">
-                                    Perusahaan anda tidak perlu repot lagi melakukan pembelian kendaraan yang menyita waktu tenaga kerja anda, dan dengan biaya yang murah kami siap melayani perusahaan anda.
+                                Kami sangat menyadari pentingnya untuk memilih penyedia jasa sopir yang terpercaya dan memiliki sopir-sopir yang terlatih, berpengalaman, dan memiliki lisensi yang sah.
                                 </p>
                                 <p class="entry-desc" style="margin-bottom: 0;">
-                                    Kendaraan yang tersedia saat ini:
+                                    Lisensi Sopir Kendaraan yang tersedia saat ini:
                                 </p>
                                 <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
                                     <li>
-                                        Hyundai Palisade
+                                        Sim A
                                     </li>
                                     <li>
-                                        Toyota Innova
+                                        B1
                                     </li>
                                     <li>
-                                        Mitsubishi Xpander
+                                        B2
                                     </li>
                                     <li>
-                                        Toyota Avanza
-                                    </li>
-                                    <li>
-                                        Toyota Hilux
-                                    </li>
-                                    <li>
-                                        Bus Medium, dan lain-lain
+                                        B
                                     </li>
                                 </ul>
                             </div>

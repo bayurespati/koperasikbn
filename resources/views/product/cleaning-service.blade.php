@@ -61,16 +61,20 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Pengelolaan Tenaga Kerja Kebersihan</h1>
+                            <h1 class="title-heading">CLEANING SERVICE</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Pengelolaan Tenaga Kerja Kebersihan (Cleaning
-                                Service, Office Boy, Penyapuan Jalan dan lain-lain)
-                                yang terutama ditempatkan di lingkungan PT.
-                                Kawasan Berikat Nusantara (Persero).
+                                Cleaning service merupakan sebuah layanan kebersihan, kerapihan serta 
+                                higienis pada sebuah gedung, perkantoran, rumah sakit, hotel, apartement 
+                                atau bangunan yang lainnya baik untuk area indoor atau outdoor sehingga 
+                                tercipta suasana bersih, nyaman, fresh guna menunjang aktifitas Anda. 
+                                Selain itu, cleaning service juga berguna untuk menjaga semua barang-
+                                barang didalamnya sehingga barang-barang tersebut jadi bersih dan terawat. 
+                                Koperasi telah lebih dari 25 tahun menjadi partner PT. Kawasan Berikat 
+                                Nusantara dan Anak Perusahaan PT. KBN.
                             </p>
                         </div>
                     </div>
@@ -89,7 +93,7 @@
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pengelolaan Tenaga Kerja Kebersihan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Cleaning Service</li>
                     @endif
                 </ol>
             </div>
@@ -136,12 +140,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Cleaning Service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
                                 </ul>
                             </div>
                         </div>

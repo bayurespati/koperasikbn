@@ -240,6 +240,14 @@ class ApplicationController extends Controller
         return view('product.administration-staff');
     }
 
+    public function simpanPage()
+    {
+        return view('product.simpan');
+    }    
+    public function suratPage()
+    {
+        return view('product.surat');
+    }  
     // public function othersPage()
     // {
     //     return view('product.others');

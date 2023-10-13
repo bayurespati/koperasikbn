@@ -1,7 +1,7 @@
 @extends('layouts.master_fe')
 
 @push('title')
-<title>Koperasi KBN - Produk Kami - Minimarket</title>
+<title>Koperasi KBN - Produk Kami -  Simpan Pinjam</title>
 @endpush
 
 @push('additional_css')
@@ -43,15 +43,16 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Canteen and Hawker Management</h1>
+                            <h1 class="title-heading">Supply Office Supplies</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Management of canteens and hawkers in
-                                Archipelagic Bonded Zone both within the Zone
-                                Cakung and in the Marunda Area.
+                                Supply of Office Stationery and Prints
+                                for PT. KBN (Persero) and Subsidiary PT.
+                                KBN (Persero) and investors who are in
+                                PT. Nusantara Bonded Zone (Persero).
                             </p>
                         </div>
                     </div>
@@ -60,23 +61,26 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">MINIMARKET</h1>
+                            <h1 class="title-heading">SIMPAN PINJAM</h1>                           
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Sebagai sokoguru ekonomi bangsa, Koperasi Karyawan PT. KBN 
-                                menyediakan mini market untuk memenuhi kebutuhan sembako, 
-                                pangan dan lain-lain untuk anggota koperasi maupun masyarakat umum 
-                                dan harga yang bersaing dengan retail-retail serupa sehingga tepat 
-                                menjadi solusi kebutuhan rumah tangga anda.
+                                Sebagai lembaga keuangan dengan cita–cita luhur 
+                                mensejahterakan anggota dan dapat berguna bagi warga 
+                                sekitarnya, kami menjadi solusi finansial anggota 
+                                koperasi, baik untuk kebutuhan konsumtif, kesehatan, 
+                                pendidikan dan lain-lain. Jangka waktu yang disusun 
+                                secara fleksibel dengan jenis pinjaman serta margin yang 
+                                terjangkau dan sasaran yang tepat sehingga dapat membantu
+                                anggota koperasi untuk memenuhi kebutuhannya
                             </p>
                         </div>
                     </div>
                 </div>
                 @endif
-
                 <!-- End .row-->
             </div>
         </div>
@@ -86,11 +90,11 @@
                     @if(Cookie::get('current_lang') == 'eng')
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Our Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Canteen and Hawker Management</li>
+                    <li class="breadcrumb-item active" aria-current="page">Supply for office supplies</li>
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Minimarket</li>
+                    <li class="breadcrumb-item active" aria-current="page">Simpan Pinjam</li>
                     @endif
                 </ol>
             </div>
@@ -108,10 +112,10 @@
             <div class="row">
                 <div class="col-12 col-lg-4 order-1">
                     <!--
-                    ============================
-                    Services Sidebar
-                    ============================
-                    -->
+              ============================
+              Services Sidebar
+              ============================
+              -->
                     <div class="sidebar sidebar-service">
                         <!-- Services-->
                         @if(Cookie::get('current_lang') == 'eng')
@@ -121,12 +125,15 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li class="custom-active-widget"><a href="#"> <span>Canteen and Hawker Management</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Workforce Management</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Service Vehicle Rentals</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Office Supplies</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Simpan Pinjam</span></a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -137,15 +144,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li class="custom-active-widget"><a href="#"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
                                     <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
                                     <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
                                     <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kantor)</span></a></li>
                                     <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
                                     <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
-                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
-                                </ul>
+                                    <li class="custom-active-widget"><a href="#"> <span>Simpan Pinjam</span></a></li>                              </ul>
                             </div>
                         </div>
                         @endif
@@ -203,22 +209,22 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">overview</h5>
                                 <p class="entry-desc">
-                                    As a supporting facility in the area to be able to help provide the food and drink needs of tenants, the majority of which are labor-intensive companies, both in the Marunda area and in the Cakung area.
-                                </p>
-                                <p class="entry-desc">
-                                    A well-managed canteen will provide healthy, nutritious food, paying attention to hygiene and sanitation aspects for health, because many workers spend part of their time in the area so the availability of food that is healthy and safe for consumption is very important.
+                                    Started as a Supporting Business providing Office Stationery for PT. Kawasan Berikat Nusantara (Persero), until now Kopkar KBN is able to provide ATK needs for Tenants in the Area and outside the Area by synchronizing the PADI Platform which is the Government's Online Shop as a sales base for ATK Kopkar KBN products.
                                 </p>
                                 <p class="entry-desc" style="margin-bottom: 0;">
-                                    Types of Canteens & Peddlers managed:
+                                    How to Purchase:
                                 </p>
                                 <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
                                     <li>
-                                        Food Court
+                                        Offline: Come directly to the KBN Kopkar Office
                                     </li>
                                     <li>
-                                        Los/Lapak Traders
+                                        Online : Through the Government-Owned Online Shop Platform, namely&nbsp;<span><a href="https://padiumkm.id/store/631a5db28755a8a98960aa89" target="_blank">PADI UMKM</a></span>
                                     </li>
                                 </ul>
+                                <p class="entry-desc">
+                                    We also serve companies that are interested in collaborating with Drop Point with a monthly billing system.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -228,22 +234,34 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">gambaran</h5>
                                 <p class="entry-desc">
-                                    Sebagai Fasilitas penunjang didalam Kawasan untuk dapat membantu menyediakan kebutuhan Makan dan Minum dari Tenan-Tenan yang mayoritas perusahaan padat karya baik di Kawasan Marunda maupun di Kawasan Cakung.
-                                </p>
-                                <p class="entry-desc">
-                                    Kantin yang dikelola baik akan menyediakan makanan yang sehat bergizi, memperhatikan aspek higienitas serta sanitasinya untuk kesehatan, karena banyak tenaga kerja menghabiskan sebagian waktu didalam Kawasan sehingga tersedianya pangan yang sehat dan aman untuk dikonsumsi menjadi sangat penting.
+                                    Jasa simpan pinjam koperasi adalah layanan keuangan yang disediakan 
+                                    oleh koperasi untuk anggotanya. Koperasi Karyawan KBN adalah suatu bentuk 
+                                    organisasi yang dimiliki dan dioperasikan oleh para anggotanya untuk memenuhi 
+                                    kebutuhan ekonomi bersama
                                 </p>
                                 <p class="entry-desc" style="margin-bottom: 0;">
-                                    Jenis Kantin & Pedagang Asongan yang dikelola:
+                                    Cara Pembelian:
                                 </p>
                                 <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
                                     <li>
-                                        Food Court
+                                        Simpanan: Anggota koperasi dapat menyimpan uang mereka dalam bentuk simpanan. Simpanan ini akan diakumulasikan dan dapat diambil kembali sesuai dengan kebutuhan anggota.
                                     </li>
                                     <li>
-                                        Pedagang Los/Lapak
+                                        Pinjaman: Koperasi menyediakan pinjaman kepada anggotanya. Pinjaman ini dapat digunakan untuk berbagai keperluan, seperti pendidikan, perumahan, usaha kecil, atau kebutuhan mendesak lainnya.
+                                    </li>
+                                    <li>
+                                        Suku Bunga: Koperasi biasanya menawarkan suku bunga yang lebih kompetitif daripada lembaga keuangan tradisional. Hal ini karena tujuan koperasi adalah untuk memberikan manfaat ekonomi kepada anggotanya, bukan untuk mencari keuntungan maksimal.
+                                    </li>
+                                    <li>
+                                        Jaminan: Pinjaman dari koperasi sering kali didasarkan pada prinsip kepercayaan antaranggota. Oleh karena itu, seringkali tidak memerlukan jaminan fisik seperti yang biasanya diminta oleh lembaga keuangan konvensional.
+                                    </li>
+                                    <li>
+                                        Dividen atau Keuntungan Bersama: Sebagian dari keuntungan koperasi dapat dibagikan kembali kepada anggotanya dalam bentuk dividen atau bonus lainnya.
                                     </li>
                                 </ul>
+                                <p class="entry-desc">
+                                    Koperasi Karyawan KBN tumbuh bersama untuk mensejahterakan anggota.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -273,6 +291,7 @@
                 </div>
                 <!-- End .col-lg-8-->
             </div>
+            <!-- End .row-->
         </div>
         <!-- End .container-->
     </section>

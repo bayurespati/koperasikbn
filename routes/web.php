@@ -40,6 +40,8 @@ Route::get('product/administration-staff', 'ApplicationController@administration
 // Route::get('product/others', 'ApplicationController@othersPage')->name('others');
 // Route::get('product/vehicle-registration-service', 'ApplicationController@vehicleRegistrationServicePage')->name('vehicle-registration-service');
 Route::get('product/photocopy-machine-rental', 'ApplicationController@photocopyMachineRentalPage')->name('photocopy-machine-rental');
+Route::get('product/simpan', 'ApplicationController@simpanPage')->name('simpan');
+Route::get('product/surat', 'ApplicationController@suratPage')->name('surat');
 
 // Route::get('member-forum/whistleblower', 'ApplicationController@whistleblowerPage')->name('whistleblower');
 // Route::get('member-forum/complaint', 'ApplicationController@complaintPage')->name('complaint');

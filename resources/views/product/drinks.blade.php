@@ -1,7 +1,7 @@
 @extends('layouts.master_fe')
 
 @push('title')
-<title>Koperasi KBN - Produk Kami - Perawatan Taman</title>
+<title>Koperasi KBN - Produk Kami - Penyewaan Mesin Fotocopy</title>
 @endpush
 
 @push('additional_css')
@@ -60,15 +60,17 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Penyedia Air Minum dan Galon dan Botol</h1>
+                            <h1 class="title-heading">PENYEWAAN MESIN FOTOCOPY</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Penyedia Air minum Galon dan Botol untuk
-                                kebutuhan PT. KBN (Persero) dan Anak Perusahaan
-                                PT. KBN (Persero).
+                                Memaksimalkan pelayanan Koperasi kepada PT. Kawasan Berikat Nusantara, 
+                                Anak Perusahaan dan Vendor di sekitar Kawasan Berikat Nusantara, kami menyediakan 
+                                mesin fotocopy yang dapat disewa dan dilengkapi oleh operator yang menjalankan
+                                mesin tersebut sehingga mempermudah Karyawan Perusahaan anda dalam memperbanyak 
+                                dokumen perusahaan dan menyimpan arsip dari surat-surat perusahaan anda.
                             </p>
                         </div>
                     </div>
@@ -87,7 +89,7 @@
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Penyedia Air Minum dan Galon dan Botol</li>
+                    <li class="breadcrumb-item active" aria-current="page">Penyewaan Mesin Fotocopy</li>
                     @endif
                 </ol>
             </div>
@@ -134,12 +136,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Tulis Kerja)</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -223,22 +227,16 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">gambaran</h5>
                                 <p class="entry-desc">
-                                    Mensiasati kebutuhan Pegawai Kantor yang beraktivitas di Kawasan Cakung dan Kawasan Marunda, kami memberikan solusi yang inovatif dengan menyediakan kebutuhan Air Minum berbentuk Galon atau Kemasan.
+                                    Jasa sewa mesin fotocopy adalah layanan yang menyediakan mesin fotokopi 
+                                    untuk digunakan dalam jangka waktu tertentu. Kami menyediakan mesin 
+                                    fotokopi beserta perawatan dan perangkat pendukung lainnya seperti tinta atau toner.
                                 </p>
-                                <p class="entry-desc">Bekerjasama dengan pabrikan Air Minum yang sudah terkenal di Indonesia, Kopkar KBN mensupply kebutuhan Air Minum sehingga tidak mengganggu pekerjaan lainnya di perusahaan anda.
-                                    Dengan harga yang sangat menarik kami adalah solusi anda dalam menyediakan kebutuhan Air Minum.
+                                <p class="entry-desc">Untuk Perusahaan yang penggunaan pencetakan tidak terlalu banyak
+                                    lebih cocok menggunakan program rental. Pada program ini pelanggan mendapatkan pelayanan 
+                                    Service setiap ada kendala kerusakan unit mesin. Ketika ada penggantian Toner, Spare part &
+                                    Consumable pelanggan harus membeli dari Koperasi Karyawan  
+                                    dengan biaya yang dikenakan kepada pelanggan berupa pembayaran kontrak pertahun
                                 </p>
-                                <p class="entry-desc" style="margin-bottom: 0;">
-                                    Produk yang kami tawarkan :
-                                </p>
-                                <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
-                                    <li>
-                                        Air Minum Galon ( Merk Sesuai Request Anda)
-                                    </li>
-                                    <li>
-                                        Air Minum Kemasan (Ukuran dan Merk sesuai Request anda)
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

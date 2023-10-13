@@ -1,7 +1,7 @@
 @extends('layouts.master_fe')
 
 @push('title')
-<title>Koperasi KBN - Produk Kami - Alat Tulis Kantor (ATK)</title>
+<title>Koperasi KBN - Produk Kami -  (ATK) Alat Tulis Kantor</title>
 @endpush
 
 @push('additional_css')
@@ -61,16 +61,23 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Supply Kebutuhan Alat Kantor</h1>
+                            <h1 class="title-heading">
+                                ATK                                
+                            </h1>                           
+                            <h1 class="title-heading">
+                                (ALAT TULIS KANTOR)                               
+                            </h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Supply Kebutuhan Alat Tulis Kantor dan Cetakan
-                                untuk PT. KBN (Persero) dan Anak Perusahaan PT.
-                                KBN (Persero) serta investor-investor yang ada dalam
-                                lingkungan PT. Kawasan Berikat Nusantara (Persero).
+                                Supply dan penyediaan kebutuhan alat tulis kantor di PT. Kawasan Berikat Nusantara, 
+                                Anak Perusahaan dan vendor-vendor lainnya di sekitar Kawasan Berikat Nusantara baik 
+                                di Kawasan Cakung maupun di Kawasan Marunda.
+                                Dengan keunggulan pembayaran sistem tempo dimana petugas kami mengirimkan dulu 
+                                kebutuhan ATK Perusahaan anda dan ditagihkan pada bulan berikutnya atau sesuai 
+                                kesepakatan dengan PIC Koperasi
                             </p>
                         </div>
                     </div>
@@ -89,7 +96,7 @@
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Supply Kebutuhan Alat Kantor</li>
+                    <li class="breadcrumb-item active" aria-current="page">ATK (ALAT Tulis Kantor)</li>
                     @endif
                 </ol>
             </div>
@@ -120,12 +127,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Canteen and Hawker Management</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Workforce Management</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Service Vehicle Rentals</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing and Hotel Reservations</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Supply Office Supplies</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Drinking Water and Gallons and Bottles Providers</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>ATK (Alat Tulis Kerja)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -136,13 +145,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li><a href="{{ route('administration-staff') }}"> <span>Ticketing dan Reservasi Hotel</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
-                                </ul>
+                                <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning Service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li><a href="{{ route('administration-staff') }}"> <span>Staf Admnistrasi</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>ATK (Alat Tulis Kerja)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>                                </ul>
                             </div>
                         </div>
                         @endif

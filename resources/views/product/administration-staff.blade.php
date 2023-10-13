@@ -60,15 +60,16 @@
                 <div class="title">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <h1 class="title-heading">Ticketing dan Reservasi Hotel</h1>
+                            <h1 class="title-heading">STAF ADMINISTRASI</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-5">
                             <p class="title-desc">
-                                Ticketing dan Reservasi Hotel untuk membantu
-                                perjalanan dinas terutama bagi Pegawai PT.
-                                Kawasan Berikat Nusantara (Persero).
+                                Staf Aministrasi terlatih dan berpengalaman baik lulusan SLTA, D-3 dan S-1 
+                                kami siapkan untuk membantu perusahaan anda agar dapat bekerja lebih efektif 
+                                dalam kinerjanya, dengan seleksi dan pendidikan yang tepat agar menjadi pioneer 
+                                di latar belakang perusahaan anda
                             </p>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                     @else
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ticketing dan Reservasi Hotel</li>
+                    <li class="breadcrumb-item active" aria-current="page">Staf Administrasi</li>
                     @endif
                 </ol>
             </div>
@@ -134,12 +135,14 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="list-unstyled">
-                                    <li><a href="{{ route('minimart') }}"> <span>Pengelolaan Kantin dan Pedagang Asongan</span></a></li>
-                                    <li><a href="{{ route('cleaning-service') }}"> <span>Pengelolaan Tenaga Kerja Kebersihan</span></a></li>
-                                    <li><a href="{{ route('driver') }}"> <span>Penyewaan Kendaraan Dinas</span></a></li>
-                                    <li class="custom-active-widget"><a href="#"> <span>Ticketing dan Reservasi Hotel</span></a></li>
-                                    <li><a href="{{ route('stationary') }}"> <span>Supply Kebutuhan Alat Kantor</span></a></li>
-                                    <li><a href="{{ route('drinks') }}"> <span>Penyedia Air Minum dan Galon dan Botol</span></a></li>
+                                    <li><a href="{{ route('minimart') }}"> <span>Minimarket</span></a></li>
+                                    <li><a href="{{ route('cleaning-service') }}"> <span>Cleaning service</span></a></li>
+                                    <li><a href="{{ route('driver') }}"> <span>Driver</span></a></li>
+                                    <li class="custom-active-widget"><a href="#"> <span>Staf Administrasi</span></a></li>
+                                    <li><a href="{{ route('stationary') }}"> <span>ATK (Alat Kerja Kantor)</span></a></li>
+                                    <li><a href="{{ route('drinks') }}"> <span>Penyewaan Mesin Fotocopy</span></a></li>
+                                    <li><a href="{{ route('surat') }}"> <span>Pengurusan Jasa Surat Kendaraan</span></a></li>
+                                    <li><a href="{{ route('simpan') }}"> <span>Simpan Pinjam</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -223,22 +226,17 @@
                             <div class="entry-introduction entry-infos">
                                 <h5 class="entry-heading">gambaran</h5>
                                 <p class="entry-desc">
-                                    Memberikan solusi yang cepat atas kebutuhan tiket dan reservasi atas perjalanan dinas di perusahaan anda. Saat ini PT. Kawasan berikat Nusantara (Persero) adalah pengguna utama dari layanan kami dan tidak terbatas pada perjalanan dinas tetapi juga untuk perjalan pribadi seperti liburan dan lain-lain.
+                                    Administrasi yang baik merupakan dasar dari sebuah organisasi yang berjalan mulus. 
+                                    Tanpa itu, organisasi tidak akan bisa berjalan dengan baik. Dengan demikian, staf administrasi 
+                                    dapat dibilang memegang peranan penting dalam sebuah organisasi
                                 </p>
                                 <p class="entry-desc">
-                                    Keuntungan utama adalah sistem potongan bagi Anggota Koperasi yang membutuhkan tiket dalam waktu cepat tanpa harus mengeluarkan dana terlebih dahulu. Cukup menghubungi petugas kami melalui Telepon atau Whatsapp dan melampirkan fotocopy KTP, maka tiket dan booking penginapan sudah berada di genggaman anda.
+                                    Untuk membantu perusahaan agar dapat dengan cepat memperoleh tenaga kerja 
+                                    administrasi berkualitas dan memiliki skill yang mumpuni.
                                 </p>
-                                <p class="entry-desc" style="margin-bottom: 0;">
-                                    Tiket yang disediakan:
-                                </p>
-                                <ul class="list-unstyled advantages-list" style="margin-bottom: 30px;">
-                                    <li>
-                                        Tiket Pesawat Dalam & Luar Negeri
-                                    </li>
-                                    <li>
-                                        Tiket Kereta Api
-                                    </li>
-                                </ul>
+                                <p>
+                                    Kami Koperasi Karyawan KBN menyedikan SDM yang berkualitas siap untuk mengeksekusi tugas dalam 24 jam* sesuai kebutuhan perusahaan anda.
+                                </p>                                
                             </div>
                         </div>
                     </div>
